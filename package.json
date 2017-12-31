@@ -1,0 +1,20 @@
+{
+  "name": "greeter-bot",
+  "version": "1.0.0",
+  "description": "Greeter+Entertainment for the Robot Pizza Party",
+  "main": "bot.js",
+  "author": "Karma Chameleon",
+  "engines": {
+    "node": "8.9.3",
+    "npm": "5.5.1"
+  },
+  "dependencies": {
+    "discord.io": "github:woor/discord.io#gateway_v6",
+    "ejs": "^2.5.7",
+    "express": "^4.16.2",
+    "winston": "^2.4.0"
+  },
+  "scripts": {
+    "start": "node bot.js"
+  }
+}
