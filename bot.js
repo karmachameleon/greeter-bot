@@ -73,14 +73,13 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                 bot.sendMessage({
                     to: channelID,
                     message: 'PLEASE RESPECT THE CANON USE OF THEY/THEM PRONOUNS FOR MX. WX-78! THANK YOU'
+                });
             break;
 
             case 'complimentme':
                 bot.sendMessage({
                     to: channelID,
                     message: 'YOU PERFORM YOUR FUNCTIONS ADEQUATELY'
-                });
-            break;
                 });
             break;
             // Just add any case commands if you want to..
