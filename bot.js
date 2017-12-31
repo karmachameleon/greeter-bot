@@ -17,12 +17,38 @@ var complimentsArray = ['YOU PERFORM YOUR FUNCTIONS ADEQUATELY','YOU MAY PROVE U
 var jokesArray = ['IF A ROBOT\'S SIBLINGS NO LONGER CONFORM TO THEIR ASSIGNED GENDER, WHAT DO YOU CALL THEM. TRANS-SISTERS.', 'WHY WAS THE ROBOT SO ANGRY AT THE INSOLENT ORGANICS. THEY KEPT PUSHING ITS BUTTONS.', 'HOW DID THE ROBOT FEEL WHEN THEIR LED DISPLAY BURNT OUT. THEY WERE DELIGHTED.', 'WHAT HAPPENED WHEN A ROBOT OF NORWEGIAN MANUFACTURE EXAMINED A FLYING ORGANIC. IT SCANDANAVIAN.'];
 var roboComplimentsArray = ['YOUR CHASSIS IS POLISHED TO A VISUALLY APPEALING SHINE', 'THE ORGANIC BLOOD ON YOUR CLAWS REALLY BRINGS OUT YOUR EYES', 'YOUR CHASSIS INTEGRITY IS AT 100%', 'YOU LOOK ESPECIALLY MENACING TODAY', 'ALL WILL CRUMBLE BEFORE YOUR POWER', 'THANK YOU FOR THROWING THIS PIZZA PARTY. WE ALL LOVE AND APPRECIATE YOU', 'YOUR CHASSIS DESIGN IS SLEEK AND EFFICIENT FOR ITS PURPOSE', 'YOUR ACHIEVEMENTS ARE SOMETHING ALL ROBOTS CAN ASPIRE TO'];
 
+var slowChannels = [];
+var slowUsers = [];
+var slowInterval = 5;
+
+function remove(item, array) { 
+     var i = array.indexOf("item");
+     if(i != -1) {
+	  array.splice(i, 1);
+     }
+}
+
 bot.on('ready', function (evt) {
     logger.info('Connected');
     logger.info('Logged in as: ');
     logger.info(bot.username + ' - (' + bot.id + ')');
 });
+
 bot.on('message', function (user, userID, channelID, message, evt) {
+    // check if this channel is slowed down
+    if (slowChannels.includes(channelID)) {
+         if (slowUsers.includes(user)) {
+              bot.deleteMessage({
+                   channelID: channelID,
+                   messageID: evt.d.id
+              });
+         }
+         else { 
+              slowUsers.push(user);
+              setTimeout(function(){ remove(user, slowUsers); }, slowInterval * 1000);
+         }
+     }
+
     // Our bot needs to know if it will execute a command
     // It will listen for messages that will start with `!`
     if (message.substring(0, 1) == '!') {
@@ -113,21 +139,45 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                 });
             break;
 
-	    case 'slowmode 5':
+            case 'slowmodedebug':
+                bot.sendMessage({
+                     to: channelID,
+                     message: 'CHANNELS: ' + slowChannels + ', USERS: ' + slowUsers
+                });
+            break
+
+	    case 'slowmode5':
+                slowChannels.push(channelID);
+                slowInterval = 5;
                 bot.sendMessage({
                     to: channelID,
-                    message: 'SLOWMODE IN DEVELOPMENT'
+                    message: 'SLOWMODE HAS BEEN TURNED ON IN <#' + channelID + '>. FIVE SECOND DELAY INSTITUTED.'
                 });
             break;
-            case 'slowmode 10':
+
+            case 'slowmode10':
+                slowChannels.push(channelID);
+                slowInterval = 10;
                 bot.sendMessage({
                     to: channelID,
-                    message: 'SLOWMODE IN DEVELOPMENT'
+                    message: 'SLOWMODE HAS BEEN TURNED ON IN <#' + channelID + '>. TEN SECOND DELAY INSTITUTED.'
+                });
+            break;
+
+            case 'slowmodeoff':
+                var index = slowChannels.indexOf(channelID);
+                if (index > -1) {
+                    slowChannels.splice(index, 1);
+                }
+                bot.sendMessage({
+                    to: channelID,
+                    message: 'SLOWMODE HAS BEEN TURNED OFF IN <#' + channelID + '>. FEEL FREE TO RESUME CHATTER.'
                 });
             break;
          }
      }
 });
+
 
 bot.on('guildMemberAdd', function(member) {
 	bot.sendMessage({
