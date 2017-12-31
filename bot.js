@@ -20,6 +20,7 @@ var roboComplimentsArray = ['YOUR CHASSIS IS POLISHED TO A VISUALLY APPEALING SH
 var slowChannels = [];
 var slowUsers = [];
 var slowInterval = 5;
+var slowdownExempt = ['396859791877734410', '144975424298942464', '253717780853948416', '187691852923797504', '174330815730155520', '138834050415722496']
 
 function remove(item, array) { 
      var i = array.indexOf("item");
@@ -37,20 +38,21 @@ bot.on('ready', function (evt) {
 bot.on('message', function (user, userID, channelID, message, evt) {
     // check if this channel is slowed down
     if (slowChannels.includes(channelID)) {
-         if (slowUsers.includes(user)) {
-              bot.deleteMessage({
-                   channelID: channelID,
-                   messageID: evt.d.id
-              });
-         }
-         else { 
-              slowUsers.push(user);
-              setTimeout(function(){ remove(user, slowUsers); }, slowInterval * 1000);
+         if !(slowdownExempt.includes(userID)) {
+              if (slowUsers.includes(user)) {
+                   bot.deleteMessage({
+                        channelID: channelID,
+                        messageID: evt.d.id
+                   });
+              }
+              else { 
+                   slowUsers.push(user);
+                   setTimeout(function(){ remove(user, slowUsers); }, slowInterval * 1000);
+              }
          }
      }
 
-    // Our bot needs to know if it will execute a command
-    // It will listen for messages that will start with `!`
+    // listen for messages that will start with `!`
     if (message.substring(0, 1) == '!') {
         var args = message.substring(1).split(' ');
         var cmd = args[0];
