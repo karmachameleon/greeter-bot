@@ -39,14 +39,14 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                 });
             break;
 
-            case 'pizza':
+            case 'coffee':
                 bot.sendMessage({
                     to: channelID,
                     message: ':coffee:'
                 });
             break;
 
-            case 'coffee':
+            case 'pizza':
                 bot.sendMessage({
                     to: channelID,
                     message: ':pizza:'
