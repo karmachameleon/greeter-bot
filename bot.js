@@ -20,7 +20,7 @@ var roboComplimentsArray = ['YOUR CHASSIS IS POLISHED TO A VISUALLY APPEALING SH
 var slowChannels = [];
 var slowUsers = [];
 var slowInterval = 5;
-var slowdownExempt = ['396859791877734410', '144975424298942464', '253717780853948416', '187691852923797504', '174330815730155520', '138834050415722496']
+var slowdownExempt = ['396859791877734410', '144975424298942464', '253717780853948416', '187691852923797504', '174330815730155520', '138834050415722496'] 
 
 function remove(item, array) { 
      var i = array.indexOf("item");
@@ -38,7 +38,7 @@ bot.on('ready', function (evt) {
 bot.on('message', function (user, userID, channelID, message, evt) {
     // check if this channel is slowed down
     if (slowChannels.includes(channelID)) {
-         if !(slowdownExempt.includes(userID)) {
+         if (!slowdownExempt.includes(userID)) {
               if (slowUsers.includes(user)) {
                    bot.deleteMessage({
                         channelID: channelID,
@@ -47,7 +47,11 @@ bot.on('message', function (user, userID, channelID, message, evt) {
               }
               else { 
                    slowUsers.push(user);
-                   setTimeout(function(){ remove(user, slowUsers); }, slowInterval * 1000);
+                   setTimeout(function(){ 
+                         var i = slowUsers.indexOf(user);
+                         if(i != -1) {
+                	      slowUsers.splice(i, 1);
+                         }; }, slowInterval * 1000);
               }
          }
      }
