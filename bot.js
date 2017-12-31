@@ -89,7 +89,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
             break;
 
             case 'joke':
-                var jokeChoice = complimentsArray[Math.floor(Math.random() * jokesArray.length)];
+                var jokeChoice = jokesArray[Math.floor(Math.random() * jokesArray.length)];
                 bot.sendMessage({
                     to: channelID,
                     message: jokeChoice
