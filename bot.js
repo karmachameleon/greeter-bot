@@ -61,7 +61,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 bot.on('guildMemberAdd', function(member) {
 	bot.sendMessage({
 		to: "393848164307697677",
-		message: '<@' + member.id + '> DETECTED. YOU HAVE BEEN ASSIMILATED TO THE ROBOT PIZZA PARTY. READ THE #rules_and_guidelines AND POST AN INTRODUCTION  in  #introductions. SHARE AND ENJOY :pizza:'
+		message: '<@' + member.id + '> DETECTED. YOU HAVE BEEN ASSIMILATED TO THE ROBOT PIZZA PARTY. READ THE #rules_and_guidelines AND POST AN INTRODUCTION  IN  #introductions. SHARE AND ENJOY :pizza:'
 	});
 });
 
