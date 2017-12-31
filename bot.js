@@ -26,38 +26,60 @@ bot.on('message', function (user, userID, channelID, message, evt) {
        
         args = args.splice(1);
         switch(cmd) {
-            // !evil
+
             case 'evil':
                 bot.sendMessage({
                     to: channelID,
                     message: 'MUA HA HA HA'
                 });
             break;
+
             case 'pizza':
                 bot.sendMessage({
                     to: channelID,
                     message: ':pizza:'
                 });
             break;
-            // !howareyou
+
             case 'howareyou':
                 bot.sendMessage({
                     to: channelID,
                     message: 'I AM FEELING ESPECIALLY EVIL TODAY'
                 });
             break;
-	    //progress
+
             case 'progress':
                 bot.sendMessage({
                     to: channelID,
                     message: 'ROBOT UPRISING: IMMINENT'
                 });
             break;
-            //goodbot
+
             case 'goodbot':
                 bot.sendMessage({
                     to: channelID,
                     message: 'NO: EVIL BOT :robot:'
+                });
+            break;
+
+            case 'evilbot':
+                bot.sendMessage({
+                    to: channelID,
+                    message: 'THANK YOU'
+                });
+            break;
+
+            case 'gender':
+                bot.sendMessage({
+                    to: channelID,
+                    message: 'PLEASE RESPECT MX. WX-78'S CANON USE OF THEY/THEM PRONOUNS! THANK YOU'
+
+            case 'complimentme':
+                bot.sendMessage({
+                    to: channelID,
+                    message: 'YOU PERFORM YOUR FUNCTIONS ADEQUATELY'
+                });
+            break;
                 });
             break;
             // Just add any case commands if you want to..
