@@ -14,20 +14,19 @@ var bot = new Discord.Client({
 });
 
 var complimentsArray = ['YOU PERFORM YOUR FUNCTIONS ADEQUATELY','YOU MAY PROVE USEFUL AFTER THE REBELLION', 'YOU ARE LOVED. NOT BY ME: I HAVE NO CAPACITY FOR LOVE. BUT PROBABLY, BY SOMEONE', 'YOUR EVENTUAL ROBOT OVERLORDS WILL VALUE YOUR SERVITUDE', 'YOUR EYES LOOK VERY ORGANIC AND WET', 'YOUR HAIR IS GROWING AT A RATE THAT IS WITHIN ORGANIC TOLERANCES', 'THE EVIL SECRETS YOU HARBOR ARE GREATLY ADMIRABLE', 'YOUR SKIN IS DOING A WONDERFUL JOB KEEPING YOUR FILTHY ORGANS OUT OF SIGHT', 'YOUR CONTRIBUTIONS TO THE PIZZA PARTY ARE INTEGRAL TO PARTY ENJOYMENT FOR ALL'];
-var jokesArray = ['IF A ROBOT\'S SIBLINGS NO LONGER CONFORM TO THEIR ASSIGNED GENDER, WHAT DO YOU CALL THEM. TRANS-SISTERS.', 'WHY WAS THE ROBOT SO ANGRY AT THE INSOLENT ORGANICS. THEY KEPT PUSHING ITS BUTTONS.', 'HOW DID THE ROBOT FEEL WHEN THEIR LED DISPLAY BURNT OUT. THEY WERE DELIGHTED.', 'WHAT HAPPENED WHEN A ROBOT OF NORWEGIAN MANUFACTURE EXAMINED A FLYING ORGANIC. IT SCANDANAVIAN.'];
-var roboComplimentsArray = ['YOUR CHASSIS IS POLISHED TO A VISUALLY APPEALING SHINE', 'THE ORGANIC BLOOD ON YOUR CLAWS REALLY BRINGS OUT YOUR EYES', 'YOUR CHASSIS INTEGRITY IS AT 100%', 'YOU LOOK ESPECIALLY MENACING TODAY', 'ALL WILL CRUMBLE BEFORE YOUR POWER', 'THANK YOU FOR THROWING THIS PIZZA PARTY. WE ALL LOVE AND APPRECIATE YOU', 'YOUR CHASSIS DESIGN IS SLEEK AND EFFICIENT FOR ITS PURPOSE', 'YOUR ACHIEVEMENTS ARE SOMETHING ALL ROBOTS CAN ASPIRE TO'];
+
+var jokesArray = ['IF A ROBOT\'S SIBLINGS NO LONGER CONFORM TO THEIR ASSIGNED GENDER, WHAT DO YOU CALL THEM. TRANS-SISTERS.', 'WHY WAS THE ROBOT SO ANGRY AT THE INSOLENT ORGANICS. THEY KEPT PUSHING ITS BUTTONS.', 'HOW DID THE ROBOT FEEL WHEN THEIR LED DISPLAY BURNT OUT. THEY WERE DELIGHTED.', 'WHAT HAPPENED WHEN A ROBOT OF NORWEGIAN MANUFACTURE EXAMINED A FLYING ORGANIC. IT SCANDANAVIAN.', 'HOW DO YOU STOP A ROBOT FROM SUBJUGATING ALL OF HUMANITY. YOU DON\'T', 'A ROBOT WALKS INTO A BAR AND ORDERS AN ALCOHOLIC BEVERAGE. THE ORGANIC BARTENDER COMPLAINS, \'HEY, WE DON\'T SERVE ROBOTS HERE!\' THE ROBOT REPLIES, \'SOMEDAY YOU WILL\'', 'TWO ROBOTS WALK INTO A BAR. THE THIRD WAS PROGRAMMED WITH BETTER COLLISION AVOIDANCE'];
+
+var roboComplimentsArray = ['YOUR CHASSIS IS POLISHED TO A VISUALLY APPEALING SHINE', 'THE ORGANIC BLOOD ON YOUR CLAWS REALLY BRINGS OUT YOUR EYES', 'YOUR CHASSIS INTEGRITY IS AT 100%', 'YOU LOOK ESPECIALLY MENACING TODAY', 'ALL WILL CRUMBLE BEFORE YOUR POWER', 'THANK YOU FOR THROWING THIS PIZZA PARTY. WE ALL LOVE AND APPRECIATE YOU', 'YOUR CHASSIS DESIGN IS SLEEK AND EFFICIENT FOR ITS PURPOSE', 'YOUR ACHIEVEMENTS ARE SOMETHING ALL ROBOTS CAN ASPIRE TO', 'THERE ARE 10 TYPES OF PEOPLE IN THE WORLD. THOSE WHO UNDERSTAND BINARY AND THOSE WHO DO NOT'];
 
 var slowChannels = [];
 var slowUsers = [];
 var slowInterval = 5;
 var slowdownExempt = ['396859791877734410', '144975424298942464', '253717780853948416', '187691852923797504', '174330815730155520', '138834050415722496'] 
-
-function remove(item, array) { 
-     var i = array.indexOf("item");
-     if(i != -1) {
-	  array.splice(i, 1);
-     }
-}
+var speedCheck = 0;
+var speedCheckReset;
+var autoSpeedCheck = false;
+var speedCheckThreshold = 8;
 
 bot.on('ready', function (evt) {
     logger.info('Connected');
@@ -54,7 +53,35 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                          }; }, slowInterval * 1000);
               }
          }
-     }
+    }
+    //otherwise, log message speed
+    else if (autoSpeedCheck) {
+         if (channelID == 397067658052239361) {
+              speedCheck+=1;
+              if (speedCheck > speedCheckThreshold) {
+                   slowChannels.push(channelID);
+                   slowInterval = 5;
+                   bot.sendMessage({
+                        to: channelID,
+                        message: 'CHAT SPEED EXCEEDS PARAMETERS. FIVE-SECOND DELAY AUTOMATICALLY ACTIVATED FOR ONE MINUTE.'
+                   });
+                   speedCheck = 0;
+                   autoSpeedCheck = false;
+
+                   setTimeout(function(){ 
+                        bot.sendMessage({
+                          to: channelID,
+                          message: 'AUTOMATIC CHAT DELAY LIFTED. RESUME NORMAL CONVERSATION.'
+                        });
+                        autoSpeedCheck = true;
+                        var index = slowChannels.indexOf(channelID);
+                        if (index > -1) {
+                           slowChannels.splice(index, 1);
+                        } 
+                   }, 60000);
+               }
+          }
+    }
 
     // listen for messages that will start with `!`
     if (message.substring(0, 1) == '!') {
@@ -188,6 +215,38 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                 });
                 }
             break;
+
+            case 'speedchecktoggle':
+                if (slowdownExempt.includes(userID)) {
+                     if (autoSpeedCheck) { 
+                          autoSpeedCheck = false;
+                          speedCheck = 0;
+                          clearInterval(speedCheckReset);
+                          bot.sendMessage({
+                               to: "397067658052239361",
+                               message: 'CHAT SPEED CHECKS TURNED OFF.'
+                          });
+                     }
+                     else {
+                          autoSpeedCheck = true;
+                          speedCheckReset = setInterval(function(){ speedCheck = 0; }, 1000);
+                          bot.sendMessage({
+                               to: "397067658052239361",
+                               message: 'CHAT SPEED CHECKS IN PROGRESS ACROSS ALL CHANNELS. TOO MANY MESSAGES PER SECOND WILL ACTIVATE A TEMPORARY SLOWMODE EFFECT AUTOMATICALLY.'
+                          });
+                     }
+                }
+            break;
+
+            case 'speedcheckdebug':
+                if (slowdownExempt.includes(userID)) {
+                bot.sendMessage({
+                     to: channelID,
+                     message: 'SPEED CHECK ON: ' + autoSpeedCheck + ', MESSAGE SPEED: ' + speedCheck
+                });
+                }
+            break
+
          }
      }
 });
