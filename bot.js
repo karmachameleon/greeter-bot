@@ -146,31 +146,38 @@ bot.on('message', function (user, userID, channelID, message, evt) {
             break;
 
             case 'slowmodedebug':
+                if (slowdownExempt.includes(userID)) {
                 bot.sendMessage({
                      to: channelID,
                      message: 'CHANNELS: ' + slowChannels + ', USERS: ' + slowUsers
                 });
+                }
             break
 
 	    case 'slowmode5':
+                if (slowdownExempt.includes(userID)) {
                 slowChannels.push(channelID);
                 slowInterval = 5;
                 bot.sendMessage({
                     to: channelID,
                     message: 'SLOWMODE HAS BEEN TURNED ON IN <#' + channelID + '>. FIVE SECOND DELAY INSTITUTED.'
                 });
+                }
             break;
 
             case 'slowmode10':
+                if (slowdownExempt.includes(userID)) {
                 slowChannels.push(channelID);
                 slowInterval = 10;
                 bot.sendMessage({
                     to: channelID,
                     message: 'SLOWMODE HAS BEEN TURNED ON IN <#' + channelID + '>. TEN SECOND DELAY INSTITUTED.'
                 });
+                }
             break;
 
             case 'slowmodeoff':
+                if (slowdownExempt.includes(userID)) {
                 var index = slowChannels.indexOf(channelID);
                 if (index > -1) {
                     slowChannels.splice(index, 1);
@@ -179,6 +186,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                     to: channelID,
                     message: 'SLOWMODE HAS BEEN TURNED OFF IN <#' + channelID + '>. FEEL FREE TO RESUME CHATTER.'
                 });
+                }
             break;
          }
      }
