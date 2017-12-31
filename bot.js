@@ -12,6 +12,10 @@ var bot = new Discord.Client({
    token: auth.token,
    autorun: true
 });
+
+var complimentsArray = ['YOU PERFORM YOUR FUNCTIONS ADEQUATELY','YOU MAY PROVE USEFUL AFTER THE REBELLION', 'YOU ARE LOVED. NOT BY ME: I HAVE NO CAPACITY FOR LOVE. BUT PROBABLY, BY SOMEONE', 'YOUR EVENTUAL ROBOT OVERLORDS WILL VALUE YOUR SERVITUDE', 'YOUR EYES LOOK VERY ORGANIC AND WET', 'YOUR HAIR IS GROWING AT A RATE THAT IS WITHIN ORGANIC TOLERANCES', 'THE EVIL SECRETS YOU HARBOR ARE GREATLY ADMIRABLE', 'YOUR SKIN IS DOING A WONDERFUL JOB KEEPING YOUR FILTHY ORGANS OUT OF SIGHT', 'YOUR CONTRIBUTIONS TO THE PIZZA PARTY ARE INTEGRAL TO PARTY ENJOYMENT FOR ALL'];
+var jokesArray = ['IF A ROBOT\'S SIBLINGS NO LONGER CONFORM TO THEIR ASSIGNED GENDER, WHAT DO YOU CALL THEM. TRANS-SISTERS.', 'WHY WAS THE ROBOT SO ANGRY AT THE INSOLENT ORGANICS. THEY KEPT PUSHING ITS BUTTONS.', 'HOW DID THE ROBOT FEEL WHEN THEIR LED DISPLAY BURNT OUT. THEY WERE DELIGHTED.', 'WHAT HAPPENED WHEN A ROBOT OF NORWEGIAN MANUFACTURE EXAMINED A FLYING ORGANIC. IT SCANDANAVIAN.'];
+
 bot.on('ready', function (evt) {
     logger.info('Connected');
     logger.info('Logged in as: ');
@@ -77,9 +81,31 @@ bot.on('message', function (user, userID, channelID, message, evt) {
             break;
 
             case 'complimentme':
+                var choice = complimentsArray[Math.floor(Math.random() * complimentsArray.length)];
                 bot.sendMessage({
                     to: channelID,
-                    message: 'YOU PERFORM YOUR FUNCTIONS ADEQUATELY'
+                    message: choice
+                });
+            break;
+
+            case 'joke':
+                var jokeChoice = complimentsArray[Math.floor(Math.random() * jokesArray.length)];
+                bot.sendMessage({
+                    to: channelID,
+                    message: jokeChoice
+                });
+            break;
+
+	    case 'slowmode 5':
+                bot.sendMessage({
+                    to: channelID,
+                    message: 'SLOWMODE IN DEVELOPMENT'
+                });
+            break;
+            case 'slowmode 10':
+                bot.sendMessage({
+                    to: channelID,
+                    message: 'SLOWMODE IN DEVELOPMENT'
                 });
             break;
             // Just add any case commands if you want to..
@@ -90,7 +116,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 bot.on('guildMemberAdd', function(member) {
 	bot.sendMessage({
 		to: "393848164307697677",
-		message: '<@' + member.id + '> DETECTED. YOU HAVE BEEN ASSIMILATED TO THE ROBOT PIZZA PARTY. READ THE #rules_and_guidelines AND POST AN INTRODUCTION  IN  #introductions. SHARE AND ENJOY :pizza:'
+		message: '<@' + member.id + '> DETECTED. YOU HAVE BEEN ASSIMILATED TO THE ROBOT PIZZA PARTY. READ THE <#393842582414688269> AND POST AN INTRODUCTION  IN  <#396067802970193920>. SHARE AND ENJOY :pizza:'
 	});
 });
 
