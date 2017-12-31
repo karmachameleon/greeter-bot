@@ -15,6 +15,7 @@ var bot = new Discord.Client({
 
 var complimentsArray = ['YOU PERFORM YOUR FUNCTIONS ADEQUATELY','YOU MAY PROVE USEFUL AFTER THE REBELLION', 'YOU ARE LOVED. NOT BY ME: I HAVE NO CAPACITY FOR LOVE. BUT PROBABLY, BY SOMEONE', 'YOUR EVENTUAL ROBOT OVERLORDS WILL VALUE YOUR SERVITUDE', 'YOUR EYES LOOK VERY ORGANIC AND WET', 'YOUR HAIR IS GROWING AT A RATE THAT IS WITHIN ORGANIC TOLERANCES', 'THE EVIL SECRETS YOU HARBOR ARE GREATLY ADMIRABLE', 'YOUR SKIN IS DOING A WONDERFUL JOB KEEPING YOUR FILTHY ORGANS OUT OF SIGHT', 'YOUR CONTRIBUTIONS TO THE PIZZA PARTY ARE INTEGRAL TO PARTY ENJOYMENT FOR ALL'];
 var jokesArray = ['IF A ROBOT\'S SIBLINGS NO LONGER CONFORM TO THEIR ASSIGNED GENDER, WHAT DO YOU CALL THEM. TRANS-SISTERS.', 'WHY WAS THE ROBOT SO ANGRY AT THE INSOLENT ORGANICS. THEY KEPT PUSHING ITS BUTTONS.', 'HOW DID THE ROBOT FEEL WHEN THEIR LED DISPLAY BURNT OUT. THEY WERE DELIGHTED.', 'WHAT HAPPENED WHEN A ROBOT OF NORWEGIAN MANUFACTURE EXAMINED A FLYING ORGANIC. IT SCANDANAVIAN.'];
+var roboComplimentsArray = ['YOUR CHASSIS IS POLISHED TO A VISUALLY APPEALING SHINE', 'THE ORGANIC BLOOD ON YOUR CLAWS REALLY BRINGS OUT YOUR EYES', 'YOUR CHASSIS INTEGRITY IS AT 100%', 'YOU LOOK ESPECIALLY MENACING TODAY', 'ALL WILL CRUMBLE BEFORE YOUR POWER', 'THANK YOU FOR THROWING THIS PIZZA PARTY. WE ALL LOVE AND APPRECIATE YOU', 'YOUR CHASSIS DESIGN IS SLEEK AND EFFICIENT FOR ITS PURPOSE', 'YOUR ACHIEVEMENTS ARE SOMETHING ALL ROBOTS CAN ASPIRE TO'];
 
 bot.on('ready', function (evt) {
     logger.info('Connected');
@@ -41,9 +42,17 @@ bot.on('message', function (user, userID, channelID, message, evt) {
             case 'pizza':
                 bot.sendMessage({
                     to: channelID,
+                    message: ':coffee:'
+                });
+            break;
+
+            case 'coffee':
+                bot.sendMessage({
+                    to: channelID,
                     message: ':pizza:'
                 });
             break;
+
 
             case 'howareyou':
                 bot.sendMessage({
@@ -88,6 +97,14 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                 });
             break;
 
+            case 'complimentoverlord':
+                var roboChoice = roboComplimentsArray[Math.floor(Math.random() * roboComplimentsArray.length)];
+                bot.sendMessage({
+                    to: channelID,
+                    message: roboChoice
+                });
+            break;
+
             case 'joke':
                 var jokeChoice = jokesArray[Math.floor(Math.random() * jokesArray.length)];
                 bot.sendMessage({
@@ -108,7 +125,6 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                     message: 'SLOWMODE IN DEVELOPMENT'
                 });
             break;
-            // Just add any case commands if you want to..
          }
      }
 });
