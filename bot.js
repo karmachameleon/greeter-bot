@@ -25,7 +25,7 @@ var kittyComplimentsArray = ['YOU ARE SO FUZZY WUZZY', 'WHO\'S A GOOD KITTY? IS 
 
 var robotsToCompliment = ['DERO', '@DERO', '<@!138834050415722496>', '<@138834050415722496>', 'OVERLORD', 'WX', 'WX78', 'WX-78', 'GLADOS', 'MARVIN', 'BASTION', 'ORISA', 'ZENYATTA', '<:WXLEGY:393864450454585356>', 'TAMAGOTCHIS', 'TAMAGOTCHI', 'FURBYS', 'FURBY', 'R2D2', 'C3PO', 'K2SO', 'BB8', 'ANDROIDS', 'ANDROID', 'GYNOID', 'DR.KAHLSROBOT', 'DRKAHLSROBOT', 'SPINE', 'HATCHWORTH', 'MACHINES', 'MACHINE', 'AUTOMATONS', 'DROID', 'DROIDS', 'BOTS', 'BOT', 'AUTOMATON', 'ROBOTS', 'ROBOT'];
 
-var lizardsToCompliment = ['KARMA', 'CHAMELEON', 'LIZARD', 'CREATOR', 'KAARAMEL'];
+var lizardsToCompliment = ['KARMA', 'CHAMELEON', 'LIZARD', 'CREATOR', 'KAARAMEL', '<@253717780853948416>', '<@!253717780853948416>'];
 var kittiesToCompliment = ['ALAN', 'FANGBATTLE', 'FB', 'HOBBES', 'KITTIES', 'KITTY', 'CATS', 'CAT', 'KITTENS', 'KITTEN'];
 
 var slowChannels = [];
@@ -223,7 +223,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 				}
 				if (userID == karmaID){
 					recipient = "<@138834050415722496>";
-					var choice2 = roboComplimentsArray[Math.floor(Math.random() * roboComplimentsArray.length)];
+					var choice2 = lizardComplimentsArray[Math.floor(Math.random() * lizardComplimentsArray.length)];
 				}
 				else {
 					recipient = "<@" + userID + ">";
