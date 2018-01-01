@@ -213,6 +213,9 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 			else if (lizardsToCompliment.includes(recipient)) {
 				var choice2 = lizardComplimentsArray[Math.floor(Math.random() * lizardComplimentsArray.length)];
 			}
+			else if (kittiesToCompliment.includes(recipient)) {
+				var choice2 = kittyComplimentsArray[Math.floor(Math.random() * kittyComplimentsArray.length)];
+			}
 			else if (recipient === "ME"){
 				if (userID == deroID){
 					recipient = "<@138834050415722496>";
