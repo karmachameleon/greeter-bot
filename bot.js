@@ -22,7 +22,7 @@ var roboComplimentsArray = ['YOUR CHASSIS IS POLISHED TO A VISUALLY APPEALING SH
 var slowChannels = [];
 var slowUsers = [];
 var slowInterval = 5; 
-var slowdownExempt = ['396859791877734410', '144975424298942464',  '174330815730155520', '138834050415722496', '158267875671408640'] //please remember to add yourself back in
+var slowdownExempt = ['396859791877734410', '144975424298942464',  '174330815730155520', '138834050415722496', '158267875671408640', '253717780853948416'] 
 var speedCheck = 0;
 var speedCheckReset;
 var autoSpeedCheck = false;
@@ -37,7 +37,7 @@ bot.on('ready', function (evt) {
 bot.on('message', function (user, userID, channelID, message, evt) {
     // check if this channel is slowed down
     if (slowChannels.includes(channelID)) {
-         if (!slowdownExempt.includes(userID)) {
+         if (userID != 396859791877734410) { //only doesn't listen to self. pls remember to change back to mod list
               if (slowUsers.includes(user)) {
                    bot.deleteMessage({
                         channelID: channelID,
