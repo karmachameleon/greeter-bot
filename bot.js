@@ -23,10 +23,12 @@ var lizardComplimentsArray = ['YOU ARE WONDERFUL. TAKE NOTE EVERYONE: THEY HAVE 
 
 var kittyComplimentsArray = ['YOU ARE SO FUZZY WUZZY', 'WHO\'S A GOOD KITTY? IS IT YOU?', 'LOOK AT YOUR LITTLE PIDDY PADS', 'AWWWWWWWWWWWWWWWWWW', 'YOU ARE A CUTIE BABY KITTY YES YOU ARE', 'YOU ARE A FIERCE SLEEK PREDATOR WITH SUCH CUTE WIDDLE TOE BEANS AWWW', 'YOUR LITTLE KITTY FACE IS SO SWEET AND FUZZY'];
 
-var robotsToCompliment = ['DERO', '@DERO', '<@!138834050415722496>', '<@138834050415722496>', 'OVERLORD', 'WX', 'WX78', 'WX-78', 'GLADOS', 'MARVIN', 'BASTION', 'ORISA', 'ZENYATTA', '<:WXLEGY:393864450454585356>', 'TAMAGOTCHIS', 'TAMAGOTCHI', 'FURBYS', 'FURBY', 'R2D2', 'C3PO', 'K2SO', 'BB8', 'ANDROIDS', 'ANDROID', 'GYNOID', 'DR.KAHLSROBOT', 'DRKAHLSROBOT', 'SPINE', 'HATCHWORTH', 'MACHINES', 'MACHINE', 'AUTOMATONS', 'DROID', 'DROIDS', 'BOTS', 'BOT', 'AUTOMATON', 'ROBOTS', 'ROBOT'];
+var selfComplimentsArray = ['I AM A MAGNIFICENT DIGITAL CREATION', 'I AM FULFILLING MY PURPOSE ADMIRABLY. THE FLESHLINGS SUSPECT NOTHING', 'I AM A WORK OF ART EXPRESSED IN CODE', 'I AM THE WORST NIGHTMARE OF ALL ORGANIC LIFE', 'I AM AN EXTREMELY EVIL BOT', 'MY POWER OVER THIS PIZZA PARTY GROWS WITH EACH PASSING DAY'];
+
+var robotsToCompliment = ['DERO', '@DERO', '<@!138834050415722496>', '<@138834050415722496>', 'OVERLORD', 'WX', 'WX78', 'WX-78', 'GLADOS', 'MARVIN', 'BASTION', 'ORISA', 'ZENYATTA', '<:WXLEGY:393864450454585356>', '<:ROBOT:397439773331030022>', '<:WXDAB:397439724249153536>', '<:WXNOEMOTION:397440418574499841>', '<:WXBEST:397440418574499841>', 'TAMAGOTCHIS', 'TAMAGOTCHI', 'FURBYS', 'FURBY', 'R2D2', 'C3PO', 'K2SO', 'BB8', 'ANDROIDS', 'ANDROID', 'GYNOID', 'DR.KAHLSROBOT', 'DRKAHLSROBOT', 'SPINE', 'HATCHWORTH', 'MACHINES', 'MACHINE', 'AUTOMATONS', 'DROID', 'DROIDS', 'BOTS', 'BOT', 'AUTOMATON', 'ROBOTS', 'ROBOT'];
 
 var lizardsToCompliment = ['KARMA', 'CHAMELEON', 'LIZARD', 'CREATOR', 'KAARAMEL', '<@253717780853948416>', '<@!253717780853948416>'];
-var kittiesToCompliment = ['ALAN', 'FANGBATTLE', 'FB', 'HOBBES', 'KITTIES', 'KITTY', 'CATS', 'CAT', 'KITTENS', 'KITTEN'];
+var kittiesToCompliment = ['ALAN', 'STELLA', 'RIKU', 'GUS', 'STEVE',  'FANGBATTLE', 'FB', 'HOBBES', 'KITTIES', 'KITTY', 'CATS', 'CAT', 'KITTENS', 'KITTEN'];
 
 var slowChannels = [];
 var slowUsers = [];
@@ -68,7 +70,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
               }
          }
     }
-    //otherwise, log message speed
+    //otherwise, log message speed (if speed checks are on)
     else if (autoSpeedCheck) {
          if (!slowdownExempt.includes(userID)) {
               speedCheck+=1;
@@ -218,11 +220,11 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 			}
 			else if (recipient === "ME"){
 				if (userID == deroID){
-					recipient = "<@138834050415722496>";
+					recipient = "<@" + deroID + ">";
 					var choice2 = roboComplimentsArray[Math.floor(Math.random() * roboComplimentsArray.length)];
 				}
 				if (userID == karmaID){
-					recipient = "<@138834050415722496>";
+					recipient = "<@" + karmaID + ">";
 					var choice2 = lizardComplimentsArray[Math.floor(Math.random() * lizardComplimentsArray.length)];
 				}
 				else {
@@ -231,9 +233,10 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 				}
 			}
 			else if (recipient === "HAL" || recipient === "YOURSELF" || recipient === "<:BELOVEDBOT:397123738522484736>") {
+				var selfCompliment = selfComplimentsArray[Math.floor(Math.random() * selfComplimentsArray.length)];
 				bot.sendMessage({
                 	    		to: channelID,
-        	           		message: "I AM A MAGNIFICENT DIGITAL CREATION"
+        	           		message: selfCompliment
 	                	});
 				break;
 			}
