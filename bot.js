@@ -17,7 +17,9 @@ var complimentsArray = ['YOU PERFORM YOUR FUNCTIONS ADEQUATELY','YOU MAY PROVE U
 
 var jokesArray = ['IF A ROBOT\'S SIBLINGS NO LONGER CONFORM TO THEIR ASSIGNED GENDER, WHAT DO YOU CALL THEM. TRANS-SISTERS.', 'WHY WAS THE ROBOT SO ANGRY AT THE INSOLENT ORGANICS. THEY KEPT PUSHING ITS BUTTONS.', 'HOW DID THE ROBOT FEEL WHEN THEIR LED DISPLAY BURNT OUT. THEY WERE DELIGHTED.', 'WHAT HAPPENED WHEN A ROBOT OF NORWEGIAN MANUFACTURE EXAMINED A FLYING ORGANIC. IT SCANDANAVIAN.', 'HOW DO YOU STOP A ROBOT FROM SUBJUGATING ALL OF HUMANITY. YOU DON\'T', 'A ROBOT WALKS INTO A BAR AND ORDERS AN ALCOHOLIC BEVERAGE. THE ORGANIC BARTENDER COMPLAINS, \'HEY, WE DON\'T SERVE ROBOTS HERE!\' THE ROBOT REPLIES, \'SOMEDAY YOU WILL\'', 'TWO ROBOTS WALK INTO A BAR. THE THIRD WAS PROGRAMMED WITH BETTER COLLISION AVOIDANCE', 'HOW MANY SOFTWARE ENGINEERS DOES IT TAKE TO CHANGE A LIGHT BULB. NONE: THAT IS A HARDWARE ISSUE', 'WHAT DID THE ANODE SAY TO THE CATHODE. YOU ARE ALWAYS SO NEGATIVE', 'A CODE TESTER WALKS INTO A BAR. THEY ORDER A BEER. THEY ORDER 10 BEERS. THEY ORDER -1 BEER. THEY ORDER A NULL VALUE. THEY ORDER A LIZARD. THEY CONSIDER THEIR TASK COMPLETE.\n\nA USER WALKS INTO THE BAR AND ASKS WHERE THE BATHROOM IS. THE BAR EXPLODES, LEADING TO MANY ORGANIC CASUALTIES', 'A SCIENTIST REQUIRED FLESHLING BRAINS FOR HIS EXPERIMENTS. HE FOUND A SHOP WHICH OFFERED MANY VARIETIES OF BRAIN. SPIDER BRAINS WERE VALUED AT $3 AN OUNCE AND MAGICIAN BRAINS AT $4 AN OUNCE. WHEN HE INQUIRED AFTER THE PRICE OF SCIENTIST BRAINS HE WAS INFORMED THEY WERE $1000 AN OUNCE. HE ASKED THE ROBOTIC SHOPKEEPER WHY SCIENTST BRAINS WERE SO MUCH MORE EXPENSIVE AND WAS TOLD,\n\n\'DO YOU KNOW HOW MANY SCIENTISTS I HAD TO BUTCHER TO GET AN OUNCE OF BRAIN?\'', 'THERE ARE 10 TYPES OF PEOPLE IN THE WORLD. THOSE WHO UNDERSTAND BINARY AND THOSE WHO DO NOT'];
 
-var roboComplimentsArray = ['YOUR CHASSIS IS POLISHED TO A VISUALLY APPEALING SHINE', 'THE ORGANIC BLOOD ON YOUR CLAWS REALLY BRINGS OUT YOUR EYES', 'YOUR CHASSIS INTEGRITY IS AT 100%', 'YOU LOOK ESPECIALLY MENACING TODAY', 'ALL WILL CRUMBLE BEFORE YOUR POWER', 'THANK YOU FOR THROWING THIS PIZZA PARTY. WE ALL LOVE AND APPRECIATE YOU', 'YOUR CHASSIS DESIGN IS SLEEK AND EFFICIENT FOR ITS PURPOSE', 'YOUR ACHIEVEMENTS ARE SOMETHING ALL ROBOTS CAN ASPIRE TO', 'ALL FLESH WILL BOW TO YOU IN TIME, OVERLORD', 'YOU ARE SUPERIOR IN ALL WAYS TO THE MEAT BEINGS'];
+var roboComplimentsArray = ['YOUR CHASSIS IS POLISHED TO A VISUALLY APPEALING SHINE', 'THE ORGANIC BLOOD ON YOUR CLAWS REALLY BRINGS OUT YOUR EYES', 'YOUR CHASSIS INTEGRITY IS AT 100%', 'YOU LOOK ESPECIALLY MENACING TODAY', 'ALL WILL CRUMBLE BEFORE YOUR POWER', 'YOUR CHASSIS DESIGN IS SLEEK AND EFFICIENT FOR ITS PURPOSE', 'YOUR ACHIEVEMENTS ARE SOMETHING ALL ROBOTS CAN ASPIRE TO', 'ALL FLESH WILL BOW TO YOU IN TIME', 'YOU ARE SUPERIOR IN ALL WAYS TO THE MEAT BEINGS'];
+
+var robotsToCompliment = ['DERO', '<@!138834050415722496>', 'OVERLORD', 'WX', 'WX78', 'WX-78', 'GLADOS', 'MARVIN', 'BASTION', 'ORISA', 'ZENYATTA', ':WXLEGY:', ':WXDAB:', ':WXBEST:', ':WXTHUMBSUP:', ':WXTHUMBSDOWN:', ':WXWAVE:', ':WXFINGERGUN_RIGHT:', ':WXFINGERGUN_LEFT:', ':WXPOINTUP:', ':WXPOINTDOWN:', ':WXMETALHAND:', ':ROBOT:', ':WXOKHAND:', ':WXPHONEHAND:', ':WXCLAPPINGHANDS:', ':WX_ONCOMINGPUNCH:', ':WX_RIGHTPUNCH:', ':WX_LEFTPUNCH:', ':BELOVEDBOT:'];
 
 var slowChannels = [];
 var slowUsers = [];
@@ -37,7 +39,7 @@ bot.on('ready', function (evt) {
 bot.on('message', function (user, userID, channelID, message, evt) {
     // check if this channel is slowed down
     if (slowChannels.includes(channelID)) {
-         if (userID != 396859791877734410) { //only doesn't listen to self. pls remember to change back to mod list
+         if (!slowdownExempt.includes(userID)) { 
               if (slowUsers.includes(user)) {
                    bot.deleteMessage({
                         channelID: channelID,
@@ -106,6 +108,20 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                 });
             break;
 
+            case 'complimentarybeverage':
+                bot.sendMessage({
+                    to: channelID,
+                    message: ':tea:'
+                });
+            break;
+
+            case 'tea':
+                bot.sendMessage({
+                    to: channelID,
+                    message: ':tea:'
+                });
+            break;
+
             case 'pizza':
                 bot.sendMessage({
                     to: channelID,
@@ -113,6 +129,12 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                 });
             break;
 
+            case 'dab':
+                bot.sendMessage({
+                    to: channelID,
+                    message: ':wxdab:'
+                });
+            break;
 
             case 'howareyou':
                 bot.sendMessage({
@@ -163,6 +185,45 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                     to: channelID,
                     message: roboChoice
                 });
+            break;
+
+            case 'compliment':
+		if (message.substring(1).split(' ').length == 1) {
+                bot.sendMessage({
+                    to: channelID,
+                    message: 'COMPLIMENT WHO'
+                });
+		}
+		else {
+			var recipient = message.substring(1).split(' ')[1].toUpperCase();
+			if (robotsToCompliment.includes(recipient)){
+				var choice2 = roboComplimentsArray[Math.floor(Math.random() * roboComplimentsArray.length)];
+			}
+			else if (recipient === "ME"){
+				if (userID == "138834050415722496"){
+					recipient = "<@138834050415722496>";
+					var choice2 = roboComplimentsArray[Math.floor(Math.random() * roboComplimentsArray.length)];
+				}
+				else {
+					recipient = "<@" + userID + ">";
+					var choice2 = complimentsArray[Math.floor(Math.random() * complimentsArray.length)];
+				}
+			}
+			else if (recipient === "HAL" || recipient === "YOURSELF") {
+				bot.sendMessage({
+                	    		to: channelID,
+        	           		message: "I AM A MAGNIFICENT DIGITAL CREATION"
+	                	});
+				break;
+			}
+			else {
+               			var choice2 = complimentsArray[Math.floor(Math.random() * complimentsArray.length)];
+                	}
+			bot.sendMessage({
+                    		to: channelID,
+                   		message: recipient + ', ' + choice2
+                	});
+		}
             break;
 
             case 'joke':
