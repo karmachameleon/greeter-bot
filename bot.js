@@ -132,7 +132,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
             case 'dab':
                 bot.sendMessage({
                     to: channelID,
-                    message: ':wxdab:'
+                    message: '<:wxdab:393868683128078336>'
                 });
             break;
 
