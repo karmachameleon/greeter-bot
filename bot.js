@@ -209,6 +209,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 		}
 		else {
 			var recipient = message.substring(1).split(' ')[1].toUpperCase();
+			console.log(recipient + ' ' + userID);
 			if (robotsToCompliment.includes(recipient)){
 				var choice2 = roboComplimentsArray[Math.floor(Math.random() * roboComplimentsArray.length)];
 			}
@@ -223,7 +224,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 					recipient = "<@" + deroID + ">";
 					var choice2 = roboComplimentsArray[Math.floor(Math.random() * roboComplimentsArray.length)];
 				}
-				if (userID == karmaID){
+				else if (userID == karmaID){
 					recipient = "<@" + karmaID + ">";
 					var choice2 = lizardComplimentsArray[Math.floor(Math.random() * lizardComplimentsArray.length)];
 				}
