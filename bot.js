@@ -154,14 +154,14 @@ bot.on('message', function (user, userID, channelID, message, evt) {
             case 'exoticbutters':
                 bot.sendMessage({
                     to: channelID,
-                    message: '<:wxbutter:397952971956027392>'
+                    message: '<:wxbutter:393885814074900481>'
                 });
             break;
 
             case 'extoicbutters':
                 bot.sendMessage({
                     to: channelID,
-                    message: '<:wxbutter:397952971956027392>'
+                    message: '<:wxbutter:393885814074900481>'
                 });
             break;
 
