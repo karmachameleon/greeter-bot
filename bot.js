@@ -144,6 +144,13 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                 });
             break;
 
+            case 'rimshot':
+                bot.sendMessage({
+                    to: channelID,
+                    message: ':drum:'
+                });
+            break;
+
             case 'dab':
                 bot.sendMessage({
                     to: channelID,
