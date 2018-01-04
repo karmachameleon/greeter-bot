@@ -326,7 +326,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 			var min = convertArgs[2];
 		}
 
-		else if (convertArgs.length == 6) { !convert 4 pm est to cst
+		else if (convertArgs.length == 6) {
 			if (convertArgs[2].isNumber()) {
 				var military = true;
 			}
