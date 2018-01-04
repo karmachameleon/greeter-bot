@@ -39,7 +39,7 @@ function isNumber(n) {
 var slowChannels = [];
 var slowUsers = [];
 var slowInterval = 5;
-var slowdownExempt = ['396859791877734410', '144975424298942464',  '174330815730155520', '138834050415722496', '158267875671408640']
+var slowdownExempt = ['396859791877734410', '144975424298942464',  '174330815730155520', '138834050415722496', '158267875671408640', '253717780853948416']
 
 var newJokeThreshold = 11;
 
@@ -60,7 +60,7 @@ bot.on('ready', function (evt) {
 bot.on('message', function (user, userID, channelID, message, evt) {
     // check if this channel is slowed down
     if (slowChannels.includes(channelID)) {
-         if (!slowdownExempt.includes(userID)) { 
+         if (true) { //check if user is slowdownexempt
               if (slowUsers.includes(user)) {
                    bot.deleteMessage({
                         channelID: channelID,
@@ -386,6 +386,10 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 				outputHour = outputHour % 12;
 				var finalam = !am;
 			}
+			else if (outputHour < 1) {
+				outputHour = 12 - outputHour;
+				var finalam = !am;
+			}
 			else { var finalam = am; }
 
 			var finalOutput = hour + ":" + min;
@@ -404,6 +408,9 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 		else {
 			if (outputHour > 24) {
 				outputHour = outputHour % 24;
+			}
+			else if (outputHour > 24) {
+				outputHour = 24 - outputHour;
 			}
 			var finalOutput = hour + ":" + min + " " + timezoneFrom + " IS " + outputHour + ":" + min + " " + timezoneTo;
 		}
