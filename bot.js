@@ -32,10 +32,14 @@ var kittiesToCompliment = ['ALAN', 'STELLA', 'RIKU', 'GUS', 'STEVE',  'FANGBATTL
 
 var timezoneDict = { AKST:parseInt(-9), AKDT:parseInt(-8), PST:parseInt(-8), PDT:parseInt(-7), MST:parseInt(-7), MDT:parseInt(-6), CST:parseInt(-6), CDT:parseInt(-5), EST:parseInt(-5), EDT:parseInt(-4), UTC_12:parseInt(-12), UTC_11:parseInt(-11), UTC_10:parseInt(-10), UTC_930:parseInt(-9), UTC_9:parseInt(-9), UTC_8:parseInt(-8), UTC_7:parseInt(-7), UTC_6:parseInt(-6), UTC_5:parseInt(-5), UTC_4:parseInt(-4), UTC_3:parseInt(-3), UTC_330:parseInt(-3), UTC_2:parseInt(-2), UTC_230:parseInt(-2), UTC_1:parseInt(-1), UTC:parseInt(0), UTC14:14, UTC1345:13, UTC1245:12, UTC12:12, UTC11:11, UTC10:10, UTC1030:10, UTC9:9, UTC930:9, UTC845:8, UTC7:7, UTC6:6, UTC630:6, UTC545:5, UTC530:5, UTC5:5, UTC430:4, UTC4:4, UTC330:3, UTC3:3, UTC2:2, UTC1:1, GMT:0};
 
+function isNumber(n) {
+  return !isNaN(parseFloat(n)) && isFinite(n);
+}
+
 var slowChannels = [];
 var slowUsers = [];
-var slowInterval = 5; 
-var slowdownExempt = ['396859791877734410', '144975424298942464',  '174330815730155520', '138834050415722496', '158267875671408640', '253717780853948416']
+var slowInterval = 5;
+var slowdownExempt = ['396859791877734410', '144975424298942464',  '174330815730155520', '138834050415722496', '158267875671408640']
 
 var newJokeThreshold = 11;
 
@@ -318,10 +322,23 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 			}
 			var timezoneFrom = convertArgs[4].toUpperCase();
 			var timezoneTo = convertArgs[6].toUpperCase();
+			var hour = convertArgs[1];
+			var min = convertArgs[2];
 		}
 
-		else if (convertArgs.length == 6) {
-			var military = true;
+		else if (convertArgs.length == 6) { !convert 4 pm est to cst
+			if (convertArgs[2].isNumber()) {
+				var military = true;
+			}
+			else {
+				var military = false;
+				if (convertArgs[2].toUpperCase() === "AM") {
+					var am = true;
+				}
+				else if (convertArgs[2].toUpperCase() === "PM") {
+					var am = false;
+				}
+			}
 			var timezoneFrom = convertArgs[3].toUpperCase();
 			var timezoneTo = convertArgs[5].toUpperCase();
 		}
@@ -333,9 +350,6 @@ bot.on('message', function (user, userID, channelID, message, evt) {
               		});
 			break;	
 		}
-		var hour = convertArgs[1];
-		var min = convertArgs[2];
-
 
 		if (!timezoneDict.hasOwnProperty(timezoneFrom) || !timezoneDict.hasOwnProperty(timezoneTo)){
 			bot.sendMessage({
