@@ -327,8 +327,10 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 		}
 
 		else if (convertArgs.length == 6) {
-			if (convertArgs[2].isNumber()) {
+			if (isNumber(convertArgs[2])) {
 				var military = true;
+				var hour = convertArgs[1];
+				var min = convertArgs[2];
 			}
 			else {
 				var military = false;
@@ -338,9 +340,19 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 				else if (convertArgs[2].toUpperCase() === "PM") {
 					var am = false;
 				}
+				var hour = convertArgs[1];
+				var min = '00';
 			}
 			var timezoneFrom = convertArgs[3].toUpperCase();
 			var timezoneTo = convertArgs[5].toUpperCase();
+		}
+
+		else if (convertArgs.length == 5) { //!convert 23 est to pst
+			var military = true;
+			var hour = convertArgs[1];
+			var min = '00';
+			var timezoneFrom = convertArgs[2].toUpperCase();
+			var timezoneTo = convertArgs[4].toUpperCase();
 		}
 
 		else {
