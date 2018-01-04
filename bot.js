@@ -60,7 +60,7 @@ bot.on('ready', function (evt) {
 bot.on('message', function (user, userID, channelID, message, evt) {
     // check if this channel is slowed down
     if (slowChannels.includes(channelID)) {
-         if (true) { //check if user is slowdownexempt
+         if (true) { //if you ever try again to implement slowdownexempt, it should go here, i think.
               if (slowUsers.includes(user)) {
                    bot.deleteMessage({
                         channelID: channelID,
@@ -387,7 +387,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 				var finalam = !am;
 			}
 			else if (outputHour < 1) {
-				outputHour = 12 - outputHour;
+				outputHour = 12 + outputHour;
 				var finalam = !am;
 			}
 			else { var finalam = am; }
@@ -409,8 +409,8 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 			if (outputHour > 24) {
 				outputHour = outputHour % 24;
 			}
-			else if (outputHour > 24) {
-				outputHour = 24 - outputHour;
+			else if (outputHour < 0) {
+				outputHour = 24 + outputHour;
 			}
 			var finalOutput = hour + ":" + min + " " + timezoneFrom + " IS " + outputHour + ":" + min + " " + timezoneTo;
 		}
