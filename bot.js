@@ -550,6 +550,6 @@ app.listen(port, () => {
 });
 
  // pings server every 15 minutes to prevent dynos from sleeping
-//setInterval(() => {
-  //http.get('http://polar-brushlands-49159.herokuapp.com');
-//}, 900000);
+setInterval(() => {
+  http.get('http://polar-brushlands-49159.herokuapp.com');
+}, 900000);
