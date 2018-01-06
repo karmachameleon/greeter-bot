@@ -111,7 +111,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
     // listen for messages that will start with `!`
     if (message.substring(0, 1) == '!') {
         var args = message.substring(1).split(' ');
-        var cmd = args[0].toUpperCase;
+        var cmd = args[0].toUpperCase();
        
         args = args.splice(1);
         switch(cmd) {
