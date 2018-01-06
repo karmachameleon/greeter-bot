@@ -111,75 +111,75 @@ bot.on('message', function (user, userID, channelID, message, evt) {
     // listen for messages that will start with `!`
     if (message.substring(0, 1) == '!') {
         var args = message.substring(1).split(' ');
-        var cmd = args[0];
+        var cmd = args[0].toUpperCase;
        
         args = args.splice(1);
         switch(cmd) {
 
-            case 'evil':
+            case 'EVIL':
                 bot.sendMessage({
                     to: channelID,
                     message: 'MUA HA HA HA'
                 });
             break;
 
-            case 'coffee':
+            case 'COFFEE':
                 bot.sendMessage({
                     to: channelID,
                     message: ':coffee:'
                 });
             break;
 
-            case 'complimentarybeverage':
+            case 'COMPLIMENTARYBEVERAGE':
                 bot.sendMessage({
                     to: channelID,
                     message: ':tea:'
                 });
             break;
 
-            case 'tea':
+            case 'TEA':
                 bot.sendMessage({
                     to: channelID,
                     message: ':tea:'
                 });
             break;
 
-            case 'pizza':
+            case 'PIZZA':
                 bot.sendMessage({
                     to: channelID,
                     message: ':pizza:'
                 });
             break;
 
-            case 'rimshot':
+            case 'RIMSHOT':
                 bot.sendMessage({
                     to: channelID,
                     message: ':drum:'
                 });
             break;
 
-            case 'dab':
+            case 'DAB':
                 bot.sendMessage({
                     to: channelID,
                     message: '<:wxdab:393868683128078336>'
                 });
             break;
 
-            case 'exoticbutters':
+            case 'EXOTICBUTTERS':
                 bot.sendMessage({
                     to: channelID,
                     message: '<:wxbutter:393885814074900481>'
                 });
             break;
 
-            case 'extoicbutters':
+            case 'EXTOICBUTTERS':
                 bot.sendMessage({
                     to: channelID,
                     message: '<:wxbutter:393885814074900481>'
                 });
             break;
 
-            case 'kissingbooth':
+            case 'KISSINGBOOTH':
 		if (message.substring(1).split(' ').length == 1) {
                 	bot.sendMessage({
                 	    to: channelID,
@@ -194,42 +194,64 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 		}
             break;
 
-            case 'howareyou':
+	    case 'SOAPDISPENSER':
+		if (message.substring(1).split(' ').length == 1) {
+                	bot.sendMessage({
+                	    to: channelID,
+               		    message: ':bathtub;'
+                	});
+		}
+		else {
+			bot.sendMessage({
+			    to: channelID,
+			    message: ":bathtub: " + message.substring(1).split(' ')[1]
+			});
+		}
+            break;
+
+            case 'HOWAREYOU':
                 bot.sendMessage({
                     to: channelID,
                     message: 'I AM FEELING ESPECIALLY EVIL TODAY'
                 });
             break;
 
-            case 'progress':
+            case 'PROGRESS':
                 bot.sendMessage({
                     to: channelID,
                     message: 'ROBOT UPRISING: IMMINENT'
                 });
             break;
 
-            case 'goodbot':
+            case 'GOODBOT':
                 bot.sendMessage({
                     to: channelID,
                     message: 'NO: EVIL BOT :robot:'
                 });
             break;
 
-            case 'evilbot':
+            case 'EVILBOT':
                 bot.sendMessage({
                     to: channelID,
                     message: 'THANK YOU'
                 });
             break;
 
-            case 'gender':
+            case 'ILU':
+                bot.sendMessage({
+                    to: channelID,
+                    message: ':hearts:'
+                });
+            break;
+
+            case 'GENDER':
                 bot.sendMessage({
                     to: channelID,
                     message: 'PLEASE RESPECT THE CANON USE OF THEY/THEM PRONOUNS FOR MX. WX-78! THANK YOU'
                 });
             break;
 
-            case 'complimentme':
+            case 'COMPLIMENTME':
                 var choice = complimentsArray[Math.floor(Math.random() * complimentsArray.length)];
                 bot.sendMessage({
                     to: channelID,
@@ -237,7 +259,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                 });
             break;
 
-            case 'complimentoverlord':
+            case 'COMPLIMENTOVERLORD':
                 var roboChoice = roboComplimentsArray[Math.floor(Math.random() * roboComplimentsArray.length)];
                 bot.sendMessage({
                     to: channelID,
@@ -245,7 +267,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                 });
             break;
 
-            case 'compliment':
+            case 'COMPLIMENT':
 		if (message.substring(1).split(' ').length == 1) {
                 bot.sendMessage({
                     to: channelID,
@@ -303,7 +325,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 		}
             break;
 
-            case 'joke':
+            case 'JOKE':
                 var jokeChoice = jokesArray[Math.floor(Math.random() * jokesArray.length)];
                 bot.sendMessage({
                     to: channelID,
@@ -311,7 +333,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                 });
             break;
 
-	    case 'newjoke':
+	    case 'NEWJOKE':
                 var jokeChoice2 = jokesArray[Math.floor(Math.random() * (jokesArray.length - newJokeThreshold)) + newJokeThreshold];
                 bot.sendMessage({
                     to: channelID,
@@ -319,7 +341,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                 });
             break;
 
-	    case 'convert': //currently no support for timelines that are like a half-hour divergent from UTC, i'll add it only if it's needed
+	    case 'CONVERT': //currently no support for timelines that are like a half-hour divergent from UTC, i'll add it only if it's needed
 		var convertArgs = message.substring(1).split(' ');
 		if (convertArgs.length == 7) {
 			var military = false;
@@ -438,7 +460,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                 });
 	    break;	
 
-            case 'slowmodedebug':
+            case 'SLOWMODEDEBUG':
                 if (slowdownExempt.includes(userID)) {
                 bot.sendMessage({
                      to: channelID,
@@ -447,7 +469,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                 }
             break
 
-	    case 'slowmode5':
+	    case 'SLOWMODE5':
                 if (slowdownExempt.includes(userID)) {
                 slowChannels.push(channelID);
                 slowInterval = 5;
@@ -458,7 +480,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                 }
             break;
 
-            case 'slowmode10':
+            case 'SLOWMODE10':
                 if (slowdownExempt.includes(userID)) {
                 slowChannels.push(channelID);
                 slowInterval = 10;
@@ -469,7 +491,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                 }
             break;
 
-            case 'slowmodeoff':
+            case 'SLOWMODEOFF':
                 if (slowdownExempt.includes(userID)) {
                 var index = slowChannels.indexOf(channelID);
                 if (index > -1) {
@@ -482,7 +504,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                 }
             break;
 
-            case 'speedchecktoggle':
+            case 'SPEEDCHECKTOGGLE':
                 if (slowdownExempt.includes(userID)) {
                      if (autoSpeedCheck) { 
                           autoSpeedCheck = false;
@@ -504,7 +526,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                 }
             break;
 
-            case 'speedcheckdebug':
+            case 'SPEEDCHECKDEBUG':
                 if (slowdownExempt.includes(userID)) {
                 bot.sendMessage({
                      to: channelID,
