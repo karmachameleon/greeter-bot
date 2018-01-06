@@ -194,11 +194,11 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 		}
             break;
 
-	    case 'SOAPDISPENSER':
+	    case 'SOAP':
 		if (message.substring(1).split(' ').length == 1) {
                 	bot.sendMessage({
                 	    to: channelID,
-               		    message: ':bathtub;'
+               		    message: ':bathtub:'
                 	});
 		}
 		else {
