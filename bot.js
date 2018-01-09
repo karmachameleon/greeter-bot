@@ -131,12 +131,6 @@ bot.on('message', function (user, userID, channelID, message, evt) {
             break;
 
             case 'COMPLIMENTARYBEVERAGE':
-                bot.sendMessage({
-                    to: channelID,
-                    message: ':tea:'
-                });
-            break;
-
             case 'TEA':
                 bot.sendMessage({
                     to: channelID,
@@ -152,6 +146,9 @@ bot.on('message', function (user, userID, channelID, message, evt) {
             break;
 
             case 'RIMSHOT':
+	    case 'BADUM':
+	    case 'BADUMCHH':
+	    case 'BADUMTSS':
                 bot.sendMessage({
                     to: channelID,
                     message: ':drum:'
@@ -166,12 +163,6 @@ bot.on('message', function (user, userID, channelID, message, evt) {
             break;
 
             case 'EXOTICBUTTERS':
-                bot.sendMessage({
-                    to: channelID,
-                    message: '<:wxbutter:393885814074900481>'
-                });
-            break;
-
             case 'EXTOICBUTTERS':
                 bot.sendMessage({
                     to: channelID,
@@ -179,6 +170,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                 });
             break;
 
+	    case 'KISS':
             case 'KISSINGBOOTH':
 		if (message.substring(1).split(' ').length == 1) {
                 	bot.sendMessage({
@@ -238,11 +230,21 @@ bot.on('message', function (user, userID, channelID, message, evt) {
             break;
 
             case 'ILU':
+	    case 'ILUHAL':
                 bot.sendMessage({
                     to: channelID,
                     message: ':hearts:'
                 });
             break;
+
+	    case 'REZ':
+	    case 'RES':
+	    case 'HEART':
+		bot.sendMessage({
+		    to: channelID,
+		    message: '<:telltale:400148636220129280>'
+		});
+	    break;
 
             case 'GENDER':
                 bot.sendMessage({
