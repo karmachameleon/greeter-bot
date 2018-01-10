@@ -170,6 +170,22 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                 });
             break;
 
+	    case 'JAIL':
+            case 'FLESHLINGJAIL':
+		if (message.substring(1).split(' ').length == 1) {
+                	bot.sendMessage({
+                	    to: channelID,
+               		    message: '<:fleshlingjail:400475674118193153>'
+                	});
+		}
+		else {
+			bot.sendMessage({
+			    to: channelID,
+			    message: "<:fleshlingjail:400475674118193153> " + message.substring(1).split(' ')[1]
+			});
+		}
+            break;
+
 	    case 'KISS':
             case 'KISSINGBOOTH':
 		if (message.substring(1).split(' ').length == 1) {
@@ -187,6 +203,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
             break;
 
 	    case 'SOAP':
+	    case 'SOAPDISPENSER':
 		if (message.substring(1).split(' ').length == 1) {
                 	bot.sendMessage({
                 	    to: channelID,
