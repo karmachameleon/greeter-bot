@@ -664,17 +664,17 @@ app.get('/new-entry', (request, response) => {
     response.render('new-entry');
 });
 
-app.post('new-entry', (request, response) => {
+app.post('/new-entry', (request, response) => {
     if (!request.body.title || !request.body.body) {
 	response.status(400).send("Entries must have a title and a body.");
 	return;
     }
     entries.push({
 	title: request.body.title,
-	content:request.body.body,
+	content: request.body.body,
 	published: new Date()
     });
-    response.redirect("/");
+    response.redirect('/');
 });
 
 app.use(function(request,response) {
