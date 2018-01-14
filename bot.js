@@ -650,7 +650,7 @@ var entries = [];
 app.locals.entries = entries;
 
 app.use(logger2("dev"));
-app.use(bodyParser.urlencodd({ extended: false });
+app.use(bodyParser.urlencoded({ extended: false });
 
 // make express look in the `public` directory for assets (css/js/img)
 app.use(express.static(__dirname + '/public'));
