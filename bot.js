@@ -656,15 +656,15 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(__dirname + '/public'));
 
 // set the home page route
-app.get('/', function(request, response) => {
+app.get('/', (request, response) => {
     response.render('index');
 });
 
-app.get('/new-entry', function(request, response) => {
+app.get('/new-entry', (request, response) => {
     response.render('new-entry');
 });
 
-app.post('new-entry', function(request, response) => {
+app.post('new-entry', (request, response) => {
     if (!request.body.title || !request.body.body) {
 	response.status(400).send("Entries must have a title and a body.");
 	return;
