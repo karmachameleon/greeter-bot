@@ -629,23 +629,56 @@ bot.on('guildMemberAdd', function(member) {
 	});
 });
 
-const express = require('express');
-const app = express();
+//Webpage + guestbook
+
+var http = require('http');
+var path = require('path');
+var express = require('express');
+var logger2 = require('morgan'); 
+var bodyParser = require('body-parser');
+
+var app = express();
 
 // set the port of our application
 // process.env.PORT lets the port be set by Heroku
-const port = process.env.PORT || 5000;
+var port = process.env.PORT || 5000;
 
-// set the view engine to ejs
-app.set('view engine', 'ejs');
+app.set("views", path.resolve(__dirname, "views"));
+app.set('view engine', 'ejs'); // set the view engine to ejs
+
+var entries = [];
+app.locals.entries = entries;
+
+app.use(logger2("dev"));
+app.use(bodyParser.urlencodd({ extended: false });
 
 // make express look in the `public` directory for assets (css/js/img)
 app.use(express.static(__dirname + '/public'));
 
 // set the home page route
-app.get('/', (request, response) => {
-    // ejs render automatically looks in the views folder
+app.get('/', function(request, response) => {
     response.render('index');
+});
+
+app.get('/new-entry', function(request, response) => {
+    response.render('new-entry');
+});
+
+app.post('new-entry', function(request, response) => {
+    if (!request.body.title || !request.body.body) {
+	response.status(400).send("Entries must have a title and a body.");
+	return;
+    }
+    entries.push({
+	title: request.body.title,
+	content:request.body.body,
+	published: new Date()
+    });
+    response.redirect("/");
+});
+
+app.use(function(request,response) {
+    response.status(404).render("404");
 });
 
 app.listen(port, () => {

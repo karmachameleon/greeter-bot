@@ -9,9 +9,11 @@
     "npm": "5.5.1"
   },
   "dependencies": {
+    "body-parser": "^1.18.2",
     "discord.io": "github:woor/discord.io#gateway_v6",
     "ejs": "^2.5.7",
     "express": "^4.16.2",
+    "morgan": "^1.9.0",
     "winston": "^2.4.0"
   },
   "scripts": {

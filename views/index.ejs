@@ -1,8 +1,19 @@
-<!DOCTYPE html>
-<html>
-
-<body>
-	<img src="http://www.emoji.co.uk/files/twitter-emojis/food-drink-twitter/10795-slice-of-pizza.png" alt="SUBMIT TO THE PIZZA OVERLORDS">
-</body>
-
-</html>
+<% include header %>
+<% if (entries.length) { %>
+  <% entries.forEach(function(entry) { %>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <div class="text-muted pull-right">
+          <%= entry.published %>
+        </div>
+        <%= entry.title %>
+      </div>
+      <div class="panel-body">
+        <%= entry.body %>
+      </div>
+    </div>
+  <% }) %>
+<% } else { %>
+  No entries! <a href="/new-entry">Add one!</a>
+<% } %>
+<% include footer %>
