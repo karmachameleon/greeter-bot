@@ -665,13 +665,13 @@ app.get('/new-entry', (request, response) => {
 });
 
 app.post('/new-entry', (request, response) => {
-    if (!request.body.title || !request.body.body) {
+    if (!request.body.title || !request.body.content) {
 	response.status(400).send("Entries must have a title and a body.");
 	return;
     }
     entries.push({
 	title: request.body.title,
-	content: request.body.body,
+	content: request.body.content,
 	published: new Date()
     });
     response.redirect('/');
