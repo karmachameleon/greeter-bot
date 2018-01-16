@@ -42,6 +42,8 @@ function isNumber(n) {
 var slowChannels = [];
 var slowUsers = [];
 var slowInterval = 5;
+var slowEveryone = false;
+var slowEveryoneActive = false;
 var slowdownExempt = ['396859791877734410', '144975424298942464',  '174330815730155520', '138834050415722496', '158267875671408640', '253717780853948416']
 
 var newJokeThreshold = 11;
@@ -64,7 +66,7 @@ bot.on('ready', function (evt) {
 bot.on('message', function (user, userID, channelID, message, evt) {
     // check if this channel is slowed down
     if (slowChannels.includes(channelID)) {
-         if (true) { //if you ever try again to implement slowdownexempt, it should go here, i think.
+         if (!slowEveryone) {
               if (slowUsers.includes(user)) {
                    bot.deleteMessage({
                         channelID: channelID,
@@ -80,7 +82,21 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                          }; 
                    }, slowInterval * 1000);
               }
-         }
+        }
+	else {
+		if (slowEveryoneActive && !slowdownExempt.includes(userID)) {
+                   bot.deleteMessage({
+                        channelID: channelID,
+                        messageID: evt.d.id
+                   });
+		}
+		else{
+                   slowEveryoneActive = true;
+                   setTimeout(function(){ 
+                         slowEveryoneActive = false;
+                   }, slowInterval * 1000);
+		}
+	}
     }
     //otherwise, log message speed (if speed checks are on)
     else if (autoSpeedCheck) {
@@ -175,7 +191,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 
 	    case 'JAIL':
             case 'FLESHLINGJAIL':
-		if (message.substring(1).split(' ').length == 1) {
+		if (message.split(' ').length == 1) {
                 	bot.sendMessage({
                 	    to: channelID,
                		    message: '<:fleshlingjail:400475674118193153>'
@@ -184,14 +200,14 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 		else {
 			bot.sendMessage({
 			    to: channelID,
-			    message: "<:fleshlingjail:400475674118193153> " + message.substring(1).split(' ')[1]
+			    message: "<:fleshlingjail:400475674118193153> " + message.split(' ')[1]
 			});
 		}
             break;
 
 	    case 'KISS':
             case 'KISSINGBOOTH':
-		if (message.substring(1).split(' ').length == 1) {
+		if (message.split(' ').length == 1) {
                 	bot.sendMessage({
                 	    to: channelID,
                		    message: '<@' + userID + '> :kissing_heart:'
@@ -200,14 +216,14 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 		else {
 			bot.sendMessage({
 			    to: channelID,
-			    message: ":kissing_heart: " + message.substring(1).split(' ')[1]
+			    message: ":kissing_heart: " + message.split(' ')[1]
 			});
 		}
             break;
 
 	    case 'SOAP':
 	    case 'SOAPDISPENSER':
-		if (message.substring(1).split(' ').length == 1) {
+		if (message.split(' ').length == 1) {
                 	bot.sendMessage({
                 	    to: channelID,
                		    message: ':bathtub:'
@@ -216,7 +232,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 		else {
 			bot.sendMessage({
 			    to: channelID,
-			    message: ":bathtub: " + message.substring(1).split(' ')[1]
+			    message: ":bathtub: " + message.split(' ')[1]
 			});
 		}
             break;
@@ -274,7 +290,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
             break;
 
 	    case 'ROLE':
-		if (message.substring(1).split(' ').length == 1) {
+		if (message.split(' ').length == 1) {
 	                bot.sendMessage({
         	            to: channelID,
         	            message: 'YOU MUST TELL ME WHAT ROLE I AM NOT PSYCHIC'
@@ -304,7 +320,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 	    break;
 
 	    case 'REMOVEROLE':
-		if (message.substring(1).split(' ').length == 1) {
+		if (message.split(' ').length == 1) {
 	                bot.sendMessage({
         	            to: channelID,
         	            message: 'YOU MUST TELL ME WHAT ROLE I AM NOT PSYCHIC'
@@ -350,14 +366,14 @@ bot.on('message', function (user, userID, channelID, message, evt) {
             break;
 
             case 'COMPLIMENT':
-		if (message.substring(1).split(' ').length == 1) {
+		if (message.split(' ').length == 1) {
                 bot.sendMessage({
                     to: channelID,
                     message: 'COMPLIMENT WHO'
                 });
 		}
 		else {
-			var recipient = message.substring(1).split(' ')[1].toUpperCase();
+			var recipient = message.split(' ')[1].toUpperCase();
 			//console.log(recipient + ' ' + userID);
 			if (robotsToCompliment.includes(recipient)){
 				var choice2 = roboComplimentsArray[Math.floor(Math.random() * roboComplimentsArray.length)];
@@ -424,7 +440,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
             break;
 
 	    case 'CONVERT': //currently no support for timelines that are like a half-hour divergent from UTC, i'll add it only if it's needed
-		var convertArgs = message.substring(1).split(' ');
+		var convertArgs = message.split(' ');
 		if (convertArgs.length == 7) {
 			var military = false;
 			if (convertArgs[3].toUpperCase() === "AM") {
@@ -557,7 +573,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                 slowInterval = 5;
                 bot.sendMessage({
                     to: channelID,
-                    message: 'SLOWMODE HAS BEEN TURNED ON IN <#' + channelID + '>. FIVE SECOND DELAY INSTITUTED.'
+                    message: 'SLOWMODE HAS BEEN TURNED ON IN <#' + channelID + '>. FIVE SECOND DELAY ON INDIVIDUAL COMMUNICATIONS INSTITUTED.'
                 });
                 }
             break;
@@ -568,10 +584,33 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                 slowInterval = 10;
                 bot.sendMessage({
                     to: channelID,
-                    message: 'SLOWMODE HAS BEEN TURNED ON IN <#' + channelID + '>. TEN SECOND DELAY INSTITUTED.'
+                    message: 'SLOWMODE HAS BEEN TURNED ON IN <#' + channelID + '>. TEN SECOND DELAY ON INDIVIDUAL COMMUNICATIONS INSTITUTED.'
                 });
                 }
             break;
+	
+	    case 'SLOWMODEALL':
+		if (slowdownExempt.includes(userID)){
+			slowChannels.push(channelID);
+			slowEveryone = true;
+			if (message.split(' ').length != 1) {
+				var interval = message.split(' ')[1];
+				if (isNumber(interval)) {
+					slowInterval = parseInt(interval);
+				}
+				else {
+					slowInterval = 5;
+				}
+			}
+			else {
+				slowInterval = 5;
+			}
+	                bot.sendMessage({
+        	            to: channelID,
+                	    message: "SLOWMODE HAS BEEN TURNED ON FOR ALL USERS AT ONCE IN <#" + channelID + ">. " + slowInterval + " SECOND DELAY INSTITUTED."
+               		});
+		}
+	    break;
 
             case 'SLOWMODEOFF':
                 if (slowdownExempt.includes(userID)) {
@@ -579,6 +618,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                 if (index > -1) {
                     slowChannels.splice(index, 1);
                 }
+		slowEveryone = false;
                 bot.sendMessage({
                     to: channelID,
                     message: 'SLOWMODE HAS BEEN TURNED OFF IN <#' + channelID + '>. FEEL FREE TO RESUME CHATTER.'
@@ -629,13 +669,12 @@ bot.on('guildMemberAdd', function(member) {
 	});
 });
 
-//Webpage + guestbook
+//Webpage
 
 var http = require('http');
 var path = require('path');
 var express = require('express');
 var logger2 = require('morgan'); 
-var bodyParser = require('body-parser');
 
 var app = express();
 
@@ -646,11 +685,7 @@ var port = process.env.PORT || 5000;
 app.set("views", path.resolve(__dirname, "views"));
 app.set('view engine', 'ejs'); // set the view engine to ejs
 
-var entries = [];
-app.locals.entries = entries;
-
 app.use(logger2("dev"));
-app.use(bodyParser.urlencoded({ extended: false }));
 
 // make express look in the `public` directory for assets (css/js/img)
 app.use(express.static(__dirname + '/public'));
@@ -658,23 +693,6 @@ app.use(express.static(__dirname + '/public'));
 // set the home page route
 app.get('/', (request, response) => {
     response.render('index');
-});
-
-app.get('/new-entry', (request, response) => {
-    response.render('new-entry');
-});
-
-app.post('/new-entry', (request, response) => {
-    if (!request.body.title || !request.body.content) {
-	response.status(400).send("Entries must have a title and a body.");
-	return;
-    }
-    entries.push({
-	title: request.body.title,
-	content: request.body.content,
-	published: new Date()
-    });
-    response.redirect('/');
 });
 
 app.use(function(request,response) {
