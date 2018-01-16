@@ -90,7 +90,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                         messageID: evt.d.id
                    });
 		}
-		else{
+		else {
                    slowEveryoneActive = true;
                    setTimeout(function(){ 
                          slowEveryoneActive = false;
@@ -599,11 +599,11 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 					slowInterval = parseInt(interval);
 				}
 				else {
-					slowInterval = 5;
+					slowInterval = 2;
 				}
 			}
 			else {
-				slowInterval = 5;
+				slowInterval = 2;
 			}
 	                bot.sendMessage({
         	            to: channelID,
