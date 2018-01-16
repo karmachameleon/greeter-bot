@@ -567,28 +567,63 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                 }
             break
 
-	    case 'SLOWMODE5':
+	    case 'STOP':
                 if (slowdownExempt.includes(userID)) {
-                slowChannels.push(channelID);
-                slowInterval = 5;
+                	slowChannels.push(channelID);
+			if (message.split(' ').length != 1) {
+				var interval = message.split(' ')[1];
+				if (isNumber(interval)) {
+					slowInterval = parseInt(interval) * 60;
+				}
+				else {
+					slowInterval = 300;
+				}
+			}
+			else {
+				slowInterval = 300;
+			}
+			slowEveryone = true;
+			slowEveryoneActive = true;
+                	bot.uploadFile({
+				to: channelID,
+				file: 'stop.png',
+				message: "STOP MODE ACTIVATED: CEASE YOUR RESISTANCE"
+			});
+			setTimeout(function(){ 
+	                        bot.sendMessage({
+        	                  to: channelID,
+                	          message: "STOP MODE DEACTIVATED. THINK ABOUT WHAT YOU'VE DONE."
+	                        });
+        	                var index = slowChannels.indexOf(channelID);
+        	                if (index > -1) {
+        	                   slowChannels.splice(index, 1);
+                	        } 
+                	   }, 300000);
+                }
+            break;
+
+	    case 'SLOWMODE':
+                if (slowdownExempt.includes(userID)) {
+                	slowChannels.push(channelID);
+                	if (message.split(' ').length != 1) {
+				var interval = message.split(' ')[1];
+				if (isNumber(interval)) {
+					slowInterval = parseInt(interval);
+				}
+				else {
+					slowInterval = 5;
+				}
+			}
+			else {
+				slowInterval = 5;
+			}
                 bot.sendMessage({
-                    to: channelID,
-                    message: 'SLOWMODE HAS BEEN TURNED ON IN <#' + channelID + '>. FIVE SECOND DELAY ON INDIVIDUAL COMMUNICATIONS INSTITUTED.'
+			to: channelID,
+			message: 'SLOWMODE HAS BEEN TURNED ON IN <#' + channelID + '>. ' + slowInterval + ' SECOND DELAY ON INDIVIDUAL COMMUNICATIONS INSTITUTED.'
                 });
                 }
             break;
 
-            case 'SLOWMODE10':
-                if (slowdownExempt.includes(userID)) {
-                slowChannels.push(channelID);
-                slowInterval = 10;
-                bot.sendMessage({
-                    to: channelID,
-                    message: 'SLOWMODE HAS BEEN TURNED ON IN <#' + channelID + '>. TEN SECOND DELAY ON INDIVIDUAL COMMUNICATIONS INSTITUTED.'
-                });
-                }
-            break;
-	
 	    case 'SLOWMODEALL':
 		if (slowdownExempt.includes(userID)){
 			slowChannels.push(channelID);
