@@ -582,22 +582,24 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 			else {
 				slowInterval = 300;
 			}
-			slowEveryone = true;
-			slowEveryoneActive = true;
                 	bot.uploadFile({
 				to: channelID,
 				file: 'stop.png',
 				message: "STOP MODE ACTIVATED: CEASE YOUR RESISTANCE"
 			});
+			slowEveryone = true;
+			slowEveryoneActive = true;
 			setTimeout(function(){ 
-	                        bot.sendMessage({
-        	                  to: channelID,
-                	          message: "STOP MODE DEACTIVATED. THINK ABOUT WHAT YOU'VE DONE."
-	                        });
+	                        slowEveryone = false;
+				slowEveryoneActive = false;
         	                var index = slowChannels.indexOf(channelID);
         	                if (index > -1) {
         	                   slowChannels.splice(index, 1);
                 	        } 
+				bot.sendMessage({
+        	                  to: channelID,
+                	          message: "STOP MODE DEACTIVATED. THINK ABOUT WHAT YOU'VE DONE."
+	                        });
                 	   }, 300000);
                 }
             break;
