@@ -73,7 +73,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                         messageID: evt.d.id
                    });
               }
-              else { 
+              else if (!slowmodeExempt.includes(userID)) { 
                    slowUsers.push(user);
                    setTimeout(function(){ 
                          var i = slowUsers.indexOf(user);
@@ -600,7 +600,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
         	                  to: channelID,
                 	          message: "STOP MODE DEACTIVATED. THINK ABOUT WHAT YOU'VE DONE."
 	                        });
-                	   }, 300000);
+                	   }, slowInterval * 60000);
                 }
             break;
 
