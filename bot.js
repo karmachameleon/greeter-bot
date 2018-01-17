@@ -174,6 +174,16 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                 });
             break;
 
+	    case 'FINGERGUNS':
+	    case 'AYY':
+	    case 'AYYY':
+	    case 'AYYYY':
+		bot.sendMessage({
+		    to: channelID,
+		    message: '<:wxfingergun_left:396526726341066764> <:wxfingergun_left:396526726341066764> HOT CHA CHA'
+		});
+	    break;
+
             case 'DAB':
                 bot.sendMessage({
                     to: channelID,
