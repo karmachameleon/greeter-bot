@@ -73,7 +73,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                         messageID: evt.d.id
                    });
               }
-              else if (!slowmodeExempt.includes(userID)) { 
+              else if (!slowdownExempt.includes(userID)) { 
                    slowUsers.push(user);
                    setTimeout(function(){ 
                          var i = slowUsers.indexOf(user);
