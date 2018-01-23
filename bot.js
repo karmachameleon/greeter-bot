@@ -356,6 +356,13 @@ bot.on('message', function (user, userID, channelID, message, evt) {
         });
       break;
 
+      case 'POSITIVE':
+        bot.sendMessage({
+          to: channelID,
+          message: 'PLEASE KEEP THIS PIZZA PARTY POSITIVE! YOU ARE WELCOME TO CONTINUE VENTING IN A PRIVATE CONVERSATION OR ANOTHER SPACE. THANK YOU'
+        });
+      break;
+
       case 'DANCE':
         var dancechoice = dancegifs[Math.floor(Math.random() * dancegifs.length)];
         bot.uploadFile({
