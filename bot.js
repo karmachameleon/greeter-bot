@@ -378,7 +378,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
       case 'ROLL':
       case 'SKILLCHECK':
         var diceroll = Math.floor(Math.random() * 21);
-        var diceresult = 'YOU HAVE ROLLED A + ' diceroll.toString() + '. ';
+        var diceresult = 'YOU HAVE ROLLED A ' + diceroll.toString() + '. ';
         if (diceroll == 1) { diceresult += 'AN ABJECT FAILURE. WHAT A SHAME'; }
         else if (diceroll < 5) { diceresult += 'YOU HAVE ROLLED POORLY. BETTER LUCK NEXT TIME'; }
         else if (diceroll < 9) { diceresult += 'A MEDIOCRE ROLL. PERHAPS IT WILL SUCCEED ON AN EASY TASK, LIKE WHAT AN ORGANIC BABY COULD DO'; }
