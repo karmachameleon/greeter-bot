@@ -104,6 +104,9 @@ var speedCheckReset;
 var autoSpeedCheck = false;
 var speedCheckThreshold = 5;
 
+//memory usage troubleshooting
+const used = process.memoryUsage().heapUsed / 1024 / 1024;
+
 bot.on('ready', function (evt) {
     logger.info('Connected');
     logger.info('Logged in as: ');
@@ -829,4 +832,6 @@ app.listen(port, () => {
  // pings server every 15 minutes to prevent dynos from sleeping
 setInterval(() => {
   http.get('http://robot-pizza-party.herokuapp.com');
+  //memory usage troubleshooting
+  console.log('THE SCRIPT IS USING APPROXIMATELY ${Math.round(used*100) / 100} MB');
 }, 900000);
