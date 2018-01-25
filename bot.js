@@ -833,5 +833,6 @@ app.listen(port, () => {
 setInterval(() => {
   http.get('http://robot-pizza-party.herokuapp.com');
   //memory usage troubleshooting
+  used = process.memoryUsage().heapUsed / 1024 / 1024;
   console.log('THE SCRIPT IS USING APPROXIMATELY ' + Math.round(used*100) / 100 + ' MB');
 }, 900000);
