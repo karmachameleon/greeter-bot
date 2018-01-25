@@ -105,7 +105,7 @@ var autoSpeedCheck = false;
 var speedCheckThreshold = 5;
 
 //memory usage troubleshooting
-const used = process.memoryUsage().heapUsed / 1024 / 1024;
+var used = process.memoryUsage().heapUsed / 1024 / 1024;
 
 bot.on('ready', function (evt) {
     logger.info('Connected');
