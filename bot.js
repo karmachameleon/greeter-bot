@@ -105,7 +105,7 @@ var autoSpeedCheck = false;
 var speedCheckThreshold = 5;
 
 //memory usage troubleshooting
-var used = process.memoryUsage().heapUsed / 1024 / 1024;
+//var used = process.memoryUsage().heapUsed / 1024 / 1024;
 
 bot.on('ready', function (evt) {
     logger.info('Connected');
@@ -115,6 +115,11 @@ bot.on('ready', function (evt) {
 
 process.on('uncaughtException', function (exception) {
   console.log(exception); // to see your exception details in the console
+});
+
+bot.on('disconnect', function(errMsg, code) {
+    console.log("DISCONNECTED! " + errMsg + "; CODE: " + code);
+    bot.connect(); //worth a shot lmao
 });
 
 bot.on('message', function (user, userID, channelID, message, evt) {
@@ -833,6 +838,6 @@ app.listen(port, () => {
 setInterval(() => {
   http.get('http://robot-pizza-party.herokuapp.com');
   //memory usage troubleshooting
-  used = process.memoryUsage().heapUsed / 1024 / 1024;
-  console.log('THE SCRIPT IS USING APPROXIMATELY ' + Math.round(used*100) / 100 + ' MB');
+  //used = process.memoryUsage().heapUsed / 1024 / 1024;
+  //console.log('THE SCRIPT IS USING APPROXIMATELY ' + Math.round(used*100) / 100 + ' MB');
 }, 900000);
