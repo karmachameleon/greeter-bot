@@ -825,6 +825,14 @@ app.get('/', (request, response) => {
     response.render('index');
 });
 
+app.get('/pets', (request, response) => {
+    response.render('pets');
+});
+
+app.get('/robots', (request, response) => {
+    response.render('robots');
+});
+
 app.use(function(request,response) {
     response.status(404).render("404");
 });
