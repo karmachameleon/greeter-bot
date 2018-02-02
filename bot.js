@@ -594,8 +594,7 @@ bot.on('message', msg => {
             var redactID = msg.content.split(' ')[1];
 
             var redactMessage = msg.channel.fetchMessage(redactID).catch(console.error);
-            var redactedString = redactMessage.cleanContent;
-            chan.send("TESTING! " + redactID + " " + redactedString);
+            redactMessage.pin();
           }
         }
       break;
