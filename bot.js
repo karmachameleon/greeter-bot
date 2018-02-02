@@ -125,7 +125,7 @@ bot.on('message', msg => {
         msg.delete();
       }
 
-      else if (!msg.member.hasPermission(MANAGE_ROLES)) {
+      else if (!msg.member.hasPermission("MANAGE_ROLES")) {
         slowUsers.push(msg.author);
         setTimeout(function(){
           var i = slowUsers.indexOf(msg.author);
@@ -136,7 +136,7 @@ bot.on('message', msg => {
       }
     } //end individual slowmode
 	  else { //slowmodeall
-      if (!msg.member.hasPermission(MANAGE_ROLES)) {
+      if (!msg.member.hasPermission("MANAGE_ROLES")) {
     		if (slowEveryoneActive) {
           msg.delete();
 		    }
@@ -151,7 +151,7 @@ bot.on('message', msg => {
   } //end slowmode
   //otherwise, log message speed if speed checks are on
   else if (autoSpeedCheck) {
-    if (!msg.member.hasPermission(MANAGE_ROLES)) {
+    if (!msg.member.hasPermission("MANAGE_ROLES")) {
       speedCheck+=1;
       if (speedCheck > speedCheckThreshold) {
         slowChannels.push(msg.channel);
@@ -503,13 +503,13 @@ bot.on('message', msg => {
     	break;
 
       case 'SLOWMODEDEBUG':
-        if (msg.member.hasPermission(MANAGE_ROLES)) {
+        if (msg.member.hasPermission("MANAGE_ROLES")) {
           chan.send('CHANNELS: ' + slowChannels + ', USERS: ' + slowUsers);
         }
       break;
 
     	case 'STOP':
-        if (msg.member.hasPermission(MANAGE_ROLES)) {
+        if (msg.member.hasPermission("MANAGE_ROLES")) {
           slowChannels.push(msg.channel);
     			if (msg.content.split(' ').length != 1) {
     				var interval = msg.content.split(' ')[1];
@@ -539,7 +539,7 @@ bot.on('message', msg => {
       break;
 
   	  case 'SLOWMODE':
-        if (msg.member.hasPermission(MANAGE_ROLES)) {
+        if (msg.member.hasPermission("MANAGE_ROLES")) {
           slowChannels.push(msg.channel);
           if (msg.content.split(' ').length != 1) {
             var interval = message.split(' ')[1];
@@ -558,7 +558,7 @@ bot.on('message', msg => {
       break;
 
   	  case 'SLOWMODEALL':
-  		  if (msg.member.hasPermission(MANAGE_ROLES)){
+  		  if (msg.member.hasPermission("MANAGE_ROLES")){
     			slowChannels.push(msg.channel);
     			slowEveryone = true;
     			if (msg.content.split(' ').length != 1) {
@@ -578,7 +578,7 @@ bot.on('message', msg => {
   	  break;
 
       case 'SLOWMODEOFF':
-        if (msg.member.hasPermission(MANAGE_ROLES)) {
+        if (msg.member.hasPermission("MANAGE_ROLES")) {
           var index = slowChannels.indexOf(msg.channel);
           if (index > -1) {
               slowChannels.splice(index, 1);
@@ -589,7 +589,7 @@ bot.on('message', msg => {
       break;
 
       case 'REDACT':
-        if (msg.member.hasPermission(MANAGE_ROLES)) {
+        if (msg.member.hasPermission("MANAGE_ROLES")) {
           if (msg.content.split(' ').length > 1) {
             var redactID = msg.content.split(' ')[1];
 
@@ -601,7 +601,7 @@ bot.on('message', msg => {
       break;
 
       case 'SPEEDCHECKTOGGLE':
-        if (msg.member.hasPermission(MANAGE_ROLES)) {
+        if (msg.member.hasPermission("MANAGE_ROLES")) {
           if (autoSpeedCheck) {
             autoSpeedCheck = false;
             speedCheck = 0;
@@ -617,7 +617,7 @@ bot.on('message', msg => {
       break;
 
       case 'SPEEDCHECKDEBUG':
-        if (msg.member.hasPermission(MANAGE_ROLES)) {
+        if (msg.member.hasPermission("MANAGE_ROLES")) {
           chan.send('SPEED CHECK ON: ' + autoSpeedCheck + ', MESSAGE SPEED: ' + speedCheck);
         }
       break;
