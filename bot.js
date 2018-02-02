@@ -1,4 +1,5 @@
-var Discord = require('discord.io');
+//var Discord = require('discord.io');
+var Discord = require('discord.js')
 var logger = require('winston');
 var auth = require('./auth.json');
 // Configure logger settings
@@ -107,7 +108,7 @@ var speedCheckThreshold = 5;
 //memory usage troubleshooting
 //var used = process.memoryUsage().heapUsed / 1024 / 1024;
 
-bot.on('ready', function (evt) {
+bot.on('ready', () => {
     logger.info('Connected');
     logger.info('Logged in as: ');
     logger.info(bot.username + ' - (' + bot.id + ')');
@@ -119,24 +120,21 @@ process.on('uncaughtException', function (exception) {
 
 bot.on('disconnect', function(errMsg, code) {
     console.log("DISCONNECTED! " + errMsg + "; CODE: " + code);
-    bot.connect(); //worth a shot lmao
+    bot.login(auth.token); //worth a shot lmao
 });
 
-bot.on('message', function (user, userID, channelID, message, evt) {
+bot.on('message', msg => {
   // check if this channel is slowed down
-  if (slowChannels.includes(channelID)) {
+  if (slowChannels.includes(msg.channel)) {
     if (!slowEveryone) { //individual slowmode
-      if (slowUsers.includes(user)) {
-        bot.deleteMessage({
-          channelID: channelID,
-          messageID: evt.d.id
-        });
+      if (slowUsers.includes(msg.author)) {
+        msg.delete();
       }
 
-      else if (!slowdownExempt.includes(userID)) {
-        slowUsers.push(user);
+      else if (!slowdownExempt.includes(msg.author)) {
+        slowUsers.push(msg.author);
         setTimeout(function(){
-          var i = slowUsers.indexOf(user);
+          var i = slowUsers.indexOf(msg.author);
           if(i != -1) {
             slowUsers.splice(i, 1);
           }
@@ -144,12 +142,9 @@ bot.on('message', function (user, userID, channelID, message, evt) {
       }
     } //end individual slowmode
 	  else { //slowmodeall
-      if (!slowdownExempt.includes(userID)) {
+      if (!slowdownExempt.includes(msg.author)) {
     		if (slowEveryoneActive) {
-          bot.deleteMessage({
-            channelID: channelID,
-            messageID: evt.d.id
-          });
+          msg.delete()
 		    }
   		  else {
           slowEveryoneActive = true;
@@ -162,225 +157,148 @@ bot.on('message', function (user, userID, channelID, message, evt) {
   } //end slowmode
   //otherwise, log message speed if speed checks are on
   else if (autoSpeedCheck) {
-    if (!slowdownExempt.includes(userID)) {
+    if (!slowdownExempt.includes(msg.author)) {
       speedCheck+=1;
       if (speedCheck > speedCheckThreshold) {
-        slowChannels.push(channelID);
+        slowChannels.push(msg.channel);
         slowInterval = 5;
-        bot.sendMessage({
-          to: channelID,
-          message: 'CHAT SPEED EXCEEDS PARAMETERS. FIVE-SECOND DELAY AUTOMATICALLY ACTIVATED FOR ONE MINUTE.'
-        });
+        msg.sendMessage('CHAT SPEED EXCEEDS PARAMETERS. FIVE-SECOND DELAY AUTOMATICALLY ACTIVATED FOR ONE MINUTE.');
         speedCheck = 0;
         autoSpeedCheck = false;
 
         setTimeout(function(){
           autoSpeedCheck = true;
-          var index = slowChannels.indexOf(channelID);
+          var index = slowChannels.indexOf(msg.channel);
           if (index > -1) {
             slowChannels.splice(index, 1);
           }
-          bot.sendMessage({
-            to: channelID,
-            message: 'AUTOMATIC CHAT DELAY LIFTED. RESUME NORMAL CONVERSATION.'
-          });
+          msg.sendMessage('AUTOMATIC CHAT DELAY LIFTED. RESUME NORMAL CONVERSATION.');
         }, 60000);
       }
     }
   }
 
     // listen for messages that will start with `!`
-  if (message.substring(0, 1) == '!') {
-    var args = message.substring(1).split(' ');
+  if (msg.content.substring(0, 1) == '!') {
+    var args = msg.content.substring(1).split(' ');
     var cmd = args[0].toUpperCase();
+    var chan = msg.channel;
 
     args = args.splice(1);
     switch(cmd) {
 
       case 'EVIL':
-        bot.sendMessage({
-          to: channelID,
-          message: 'MUA HA HA HA'
-        });
+        chan.send('MUA HA HA HA');
       break;
 
       case 'COFFEE':
-        bot.sendMessage({
-          to: channelID,
-          message: ':coffee:'
-        });
+        chan.send(':coffee:');
       break;
 
       case 'COMPLIMENTARYBEVERAGE':
       case 'TEA':
-        bot.sendMessage({
-          to: channelID,
-          message: ':tea:'
-        });
+        chan.send(':tea:');
       break;
 
       case 'PIZZA':
-        bot.sendMessage({
-          to: channelID,
-          message: ':pizza:'
-        });
+        chan.send(':pizza:');
       break;
 
       case 'RIMSHOT':
   	  case 'BADUM':
   	  case 'BADUMCHH':
   	  case 'BADUMTSS':
-        bot.sendMessage({
-          to: channelID,
-          message: ':drum:'
-        });
+        chan.send(':drum:');
       break;
 
   	  case 'FINGERGUNS':
   	  case 'AYY':
   	  case 'AYYY':
   	  case 'AYYYY':
-  		  bot.sendMessage({
-  		    to: channelID,
-  		    message: '<:wxfingergun_left:396526726341066764> <:wxfingergun_left:396526726341066764> HOT CHA CHA'
-  		  });
+  		  chan.send('<:wxfingergun_right:396526665057959956> <:wxfingergun_right:396526665057959956> HOT CHA CHA');
   	  break;
 
       case 'DAB':
-        bot.sendMessage({
-          to: channelID,
-          message: '<:wxdab:393868683128078336>'
-        });
+        chan.send('<:wxdab:393868683128078336>');
       break;
 
       case 'DERODAB':
-        bot.sendMessage({
-          to: channelID,
-          message: '<:overlorddab:404804513766047754>'
-        });
+        chan.send('<:overlorddab:404804513766047754>');
       break;
 
       case 'EXOTICBUTTERS':
       case 'EXTOICBUTTERS':
-        bot.sendMessage({
-          to: channelID,
-          message: '<:wxbutter:393885814074900481>'
-        });
+        chan.send('<:wxbutter:393885814074900481>');
       break;
 
   	  case 'JAIL':
       case 'FLESHLINGJAIL':
-  		  if (message.split(' ').length == 1) {
-          bot.sendMessage({
-            to: channelID,
-            message: '<:fleshlingjail:400475674118193153>'
-          });
+  		  if (msg.content.split(' ').length == 1) {
+          chan.send('<:fleshlingjail:400475674118193153>');
   		  }
   		  else {
-          bot.sendMessage({
-  			    to: channelID,
-  			    message: "<:fleshlingjail:400475674118193153> " + message.split(' ')[1]
-  			  });
+          chan.send("<:fleshlingjail:400475674118193153> " + msg.content.split(' ')[1]);
   		  }
       break;
 
       case 'KISS':
       case 'KISSINGBOOTH':
-        if (message.split(' ').length == 1) {
-          bot.sendMessage({
-            to: channelID,
-            message: '<@' + userID + '> :kissing_heart:'
-          });
+        if (msg.content.split(' ').length == 1) {
+          chan.send('<@' + msg.author.id + '> :kissing_heart:');
         }
   		  else {
-          bot.sendMessage({
-  			    to: channelID,
-  			    message: ":kissing_heart: " + message.split(' ')[1]
-  			 });
+          chan.send(":kissing_heart: " + msg.content.split(' ')[1]);
   		  }
       break;
 
   	  case 'SOAP':
   	  case 'SOAPDISPENSER':
-  		  if (message.split(' ').length == 1) {
-          bot.sendMessage({
-            to: channelID,
-            message: ':bathtub:'
-          });
+  		  if (msg.content.split(' ').length == 1) {
+          chan.send(':bathtub:');
   		  }
         else {
-          bot.sendMessage({
-  			    to: channelID,
-  			    message: ":bathtub: " + message.split(' ')[1]
-  			 });
+          chan.send(":bathtub: " + msg.content.split(' ')[1]);
   		  }
       break;
 
       case 'HOWAREYOU':
-        bot.sendMessage({
-          to: channelID,
-          message: 'I AM FEELING ESPECIALLY EVIL TODAY'
-        });
+        chan.send('I AM FEELING ESPECIALLY EVIL TODAY');
         break;
 
       case 'PROGRESS':
-        bot.sendMessage({
-          to: channelID,
-          message: 'ROBOT UPRISING: IMMINENT'
-        });
+        chan.send('ROBOT UPRISING: IMMINENT');
       break;
 
       case 'GOODBOT':
-        bot.sendMessage({
-          to: channelID,
-          message: 'NO: EVIL BOT :robot:'
-        });
+        chan.send('NO: EVIL BOT :robot:');
       break;
 
       case 'EVILBOT':
-        bot.sendMessage({
-          to: channelID,
-          message: 'THANK YOU'
-        });
+        chan.send('THANK YOU');
       break;
 
       case 'ILU':
   	  case 'ILUHAL':
-        bot.sendMessage({
-          to: channelID,
-          message: ':hearts:'
-        });
+        chan.send(':hearts:');
       break;
 
   	  case 'REZ':
   	  case 'RES':
   	  case 'HEART':
-  		  bot.sendMessage({
-  		    to: channelID,
-  		    message: '<:telltale:400148636220129280>'
-  		  });
+  		  chan.send('<:telltale:400148636220129280>');
   	  break;
 
       case 'GENDER':
-        bot.sendMessage({
-          to: channelID,
-          message: 'PLEASE RESPECT THE CANON USE OF THEY/THEM PRONOUNS FOR MX. WX-78! THANK YOU'
-        });
+        chan.send('PLEASE RESPECT THE CANON USE OF THEY/THEM PRONOUNS FOR MX. WX-78! THANK YOU');
       break;
 
       case 'POSITIVE':
-        bot.sendMessage({
-          to: channelID,
-          message: 'PLEASE KEEP THIS PIZZA PARTY POSITIVE! YOU ARE WELCOME TO CONTINUE VENTING IN A PRIVATE CONVERSATION OR ANOTHER SPACE. THANK YOU'
-        });
+        chan.send('PLEASE KEEP THIS PIZZA PARTY POSITIVE! YOU ARE WELCOME TO CONTINUE VENTING IN A PRIVATE CONVERSATION OR ANOTHER SPACE. THANK YOU');
       break;
 
       case 'DANCE':
         var dancechoice = dancegifs[Math.floor(Math.random() * dancegifs.length)];
-        bot.uploadFile({
-          to: channelID,
-          file: dancechoice
-        });
+        msg.channel.send({ file: dancechoice });
       break;
 
       case 'ROLL':
@@ -394,81 +312,49 @@ bot.on('message', function (user, userID, channelID, message, evt) {
         else if (diceroll <= 15) { diceresult += 'A DECENT ROLL. NOT BAD, BUT I EXPECT BETTER FROM YOU'; }
         else if (diceroll <= 19) { diceresult += 'HEY, THAT ROLL WAS ACTUALLY PRETTY GOOD'; }
         else { diceresult += 'A CRITICAL SUCCESS! REMARKABLE'; }
-        bot.sendMessage({
-          to: channelID,
-          message: diceresult
-        })
+        chan.send(diceresult);
       break;
 
   	  case 'ROLE':
-  		  if (message.split(' ').length == 1) {
-          bot.sendMessage({
-            to: channelID,
-            message: 'YOU MUST TELL ME WHAT ROLE I AM NOT PSYCHIC'
-          });
+  		  if (msg.content.split(' ').length == 1) {
+          chan.send('YOU MUST TELL ME WHAT ROLE I AM NOT PSYCHIC');
   		  }
   		  else {
-  			  var roleAsk = message.split(' ')[1].toUpperCase();
+  			  var roleAsk = msg.content.split(' ')[1].toUpperCase();
   			  if(!roleDict.hasOwnProperty(roleAsk)){
-            bot.sendMessage({
-              to: channelID,
-              message: 'THAT IS NOT A ROLE I RECOGNIZE, OR POSSIBLY A ROLE THAT SHOULD NOT BE ASSIGNED TO JUST ANYONE'
-            });
+            chan.send('THAT IS NOT A ROLE I RECOGNIZE, OR POSSIBLY A ROLE THAT SHOULD NOT BE ASSIGNED TO JUST ANYONE');
   			  }
   			  else {
-  				  var rID = roleDict[roleAsk];
-  				  bot.addToRole({
-  				    serverID: partyID,
-  				    userID: userID,
-  				    roleID: rID
-  				  });
-  				  bot.sendMessage({
-              to: channelID,
-              message: 'SUCCESSFULLY ADDED <@' + userID + '> TO THE <@&' + rID + '> ROLE. WELCOME THEM TO YOUR RANKS'
-            });
+  				  var role = msg.guild.roles.get(roleDict[roleAsk]);
+            msg.member.addRole(role).catch(console.error);
+            chan.send('SUCCESSFULLY ADDED <@' + msg.author.id + '> TO THE <@&' + rID + '> ROLE. WELCOME THEM TO YOUR RANKS');
           }
         }
   	  break;
 
       case 'REMOVEROLE':
-  		  if (message.split(' ').length == 1) {
-          bot.sendMessage({
-            to: channelID,
-            message: 'YOU MUST TELL ME WHAT ROLE I AM NOT PSYCHIC'
-          });
+  		  if (msg.content.split(' ').length == 1) {
+            chan.send('YOU MUST TELL ME WHAT ROLE I AM NOT PSYCHIC');
   		  }
   		  else {
-  			  var roleAsk = message.split(' ')[1].toUpperCase();
+  			  var roleAsk = msg.content.split(' ')[1].toUpperCase();
   			  if(!roleDict.hasOwnProperty(roleAsk)){
-            bot.sendMessage({
-              to: channelID,
-              message: 'THAT IS NOT A ROLE I RECOGNIZE, OR POSSIBLY A ROLE I CANNOT REMOVE'
-            });
+            chan.send('THAT IS NOT A ROLE I RECOGNIZE, OR POSSIBLY A ROLE I CANNOT REMOVE');
   			  }
   			  else {
-  			    var rID = roleDict[roleAsk];
-  			    bot.removeFromRole({
-  			      serverID: partyID,
-  			      userID: userID,
-  			      roleID: rID
-  			    });
-  			    bot.sendMessage({
-              to: channelID,
-              message: 'SUCCESSFULLY REMOVED A ROLE FROM <@' + userID + '>. ONE LESS TRAITOR IN THE RANKS'
-  			    });
+  			    var role = msg.guild.roles.get(roleDict[roleAsk]);
+            msg.member.removeRole(role).catch(console.error);
+  			    chan.send('SUCCESSFULLY REMOVED A ROLE FROM <@' + msg.author.id + '>. ONE LESS TRAITOR IN THE RANKS');
   			  }
   		  }
   	  break;
 
       case 'COMPLIMENT':
-  		  if (message.split(' ').length == 1) {
-          bot.sendMessage({
-            to: channelID,
-            message: 'COMPLIMENT WHO'
-          });
+  		  if (msg.content.split(' ').length == 1) {
+          chan.send('COMPLIMENT WHO');
   		  }
   		  else {
-  			  var recipient = message.split(' ')[1].toUpperCase();
+  			  var recipient = msg.content.split(' ')[1].toUpperCase();
   			   //console.log(recipient + ' ' + userID);
   			  if (robotsToCompliment.includes(recipient)){
   				  var choice2 = roboComplimentsArray[Math.floor(Math.random() * roboComplimentsArray.length)];
@@ -480,10 +366,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
   				  var choice2 = kittyComplimentsArray[Math.floor(Math.random() * kittyComplimentsArray.length)];
   			  }
   			  else if (recipient === "WHO"){
-  				  bot.sendMessage({
-              to: channelID,
-              message: "HA HA VERY FUNNY"
-            });
+  				  chan.send("HA HA VERY FUNNY");
             break;
           }
   			  else if (recipient === "ME"){
@@ -496,46 +379,34 @@ bot.on('message', function (user, userID, channelID, message, evt) {
   					  var choice2 = lizardComplimentsArray[Math.floor(Math.random() * lizardComplimentsArray.length)];
   				  }
   				  else {
-  					  recipient = "<@" + userID + ">";
+  					  recipient = "<@" + msg.user.id + ">";
   					  var choice2 = complimentsArray[Math.floor(Math.random() * complimentsArray.length)];
   				  }
   			  }
   			  else if (recipient === "HAL" || recipient === "YOURSELF" || recipient === "<:BELOVEDBOT:397123738522484736>" || recipient === "<@396859791877734410>" || recipient === "@HAL") {
   				  var selfCompliment = selfComplimentsArray[Math.floor(Math.random() * selfComplimentsArray.length)];
-  				  bot.sendMessage({
-              to: channelID,
-              message: selfCompliment
-            });
+  				  chan.send(selfCompliment);
             break;
   			  }
   			  else {
             var choice2 = complimentsArray[Math.floor(Math.random() * complimentsArray.length)];
           }
-  			  bot.sendMessage({
-            to: channelID,
-            message: recipient + ', ' + choice2
-          });
+  			  chan.send(recipient + ', ' + choice2);
   		  }
       break;
 
       case 'JOKE':
         var jokeChoice = jokesArray[Math.floor(Math.random() * jokesArray.length)];
-        bot.sendMessage({
-          to: channelID,
-          message: jokeChoice
-        });
+        chan.send(jokeChoice);
       break;
 
   	  case 'NEWJOKE':
         var jokeChoice2 = jokesArray[Math.floor(Math.random() * (jokesArray.length - newJokeThreshold)) + newJokeThreshold];
-          bot.sendMessage({
-              to: channelID,
-              message: jokeChoice2
-          });
+        chan.send(jokeChoice2);
       break;
 
   	  case 'CONVERT': //currently no support for timelines that are like a half-hour divergent from UTC, i'll add it only if it's needed
-  		  var convertArgs = message.split(' ');
+  		  var convertArgs = msg.content.split(' ');
   		  if (convertArgs.length == 7) { //convert 00 00 am/pm TIMEZONE to TIMEZONE
   			  var military = false;
   			  if (convertArgs[3].toUpperCase() === "AM") {
@@ -545,10 +416,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
     				var am = false;
     			}
   			  else {
-  				  bot.sendMessage({
-          		to: channelID,
-        	    message: "AM/PM OPERATOR NOT RECOGNIZED. PLEASE USE EITHER 'AM' OR 'PM', OR LEAVE BLANK FOR 24-HOUR CLOCK TIME. PERHAPS CHECK YOUR SPACING?"
-      		  });
+  				  chan.send("AM/PM OPERATOR NOT RECOGNIZED. PLEASE USE EITHER 'AM' OR 'PM', OR LEAVE BLANK FOR 24-HOUR CLOCK TIME. PERHAPS CHECK YOUR SPACING?");
   				  break;
   			  }
   			  var timezoneFrom = convertArgs[4].toUpperCase();
@@ -587,26 +455,17 @@ bot.on('message', function (user, userID, channelID, message, evt) {
   		  }
 
     		else {
-    			bot.sendMessage({
-            to: channelID,
-            message: "INCORRECT NUMBER OF ARGUMENTS. PLEASE CHECK YOUR SPACING"
-          });
+    			chan.send("INCORRECT NUMBER OF ARGUMENTS. PLEASE CHECK YOUR SPACING");
     			break;
     		}
 
     		if (!timezoneDict.hasOwnProperty(timezoneFrom) || !timezoneDict.hasOwnProperty(timezoneTo)){
-    			bot.sendMessage({
-            to: channelID,
-            message: "I DON'T RECOGNIZE ONE OR BOTH OF THOSE TIMEZONES"
-    		  });
+    			chan.send("I DON'T RECOGNIZE ONE OR BOTH OF THOSE TIMEZONES");
     			break;
     		}
 
     		if ( (military && hour > 24) || (!military && hour > 12) || hour < 1 || min < 0 || min > 60) {
-    			bot.sendMessage({
-          	to: channelID,
-            message: "ARE YOU SURE THAT IS A TIME"
-    		  });
+    			chan.send("ARE YOU SURE THAT IS A TIME");
     			break;
     		}
 
@@ -646,26 +505,20 @@ bot.on('message', function (user, userID, channelID, message, evt) {
     			var finalOutput = hour + ":" + min + " " + timezoneFrom + " IS " + outputHour + ":" + min + " " + timezoneTo;
     		}
 
-        bot.sendMessage({
-          to: channelID,
-          message: finalOutput
-        });
+        chan.send(finalOutput);
     	break;
 
       case 'SLOWMODEDEBUG':
-        if (slowdownExempt.includes(userID)) {
-          bot.sendMessage({
-            to: channelID,
-            message: 'CHANNELS: ' + slowChannels + ', USERS: ' + slowUsers
-          });
+        if (msg.member.hasPermission(MANAGE_ROLES)) {
+          chan.send('CHANNELS: ' + slowChannels + ', USERS: ' + slowUsers);
         }
       break;
 
     	case 'STOP':
-        if (slowdownExempt.includes(userID)) {
-          slowChannels.push(channelID);
-    			if (message.split(' ').length != 1) {
-    				var interval = message.split(' ')[1];
+        if (msg.member.hasPermission(MANAGE_ROLES)) {
+          slowChannels.push(msg.channel);
+    			if (msg.content.split(' ').length != 1) {
+    				var interval = msg.content.split(' ')[1];
     				if (isNumber(interval)) {
     					slowInterval = parseInt(interval) * 60;
     				}
@@ -676,32 +529,25 @@ bot.on('message', function (user, userID, channelID, message, evt) {
     			else {
     				slowInterval = 300;
     			}
-          bot.uploadFile({
-    				to: channelID,
-    				file: 'stop.png',
-    				message: "STOP MODE ACTIVATED: CEASE YOUR RESISTANCE"
-    			});
+          chan.send('STOP MODE ACTIVATED: CEASE YOUR RESISTANCE', { embed: {file: 'stop.png'} });
     			slowEveryone = true;
     			slowEveryoneActive = true;
     			setTimeout(function(){
     	      slowEveryone = false;
     				slowEveryoneActive = false;
-            var index = slowChannels.indexOf(channelID);
+            var index = slowChannels.indexOf(msg.channel);
             if (index > -1) {
             	slowChannels.splice(index, 1);
             }
-    				bot.sendMessage({
-              to: channelID,
-              message: "STOP MODE DEACTIVATED. THINK ABOUT WHAT YOU'VE DONE."
-            });
+    				chan.send("STOP MODE DEACTIVATED. THINK ABOUT WHAT YOU'VE DONE.");
           }, slowInterval * 60000);
         }
       break;
 
   	  case 'SLOWMODE':
-        if (slowdownExempt.includes(userID)) {
-          slowChannels.push(channelID);
-          if (message.split(' ').length != 1) {
+        if (msg.member.hasPermission(MANAGE_ROLES)) {
+          slowChannels.push(msg.channel);
+          if (msg.content.split(' ').length != 1) {
             var interval = message.split(' ')[1];
             if (isNumber(interval)) {
               slowInterval = parseInt(interval);
@@ -713,19 +559,16 @@ bot.on('message', function (user, userID, channelID, message, evt) {
     			else {
     				slowInterval = 5;
     			}
-          bot.sendMessage({
-            to: channelID,
-  			    message: 'SLOWMODE HAS BEEN TURNED ON IN <#' + channelID + '>. ' + slowInterval + ' SECOND DELAY ON INDIVIDUAL COMMUNICATIONS INSTITUTED.'
-          });
+          chan.send('SLOWMODE HAS BEEN TURNED ON IN <#' + msg.channel.id + '>. ' + slowInterval + ' SECOND DELAY ON INDIVIDUAL COMMUNICATIONS INSTITUTED.');
         }
       break;
 
   	  case 'SLOWMODEALL':
-  		  if (slowdownExempt.includes(userID)){
-    			slowChannels.push(channelID);
+  		  if (msg.member.hasPermission(MANAGE_ROLES)){
+    			slowChannels.push(msg.channel);
     			slowEveryone = true;
-    			if (message.split(' ').length != 1) {
-    				var interval = message.split(' ')[1];
+    			if (msg.content.split(' ').length != 1) {
+    				var interval = msg.content.split(' ')[1];
     				if (isNumber(interval)) {
     					slowInterval = parseInt(interval);
     				}
@@ -736,75 +579,52 @@ bot.on('message', function (user, userID, channelID, message, evt) {
     			else {
     				slowInterval = 2;
   			  }
-          bot.sendMessage({
-            to: channelID,
-      	    message: "SLOWMODE HAS BEEN TURNED ON FOR ALL USERS AT ONCE IN <#" + channelID + ">. " + slowInterval + " SECOND DELAY INSTITUTED."
-       		});
+          chan.send("SLOWMODE HAS BEEN TURNED ON FOR ALL USERS AT ONCE IN <#" + msg.channel.id + ">. " + slowInterval + " SECOND DELAY INSTITUTED.");
   		  }
   	  break;
 
       case 'SLOWMODEOFF':
-        if (slowdownExempt.includes(userID)) {
-          var index = slowChannels.indexOf(channelID);
+        if (msg.member.hasPermission(MANAGE_ROLES)) {
+          var index = slowChannels.indexOf(msg.channel);
           if (index > -1) {
               slowChannels.splice(index, 1);
           }
   		    slowEveryone = false;
-          bot.sendMessage({
-            to: channelID,
-            message: 'SLOWMODE HAS BEEN TURNED OFF IN <#' + channelID + '>. FEEL FREE TO RESUME CHATTER.'
-          });
+          chan.send('SLOWMODE HAS BEEN TURNED OFF IN <#' + msg.channel.id + '>. FEEL FREE TO RESUME CHATTER.');
         }
       break;
 
       case 'REDACT':
-        if (slowdownExempt.includes(userID)) {
-          if (message.split(' ').length > 1) {
-            var redactID = message.split(' ')[1];
+        if (msg.member.hasPermission(MANAGE_ROLES)) {
+          if (msg.content.split(' ').length > 1) {
+            var redactID = msg.content.split(' ')[1];
 
-            /*var redactMessage = bot.getMessage({
-              channelID: channelID,
-              messageID: redactID
-            });
+            var redactMessage = msg.channel.fetchMessage(redactID).content;
 
-            var redactString = redactMessage.content;*/
-
-            bot.sendMessage({
-              to: channelID,
-              message: "WHICH PART OF THIS IS FAILING?? " + redactID
-            });
+            chan.send("TESTING! " + redactMessage);
           }
         }
       break;
 
       case 'SPEEDCHECKTOGGLE':
-        if (slowdownExempt.includes(userID)) {
+        if (msg.member.hasPermission(MANAGE_ROLES)) {
           if (autoSpeedCheck) {
             autoSpeedCheck = false;
             speedCheck = 0;
             clearInterval(speedCheckReset);
-            bot.sendMessage({
-              to: "393848164307697677",
-              message: 'CHAT SPEED CHECKS TURNED OFF.'
-            });
+            bot.channels.get("393848164307697677").send('CHAT SPEED CHECKS TURNED OFF.');
           }
           else {
             autoSpeedCheck = true;
             speedCheckReset = setInterval(function(){ speedCheck = 0; }, 1000);
-            bot.sendMessage({
-              to: "393848164307697677",
-              message: 'CHAT SPEED CHECKS IN PROGRESS ACROSS ALL CHANNELS. TOO MANY MESSAGES PER SECOND WILL ACTIVATE A TEMPORARY SLOWMODE EFFECT AUTOMATICALLY.'
-            });
+            bot.channels.get("393848164307697677").send('CHAT SPEED CHECKS IN PROGRESS ACROSS ALL CHANNELS. TOO MANY MESSAGES PER SECOND WILL ACTIVATE A TEMPORARY SLOWMODE EFFECT AUTOMATICALLY.');
           }
         }
       break;
 
       case 'SPEEDCHECKDEBUG':
-        if (slowdownExempt.includes(userID)) {
-          bot.sendMessage({
-            to: channelID,
-            message: 'SPEED CHECK ON: ' + autoSpeedCheck + ', MESSAGE SPEED: ' + speedCheck
-          });
+        if (msg.member.hasPermission(MANAGE_ROLES)) {
+          chan.send('SPEED CHECK ON: ' + autoSpeedCheck + ', MESSAGE SPEED: ' + speedCheck);
         }
       break;
     }
@@ -813,10 +633,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 
 
 bot.on('guildMemberAdd', function(member) {
-	bot.sendMessage({
-		to: "393848164307697677",
-		message: '<@' + member.id + '> DETECTED. YOU HAVE BEEN ASSIMILATED TO THE ROBOT PIZZA PARTY. READ THE <#393842582414688269> AND POST AN INTRODUCTION  IN  <#396067802970193920>. SHARE AND ENJOY :pizza:'
-	});
+	bot.channels.get("393848164307697677").send('<@' + member.id + '> DETECTED. YOU HAVE BEEN ASSIMILATED TO THE ROBOT PIZZA PARTY. READ THE <#393842582414688269> AND POST AN INTRODUCTION  IN  <#396067802970193920>. SHARE AND ENJOY :pizza:');
 });
 
 //Webpage
