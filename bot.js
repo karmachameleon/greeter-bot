@@ -596,6 +596,7 @@ bot.on('message', msg => {
             if (msg.content.split(' '.length > 2)) {
               var reasonIndex = msg.content.indexOf(' ', msg.content.indexOf(' ') + 1);
               var reason = msg.content.substr(reasonIndex + 1);
+              footer += " REASON: " + reason;
             }
 
             try {
@@ -604,8 +605,9 @@ bot.on('message', msg => {
                  .setAuthor(originmsg.author.tag)
                  .setDescription(originmsg.content)
                  .setFooter(footer);
-                 originmsg.delete()
-                 chan.send({embed})
+                 originmsg.delete();
+                 msg.delete();
+                 chan.send({embed});
                }).catch(console.error);
             } catch (error) {
               return msg.reply('THAT MESSAGE COULD NOT BE FOUND')
