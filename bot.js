@@ -762,13 +762,15 @@ bot.on('message', function (user, userID, channelID, message, evt) {
           var redactID = message.split(' ');
           if (redactID.length > 1) {
             redactID = redactID[1];
+            console.log(redactID);
             var redactMessage = bot.getMessage({
               channelID: channelID,
               messageID: redactID
-            })
+            });
+
             bot.sendMessage({
               to: channelID,
-              message: "TESTING! " + redactMessage
+              message: "TESTING! " + redactMessage.content
             });
           }
         }
