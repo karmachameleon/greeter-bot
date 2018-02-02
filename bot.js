@@ -759,18 +759,19 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 
       case 'REDACT':
         if (slowdownExempt.includes(userID)) {
-          var redactID = message.split(' ');
-          if (redactID.length > 1) {
-            redactID = redactID[1];
-            console.log(redactID);
+          if (message.split(' ').length > 1) {
+            var redactID = message.split(' ')[1];
+
             var redactMessage = bot.getMessage({
               channelID: channelID,
               messageID: redactID
             });
 
+            var redactString = redactMessage.content;
+
             bot.sendMessage({
               to: channelID,
-              message: "TESTING! " + redactMessage.content
+              message: "TESTING! " + redactString
             });
           }
         }
