@@ -84,6 +84,13 @@ function isNumber(n) {
   return !isNaN(parseFloat(n)) && isFinite(n);
 }
 
+function isEmptyMap(obj){
+  for (key in obj) {
+    if (obj.hasOwnProperty(key)) return false;
+  }
+  return true;
+}
+
 var slowChannels = [];
 var slowUsers = [];
 var slowInterval = 5;
@@ -604,10 +611,13 @@ bot.on('message', msg => {
                  const embed = new Discord.RichEmbed()
                  .setAuthor(originmsg.author.tag)
                  .setFooter(footer);
-                 if (originmsg.attachments) {
-                   embed.setDescription(orginmsg.content + " " + originmsg.attachments.first().url);
+                 //console.log(originmsg.attachments);
+                 if (isEmptyMap(originmsg.attachments)) {
+                   embed.setDescription(originmsg.content);
                  }
-                 else { embed.setDescription(originmsg.content); }
+                 else {
+                   embed.setDescription(originmsg.content + " " + originmsg.attachments.first().proxyURL);
+                 }
                  originmsg.delete();
                  msg.delete();
                  chan.send({embed});
