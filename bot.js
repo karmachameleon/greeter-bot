@@ -85,11 +85,11 @@ function isNumber(n) {
 }
 
 function isEmptyMap(obj) {
-  for (var key in obj) {
+  obj.forEach( function(value, key){
     if (obj.hasOwnProperty(key)) {
        return false;
      }
-  }
+  });
   return true;
 }
 
@@ -615,7 +615,7 @@ bot.on('message', msg => {
                  .setFooter(footer);
                  console.log(originmsg.attachments);
                  console.log(isEmptyMap(originmsg.attachments));
-                 if (isEmptyMap(originmsg.attachments)) {
+                 if (originmsg.attachments == null || isEmptyMap(originmsg.attachments)) {
                    embed.setDescription(originmsg.content);
                  }
                  else {
