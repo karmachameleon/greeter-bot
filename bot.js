@@ -605,9 +605,9 @@ bot.on('message', msg => {
                  .setAuthor(originmsg.author.tag)
                  .setFooter(footer);
                  if (originmsg.attachments) {
-                   embed.setDescription(orginmsg.content + " " + originmsg.attachments.first().url)
+                   embed.setDescription(orginmsg.content + " " + originmsg.attachments.first().url);
                  }
-                 else { embed.setDescription(originmsg.content) }
+                 else { embed.setDescription(originmsg.content); }
                  originmsg.delete();
                  msg.delete();
                  chan.send({embed});
