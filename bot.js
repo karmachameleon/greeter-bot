@@ -330,7 +330,7 @@ bot.on('message', msg => {
   			  else {
   				  var role = msg.guild.roles.get(roleDict[roleAsk]);
             msg.member.addRole(role).catch(console.error);
-            chan.send('SUCCESSFULLY ADDED <@' + msg.author.id + '> TO THE <@&' + rID + '> ROLE. WELCOME THEM TO YOUR RANKS');
+            chan.send('SUCCESSFULLY ADDED <@' + msg.author.id + '> TO THE <@&' + role.id + '> ROLE. WELCOME THEM TO YOUR RANKS');
           }
         }
   	  break;
