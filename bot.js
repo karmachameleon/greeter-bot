@@ -89,7 +89,6 @@ var slowUsers = [];
 var slowInterval = 5;
 var slowEveryone = false;
 var slowEveryoneActive = false;
-var slowdownExempt = ['396859791877734410', '144975424298942464',  '174330815730155520', '138834050415722496', '158267875671408640', '253717780853948416']
 
 var newJokeThreshold = 11;
 
@@ -126,7 +125,7 @@ bot.on('message', msg => {
         msg.delete();
       }
 
-      else if (!slowdownExempt.includes(msg.author)) {
+      else if (!msg.member.hasPermission(MANAGE_ROLES)) {
         slowUsers.push(msg.author);
         setTimeout(function(){
           var i = slowUsers.indexOf(msg.author);
@@ -137,7 +136,7 @@ bot.on('message', msg => {
       }
     } //end individual slowmode
 	  else { //slowmodeall
-      if (!slowdownExempt.includes(msg.author)) {
+      if (!msg.member.hasPermission(MANAGE_ROLES)) {
     		if (slowEveryoneActive) {
           msg.delete();
 		    }
@@ -152,7 +151,7 @@ bot.on('message', msg => {
   } //end slowmode
   //otherwise, log message speed if speed checks are on
   else if (autoSpeedCheck) {
-    if (!slowdownExempt.includes(msg.author)) {
+    if (!msg.member.hasPermission(MANAGE_ROLES)) {
       speedCheck+=1;
       if (speedCheck > speedCheckThreshold) {
         slowChannels.push(msg.channel);
@@ -594,9 +593,9 @@ bot.on('message', msg => {
           if (msg.content.split(' ').length > 1) {
             var redactID = msg.content.split(' ')[1];
 
-            var redactMessage = msg.channel.fetchMessage(redactID).content;
+            //var redactMessage = msg.channel.fetchMessage(redactID).content;
 
-            chan.send("TESTING! " + redactMessage);
+            chan.send("TESTING! " + redactID);
           }
         }
       break;
