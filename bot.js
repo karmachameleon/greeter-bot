@@ -611,11 +611,11 @@ bot.on('message', msg => {
             try {
                chan.fetchMessage(redactID).then(originmsg => {
                  const embed = new Discord.RichEmbed()
-                 .setAuthor(originmsg.author.tag)
+                 .setAuthor(originmsg.author.username)
                  .setFooter(footer);
                  console.log(originmsg.attachments);
                  console.log(isEmptyMap(originmsg.attachments));
-                 if (originmsg.attachments == null || isEmptyMap(originmsg.attachments)) {
+                 if (originmsg.attachments.first() == null) {
                    embed.setDescription(originmsg.content);
                  }
                  else {
