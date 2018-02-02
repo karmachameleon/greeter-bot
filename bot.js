@@ -603,11 +603,11 @@ bot.on('message', msg => {
                chan.fetchMessage(redactID).then(originmsg => {
                  const embed = new Discord.RichEmbed()
                  .setAuthor(originmsg.author.tag)
-                 if (originmsg.attachments) {
-                   .setDescription(orginmsg.content + " " + originmsg.attachments.first().url)
-                 }
-                 else { .setDescription(originmsg.content) }
                  .setFooter(footer);
+                 if (originmsg.attachments) {
+                   embed.setDescription(orginmsg.content + " " + originmsg.attachments.first().url)
+                 }
+                 else { embed.setDescription(originmsg.content) }
                  originmsg.delete();
                  msg.delete();
                  chan.send({embed});
