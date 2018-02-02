@@ -611,7 +611,7 @@ bot.on('message', msg => {
                  const embed = new Discord.RichEmbed()
                  .setAuthor(originmsg.author.tag)
                  .setFooter(footer);
-                 //console.log(originmsg.attachments);
+                 console.log(originmsg.attachments);
                  if (isEmptyMap(originmsg.attachments)) {
                    embed.setDescription(originmsg.content);
                  }
