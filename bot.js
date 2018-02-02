@@ -592,12 +592,17 @@ bot.on('message', msg => {
         if (msg.member.hasPermission("MANAGE_ROLES")) {
           if (msg.content.split(' ').length > 1) {
             var redactID = msg.content.split(' ')[1];
+            var footer = "LINKS REDACTED."
+            if (msg.content.split(' '.length > 2)) {
+              footer += " REASON: " + msg.content.split(' ')[2];
+            }
 
             try {
                chan.fetchMessage(redactID).then(originmsg => {
                  const embed = new Discord.RichEmbed()
                  .setAuthor(originmsg.author.tag)
                  .setDescription(originmsg.content)
+                 .setFooter(footer);
                  originmsg.delete()
                  chan.send({embed})
                }).catch(console.error);
