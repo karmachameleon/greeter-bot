@@ -593,8 +593,17 @@ bot.on('message', msg => {
           if (msg.content.split(' ').length > 1) {
             var redactID = msg.content.split(' ')[1];
 
-            var redactMessage = msg.channel.fetchMessage(redactID).catch(console.error);
-            redactMessage.pin();
+            try {
+               chan.fetchMessage(redactID).then(originmsg => {
+                 const embed = new Discord.RichEmbed()
+                 .setAuthor(originmsg.author.tag)
+                 .setDescription(originmsg.content)
+                 originmsg.delete()
+                 chan.send({embed})
+               }).catch(console.error);
+            } catch (error) {
+              return msg.reply('THAT MESSAGE COULD NOT BE FOUND')
+            }
           }
         }
       break;
