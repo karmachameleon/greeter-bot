@@ -84,9 +84,11 @@ function isNumber(n) {
   return !isNaN(parseFloat(n)) && isFinite(n);
 }
 
-function isEmptyMap(obj){
-  for (key in obj) {
-    if (obj.hasOwnProperty(key)) return false;
+function isEmptyMap(obj) {
+  for (var key in obj) {
+    if (obj.hasOwnProperty(key)) {
+       return false;
+     }
   }
   return true;
 }
@@ -612,6 +614,7 @@ bot.on('message', msg => {
                  .setAuthor(originmsg.author.tag)
                  .setFooter(footer);
                  console.log(originmsg.attachments);
+                 console.log(isEmptyMap(originmsg.attachments));
                  if (isEmptyMap(originmsg.attachments)) {
                    embed.setDescription(originmsg.content);
                  }
