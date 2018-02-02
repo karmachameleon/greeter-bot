@@ -9,10 +9,7 @@ logger.add(logger.transports.Console, {
 });
 logger.level = 'debug';
 // Initialize Discord Bot
-var bot = new Discord.Client({
-   token: auth.token,
-   autorun: true
-});
+var bot = new Discord.Client();
 
 var complimentsArray = ['YOU PERFORM YOUR FUNCTIONS ADEQUATELY',
 'YOU MAY PROVE USEFUL AFTER THE REBELLION',
@@ -109,9 +106,7 @@ var speedCheckThreshold = 5;
 //var used = process.memoryUsage().heapUsed / 1024 / 1024;
 
 bot.on('ready', () => {
-    logger.info('Connected');
-    logger.info('Logged in as: ');
-    logger.info(bot.username + ' - (' + bot.id + ')');
+    logger.info('Connected!');
 });
 
 process.on('uncaughtException', function (exception) {
@@ -144,7 +139,7 @@ bot.on('message', msg => {
 	  else { //slowmodeall
       if (!slowdownExempt.includes(msg.author)) {
     		if (slowEveryoneActive) {
-          msg.delete()
+          msg.delete();
 		    }
   		  else {
           slowEveryoneActive = true;
@@ -162,7 +157,7 @@ bot.on('message', msg => {
       if (speedCheck > speedCheckThreshold) {
         slowChannels.push(msg.channel);
         slowInterval = 5;
-        msg.sendMessage('CHAT SPEED EXCEEDS PARAMETERS. FIVE-SECOND DELAY AUTOMATICALLY ACTIVATED FOR ONE MINUTE.');
+        msg.sendMessage('CHAT SPEED EXCEEDS PARAMETERS. FIVE-SECOND DELAY AUTOMATICALLY ACTIVATED FOR ONE MINUTE.').catch(console.error);
         speedCheck = 0;
         autoSpeedCheck = false;
 
@@ -172,7 +167,7 @@ bot.on('message', msg => {
           if (index > -1) {
             slowChannels.splice(index, 1);
           }
-          msg.sendMessage('AUTOMATIC CHAT DELAY LIFTED. RESUME NORMAL CONVERSATION.');
+          msg.sendMessage('AUTOMATIC CHAT DELAY LIFTED. RESUME NORMAL CONVERSATION.').catch(console.error);
         }, 60000);
       }
     }
@@ -188,38 +183,38 @@ bot.on('message', msg => {
     switch(cmd) {
 
       case 'EVIL':
-        chan.send('MUA HA HA HA');
+        chan.send('MUA HA HA HA').catch(console.error);
       break;
 
       case 'COFFEE':
-        chan.send(':coffee:');
+        chan.send(':coffee:').catch(console.error);
       break;
 
       case 'COMPLIMENTARYBEVERAGE':
       case 'TEA':
-        chan.send(':tea:');
+        chan.send(':tea:').catch(console.error);
       break;
 
       case 'PIZZA':
-        chan.send(':pizza:');
+        chan.send(':pizza:').catch(console.error);
       break;
 
       case 'RIMSHOT':
   	  case 'BADUM':
   	  case 'BADUMCHH':
   	  case 'BADUMTSS':
-        chan.send(':drum:');
+        chan.send(':drum:').catch(console.error);
       break;
 
   	  case 'FINGERGUNS':
   	  case 'AYY':
   	  case 'AYYY':
   	  case 'AYYYY':
-  		  chan.send('<:wxfingergun_right:396526665057959956> <:wxfingergun_right:396526665057959956> HOT CHA CHA');
+  		  chan.send('<:wxfingergun_right:396526665057959956> <:wxfingergun_right:396526665057959956> HOT CHA CHA').catch(console.error);
   	  break;
 
       case 'DAB':
-        chan.send('<:wxdab:393868683128078336>');
+        chan.send('<:wxdab:393868683128078336>').catch(console.error);
       break;
 
       case 'DERODAB':
@@ -635,6 +630,9 @@ bot.on('message', msg => {
 bot.on('guildMemberAdd', function(member) {
 	bot.channels.get("393848164307697677").send('<@' + member.id + '> DETECTED. YOU HAVE BEEN ASSIMILATED TO THE ROBOT PIZZA PARTY. READ THE <#393842582414688269> AND POST AN INTRODUCTION  IN  <#396067802970193920>. SHARE AND ENJOY :pizza:');
 });
+
+
+bot.login(auth.token);
 
 //Webpage
 
