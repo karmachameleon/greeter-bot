@@ -593,7 +593,7 @@ bot.on('message', msg => {
           if (msg.content.split(' ').length > 1) {
             var redactID = msg.content.split(' ')[1];
             var footer = "LINKS REDACTED."
-            if (msg.content.split(' ').length > 2)) {
+            if (msg.content.split(' ').length > 2) {
               var reasonIndex = msg.content.indexOf(' ', msg.content.indexOf(' ') + 1);
               var reason = msg.content.substr(reasonIndex + 1);
               footer += " REASON: " + reason;
