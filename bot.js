@@ -762,16 +762,16 @@ bot.on('message', function (user, userID, channelID, message, evt) {
           if (message.split(' ').length > 1) {
             var redactID = message.split(' ')[1];
 
-            var redactMessage = bot.getMessage({
+            /*var redactMessage = bot.getMessage({
               channelID: channelID,
               messageID: redactID
             });
 
-            var redactString = redactMessage.content;
+            var redactString = redactMessage.content;*/
 
             bot.sendMessage({
               to: channelID,
-              message: "TESTING! " + redactString
+              message: "WHICH PART OF THIS IS FAILING?? " + redactID
             });
           }
         }
