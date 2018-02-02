@@ -594,7 +594,8 @@ bot.on('message', msg => {
             var redactID = msg.content.split(' ')[1];
             var footer = "LINKS REDACTED."
             if (msg.content.split(' '.length > 2)) {
-              footer += " REASON: " + msg.content.split(' ')[2];
+              var reasonIndex = msg.content.indexOf(' ', msg.content.indexOf(' ') + 1);
+              var reason = msg.content.substr(reasonIndex + 1);
             }
 
             try {
