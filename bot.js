@@ -593,7 +593,7 @@ bot.on('message', msg => {
           if (msg.content.split(' ').length > 1) {
             var redactID = msg.content.split(' ')[1];
             var footer = "LINKS REDACTED."
-            if (msg.content.split(' '.length > 2)) {
+            if (msg.content.split(' ').length > 2)) {
               var reasonIndex = msg.content.indexOf(' ', msg.content.indexOf(' ') + 1);
               var reason = msg.content.substr(reasonIndex + 1);
               footer += " REASON: " + reason;
@@ -603,7 +603,10 @@ bot.on('message', msg => {
                chan.fetchMessage(redactID).then(originmsg => {
                  const embed = new Discord.RichEmbed()
                  .setAuthor(originmsg.author.tag)
-                 .setDescription(originmsg.content)
+                 if (originmsg.attachments) {
+                   .setDescription(orginmsg.content + " " + originmsg.attachments.first().url)
+                 }
+                 else { .setDescription(originmsg.content) }
                  .setFooter(footer);
                  originmsg.delete();
                  msg.delete();
