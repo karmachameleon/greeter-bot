@@ -260,13 +260,6 @@ bot.on('message', function (user, userID, channelID, message, evt) {
         });
       break;
 
-      case 'NITROTEST':
-        bot.sendMessage({
-          to: channelID,
-          message: '<:wesbes:407066992097624064>'
-        });
-      break;
-
       case 'EXOTICBUTTERS':
       case 'EXTOICBUTTERS':
         bot.sendMessage({
@@ -761,6 +754,23 @@ bot.on('message', function (user, userID, channelID, message, evt) {
             to: channelID,
             message: 'SLOWMODE HAS BEEN TURNED OFF IN <#' + channelID + '>. FEEL FREE TO RESUME CHATTER.'
           });
+        }
+      break;
+
+      case 'REDACT':
+        if (slowdownExempt.includes(userID)) {
+          var redactID = message.split(' ');
+          if (redactID.length > 1) {
+            redactID = redactID[1];
+            var redactMessage = bot.getMessage({
+              channelID: channelID,
+              messageID: redactID
+            })
+            bot.sendMessage({
+              to: channelID,
+              message: "TESTING! " + redactMessage
+            });
+          }
         }
       break;
 
