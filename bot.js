@@ -542,7 +542,7 @@ bot.on('message', msg => {
         if (msg.member.hasPermission("MANAGE_ROLES")) {
           slowChannels.push(msg.channel);
           if (msg.content.split(' ').length != 1) {
-            var interval = message.split(' ')[1];
+            var interval = msg.content.split(' ')[1];
             if (isNumber(interval)) {
               slowInterval = parseInt(interval);
   				  }
@@ -594,8 +594,8 @@ bot.on('message', msg => {
             var redactID = msg.content.split(' ')[1];
 
             var redactMessage = msg.channel.fetchMessage(redactID).catch(console.error);
-
-            chan.send("TESTING! " + redactMessage.content);
+            var redactedString = redactMessage.cleanContent;
+            chan.send("TESTING! " + redactID + " " + redactedString);
           }
         }
       break;
