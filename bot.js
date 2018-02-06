@@ -133,7 +133,7 @@ bot.on('message', msg => {
   if (slowChannels.includes(msg.channel)) {
     if (!slowEveryone) { //individual slowmode
       if (slowUsers.includes(msg.author)) {
-        msg.delete();
+        msg.delete().catch(console.error);
       }
 
       else if (!msg.member.hasPermission("MANAGE_ROLES")) {
@@ -149,7 +149,7 @@ bot.on('message', msg => {
 	  else { //slowmodeall
       if (!msg.member.hasPermission("MANAGE_ROLES")) {
     		if (slowEveryoneActive) {
-          msg.delete();
+          msg.delete().catch(console.error);
 		    }
   		  else {
           slowEveryoneActive = true;
