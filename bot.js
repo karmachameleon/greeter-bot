@@ -515,7 +515,7 @@ bot.on('message', msg => {
 
       case 'SLOWMODEDEBUG':
         if (msg.member.hasPermission("MANAGE_ROLES")) {
-          chan.send('CHANNELS: ' + slowChannels + ', USERS: ' + slowUsers);
+          chan.send('CHANNELS: ' + slowChannels + ', # OF USERS: ' + slowUsers.length);
         }
       break;
 
