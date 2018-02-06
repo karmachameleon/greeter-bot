@@ -121,6 +121,8 @@ process.on('uncaughtException', function (exception) {
   console.log(exception); // to see your exception details in the console
 });
 
+process.on('unhandledRejection', console.error);
+
 bot.on('disconnect', function(errMsg, code) {
     console.log("DISCONNECTED! " + errMsg + "; CODE: " + code);
     bot.login(auth.token); //worth a shot lmao
@@ -555,6 +557,15 @@ bot.on('message', msg => {
             if (isNumber(interval)) {
               slowInterval = parseInt(interval);
   				  }
+            else if (interval.toUpperCase() === "OFF"){
+              var index = slowChannels.indexOf(msg.channel);
+              if (index > -1) {
+                  slowChannels.splice(index, 1);
+              }
+              slowEveryone = false;
+              chan.send('SLOWMODE HAS BEEN TURNED OFF IN <#' + msg.channel.id + '>. FEEL FREE TO RESUME CHATTER.');
+              break;
+            }
     				else {
     					slowInterval = 5;
     				}
