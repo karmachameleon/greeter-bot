@@ -209,9 +209,10 @@ bot.on('message', msg => {
         chan.send(':pizza:').catch(console.error);
       break;
 
+      case 'NYAN':
       case 'NYA':
       case 'NYAH':
-        chan.send('LIKE, YOU KNOW... NYAH :smirk_cat: :sparkles: :sparkles:').catch(console.error);
+        chan.send('LIKE. YOU KNOW... NYAH :smirk_cat::sparkles::sparkles:').catch(console.error);
       break;
 
       case 'RIMSHOT':
