@@ -138,18 +138,20 @@ bot.on('message', msg => {
         msg.delete().catch(console.error);
       }
 
-      else if (!msg.member.hasPermission("MANAGE_ROLES")) {
+      else if (!msg.member.hasPermission("MANAGE_ROLES") || msg.member.id == karmaID) {
         slowUsers.push(msg.author);
+        console.log(slowUsers);
         setTimeout(function(){
           var i = slowUsers.indexOf(msg.author);
           if(i != -1) {
             slowUsers.splice(i, 1);
           }
+          console.log("Removed" + msg.author + "; " + slowUsers);
         }, slowInterval * 1000);
       }
     } //end individual slowmode
 	  else { //slowmodeall
-      if (!msg.member.hasPermission("MANAGE_ROLES")) {
+      if (!msg.member.hasPermission("MANAGE_ROLES") || msg.member.id == karmaID) {
     		if (slowEveryoneActive) {
           msg.delete().catch(console.error);
 		    }
@@ -529,7 +531,9 @@ bot.on('message', msg => {
 
     	case 'STOP':
         if (msg.member.hasPermission("MANAGE_ROLES")) {
-          slowChannels.push(msg.channel);
+          if (!slowChannels.includes(chan)){
+            slowChannels.push(msg.channel);
+          }
     			if (msg.content.split(' ').length != 1) {
     				var interval = msg.content.split(' ')[1];
     				if (isNumber(interval)) {
@@ -559,7 +563,9 @@ bot.on('message', msg => {
 
   	  case 'SLOWMODE':
         if (msg.member.hasPermission("MANAGE_ROLES")) {
-          slowChannels.push(msg.channel);
+          if (!slowChannels.includes(chan)){
+            slowChannels.push(msg.channel);
+          }
           if (msg.content.split(' ').length != 1) {
             var interval = msg.content.split(' ')[1];
             if (isNumber(interval)) {
@@ -587,7 +593,9 @@ bot.on('message', msg => {
 
   	  case 'SLOWMODEALL':
   		  if (msg.member.hasPermission("MANAGE_ROLES")){
-    			slowChannels.push(msg.channel);
+          if (!slowChannels.includes(chan)){
+            slowChannels.push(msg.channel);
+          }
     			slowEveryone = true;
     			if (msg.content.split(' ').length != 1) {
     				var interval = msg.content.split(' ')[1];
