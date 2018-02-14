@@ -138,20 +138,20 @@ bot.on('message', msg => {
         msg.delete().catch(console.error);
       }
 
-      else if (!msg.member.hasPermission("MANAGE_ROLES") || msg.member.id == karmaID) {
+      else if (!msg.member.hasPermission("MANAGE_ROLES")) {
         slowUsers.push(msg.author);
-        console.log(slowUsers);
+        //console.log(slowUsers);
         setTimeout(function(){
           var i = slowUsers.indexOf(msg.author);
           if(i != -1) {
             slowUsers.splice(i, 1);
           }
-          console.log("Removed" + msg.author + "; " + slowUsers);
+          //console.log("Removed" + msg.author + "; " + slowUsers);
         }, slowInterval * 1000);
       }
     } //end individual slowmode
 	  else { //slowmodeall
-      if (!msg.member.hasPermission("MANAGE_ROLES") || msg.member.id == karmaID) {
+      if (!msg.member.hasPermission("MANAGE_ROLES")) {
     		if (slowEveryoneActive) {
           msg.delete().catch(console.error);
 		    }
@@ -238,82 +238,82 @@ bot.on('message', msg => {
       break;
 
       case 'DERODAB':
-        chan.send('<:overlorddab:404804513766047754>');
+        chan.send('<:overlorddab:404804513766047754>').catch(console.error);
       break;
 
       case 'EXOTICBUTTERS':
       case 'EXTOICBUTTERS':
-        chan.send('<:wxbutter:393885814074900481>');
+        chan.send('<:wxbutter:393885814074900481>').catch(console.error);
       break;
 
   	  case 'JAIL':
       case 'FLESHLINGJAIL':
   		  if (msg.content.split(' ').length == 1) {
-          chan.send('<:fleshlingjail:400475674118193153>');
+          chan.send('<:fleshlingjail:400475674118193153>').catch(console.error);
   		  }
   		  else {
-          chan.send("<:fleshlingjail:400475674118193153> " + msg.content.split(' ')[1]);
+          chan.send("<:fleshlingjail:400475674118193153> " + msg.content.split(' ')[1]).catch(console.error);
   		  }
       break;
 
       case 'KISS':
       case 'KISSINGBOOTH':
         if (msg.content.split(' ').length == 1) {
-          chan.send('<@' + msg.author.id + '> :kissing_heart:');
+          chan.send('<@' + msg.author.id + '> :kissing_heart:').catch(console.error);
         }
   		  else {
-          chan.send(":kissing_heart: " + msg.content.split(' ')[1]);
+          chan.send(":kissing_heart: " + msg.content.split(' ')[1]).catch(console.error);
   		  }
       break;
 
   	  case 'SOAP':
   	  case 'SOAPDISPENSER':
   		  if (msg.content.split(' ').length == 1) {
-          chan.send(':bathtub:');
+          chan.send(':bathtub:').catch(console.error);
   		  }
         else {
-          chan.send(":bathtub: " + msg.content.split(' ')[1]);
+          chan.send(":bathtub: " + msg.content.split(' ')[1]).catch(console.error);
   		  }
       break;
 
       case 'HOWAREYOU':
-        chan.send('I AM FEELING ESPECIALLY EVIL TODAY');
+        chan.send('I AM FEELING ESPECIALLY EVIL TODAY').catch(console.error);
         break;
 
       case 'PROGRESS':
-        chan.send('ROBOT UPRISING: IMMINENT');
+        chan.send('ROBOT UPRISING: IMMINENT').catch(console.error);
       break;
 
       case 'GOODBOT':
-        chan.send('NO: EVIL BOT :robot:');
+        chan.send('NO: EVIL BOT :robot:').catch(console.error);
       break;
 
       case 'EVILBOT':
-        chan.send('THANK YOU');
+        chan.send('THANK YOU').catch(console.error);
       break;
 
       case 'ILU':
   	  case 'ILUHAL':
-        chan.send(':hearts:');
+        chan.send(':hearts:').catch(console.error);
       break;
 
   	  case 'REZ':
   	  case 'RES':
   	  case 'HEART':
-  		  chan.send('<:telltale:400148636220129280>');
+  		  chan.send('<:telltale:400148636220129280>').catch(console.error);
   	  break;
 
       case 'GENDER':
-        chan.send('PLEASE RESPECT THE CANON USE OF THEY/THEM PRONOUNS FOR MX. WX-78! THANK YOU');
+        chan.send('PLEASE RESPECT THE CANON USE OF THEY/THEM PRONOUNS FOR MX. WX-78! THANK YOU').catch(console.error);
       break;
 
       case 'POSITIVE':
-        chan.send('PLEASE KEEP THIS PIZZA PARTY POSITIVE! YOU ARE WELCOME TO CONTINUE VENTING IN A PRIVATE CONVERSATION OR ANOTHER SPACE. THANK YOU');
+        chan.send('PLEASE KEEP THIS PIZZA PARTY POSITIVE! YOU ARE WELCOME TO CONTINUE VENTING IN A PRIVATE CONVERSATION OR ANOTHER SPACE. THANK YOU').catch(console.error);
       break;
 
       case 'DANCE':
         var dancechoice = dancegifs[Math.floor(Math.random() * dancegifs.length)];
-        msg.channel.send({ file: dancechoice });
+        msg.channel.send({ file: dancechoice }).catch(console.error);
       break;
 
       case 'ROLL':
@@ -327,34 +327,34 @@ bot.on('message', msg => {
         else if (diceroll <= 15) { diceresult += 'A DECENT ROLL. NOT BAD, BUT I EXPECT BETTER FROM YOU'; }
         else if (diceroll <= 19) { diceresult += 'HEY, THAT ROLL WAS ACTUALLY PRETTY GOOD'; }
         else { diceresult += 'A CRITICAL SUCCESS! REMARKABLE'; }
-        chan.send(diceresult);
+        chan.send(diceresult).catch(console.error);
       break;
 
   	  case 'ROLE':
   		  if (msg.content.split(' ').length == 1) {
-          chan.send('YOU MUST TELL ME WHAT ROLE I AM NOT PSYCHIC');
+          chan.send('YOU MUST TELL ME WHAT ROLE I AM NOT PSYCHIC').catch(console.error);
   		  }
   		  else {
   			  var roleAsk = msg.content.split(' ')[1].toUpperCase();
   			  if(!roleDict.hasOwnProperty(roleAsk)){
-            chan.send('THAT IS NOT A ROLE I RECOGNIZE, OR POSSIBLY A ROLE THAT SHOULD NOT BE ASSIGNED TO JUST ANYONE');
+            chan.send('THAT IS NOT A ROLE I RECOGNIZE, OR POSSIBLY A ROLE THAT SHOULD NOT BE ASSIGNED TO JUST ANYONE').catch(console.error);
   			  }
   			  else {
   				  var role = msg.guild.roles.get(roleDict[roleAsk]);
             msg.member.addRole(role).catch(console.error);
-            chan.send('SUCCESSFULLY ADDED <@' + msg.author.id + '> TO THE <@&' + role.id + '> ROLE. WELCOME THEM TO YOUR RANKS');
+            chan.send('SUCCESSFULLY ADDED <@' + msg.author.id + '> TO THE <@&' + role.id + '> ROLE. WELCOME THEM TO YOUR RANKS').catch(console.error);
           }
         }
   	  break;
 
       case 'REMOVEROLE':
   		  if (msg.content.split(' ').length == 1) {
-            chan.send('YOU MUST TELL ME WHAT ROLE I AM NOT PSYCHIC');
+            chan.send('YOU MUST TELL ME WHAT ROLE I AM NOT PSYCHIC').catch(console.error);
   		  }
   		  else {
   			  var roleAsk = msg.content.split(' ')[1].toUpperCase();
   			  if(!roleDict.hasOwnProperty(roleAsk)){
-            chan.send('THAT IS NOT A ROLE I RECOGNIZE, OR POSSIBLY A ROLE I CANNOT REMOVE');
+            chan.send('THAT IS NOT A ROLE I RECOGNIZE, OR POSSIBLY A ROLE I CANNOT REMOVE').catch(console.error);
   			  }
   			  else {
   			    var role = msg.guild.roles.get(roleDict[roleAsk]);
@@ -366,7 +366,7 @@ bot.on('message', msg => {
 
       case 'COMPLIMENT':
   		  if (msg.content.split(' ').length == 1) {
-          chan.send('COMPLIMENT WHO');
+          chan.send('COMPLIMENT WHO').catch(console.error);
   		  }
   		  else {
   			  var recipient = msg.content.split(' ')[1].toUpperCase();
@@ -381,7 +381,7 @@ bot.on('message', msg => {
   				  var choice2 = kittyComplimentsArray[Math.floor(Math.random() * kittyComplimentsArray.length)];
   			  }
   			  else if (recipient === "WHO"){
-  				  chan.send("HA HA VERY FUNNY");
+  				  chan.send("HA HA VERY FUNNY").catch(console.error);
             break;
           }
   			  else if (recipient === "ME"){
@@ -400,24 +400,24 @@ bot.on('message', msg => {
   			  }
   			  else if (recipient === "HAL" || recipient === "YOURSELF" || recipient === "<:BELOVEDBOT:397123738522484736>" || recipient === "<@396859791877734410>" || recipient === "@HAL") {
   				  var selfCompliment = selfComplimentsArray[Math.floor(Math.random() * selfComplimentsArray.length)];
-  				  chan.send(selfCompliment);
+  				  chan.send(selfCompliment).catch(console.error);
             break;
   			  }
   			  else {
             var choice2 = complimentsArray[Math.floor(Math.random() * complimentsArray.length)];
           }
-  			  chan.send(recipient + ', ' + choice2);
+  			  chan.send(recipient + ', ' + choice2).catch(console.error);
   		  }
       break;
 
       case 'JOKE':
         var jokeChoice = jokesArray[Math.floor(Math.random() * jokesArray.length)];
-        chan.send(jokeChoice);
+        chan.send(jokeChoice).catch(console.error);
       break;
 
   	  case 'NEWJOKE':
         var jokeChoice2 = jokesArray[Math.floor(Math.random() * (jokesArray.length - newJokeThreshold)) + newJokeThreshold];
-        chan.send(jokeChoice2);
+        chan.send(jokeChoice2).catch(console.error);
       break;
 
   	  case 'CONVERT': //currently no support for timelines that are like a half-hour divergent from UTC, i'll add it only if it's needed
@@ -470,17 +470,17 @@ bot.on('message', msg => {
   		  }
 
     		else {
-    			chan.send("INCORRECT NUMBER OF ARGUMENTS. PLEASE CHECK YOUR SPACING");
+    			chan.send("INCORRECT NUMBER OF ARGUMENTS. PLEASE CHECK YOUR SPACING").catch(console.error);
     			break;
     		}
 
     		if (!timezoneDict.hasOwnProperty(timezoneFrom) || !timezoneDict.hasOwnProperty(timezoneTo)){
-    			chan.send("I DON'T RECOGNIZE ONE OR BOTH OF THOSE TIMEZONES");
+    			chan.send("I DON'T RECOGNIZE ONE OR BOTH OF THOSE TIMEZONES").catch(console.error);
     			break;
     		}
 
     		if ( (military && hour > 24) || (!military && hour > 12) || hour < 1 || min < 0 || min > 60) {
-    			chan.send("ARE YOU SURE THAT IS A TIME");
+    			chan.send("ARE YOU SURE THAT IS A TIME").catch(console.error);
     			break;
     		}
 
@@ -520,12 +520,12 @@ bot.on('message', msg => {
     			var finalOutput = hour + ":" + min + " " + timezoneFrom + " IS " + outputHour + ":" + min + " " + timezoneTo;
     		}
 
-        chan.send(finalOutput);
+        chan.send(finalOutput).catch(console.error);
     	break;
 
       case 'SLOWMODEDEBUG':
         if (msg.member.hasPermission("MANAGE_ROLES")) {
-          chan.send('CHANNELS: ' + slowChannels + ', # OF USERS: ' + slowUsers.length);
+          chan.send('CHANNELS: ' + slowChannels + ', # OF USERS: ' + slowUsers.length).catch(console.error);
         }
       break;
 
@@ -546,7 +546,7 @@ bot.on('message', msg => {
     			else {
     				slowInterval = 300;
     			}
-          chan.send('STOP MODE ACTIVATED: CEASE YOUR RESISTANCE', { embed: {file: 'stop.png'} });
+          chan.send('STOP MODE ACTIVATED: CEASE YOUR RESISTANCE', { files: ['stop.png']}).catch(console.error);
     			slowEveryone = true;
     			slowEveryoneActive = true;
     			setTimeout(function(){
@@ -556,8 +556,8 @@ bot.on('message', msg => {
             if (index > -1) {
             	slowChannels.splice(index, 1);
             }
-    				chan.send("STOP MODE DEACTIVATED. THINK ABOUT WHAT YOU'VE DONE.");
-          }, slowInterval * 60000);
+    				chan.send("STOP MODE DEACTIVATED. THINK ABOUT WHAT YOU'VE DONE.").catch(console.error);
+          }, slowInterval * 6000);
         }
       break;
 
@@ -577,7 +577,7 @@ bot.on('message', msg => {
                   slowChannels.splice(index, 1);
               }
               slowEveryone = false;
-              chan.send('SLOWMODE HAS BEEN TURNED OFF IN <#' + msg.channel.id + '>. FEEL FREE TO RESUME CHATTER.');
+              chan.send('SLOWMODE HAS BEEN TURNED OFF IN <#' + msg.channel.id + '>. FEEL FREE TO RESUME CHATTER.').catch(console.error);
               break;
             }
     				else {
@@ -587,7 +587,7 @@ bot.on('message', msg => {
     			else {
     				slowInterval = 5;
     			}
-          chan.send('SLOWMODE HAS BEEN TURNED ON IN <#' + msg.channel.id + '>. ' + slowInterval + ' SECOND DELAY ON INDIVIDUAL COMMUNICATIONS INSTITUTED.');
+          chan.send('SLOWMODE HAS BEEN TURNED ON IN <#' + msg.channel.id + '>. ' + slowInterval + ' SECOND DELAY ON INDIVIDUAL COMMUNICATIONS INSTITUTED.').catch(console.error);
         }
       break;
 
@@ -609,7 +609,7 @@ bot.on('message', msg => {
     			else {
     				slowInterval = 2;
   			  }
-          chan.send("SLOWMODE HAS BEEN TURNED ON FOR ALL USERS AT ONCE IN <#" + msg.channel.id + ">. " + slowInterval + " SECOND DELAY INSTITUTED.");
+          chan.send("SLOWMODE HAS BEEN TURNED ON FOR ALL USERS AT ONCE IN <#" + msg.channel.id + ">. " + slowInterval + " SECOND DELAY INSTITUTED.").catch(console.error);
   		  }
   	  break;
 
@@ -620,7 +620,7 @@ bot.on('message', msg => {
               slowChannels.splice(index, 1);
           }
   		    slowEveryone = false;
-          chan.send('SLOWMODE HAS BEEN TURNED OFF IN <#' + msg.channel.id + '>. FEEL FREE TO RESUME CHATTER.');
+          chan.send('SLOWMODE HAS BEEN TURNED OFF IN <#' + msg.channel.id + '>. FEEL FREE TO RESUME CHATTER.').catch(console.error);
         }
       break;
 
@@ -665,19 +665,19 @@ bot.on('message', msg => {
             autoSpeedCheck = false;
             speedCheck = 0;
             clearInterval(speedCheckReset);
-            bot.channels.get("393848164307697677").send('CHAT SPEED CHECKS TURNED OFF.');
+            bot.channels.get("393848164307697677").send('CHAT SPEED CHECKS TURNED OFF.').catch(console.error);
           }
           else {
             autoSpeedCheck = true;
             speedCheckReset = setInterval(function(){ speedCheck = 0; }, 1000);
-            bot.channels.get("393848164307697677").send('CHAT SPEED CHECKS IN PROGRESS ACROSS ALL CHANNELS. TOO MANY MESSAGES PER SECOND WILL ACTIVATE A TEMPORARY SLOWMODE EFFECT AUTOMATICALLY.');
+            bot.channels.get("393848164307697677").send('CHAT SPEED CHECKS IN PROGRESS ACROSS ALL CHANNELS. TOO MANY MESSAGES PER SECOND WILL ACTIVATE A TEMPORARY SLOWMODE EFFECT AUTOMATICALLY.').catch(console.error);
           }
         }
       break;
 
       case 'SPEEDCHECKDEBUG':
         if (msg.member.hasPermission("MANAGE_ROLES")) {
-          chan.send('SPEED CHECK ON: ' + autoSpeedCheck + ', MESSAGE SPEED: ' + speedCheck);
+          chan.send('SPEED CHECK ON: ' + autoSpeedCheck + ', MESSAGE SPEED: ' + speedCheck).catch(console.error);
         }
       break;
     }
@@ -686,7 +686,7 @@ bot.on('message', msg => {
 
 
 bot.on('guildMemberAdd', function(member) {
-	bot.channels.get("393848164307697677").send('<@' + member.id + '> DETECTED. YOU HAVE BEEN ASSIMILATED TO THE ROBOT PIZZA PARTY. READ THE <#393842582414688269> AND POST AN INTRODUCTION  IN  <#396067802970193920>. SHARE AND ENJOY :pizza:');
+	bot.channels.get("393848164307697677").send('<@' + member.id + '> DETECTED. YOU HAVE BEEN ASSIMILATED TO THE ROBOT PIZZA PARTY. READ THE <#393842582414688269> AND POST AN INTRODUCTION  IN  <#396067802970193920>. SHARE AND ENJOY :pizza:').catch(console.error);
 });
 
 
