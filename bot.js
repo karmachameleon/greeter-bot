@@ -557,7 +557,7 @@ bot.on('message', msg => {
             	slowChannels.splice(index, 1);
             }
     				chan.send("STOP MODE DEACTIVATED. THINK ABOUT WHAT YOU'VE DONE.").catch(console.error);
-          }, slowInterval * 6000);
+          }, slowInterval * 1000);
         }
       break;
 
