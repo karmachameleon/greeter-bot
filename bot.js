@@ -82,6 +82,8 @@ SHADOWS:'411365856162086913', GRUE:'411365951624445963', WIENER:'411365822041292
 
 var dancegifs = [ "public/robot1.gif", "public/robot4.gif", "public/robotdance2.gif", "public/robotdance3.gif", "public/robotdance4.gif", "public/robotdance5.gif" ]
 
+var votes = {"set":false, "userID":1};
+
 function isNumber(n) {
   return !isNaN(parseFloat(n)) && isFinite(n);
 }
@@ -93,6 +95,18 @@ function isEmptyMap(obj) {
      }
   });
   return true;
+}
+
+function listVoteOptions(arr){
+  var setIndex = arr.indexOf("set");
+  if (setIndex > -1) {
+    arr.splice(setIndex, 1);
+  }
+  var idIndex = arr.indexOf("userID");
+  if (idIndex > -1) {
+    arr.splice(idIndex, 1);
+  }
+  return arr.toString();
 }
 
 var slowChannels = [];
@@ -363,6 +377,67 @@ bot.on('message', msg => {
   			  }
   		  }
   	  break;
+
+      case 'VOTE':
+        var voteprogress = 'CURRENT POLL STATUS: ';
+        if (msg.split(' ').length > 1){
+          voteprogress = 'YOUR OPINION HAS BEEN NOTED. ' + voteprogress;
+          var voteargs = msg.split(' ');
+          var votetemp;
+          for (var t = 1; t < voteargs.length; t++){
+            votetemp = voteargs[t].toUpperCase();
+            if (votes.hasOwnproperty(votetemp)){
+              eval("votes." + votetemp + "++;");
+            }
+            else{
+              eval("votes." + votetemp + "= 0;");
+            }
+          }
+        }
+        for (const prop in votes){
+          if (prop != 'set' && prop != 'userID'){
+            voteprogress = voteprogress + `${prop} = ${votes[prop]}, `;
+          }
+        }
+        chan.send(voteprogress).catch(console.error);
+      break;
+
+      case 'SETVOTE':
+        if (votes["set"]){
+          if (votes.userID != msg.user.id || !msg.member.hasPermission("MANAGE_ROLES")){
+            chan.send('YOU ARE NOT THE OWNER OF THE CURRENT POLL. ONLY THEY, OR A MOD, CAN RESET THE VOTE TALLY').catch(console.error);
+            break;
+          }
+        }
+        if (msg.split(' ').length > 1){
+          votes = {"set":true, "userID":msg.user.id};
+          var voteargs = msg.split(' ');
+          for (var s = 1; s < voteargs.length; s++){
+            eval("votes." + voteargs[s].toUpperCase() + " = 0;");
+          }
+          chan.send('NEW POLL CREATED: YOUR CHOICES ARE' + listVoteOptions(Object.getOwnPropertyNames(votes))).catch(console.error);
+        }
+        else {
+          votes = {"set":false};
+          chan.send('PREVIOUS POLL HAS BEEN SUCCESSFULLY CLEARED. THANK YOU FOR YOUR VALUED INPUT').catch(console.error);
+        }
+      break;
+
+      case 'CLEARVOTE':
+        if (votes["set"]){
+          if (votes.userID == msg.user.id || msg.member.hasPermission("MANAGE_ROLES")){
+            votes = {"set":false};
+            chan.send('PREVIOUS POLL HAS BEEN SUCCESSFULLY CLEARED. THANK YOU FOR YOUR VALUED INPUT').catch(console.error);
+          }
+          else{
+            chan.send('YOU ARE NOT THE OWNER OF THE CURRENT POLL. ONLY THEY, OR A MOD, CAN RESET THE VOTE TALLY').catch(console.error);
+          }
+        }
+        else {
+          votes = {"set":false};
+          chan.send('PREVIOUS POLL HAS BEEN SUCCESSFULLY CLEARED. THANK YOU FOR YOUR VALUED INPUT').catch(console.error);
+        }
+      break;
 
       case 'COMPLIMENT':
   		  if (msg.content.split(' ').length == 1) {
