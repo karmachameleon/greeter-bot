@@ -390,13 +390,13 @@ bot.on('message', msg => {
               eval("votes." + votetemp + "++;");
             }
             else{
-              eval("votes." + votetemp + "= 0;");
+              eval("votes." + votetemp + "= 1;");
             }
           }
         }
         for (const prop in votes){
           if (prop != 'set' && prop != 'userID'){
-            voteprogress = voteprogress + `${prop} = ${votes[prop]}, `;
+            voteprogress = voteprogress + `${prop} = ${votes[prop]} `;
           }
         }
         chan.send(voteprogress).catch(console.error);
