@@ -386,7 +386,7 @@ bot.on('message', msg => {
           var votetemp;
           for (var t = 1; t < voteargs.length; t++){
             votetemp = voteargs[t].toUpperCase();
-            if (votes.hasOwnproperty(votetemp)){
+            if (votes.hasOwnProperty(votetemp)){
               eval("votes." + votetemp + "++;");
             }
             else{
@@ -415,7 +415,7 @@ bot.on('message', msg => {
           for (var s = 1; s < voteargs.length; s++){
             eval("votes." + voteargs[s].toUpperCase() + " = 0;");
           }
-          chan.send('NEW POLL CREATED: YOUR CHOICES ARE' + listVoteOptions(Object.getOwnPropertyNames(votes))).catch(console.error);
+          chan.send('NEW POLL CREATED: YOUR CHOICES ARE ' + listVoteOptions(Object.getOwnPropertyNames(votes))).catch(console.error);
         }
         else {
           votes = {"set":false};
@@ -464,10 +464,10 @@ bot.on('message', msg => {
   					  recipient = "<@" + deroID + ">";
   					  var choice2 = roboComplimentsArray[Math.floor(Math.random() * roboComplimentsArray.length)];
   				  }
-  				  /*else if (msg.author.id == karmaID){
+  				  else if (msg.author.id == karmaID){
   					  recipient = "<@" + karmaID + ">";
   					  var choice2 = lizardComplimentsArray[Math.floor(Math.random() * lizardComplimentsArray.length)];
-  				  }*/
+  				  }
   				  else {
   					  recipient = "<@" + msg.author.id + ">";
   					  var choice2 = complimentsArray[Math.floor(Math.random() * complimentsArray.length)];
