@@ -404,13 +404,13 @@ bot.on('message', msg => {
 
       case 'SETVOTE':
         if (votes["set"]){
-          if (votes.userID != msg.user.id || !msg.member.hasPermission("MANAGE_ROLES")){
+          if (votes.userID != msg.author.id || !msg.member.hasPermission("MANAGE_ROLES")){
             chan.send('YOU ARE NOT THE OWNER OF THE CURRENT POLL. ONLY THEY, OR A MOD, CAN RESET THE VOTE TALLY').catch(console.error);
             break;
           }
         }
         if (msg.content.split(' ').length > 1){
-          votes = {"set":true, "userID":msg.user.id};
+          votes = {"set":true, "userID":msg.author.id};
           var voteargs = msg.content.split(' ');
           for (var s = 1; s < voteargs.length; s++){
             eval("votes." + voteargs[s].toUpperCase() + " = 0;");
@@ -425,7 +425,7 @@ bot.on('message', msg => {
 
       case 'CLEARVOTE':
         if (votes["set"]){
-          if (votes.userID == msg.user.id || msg.member.hasPermission("MANAGE_ROLES")){
+          if (votes.userID == msg.author.id || msg.member.hasPermission("MANAGE_ROLES")){
             votes = {"set":false};
             chan.send('PREVIOUS POLL HAS BEEN SUCCESSFULLY CLEARED. THANK YOU FOR YOUR VALUED INPUT').catch(console.error);
           }
@@ -469,7 +469,7 @@ bot.on('message', msg => {
   					  var choice2 = lizardComplimentsArray[Math.floor(Math.random() * lizardComplimentsArray.length)];
   				  }*/
   				  else {
-  					  recipient = "<@" + msg.user.id + ">";
+  					  recipient = "<@" + msg.author.id + ">";
   					  var choice2 = complimentsArray[Math.floor(Math.random() * complimentsArray.length)];
   				  }
   			  }
