@@ -464,10 +464,10 @@ bot.on('message', msg => {
   					  recipient = "<@" + deroID + ">";
   					  var choice2 = roboComplimentsArray[Math.floor(Math.random() * roboComplimentsArray.length)];
   				  }
-  				  else if (userID == karmaID){
+  				  /*else if (userID == karmaID){
   					  recipient = "<@" + karmaID + ">";
   					  var choice2 = lizardComplimentsArray[Math.floor(Math.random() * lizardComplimentsArray.length)];
-  				  }
+  				  }*/
   				  else {
   					  recipient = "<@" + msg.user.id + ">";
   					  var choice2 = complimentsArray[Math.floor(Math.random() * complimentsArray.length)];
