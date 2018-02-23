@@ -460,11 +460,11 @@ bot.on('message', msg => {
             break;
           }
   			  else if (recipient === "ME"){
-  				  if (userID == deroID){
+  				  if (msg.author.id == deroID){
   					  recipient = "<@" + deroID + ">";
   					  var choice2 = roboComplimentsArray[Math.floor(Math.random() * roboComplimentsArray.length)];
   				  }
-  				  /*else if (userID == karmaID){
+  				  /*else if (msg.author.id == karmaID){
   					  recipient = "<@" + karmaID + ">";
   					  var choice2 = lizardComplimentsArray[Math.floor(Math.random() * lizardComplimentsArray.length)];
   				  }*/
