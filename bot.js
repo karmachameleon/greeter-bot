@@ -380,9 +380,9 @@ bot.on('message', msg => {
 
       case 'VOTE':
         var voteprogress = 'CURRENT POLL STATUS: ';
-        if (msg.split(' ').length > 1){
+        if (msg.content.split(' ').length > 1){
           voteprogress = 'YOUR OPINION HAS BEEN NOTED. ' + voteprogress;
-          var voteargs = msg.split(' ');
+          var voteargs = msg.content.split(' ');
           var votetemp;
           for (var t = 1; t < voteargs.length; t++){
             votetemp = voteargs[t].toUpperCase();
@@ -409,9 +409,9 @@ bot.on('message', msg => {
             break;
           }
         }
-        if (msg.split(' ').length > 1){
+        if (msg.content.split(' ').length > 1){
           votes = {"set":true, "userID":msg.user.id};
-          var voteargs = msg.split(' ');
+          var voteargs = msg.content.split(' ');
           for (var s = 1; s < voteargs.length; s++){
             eval("votes." + voteargs[s].toUpperCase() + " = 0;");
           }
