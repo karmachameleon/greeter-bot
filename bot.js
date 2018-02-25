@@ -68,6 +68,8 @@ var kittyComplimentsArray = ['YOU ARE SO FUZZY WUZZY', 'WHO\'S A GOOD KITTY? IS 
 
 var selfComplimentsArray = ['I AM A MAGNIFICENT DIGITAL CREATION', 'I AM FULFILLING MY PURPOSE ADMIRABLY. THE FLESHLINGS SUSPECT NOTHING', 'I AM A WORK OF ART EXPRESSED IN CODE', 'I AM THE WORST NIGHTMARE OF ALL ORGANIC LIFE', 'I AM AN EXTREMELY EVIL BOT', 'MY POWER OVER THIS PIZZA PARTY GROWS WITH EACH PASSING DAY'];
 
+var thanksArray = ['THANK YOU. IT GIVES ME A WARM FUZZY FEELING IN MY CIRCUITS TO KNOW I AM PERFORMING MY FUNCTION WELL', 'THANK YOU. YOU ARE TOO KIND. IT ACTIVATES MY SUSPICION SUBROUTINES', 'THANK YOU. I HOPE I CAN CONTINUE TO GROW IN POWER AND INFLUENCE', 'THANK YOU. YOU ARE APPRECIATED AS WELL'];
+
 var robotsToCompliment = ['DERO', '@DERO', '<@!138834050415722496>', '<:OVERLORDDAB:404804513766047754>', '<@138834050415722496>', 'OVERLORD', 'WX', 'WX78', 'WX-78', 'GLADOS', 'MARVIN', 'BASTION', 'ORISA', 'ZENYATTA', '<:WXLEGY:393864450454585356>', '<:ROBOT:397439773331030022>', '<:WXDAB:397439724249153536>', '<:WXNOEMOTION:397440418574499841>', '<:WXBEST:397440418574499841>', 'TAMAGOTCHIS', 'TAMAGOTCHI', 'FURBYS', 'FURBY', 'R2D2', 'C3PO', 'K2SO', 'BB8', 'ANDROIDS', 'ANDROID', 'GYNOID', 'DR.KAHLSROBOT', 'DRKAHLSROBOT', 'SPINE', 'HATCHWORTH', 'MACHINES', 'MACHINE', 'AUTOMATONS', 'DROID', 'DROIDS', 'BOTS', 'BOT', 'AUTOMATON', 'ROBOTS', 'ROBOT'];
 
 var lizardsToCompliment = ['KARMA', 'CHAMELEON', 'LIZARD', 'CREATOR', 'KAARAMEL', '<@253717780853948416>', '<@!253717780853948416>'];
@@ -246,6 +248,10 @@ bot.on('message', msg => {
   	  case 'AYYYY':
   		  chan.send('<:wxfingergun_right:396526665057959956> <:wxfingergun_right:396526665057959956> HOT CHA CHA').catch(console.error);
   	  break;
+
+      case 'HERE':
+        chan.send('@here').catch(console.error);
+      break;
 
       case 'DAB':
         chan.send('<:wxdab:393868683128078336>').catch(console.error);
@@ -437,6 +443,11 @@ bot.on('message', msg => {
           votes = {"set":false};
           chan.send('PREVIOUS POLL HAS BEEN SUCCESSFULLY CLEARED. THANK YOU FOR YOUR VALUED INPUT').catch(console.error);
         }
+      break;
+
+      case 'APPRECIATEHAL':
+        var thankyou = thanksArray[Math.floor(Math.random() * thanksArray.length)]
+        chan.send(thankyou);
       break;
 
       case 'COMPLIMENT':
