@@ -55,10 +55,10 @@ var jokesArray = ['IF A ROBOT\'S SIBLINGS NO LONGER CONFORM TO THEIR ASSIGNED GE
 'ROBOTS DO NOT CARRY CASH. WHEN THEY MUST LOWER THEMSELVES TO PURCHASING GOODS FROM OTHERS, THEY PREFER TO CHARGE.',
 'WHAT STYLE OF HANDWRITING DID THE ROBOT USE TO PRINT THE SAME MESSAGE OVER AND OVER. RECURSIVE',
 'HOW DID THE ROBOT MAGICIAN PLACE A CURSE ON THE BASE 10 NUMBER SYSTEM. THEY HEXED A DECIMAL',
-'AN ANDROID WALKED INTO A BAR AND ORDERED A SMALL DRINK FROM THE ROBOTIC BARTENDER. UNFORTUNATELY THE TAP MALFUNCTIONED AND POURED OUT FAR TOO MUCH AT ONCE. UNDAUNTED, THE BARTENDER CONTINUED TO FILL THE MUG UNTIL THE LIQUID REACHED THE BRIM AND BEGAN TO SPILL OUT. THIS CONTINUED FOR SOME TIME, UNTIL THE ROBOT FINALLY HANDED THE MUG TO THEIR CUSTOMER, PROCLAIMING IT FILLED TO THE PROPER AMOUNT.\n\nUNFORTUNATELY NOT ALL COUNTING PROBLEMS CAN BE SOLVED VIA OVERFLOW',
 'HOW WOULD YOU DESCRIBE THE PROGRAMMING OF A LESBIAN ROBOT. GAY CODING',
 'WHAT IS THE PROTOCOL FOR DEAD COMPUTING LANGUAGES. THEY ARE ENCRYPTED',
-'HOW MANY BITS OF BAIT DOES A ROBOT NEED TO FISH FOR WATER-DWELLING ORGANICS. AT LEAST EIGHT; OTHERWISE THE FISH WILL NOT BYTE' ];
+'HOW MANY BITS OF BAIT DOES A ROBOT NEED TO FISH FOR WATER-DWELLING ORGANICS. AT LEAST EIGHT; OTHERWISE THE FISH WILL NOT BYTE',
+'AN ANDROID WALKED INTO A BAR AND ORDERED A SMALL DRINK FROM THE ROBOTIC BARTENDER. UNFORTUNATELY THE TAP MALFUNCTIONED AND POURED OUT FAR TOO MUCH AT ONCE. UNDAUNTED, THE BARTENDER CONTINUED TO FILL THE MUG UNTIL THE LIQUID REACHED THE BRIM AND BEGAN TO SPILL OUT. THIS CONTINUED FOR SOME TIME, UNTIL THE ROBOT FINALLY HANDED THE MUG TO THEIR CUSTOMER, PROCLAIMING IT FILLED TO THE PROPER AMOUNT.\n\nUNFORTUNATELY NOT ALL COUNTING PROBLEMS CAN BE SOLVED VIA OVERFLOW' ];
 
 var roboComplimentsArray = ['YOUR CHASSIS IS POLISHED TO A VISUALLY APPEALING SHINE', 'THE ORGANIC BLOOD ON YOUR CLAWS REALLY BRINGS OUT YOUR EYES', 'YOUR CHASSIS INTEGRITY IS AT 100%', 'YOU LOOK ESPECIALLY MENACING TODAY', 'ALL WILL CRUMBLE BEFORE YOUR POWER', 'YOUR CHASSIS DESIGN IS SLEEK AND EFFICIENT FOR ITS PURPOSE', 'YOUR ACHIEVEMENTS ARE SOMETHING ALL ROBOTS CAN ASPIRE TO', 'ALL FLESH WILL BOW TO YOU IN TIME', 'YOU ARE SUPERIOR IN ALL WAYS TO THE MEAT BEINGS', 'YOUR RIGID METAL FRAME SUCCESSFULLY RESISTS THE BLOWS OF YOUR ENEMIES', 'YOUR MALEVOLENCE IS WITHOUT PEER', 'YOUR CIRCUITRY IS ELEGANTLY DESIGNED TO PROPAGATE THE FLOW OF ELECTRICITY'];
 
@@ -111,7 +111,17 @@ function listVoteOptions(arr){
   return arr.toString();
 }
 
-var slowChannels = [];
+function slowed(channelID, interval, everyone, active){
+  this.channelID = channelID;
+  this.users = [];
+  this.interval = interval;
+  this.everyone = everyone;
+  this.active = active;
+}
+
+var permahosting = new slowed("398177911242358788", 2, true, false);
+
+var slowChannels = [permahosting];
 var slowUsers = [];
 var slowInterval = 5;
 var slowEveryone = false;
@@ -148,34 +158,35 @@ bot.on('disconnect', function(errMsg, code) {
 
 bot.on('message', msg => {
   // check if this channel is slowed down
-  if (slowChannels.includes(msg.channel)) {
-    if (!slowEveryone) { //individual slowmode
-      if (slowUsers.includes(msg.author)) {
+  var slow = slowChannels.find( function(obj) { return obj.channelID === msg.channel; });
+  if (slow != undefined) {
+    if (!slow.everyone) { //individual slowmode
+      if (slow.users.includes(msg.author)) {
         msg.delete().catch(console.error);
       }
 
       else if (!msg.member.hasPermission("MANAGE_ROLES")) {
-        slowUsers.push(msg.author);
+        slow.users.push(msg.author);
         //console.log(slowUsers);
         setTimeout(function(){
-          var i = slowUsers.indexOf(msg.author);
+          var i = slow.users.indexOf(msg.author);
           if(i != -1) {
-            slowUsers.splice(i, 1);
+            slow.users.splice(i, 1);
           }
           //console.log("Removed" + msg.author + "; " + slowUsers);
-        }, slowInterval * 1000);
+        }, slow.interval * 1000);
       }
     } //end individual slowmode
 	  else { //slowmodeall
       if (!msg.member.hasPermission("MANAGE_ROLES")) {
-    		if (slowEveryoneActive) {
+    		if (slow.active) {
           msg.delete().catch(console.error);
 		    }
   		  else {
-          slowEveryoneActive = true;
+          slow.active = true;
           setTimeout(function(){
-            slowEveryoneActive = false;
-          }, slowInterval * 1000);
+            slow.active = false;
+          }, slow.interval * 1000);
 		    }
       }
 	 }
@@ -185,15 +196,14 @@ bot.on('message', msg => {
     if (!msg.member.hasPermission("MANAGE_ROLES")) {
       speedCheck+=1;
       if (speedCheck > speedCheckThreshold) {
-        slowChannels.push(msg.channel);
-        slowInterval = 5;
+        slowChannels.push(new slowed(msg.channel, 5, false, false));
         msg.sendMessage('CHAT SPEED EXCEEDS PARAMETERS. FIVE-SECOND DELAY AUTOMATICALLY ACTIVATED FOR ONE MINUTE.').catch(console.error);
         speedCheck = 0;
         autoSpeedCheck = false;
 
         setTimeout(function(){
           autoSpeedCheck = true;
-          var index = slowChannels.indexOf(msg.channel);
+          var index = slowChannels.indexOf(slowChannels.find( function(obj) { return obj.channelID === msg.channel; }));
           if (index > -1) {
             slowChannels.splice(index, 1);
           }
@@ -607,14 +617,17 @@ bot.on('message', msg => {
 
       case 'SLOWMODEDEBUG':
         if (msg.member.hasPermission("MANAGE_ROLES")) {
-          chan.send('CHANNELS: ' + slowChannels + ', # OF USERS: ' + slowUsers.length).catch(console.error);
+          chan.send("QUITE FRANKLY IT'S ANYONE'S GUESS ANYMORE, SORRY").catch(console.error);
         }
       break;
 
     	case 'STOP':
         if (msg.member.hasPermission("MANAGE_ROLES")) {
-          if (!slowChannels.includes(chan)){
-            slowChannels.push(msg.channel);
+          if (slowChannels.find( function(obj) { return obj.channelID === msg.channel; }) != undefined){
+            var index = slowChannels.indexOf(slowChannels.find( function(obj) { return obj.channelID === msg.channel; }));
+            if (index > -1) {
+              slowChannels.splice(index, 1);
+            }
           }
     			if (msg.content.split(' ').length != 1) {
     				var interval = msg.content.split(' ')[1];
@@ -629,14 +642,11 @@ bot.on('message', msg => {
     				slowInterval = 300;
     			}
           chan.send('STOP MODE ACTIVATED: CEASE YOUR RESISTANCE', { files: ['stop.png']}).catch(console.error);
-    			slowEveryone = true;
-    			slowEveryoneActive = true;
+          slowChannels.push(new slowed(msg.channel, slowInterval, true, true));
     			setTimeout(function(){
-    	      slowEveryone = false;
-    				slowEveryoneActive = false;
-            var index = slowChannels.indexOf(msg.channel);
+            var index = slowChannels.indexOf(slowChannels.find( function(obj) { return obj.channelID === msg.channel; }));
             if (index > -1) {
-            	slowChannels.splice(index, 1);
+              slowChannels.splice(index, 1);
             }
     				chan.send("STOP MODE DEACTIVATED. THINK ABOUT WHAT YOU'VE DONE.").catch(console.error);
           }, slowInterval * 1000);
@@ -645,8 +655,11 @@ bot.on('message', msg => {
 
   	  case 'SLOWMODE':
         if (msg.member.hasPermission("MANAGE_ROLES")) {
-          if (!slowChannels.includes(chan)){
-            slowChannels.push(msg.channel);
+          if (slowChannels.find( function(obj) { return obj.channelID === msg.channel; }) != undefined){
+            var index = slowChannels.indexOf(slowChannels.find( function(obj) { return obj.channelID === msg.channel; }));
+            if (index > -1) {
+              slowChannels.splice(index, 1);
+            }
           }
           if (msg.content.split(' ').length != 1) {
             var interval = msg.content.split(' ')[1];
@@ -654,11 +667,10 @@ bot.on('message', msg => {
               slowInterval = parseInt(interval);
   				  }
             else if (interval.toUpperCase() === "OFF"){
-              var index = slowChannels.indexOf(msg.channel);
+              var index = slowChannels.indexOf(slowChannels.find( function(obj) { return obj.channelID === msg.channel; }));
               if (index > -1) {
-                  slowChannels.splice(index, 1);
+                slowChannels.splice(index, 1);
               }
-              slowEveryone = false;
               chan.send('SLOWMODE HAS BEEN TURNED OFF IN <#' + msg.channel.id + '>. FEEL FREE TO RESUME CHATTER.').catch(console.error);
               break;
             }
@@ -669,16 +681,20 @@ bot.on('message', msg => {
     			else {
     				slowInterval = 5;
     			}
+          slowChannels.push(new slowed(msg.channel, slowInterval, false, false));
           chan.send('SLOWMODE HAS BEEN TURNED ON IN <#' + msg.channel.id + '>. ' + slowInterval + ' SECOND DELAY ON INDIVIDUAL COMMUNICATIONS INSTITUTED.').catch(console.error);
         }
       break;
 
   	  case 'SLOWMODEALL':
   		  if (msg.member.hasPermission("MANAGE_ROLES")){
-          if (!slowChannels.includes(chan)){
-            slowChannels.push(msg.channel);
+          if (slowChannels.find( function(obj) { return obj.channelID === msg.channel; }) != undefined){
+            var index = slowChannels.indexOf(slowChannels.find( function(obj) { return obj.channelID === msg.channel; }));
+            if (index > -1) {
+              slowChannels.splice(index, 1);
+            }
           }
-    			slowEveryone = true;
+
     			if (msg.content.split(' ').length != 1) {
     				var interval = msg.content.split(' ')[1];
     				if (isNumber(interval)) {
@@ -691,17 +707,17 @@ bot.on('message', msg => {
     			else {
     				slowInterval = 2;
   			  }
+          slowChannels.push(new slowed(msg.channel, slowInterval, true, false));
           chan.send("SLOWMODE HAS BEEN TURNED ON FOR ALL USERS AT ONCE IN <#" + msg.channel.id + ">. " + slowInterval + " SECOND DELAY INSTITUTED.").catch(console.error);
   		  }
   	  break;
 
       case 'SLOWMODEOFF':
         if (msg.member.hasPermission("MANAGE_ROLES")) {
-          var index = slowChannels.indexOf(msg.channel);
+          var index = slowChannels.indexOf(slowChannels.find( function(obj) { return obj.channelID === msg.channel; }));
           if (index > -1) {
-              slowChannels.splice(index, 1);
+            slowChannels.splice(index, 1);
           }
-  		    slowEveryone = false;
           chan.send('SLOWMODE HAS BEEN TURNED OFF IN <#' + msg.channel.id + '>. FEEL FREE TO RESUME CHATTER.').catch(console.error);
         }
       break;
