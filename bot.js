@@ -249,10 +249,6 @@ bot.on('message', msg => {
   		  chan.send('<:wxfingergun_right:396526665057959956> <:wxfingergun_right:396526665057959956> HOT CHA CHA').catch(console.error);
   	  break;
 
-      case 'HERE':
-        chan.send('@here').catch(console.error);
-      break;
-
       case 'DAB':
         chan.send('<:wxdab:393868683128078336>').catch(console.error);
       break;
