@@ -401,7 +401,7 @@ bot.on('message', msg => {
             if (votes.hasOwnProperty(votetemp)){
               eval("votes." + votetemp + "++;");
             }
-            else{
+            else if (!votes.set){
               eval("votes." + votetemp + "= 1;");
             }
           }
