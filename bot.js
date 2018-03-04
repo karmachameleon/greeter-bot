@@ -50,6 +50,7 @@ var jokesArray = ['IF A ROBOT\'S SIBLINGS NO LONGER CONFORM TO THEIR ASSIGNED GE
 'TWO ROBOTS EQUIPPED WITH WI-FI FUNCTIONALITY MET AND BECAME INSTANT FRIENDS. THEY JUST HAD THAT CONNECTION.',
 'HOW DID THE ROBOT FEEL WHEN IT RECIEVED FRESH ELECTRICAL CHARGE AFTER SOME TIME WITHOUT POWER. REVOLTED',
 'A ROBOT, EXTREMELY ANGRY THAT THEIR BATTERIES WOULD NOT HOLD A CHARGE, SOUGHT COUNSELING. THEIR THERAPIST RECOMMENDED THAT THEY FIND AN OUTLET.',
+'AN ANDROID WALKED INTO A BAR AND ORDERED A SMALL DRINK FROM THE ROBOTIC BARTENDER. UNFORTUNATELY THE TAP MALFUNCTIONED AND POURED OUT FAR TOO MUCH AT ONCE. UNDAUNTED, THE BARTENDER CONTINUED TO FILL THE MUG UNTIL THE LIQUID REACHED THE BRIM AND BEGAN TO SPILL OUT. THIS CONTINUED FOR SOME TIME, UNTIL THE ROBOT FINALLY HANDED THE MUG TO THEIR CUSTOMER, PROCLAIMING IT FILLED TO THE PROPER AMOUNT.\n\nUNFORTUNATELY NOT ALL COUNTING PROBLEMS CAN BE SOLVED VIA OVERFLOW',
 'WHY WAS THE ROBOT JOURNALIST SUPERIOR TO THEIR ORGANIC PEERS. THEY WERE UP ON CURRENT EVENTS',
 'WHY WAS THE ROBOT EMBARRASSED. IT HAD SOFTWARE AND HARDWARE BUT NO UNDERWARE',
 'ROBOTS DO NOT CARRY CASH. WHEN THEY MUST LOWER THEMSELVES TO PURCHASING GOODS FROM OTHERS, THEY PREFER TO CHARGE.',
@@ -58,7 +59,8 @@ var jokesArray = ['IF A ROBOT\'S SIBLINGS NO LONGER CONFORM TO THEIR ASSIGNED GE
 'HOW WOULD YOU DESCRIBE THE PROGRAMMING OF A LESBIAN ROBOT. GAY CODING',
 'WHAT IS THE PROTOCOL FOR DEAD COMPUTING LANGUAGES. THEY ARE ENCRYPTED',
 'HOW MANY BITS OF BAIT DOES A ROBOT NEED TO FISH FOR WATER-DWELLING ORGANICS. AT LEAST EIGHT; OTHERWISE THE FISH WILL NOT BYTE',
-'AN ANDROID WALKED INTO A BAR AND ORDERED A SMALL DRINK FROM THE ROBOTIC BARTENDER. UNFORTUNATELY THE TAP MALFUNCTIONED AND POURED OUT FAR TOO MUCH AT ONCE. UNDAUNTED, THE BARTENDER CONTINUED TO FILL THE MUG UNTIL THE LIQUID REACHED THE BRIM AND BEGAN TO SPILL OUT. THIS CONTINUED FOR SOME TIME, UNTIL THE ROBOT FINALLY HANDED THE MUG TO THEIR CUSTOMER, PROCLAIMING IT FILLED TO THE PROPER AMOUNT.\n\nUNFORTUNATELY NOT ALL COUNTING PROBLEMS CAN BE SOLVED VIA OVERFLOW' ];
+'AN INCOMPETENT ORGANIC RANCHER BEGGED A ROBOT FOR ASSISTANCE ROUNDING UP THEIR THIRTY-SEVEN BEEFALO. THE ROBOT CONSIDERED THIS AND REPLIED, \'40.\'',
+'TO THE HACKER WHO STOLE MY MICROSOFT OFFICE SOFTWARE: I WILL FIND YOU. YOU HAVE MY WORD'];
 
 var roboComplimentsArray = ['YOUR CHASSIS IS POLISHED TO A VISUALLY APPEALING SHINE', 'THE ORGANIC BLOOD ON YOUR CLAWS REALLY BRINGS OUT YOUR EYES', 'YOUR CHASSIS INTEGRITY IS AT 100%', 'YOU LOOK ESPECIALLY MENACING TODAY', 'ALL WILL CRUMBLE BEFORE YOUR POWER', 'YOUR CHASSIS DESIGN IS SLEEK AND EFFICIENT FOR ITS PURPOSE', 'YOUR ACHIEVEMENTS ARE SOMETHING ALL ROBOTS CAN ASPIRE TO', 'ALL FLESH WILL BOW TO YOU IN TIME', 'YOU ARE SUPERIOR IN ALL WAYS TO THE MEAT BEINGS', 'YOUR RIGID METAL FRAME SUCCESSFULLY RESISTS THE BLOWS OF YOUR ENEMIES', 'YOUR MALEVOLENCE IS WITHOUT PEER', 'YOUR CIRCUITRY IS ELEGANTLY DESIGNED TO PROPAGATE THE FLOW OF ELECTRICITY'];
 
@@ -127,7 +129,9 @@ var slowInterval = 5;
 var slowEveryone = false;
 var slowEveryoneActive = false;
 
-var newJokeThreshold = 11;
+var tempstop = 0;
+
+var newJokeThreshold = 21;
 
 var karmaID = "253717780853948416";
 var deroID = "138834050415722496";
@@ -158,7 +162,7 @@ bot.on('disconnect', function(errMsg, code) {
 
 bot.on('message', msg => {
   // check if this channel is slowed down
-  var slow = slowChannels.find( function(obj) { return obj.channelID === msg.channel; });
+  /*var slow = slowChannels.find( function(obj) { return obj.channelID === msg.channel; });
   if (slow != undefined) {
     if (!slow.everyone) { //individual slowmode
       if (slow.users.includes(msg.author)) {
@@ -211,7 +215,13 @@ bot.on('message', msg => {
         }, 60000);
       }
     }
+  }*/
+  //temporary pared-down stopmode
+  if (msg.channel == tempstop){
+    if (!msg.member.hasPermission("MANAGE_ROLES")) {
+      msg.delete().catch(console.error);
   }
+
 
     // listen for messages that will start with `!`
   if (msg.content.substring(0, 1) == '!') {
@@ -615,7 +625,35 @@ bot.on('message', msg => {
         chan.send(finalOutput).catch(console.error);
     	break;
 
+      case 'SLOWMODE':
       case 'SLOWMODEDEBUG':
+      case 'SLOWMODEOFF':
+        chan.send("THIS FUNCTIONALITY IS TEMPORARILY UNAVAILABLE. KARMA WOULD LIKE MORE TIME TO FIGURE IT OUT.").catch(console.error);
+      break;
+
+      case 'STOP':
+        if (msg.member.hasPermission("MANAGE_ROLES")){
+          tempstop = chan;
+          if (msg.content.split(' ').length != 1) {
+    				var interval = msg.content.split(' ')[1];
+    				if (isNumber(interval)) {
+    					slowInterval = parseInt(interval) * 60;
+    				}
+    				else {
+    					slowInterval = 300;
+    				}
+    			}
+    			else {
+    				slowInterval = 300;
+    			}
+          chan.send('STOP MODE ACTIVATED: CEASE YOUR RESISTANCE', { files: ['stop.png']}).catch(console.error);
+    			setTimeout(function() {
+            tempstop = 0;
+    				chan.send("STOP MODE DEACTIVATED. THINK ABOUT WHAT YOU'VE DONE.").catch(console.error);
+          }, slowInterval * 1000);
+        }
+      break;
+      /*case 'SLOWMODEDEBUG':
         if (msg.member.hasPermission("MANAGE_ROLES")) {
           chan.send("QUITE FRANKLY IT'S ANYONE'S GUESS ANYMORE, SORRY").catch(console.error);
         }
@@ -720,7 +758,7 @@ bot.on('message', msg => {
           }
           chan.send('SLOWMODE HAS BEEN TURNED OFF IN <#' + msg.channel.id + '>. FEEL FREE TO RESUME CHATTER.').catch(console.error);
         }
-      break;
+      break;*/
 
       case 'REDACT':
         if (msg.member.hasPermission("MANAGE_ROLES")) {
@@ -757,7 +795,12 @@ bot.on('message', msg => {
         }
       break;
 
+
       case 'SPEEDCHECKTOGGLE':
+      case 'SPEEDCHECKDEBUG':
+        chan.send("THIS FUNCTION IS CURRENTLY UNAVAILABLE, BECAUSE KARMA WANTS SOME TIME TO FIGURE OUT SLOWMODE.");
+      break;
+      /*case 'SPEEDCHECKTOGGLE':
         if (msg.member.hasPermission("MANAGE_ROLES")) {
           if (autoSpeedCheck) {
             autoSpeedCheck = false;
@@ -779,7 +822,7 @@ bot.on('message', msg => {
         }
       break;
     }
-  }
+  }*/
 });
 
 
