@@ -220,6 +220,7 @@ bot.on('message', msg => {
   if (msg.channel == tempstop){
     if (!msg.member.hasPermission("MANAGE_ROLES")) {
       msg.delete().catch(console.error);
+    }
   }
 
 
@@ -820,9 +821,9 @@ bot.on('message', msg => {
         if (msg.member.hasPermission("MANAGE_ROLES")) {
           chan.send('SPEED CHECK ON: ' + autoSpeedCheck + ', MESSAGE SPEED: ' + speedCheck).catch(console.error);
         }
-      break;
+      break;*/
     }
-  }*/
+  }
 });
 
 
