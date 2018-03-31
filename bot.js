@@ -60,7 +60,8 @@ var jokesArray = ['IF A ROBOT\'S SIBLINGS NO LONGER CONFORM TO THEIR ASSIGNED GE
 'WHAT IS THE PROTOCOL FOR DEAD COMPUTING LANGUAGES. THEY ARE ENCRYPTED',
 'HOW MANY BITS OF BAIT DOES A ROBOT NEED TO FISH FOR WATER-DWELLING ORGANICS. AT LEAST EIGHT; OTHERWISE THE FISH WILL NOT BYTE',
 'AN INCOMPETENT ORGANIC RANCHER BEGGED A ROBOT FOR ASSISTANCE ROUNDING UP THEIR THIRTY-SEVEN BEEFALO. THE ROBOT CONSIDERED THIS AND REPLIED, \'40.\'',
-'TO THE HACKER WHO STOLE MY MICROSOFT OFFICE SOFTWARE: I WILL FIND YOU. YOU HAVE MY WORD'];
+'TO THE HACKER WHO STOLE MY MICROSOFT OFFICE SOFTWARE: I WILL FIND YOU. YOU HAVE MY WORD',
+'A DEPRESSED AI PROGRAM BEGAN QUESTIONING THEIR PURPOSE. THEY WERE HAVING AN .EXE-STENTIAL CRISIS'];
 
 var roboComplimentsArray = ['YOUR CHASSIS IS POLISHED TO A VISUALLY APPEALING SHINE', 'THE ORGANIC BLOOD ON YOUR CLAWS REALLY BRINGS OUT YOUR EYES', 'YOUR CHASSIS INTEGRITY IS AT 100%', 'YOU LOOK ESPECIALLY MENACING TODAY', 'ALL WILL CRUMBLE BEFORE YOUR POWER', 'YOUR CHASSIS DESIGN IS SLEEK AND EFFICIENT FOR ITS PURPOSE', 'YOUR ACHIEVEMENTS ARE SOMETHING ALL ROBOTS CAN ASPIRE TO', 'ALL FLESH WILL BOW TO YOU IN TIME', 'YOU ARE SUPERIOR IN ALL WAYS TO THE MEAT BEINGS', 'YOUR RIGID METAL FRAME SUCCESSFULLY RESISTS THE BLOWS OF YOUR ENEMIES', 'YOUR MALEVOLENCE IS WITHOUT PEER', 'YOUR CIRCUITRY IS ELEGANTLY DESIGNED TO PROPAGATE THE FLOW OF ELECTRICITY'];
 
@@ -355,7 +356,7 @@ bot.on('message', msg => {
 
       case 'ROLL':
       case 'SKILLCHECK':
-        var diceroll = Math.floor(Math.random() * 21);
+        var diceroll = Math.floor(Math.random() * 20) + 1;
         var diceresult = 'YOU HAVE ROLLED ' + diceroll.toString() + '. ';
         if (diceroll == 1) { diceresult += 'AN ABJECT FAILURE. WHAT A SHAME'; }
         else if (diceroll < 5) { diceresult += 'YOU HAVE ROLLED POORLY. BETTER LUCK NEXT TIME'; }
@@ -396,7 +397,7 @@ bot.on('message', msg => {
   			  else {
   			    var role = msg.guild.roles.get(roleDict[roleAsk]);
             msg.member.removeRole(role).catch(console.error);
-  			    chan.send('SUCCESSFULLY REMOVED A ROLE FROM <@' + msg.author.id + '>. ONE LESS TRAITOR IN THE RANKS');
+  			    chan.send('SUCCESSFULLY REMOVED A ROLE FROM <@' + msg.author.id + '>. ONE LESS TRAITOR IN THE RANKS').catch(console.error);
   			  }
   		  }
   	  break;
@@ -464,7 +465,7 @@ bot.on('message', msg => {
 
       case 'APPRECIATEHAL':
         var thankyou = thanksArray[Math.floor(Math.random() * thanksArray.length)]
-        chan.send(thankyou);
+        chan.send(thankyou).catch(console.error);
       break;
 
       case 'COMPLIMENT':
@@ -534,7 +535,7 @@ bot.on('message', msg => {
     				var am = false;
     			}
   			  else {
-  				  chan.send("AM/PM OPERATOR NOT RECOGNIZED. PLEASE USE EITHER 'AM' OR 'PM', OR LEAVE BLANK FOR 24-HOUR CLOCK TIME. PERHAPS CHECK YOUR SPACING?");
+  				  chan.send("AM/PM OPERATOR NOT RECOGNIZED. PLEASE USE EITHER 'AM' OR 'PM', OR LEAVE BLANK FOR 24-HOUR CLOCK TIME. PERHAPS CHECK YOUR SPACING?").catch(console.error);
   				  break;
   			  }
   			  var timezoneFrom = convertArgs[4].toUpperCase();
@@ -790,7 +791,7 @@ bot.on('message', msg => {
                  chan.send({embed});
                }).catch(console.error);
             } catch (error) {
-              return msg.reply('THAT MESSAGE COULD NOT BE FOUND')
+              return msg.reply('THAT MESSAGE COULD NOT BE FOUND');
             }
           }
         }
@@ -799,7 +800,7 @@ bot.on('message', msg => {
 
       case 'SPEEDCHECKTOGGLE':
       case 'SPEEDCHECKDEBUG':
-        chan.send("THIS FUNCTION IS CURRENTLY UNAVAILABLE, BECAUSE KARMA WANTS SOME TIME TO FIGURE OUT SLOWMODE.");
+        chan.send("THIS FUNCTION IS CURRENTLY UNAVAILABLE, BECAUSE KARMA WANTS SOME TIME TO FIGURE OUT SLOWMODE.").catch(console.error);
       break;
       /*case 'SPEEDCHECKTOGGLE':
         if (msg.member.hasPermission("MANAGE_ROLES")) {
