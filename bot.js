@@ -829,7 +829,7 @@ bot.on('message', msg => {
 
 
 bot.on('guildMemberAdd', function(member) {
-	bot.channels.get("393848164307697677").send('<@' + member.id + '> DETECTED. YOU HAVE BEEN ASSIMILATED TO THE ROBOT PIZZA PARTY. READ THE <#393842582414688269> AND POST AN INTRODUCTION  IN  <#396067802970193920>. SHARE AND ENJOY :pizza:').catch(console.error);
+	bot.channels.get("393845951292243980").send('<@' + member.id + '> DETECTED. YOU HAVE BEEN ASSIMILATED TO THE ROBOT PIZZA PARTY. READ THE <#393842582414688269> AND POST AN INTRODUCTION  IN  <#396067802970193920>. SHARE AND ENJOY :pizza:').catch(console.error);
 });
 
 
