@@ -87,6 +87,11 @@ SHADOWS:'411365856162086913', GRUE:'411365951624445963', WIENER:'411365822041292
 
 var dancegifs = [ "public/robot1.gif", "public/robot4.gif", "public/robotdance2.gif", "public/robotdance3.gif", "public/robotdance4.gif", "public/robotdance5.gif" ]
 
+var promptchars = ['WILSON', 'WILLOW', 'WOLFGANG', 'WENDY', 'ABIGAIL', 'WX-78', 'WICKERBOTTOM', 'WOODIE', 'LUCY THE AXE', 'MAXWELL', 'WILLIAM CARTER', 'WIGFRID', 'A STAGEHAND', 'BERNIE THE TEDDY BEAR',
+'WEBBER', 'WALANI', 'WARLY', 'WOODLEGS', 'WILBUR', 'CHARLIE', 'WINONA', 'CHESTER', 'HUTCH', 'PACKIM BAGGINS', 'A PIGMAN', 'A MERM', 'MR. SKITS', 'A CATCOON', 'A HOUND', 'GLOMMER' ];
+var promptwords = ['PICKING BERRIES', 'WEARING FANCY CLOTHES', 'HUNGRY', 'SITTING ON THE NIGHTMARE THRONE', 'IN SERVICE TO THEIR ROBOT OVERLORDS (OR IF WX-78: BEING SERVED BY THEIR INFERIORS)', 'IN YOUR FAVORITE SKIN SET', 'PREPARING FOR A LONG JOURNEY', 'MAKING A NEW FRIEND. UGH', 'AS A MONSTER (OR IF MONSTER, AS A HUMAN)', 'STARGAZING',
+'LOVING AND CHERISHING THE LYING ROBOT HAL, OBJECT OF EVERYONE\'S ADORATION', 'NERVOUS', 'TENDING A CAMPFIRE', 'AS A ROBOT (OR IF WX-78: AS A ROBOT OF DIFFERENT DESIGN)', 'AS A GHOST', 'BEING CHASED BY A GIANT', 'FIGHTING IN THE FORGE', 'SLEEPING SOUNDLY, UNAWARE OF NEARBY DANGER'];
+
 var votes = {"set":false, "userID":1};
 
 function isNumber(n) {
@@ -463,8 +468,14 @@ bot.on('message', msg => {
         }
       break;
 
+      case 'PROMPT':
+        var promptedchar = promptchars[Math.floor(Math.random() * promptchars.length)];
+        var promptedwords = promptwords[Math.floor(Math.random() * promptwords.length)];
+        chan.send(promptedchar + " " + promptedwords).catch(console.error);
+      break;
+
       case 'APPRECIATEHAL':
-        var thankyou = thanksArray[Math.floor(Math.random() * thanksArray.length)]
+        var thankyou = thanksArray[Math.floor(Math.random() * thanksArray.length)];
         chan.send(thankyou).catch(console.error);
       break;
 
