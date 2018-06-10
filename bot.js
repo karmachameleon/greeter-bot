@@ -486,7 +486,7 @@ bot.on('message', msg => {
         var promptedchar1 = promptchars[Math.floor(Math.random() * promptchars.length)];
         var promptedchar2 = promptchars[Math.floor(Math.random() * promptchars.length)];
         var promptedficwords = ficpromptwords[Math.floor(Math.random() * ficpromptwords.length)];
-        chan.send(promptedchar1 + " AND " + promptedchar2 + promptedwords).catch(console.error);
+        chan.send(promptedchar1 + " AND " + promptedchar2 + promptedficwords).catch(console.error);
       break;
 
       case 'APPRECIATEHAL':
