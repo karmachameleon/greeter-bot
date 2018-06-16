@@ -437,6 +437,7 @@ bot.on('message', msg => {
           else{
             while (optcount < optotal){
               message.react(voteargs[optcount]);
+              optcount++;
             }
           }
         })
@@ -447,8 +448,8 @@ bot.on('message', msg => {
       case 'YN':
       case 'Y/N':
         chan.send("VOTE NOW ON YOUR PHONES").then(function (message) {
-          message.react('👍')
-          message.react('👎')})
+          message.react('👎')
+          message.react('👍')})
           .catch(console.error);
       break;
       /* deprecated bc it didn't work anyway
