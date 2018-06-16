@@ -372,7 +372,9 @@ bot.on('message', msg => {
       case 'RESPECT':
       case 'RESPECTS':
       case 'F':
-        chan.send("PRESS F TO PAY RESPECTS").react(":regional_indicator_f:").catch(console.error);
+        chan.send("PRESS F TO PAY RESPECTS").then(function (message) {
+          message.react(":regional_indicator_f:")})
+          .catch(console.error);
       break;
 
       case 'ROLL':
