@@ -426,6 +426,23 @@ bot.on('message', msg => {
   	  break;
 
       case 'VOTE':
+        var voteargs = msg.content.split(' ');
+        var optotal = voteargs.length;
+        var optcount = 1;
+        chan.send("YOUR ORGANIC INPUT IS DEFINITELY VALUED").then(function (message) {
+          if (optotal == 1){
+            message.react('👎')
+            message.react('👍')
+          }
+          else{
+            while (optcount < optotal){
+              message.react(voteargs[optcount]);
+            }
+          }
+        })
+        .catch(console.error);
+      break;
+
       case 'YESORNO':
       case 'YN':
       case 'Y/N':
