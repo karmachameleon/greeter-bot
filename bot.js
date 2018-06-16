@@ -366,7 +366,13 @@ bot.on('message', msg => {
 
       case 'DANCE':
         var dancechoice = dancegifs[Math.floor(Math.random() * dancegifs.length)];
-        msg.channel.send({ file: dancechoice }).catch(console.error);
+        chan.send({ file: dancechoice }).catch(console.error);
+      break;
+
+      case 'RESPECT':
+      case 'RESPECTS':
+      case 'F':
+        chan.send("PRESS F TO PAY RESPECTS").react(":regional_indicator_f:").catch(console.error);
       break;
 
       case 'ROLL':
