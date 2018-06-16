@@ -373,7 +373,7 @@ bot.on('message', msg => {
       case 'RESPECTS':
       case 'F':
         chan.send("PRESS F TO PAY RESPECTS").then(function (message) {
-          message.react(message.guild.emojis.get("457585063031341057"))})
+          message.react(🇫)})
           .catch(console.error);
       break;
 
