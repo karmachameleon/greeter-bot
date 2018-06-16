@@ -426,6 +426,16 @@ bot.on('message', msg => {
   	  break;
 
       case 'VOTE':
+      case 'YESORNO':
+      case 'YN':
+      case 'Y/N':
+        chan.send("VOTE NOW ON YOUR PHONES").then(function (message)
+          message.react('👍')
+          message.react('👎')})
+          .catch(console.error);
+      break;
+      /* deprecated bc it didn't work anyway
+      case 'VOTE':
         var voteprogress = 'CURRENT POLL STATUS: ';
         if (msg.content.split(' ').length > 1){
           voteprogress = 'YOUR OPINION HAS BEEN NOTED. ' + voteprogress;
@@ -484,7 +494,7 @@ bot.on('message', msg => {
           votes = {"set":false};
           chan.send('PREVIOUS POLL HAS BEEN SUCCESSFULLY CLEARED. THANK YOU FOR YOUR VALUED INPUT').catch(console.error);
         }
-      break;
+      break;*/
 
       case 'PROMPT':
         var promptedchar = promptchars[Math.floor(Math.random() * promptchars.length)];
