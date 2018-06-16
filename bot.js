@@ -373,7 +373,7 @@ bot.on('message', msg => {
       case 'RESPECTS':
       case 'F':
         chan.send("PRESS F TO PAY RESPECTS").then(function (message) {
-          message.react(🇫)})
+          message.react('🇫')})
           .catch(console.error);
       break;
 
