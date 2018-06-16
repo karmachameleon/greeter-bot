@@ -429,7 +429,7 @@ bot.on('message', msg => {
       case 'YESORNO':
       case 'YN':
       case 'Y/N':
-        chan.send("VOTE NOW ON YOUR PHONES").then(function (message)
+        chan.send("VOTE NOW ON YOUR PHONES").then(function (message) {
           message.react('👍')
           message.react('👎')})
           .catch(console.error);
