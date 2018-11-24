@@ -369,6 +369,10 @@ bot.on('message', msg => {
         chan.send({ file: dancechoice }).catch(console.error);
       break;
 
+      case 'FORTNITE':
+        chan.send({file: 'public/fortnite.gif' }.catch(console.error));
+      break;
+
       case 'RESPECT':
       case 'RESPECTS':
       case 'F':
