@@ -414,7 +414,7 @@ bot.on('message', msg => {
             var set = nounDict[nounAsk]
             var setRole = msg.guild.roles.get(set.id);
             msg.member.addRole(setRole).catch(console.error);
-            chan.send('SUCCESSFULLY IDENTIFIED <@' + msg.author.id + '>. ' + set.obj + ' ' + set.have + ' IDENTIFIED ' + set.reflex + ' TO MY SYSTEMS AND ' + set[deter] + ' CHOICE, WHICH IS ' + set[possess] + ', WILL BE RESPECTED. YOU MAY CONGRATULATE ' + set.subject + 'AT YOUR LEISURE').catch(console.error);
+            chan.send('SUCCESSFULLY IDENTIFIED <@' + msg.author.id + '>. ' + set.obj + ' ' + set.have + ' IDENTIFIED ' + set.reflex + ' TO MY SYSTEMS AND ' + set.deter + ' CHOICE, WHICH IS ' + set.possess + ', WILL BE RESPECTED. YOU MAY CONGRATULATE ' + set.subject + 'AT YOUR LEISURE').catch(console.error);
           }
         }
       break;
