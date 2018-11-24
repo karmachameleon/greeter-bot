@@ -85,7 +85,7 @@ var roleDict = { WILSON:'411363757541818370', WILLOW:'411363945064955906', WOLFG
 MAX:'411364372125057024', MAXY:'411364372125057024', WIGFRID:'411364509987635210', WEBBER:'411368557859831818', WALANI:'411364606926258176', WARLY:'411364679051640832', WOODLEGS:'411368694325968896', WILBUR:'411364731526447104', WINONA:'411364545089634316', NONA:'411364545089634316', WILLIAM:'411366521550405633', CHARLIE:'411366032637427722', THEM:'411365856162086913', SKITS:'411365856162086913',
 SHADOWS:'411365856162086913', GRUE:'411365951624445963', WIENER:'411365822041292800', WEINER:'411365822041292800', SERVANT:'411368787007373313', OC:'411364792117493760', WILBA: '515685537647165451', WARBUCKS: '515685429044051978' };
 
-var nounDict = { SHE: {id:'515983960606507024', subject:'SHE', obj:'HER', deter:'HER', possess:'HERS', reflex:'HERSELF', have:'HAS'}, HE: {id:'515983432975908907', subject:'HE', obj:'HIM', reflex:'HIS', possess:'HIS', reflex:'HIMSELF', have:'HAS'}, THEY: {id:'515983966667276360', subject:'THEY', obj:'THEM', reflex:'THEIR', possess:'THEIRS', reflex:'THEMSELF', have:'HAVE'},
+var nounDict = { SHE: {id:'515983960606507024', subject:'SHE', obj:'HER', deter:'HER', possess:'HERS', reflex:'HERSELF', have:'HAS'}, HE: {id:'515983432975908907', subject:'HE', obj:'HIM', deter:'HIS', possess:'HIS', reflex:'HIMSELF', have:'HAS'}, THEY: {id:'515983966667276360', subject:'THEY', obj:'THEM', reflex:'THEIR', possess:'THEIRS', reflex:'THEMSELF', have:'HAVE'},
 FAE: {id:'515983996681977869', subject:'FAE', obj:'FAER', deter:'FAER', possess:'FAERS', reflex:'FAERSELF', have:'HAS'}, VOI: {id:'515983996010627099', subject:'VOI', deter:'VOIDS', obj:'VOID', possess:'VOIDS', reflex:'VOIDSELF', have:'HAS'}, E:{id:'515984166370803758', subject:'E', obj:'EM', reflex:'EIR', possess:'EIRS', reflex:'EMSELF', have:'HAS'},
 ANY: {id:'515983985617403904', subject:'HE', obj:'THEM', deter:'HER', possess:'HERS', reflex:'THEMSELF', have:'HAS'} };
 
@@ -414,7 +414,7 @@ bot.on('message', msg => {
             var set = nounDict[nounAsk]
             var setRole = msg.guild.roles.get(set.id);
             msg.member.addRole(setRole).catch(console.error);
-            chan.send('SUCCESSFULLY IDENTIFIED <@' + msg.author.id + '>. ' + set.obj + ' ' + set.have + ' IDENTIFIED ' + set.reflex + ' TO MY SYSTEMS AND ' + set.deter + ' CHOICE, WHICH IS ' + set.possess + ', WILL BE RESPECTED. YOU MAY CONGRATULATE ' + set.subject + 'AT YOUR LEISURE').catch(console.error);
+            chan.send('SUCCESSFULLY IDENTIFIED <@' + msg.author.id + '>. ' + set.subject + ' ' + set.have + ' IDENTIFIED ' + set.reflex + ' TO MY SYSTEMS AND ' + set.deter + ' CHOICE, WHICH IS ' + set.possess + ', WILL BE RESPECTED. YOU MAY CONGRATULATE ' + set.obj + ' AT YOUR LEISURE').catch(console.error);
           }
         }
       break;
