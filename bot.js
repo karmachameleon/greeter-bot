@@ -370,7 +370,7 @@ bot.on('message', msg => {
       break;
 
       case 'FORTNITE':
-        chan.send({ file: 'public/fortnite.gif' }.catch(console.error));
+        chan.send({ file: "public/fortnite.gif" }).catch(console.error);
       break;
 
       case 'RESPECT':
