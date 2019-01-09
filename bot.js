@@ -305,7 +305,7 @@ bot.on('message', msg => {
           }
           birthdayer = birthdayer.slice(0, birthdayer.length-3);
         }
-        chan.send('https://itsyourbirthday.today/' + birthdayer).catch(console.error);
+        chan.send('HAPPY BIRTHDAY, PIZZA PARTIER! :birthday: :rat: :notes: CLICK HERE FOR A SPECIAL MESSAGE: https://itsyourbirthday.today/' + birthdayer).catch(console.error);
       break;
 
       case 'RESPECT':
