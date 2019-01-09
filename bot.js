@@ -157,7 +157,7 @@ bot.on('disconnect', function(errMsg, code) {
     console.log("DISCONNECTED! " + errMsg + "; CODE: " + code);
     bot.login(auth.token); //worth a shot lmao
 });
-
+bot.on('message', msg => {
     // listen for messages that will start with `!`
   if (msg.content.substring(0, 1) == '!') {
     var args = msg.content.substring(1).split(' ');
@@ -669,6 +669,7 @@ bot.on('disconnect', function(errMsg, code) {
         }
       break;
   }
+}
 });
 
 
