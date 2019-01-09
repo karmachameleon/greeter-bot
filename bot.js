@@ -296,13 +296,14 @@ bot.on('message', msg => {
       case 'HAPPY':
         var birthdayer = "";
         var message = msg.content.split(' ').slice(1);
-        if (message.length > 1){
-          birthdayer = birthdayer + "#" + message[i];
-          for (var i = 1; i < message.length; i++){
+        if (message.length > 0){
+          birthdayer = birthdayer + "#";
+          for (var i = 0; i < message.length; i++){
             if (message[i].toUpperCase() != "TO" && message[i].toUpperCase() != "BIRTHDAY"){
-              birthdayer = birthdayer + "%" + message[i];
+              birthdayer = birthdayer + message[i] + "%20";
             }
           }
+          birthdayer = birthdayer.slice(0, birthdayer.length-3);
         }
         chan.send('https://itsyourbirthday.today/' + birthdayer).catch(console.error);
       break;
