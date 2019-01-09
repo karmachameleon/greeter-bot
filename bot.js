@@ -298,7 +298,7 @@ bot.on('disconnect', function(errMsg, code) {
         var message = msg.content.split(' ').slice(1);
         if (message.length > 1){
           birthdayer = birthdayer + "#" + message[i];
-          for (int i = 1; i < message.length; i++){
+          for (var i = 1; i < message.length; i++){
             if (message[i].toUpperCase() != "TO" && message[i].toUpperCase() != "BIRTHDAY"){
               birthdayer = birthdayer + "%" + message[i];
             }
