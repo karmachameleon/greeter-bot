@@ -312,6 +312,10 @@ bot.on('message', msg => {
         chan.send(':popcorn:').catch(console.error);
       break;
 
+      case 'CAKE':
+        chan.send(':birthday:').catch(console.error);
+      break;
+
       case 'RESPECT':
       case 'RESPECTS':
       case 'F':
