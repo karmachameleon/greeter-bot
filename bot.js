@@ -77,7 +77,7 @@ var robotsToCompliment = ['DERO', '@DERO', '<@!138834050415722496>', '<:OVERLORD
 
 var lizardsToCompliment = ['KARMA', 'CHAMELEON', 'LIZARD', 'CREATOR', 'KAARAMEL', '<@253717780853948416>', '<@!253717780853948416>'];
 
-var kittiesToCompliment = ['ALAN', 'STELLA', 'RIKU', 'GUS', 'STEVE',  'FANGBATTLE', 'FB', 'HOBBES', 'KITTIES', 'KITTY', 'CATS', 'CAT', 'KITTENS', 'KITTEN', '<:ALAN:398341261771407371>'];
+var kittiesToCompliment = ['ALAN', 'STELLA', 'RIKU', 'GUS', 'STEVE',  'FANGBATTLE', 'FB', 'HOBBES', 'KITTIES', 'KITTY', 'CATS', 'CAT', 'KITTENS', 'KITTEN', 'CAT!', 'CAT!!', 'CAT!!!', 'CAT!!!!', 'CAT!!!!!', '<:ALAN:398341261771407371>'];
 
 var timezoneDict = { AKST:parseInt(-9), AKDT:parseInt(-8), PST:parseInt(-8), PDT:parseInt(-7), MST:parseInt(-7), MDT:parseInt(-6), CST:parseInt(-6), CDT:parseInt(-5), EST:parseInt(-5), EDT:parseInt(-4), UTC_12:parseInt(-12), UTC_11:parseInt(-11), UTC_10:parseInt(-10), UTC_930:parseInt(-9), UTC_9:parseInt(-9), UTC_8:parseInt(-8), UTC_7:parseInt(-7), UTC_6:parseInt(-6), UTC_5:parseInt(-5), UTC_4:parseInt(-4), UTC_3:parseInt(-3), UTC_330:parseInt(-3), UTC_2:parseInt(-2), UTC_230:parseInt(-2), UTC_1:parseInt(-1), UTC:parseInt(0), UTC14:14, UTC1345:13, UTC1245:12, UTC12:12, UTC11:11, UTC10:10, UTC1030:10, UTC9:9, UTC930:9, UTC845:8, UTC7:7, UTC6:6, UTC630:6, UTC545:5, UTC530:5, UTC5:5, UTC430:4, UTC4:4, UTC330:3, UTC3:3, UTC2:2, UTC1:1, GMT:0, CLEFITA:parseInt(-3), DARKCLEFITA:parseInt(-3) };
 
@@ -100,7 +100,7 @@ var promptwords = ['PICKING BERRIES', 'WEARING FANCY CLOTHES', 'HUNGRY', 'SITTIN
 'IN A WILD WEST OUTFIT', 'HUNTING A KOALEFANT', 'AS THE PROTAGONIST OF A DIFFERENT VIDEO GAME', 'DOING SICK SKATEBOARDING STUNTS', 'WIELDING A LIGHTSABER', 'SCREAMING FOR MERCY', 'INTERACTING WITH A KITTEN', 'UNDER THE FULL MOON', 'STRUGGLING WITH A LOT OF EMOTIONS', 'ENJOYING ICE CREAM ON A SUMMER DAY', 'ENJOYING THE BEACH', 'DOING SCIENCE', 'REENACTING A MEME',
 'HUNTING RABBITS', 'IN FUNKY 80\'S CLOTHING', 'IN RADICAL 90\'S CLOTHING', 'CLIMBING A TREE TO HIDE', 'AS A PARTIALLY-ROBOTIC CYBORG', 'PLAYING WII SPORTS RESORT', 'INVESTIGATING THE PARANORMAL', 'IN A MASCOT COSTUME', 'BAKING A CAKE', 'WATERING A POTTED PLANT', 'LISTENING TO A PHONOGRAPH RECORD (RAGTIME OR OTHERWISE)', 'BORED AND KILLING TIME', 'AS A DUNGEONS & DRAGONS CLASS',
 'CELEBRATING A BIRTHDAY', 'AS A BLACK AND WHITE CARTOON', 'TERRORIZING THE INNOCENT', 'CATCHING BUTTERFLIES', 'COVERED IN SLIME', 'WEARING ELABORATE JEWELRY', 'RECIEVING AN AWARD', 'T-POSING TO ESTABLISH DOMINANCE', 'PLAYING WITH FIRE', 'PLAYING AN INSTRUMENT', 'CLEANING UP A MESS', 'BREATHING FIRE', 'LEANING AGAINST A COOL MOTORCYCLE AND/OR IN RUGGED BIKER GEAR', 'IN ADORABLE SLEEPWEAR',
-'ASLEEP AND DREAMING OF THEIR GREATEST DESIRE', 'AS A SLIGHTLY BLURRY CRYPTID' ];
+'ASLEEP AND DREAMING OF THEIR GREATEST DESIRE', 'AS A SLIGHTLY BLURRY CRYPTID', 'AS A BOOTLEG KNOCKOFF', 'RECORDING A PODCAST', 'RUNNING AROUND AT THE SPEED OF SOUND', 'WIELDING AN IMPROBABLY SIZED SWORD, HAMMER, GUN, OR OTHER WEAPON', 'IN MISMATCHED SOCKS', 'PLAYING WITH MATCHES', 'DISGUISED AS ANOTHER CHARACTER', 'ON THE FIRST BIG DROP OF A ROLLERCOASTER', 'IN DIVING GEAR' ];
 var ficpromptwords = [' GET INTO AN ARGUMENT', ' ARE FORCED BY CIRCUMSTANCES TO WORK TOGETHER', ' CUDDLE FOR WARMTH BY A FIREPIT', ' DISCOVER TRACES OF EACH OTHERS\' EXISTENCE AND LEARN THEY ARE NOT ALONE', ' BATTLE SIDE BY SIDE IN THE FORGE', ', IN WHICH ONE RESCUES THE OTHER FROM A SWAMP TENTACLE', ', IN WHICH ONE RESCUES THE OTHER FROM A SPIDER NEST', ' SAILING THE OCEAN TOGETHER AND ARGUING',
 ' SAILING THE OCEAN TOGETHER AND DISCOVERING BURIED TREASURE', ' SHARE THEIR LAST STORES OF FOOD', ' HUNT A DANGEROUS MONSTER TOGETHER', ' HUNT FOOD TOGETHER', ', IN WHICH ONE LEARNS THE OTHER\'S DEEPEST FEAR', ' WORK TOGETHER TO FARM CROPS', ' ATTEND COLLEGE TOGETHER IN A MODERN AU', ', AFTER ESCAPING THE CONSTANT, REMINISCE WITH EACH OTHER ON THE TIME SPENT THERE', ', IN WHICH ONE WAKES THE OTHER FROM A NIGHTMARE',
 ' SOLVING CRIMES AS FRIENDLY RIVALS IN A SUPERHERO AU', ', IN WHICH ONE SECRETLY PREPARES A GIFT FOR THE OTHER', ', IN WHICH ONE SUCCESSFULLY REVIVES THE OTHER FROM DEATH FOR THE FIRST TIME', ' EXPLORE THE ANCIENT RUINS TOGETHER', ' ENCOUNTER A TERRORBEAK', ' ARE CAUGHT IN FROG RAIN WHICH INTERRUPTS AN IMPORTANT AND EMOTIONAL CONVERSATION', ' HOST A YOUTUBE LETSPLAY CHANNEL IN A MODERN AU',
@@ -134,34 +134,11 @@ function listVoteOptions(arr){
   return arr.toString();
 }
 
-function slowed(channelID, interval, everyone, active){
-  this.channelID = channelID;
-  this.users = [];
-  this.interval = interval;
-  this.everyone = everyone;
-  this.active = active;
-}
-
-var permahosting = new slowed("398177911242358788", 2, true, false);
-
-var slowChannels = [permahosting];
-var slowUsers = [];
-var slowInterval = 5;
-var slowEveryone = false;
-var slowEveryoneActive = false;
-
-var tempstop = 0;
-
 var newJokeThreshold = 21;
 
 var karmaID = "253717780853948416";
 var deroID = "138834050415722496";
 var partyID = "393840658496094226";
-
-var speedCheck = 0;
-var speedCheckReset;
-var autoSpeedCheck = false;
-var speedCheckThreshold = 5;
 
 //memory usage troubleshooting
 //var used = process.memoryUsage().heapUsed / 1024 / 1024;
@@ -180,70 +157,6 @@ bot.on('disconnect', function(errMsg, code) {
     console.log("DISCONNECTED! " + errMsg + "; CODE: " + code);
     bot.login(auth.token); //worth a shot lmao
 });
-
-bot.on('message', msg => {
-  // check if this channel is slowed down
-  /*var slow = slowChannels.find( function(obj) { return obj.channelID === msg.channel; });
-  if (slow != undefined) {
-    if (!slow.everyone) { //individual slowmode
-      if (slow.users.includes(msg.author)) {
-        msg.delete().catch(console.error);
-      }
-
-      else if (!msg.member.hasPermission("MANAGE_ROLES")) {
-        slow.users.push(msg.author);
-        //console.log(slowUsers);
-        setTimeout(function(){
-          var i = slow.users.indexOf(msg.author);
-          if(i != -1) {
-            slow.users.splice(i, 1);
-          }
-          //console.log("Removed" + msg.author + "; " + slowUsers);
-        }, slow.interval * 1000);
-      }
-    } //end individual slowmode
-	  else { //slowmodeall
-      if (!msg.member.hasPermission("MANAGE_ROLES")) {
-    		if (slow.active) {
-          msg.delete().catch(console.error);
-		    }
-  		  else {
-          slow.active = true;
-          setTimeout(function(){
-            slow.active = false;
-          }, slow.interval * 1000);
-		    }
-      }
-	 }
-  } //end slowmode
-  //otherwise, log message speed if speed checks are on
-  else if (autoSpeedCheck) {
-    if (!msg.member.hasPermission("MANAGE_ROLES")) {
-      speedCheck+=1;
-      if (speedCheck > speedCheckThreshold) {
-        slowChannels.push(new slowed(msg.channel, 5, false, false));
-        msg.sendMessage('CHAT SPEED EXCEEDS PARAMETERS. FIVE-SECOND DELAY AUTOMATICALLY ACTIVATED FOR ONE MINUTE.').catch(console.error);
-        speedCheck = 0;
-        autoSpeedCheck = false;
-
-        setTimeout(function(){
-          autoSpeedCheck = true;
-          var index = slowChannels.indexOf(slowChannels.find( function(obj) { return obj.channelID === msg.channel; }));
-          if (index > -1) {
-            slowChannels.splice(index, 1);
-          }
-          msg.sendMessage('AUTOMATIC CHAT DELAY LIFTED. RESUME NORMAL CONVERSATION.').catch(console.error);
-        }, 60000);
-      }
-    }
-  }*/
-  //temporary pared-down stopmode
-  if (msg.channel == tempstop){
-    if (!msg.member.hasPermission("MANAGE_ROLES")) {
-      msg.delete().catch(console.error);
-    }
-  }
-
 
     // listen for messages that will start with `!`
   if (msg.content.substring(0, 1) == '!') {
@@ -378,6 +291,22 @@ bot.on('message', msg => {
         chan.send({ file: "public/fortnite.gif" }).catch(console.error);
       break;
 
+      case 'BIRTHDAY':
+      case 'HAPPYBIRTHDAY':
+      case 'HAPPY':
+        var birthdayer = "";
+        var message = msg.content.split(' ').slice(1);
+        if (message.length > 1){
+          birthdayer = birthdayer + "#" + message[i];
+          for (int i = 1; i < message.length; i++){
+            if (message[i].toUpperCase() != "TO" && message[i].toUpperCase() != "BIRTHDAY"){
+              birthdayer = birthdayer + "%" + message[i];
+            }
+          }
+        }
+        chan.send('https://itsyourbirthday.today/' + birthdayer).catch(console.error);
+      break;
+
       case 'RESPECT':
       case 'RESPECTS':
       case 'F':
@@ -504,67 +433,6 @@ bot.on('message', msg => {
           message.react('👍')})
           .catch(console.error);
       break;
-      /* deprecated bc it didn't work anyway
-      case 'VOTE':
-        var voteprogress = 'CURRENT POLL STATUS: ';
-        if (msg.content.split(' ').length > 1){
-          voteprogress = 'YOUR OPINION HAS BEEN NOTED. ' + voteprogress;
-          var voteargs = msg.content.split(' ');
-          var votetemp;
-          for (var t = 1; t < voteargs.length; t++){
-            votetemp = voteargs[t].toUpperCase();
-            if (votes.hasOwnProperty(votetemp)){
-              eval("votes." + votetemp + "++;");
-            }
-            else if (!votes.set){
-              eval("votes." + votetemp + "= 1;");
-            }
-          }
-        }
-        for (const prop in votes){
-          if (prop != 'set' && prop != 'userID'){
-            voteprogress = voteprogress + `${prop} = ${votes[prop]} `;
-          }
-        }
-        chan.send(voteprogress).catch(console.error);
-      break;
-
-      case 'SETVOTE':
-        if (votes["set"]){
-          if (votes.userID != msg.author.id || !msg.member.hasPermission("MANAGE_ROLES")){
-            chan.send('YOU ARE NOT THE OWNER OF THE CURRENT POLL. ONLY THEY, OR A MOD, CAN RESET THE VOTE TALLY').catch(console.error);
-            break;
-          }
-        }
-        if (msg.content.split(' ').length > 1){
-          votes = {"set":true, "userID":msg.author.id};
-          var voteargs = msg.content.split(' ');
-          for (var s = 1; s < voteargs.length; s++){
-            eval("votes." + voteargs[s].toUpperCase() + " = 0;");
-          }
-          chan.send('NEW POLL CREATED: YOUR CHOICES ARE ' + listVoteOptions(Object.getOwnPropertyNames(votes))).catch(console.error);
-        }
-        else {
-          votes = {"set":false};
-          chan.send('PREVIOUS POLL HAS BEEN SUCCESSFULLY CLEARED. THANK YOU FOR YOUR VALUED INPUT').catch(console.error);
-        }
-      break;
-
-      case 'CLEARVOTE':
-        if (votes["set"]){
-          if (votes.userID == msg.author.id || msg.member.hasPermission("MANAGE_ROLES")){
-            votes = {"set":false};
-            chan.send('PREVIOUS POLL HAS BEEN SUCCESSFULLY CLEARED. THANK YOU FOR YOUR VALUED INPUT').catch(console.error);
-          }
-          else{
-            chan.send('YOU ARE NOT THE OWNER OF THE CURRENT POLL. ONLY THEY, OR A MOD, CAN RESET THE VOTE TALLY').catch(console.error);
-          }
-        }
-        else {
-          votes = {"set":false};
-          chan.send('PREVIOUS POLL HAS BEEN SUCCESSFULLY CLEARED. THANK YOU FOR YOUR VALUED INPUT').catch(console.error);
-        }
-      break;*/
 
       case 'PROMPT':
         var promptedchar = promptchars[Math.floor(Math.random() * promptchars.length)];
@@ -743,12 +611,6 @@ bot.on('message', msg => {
         chan.send(finalOutput).catch(console.error);
     	break;
 
-      case 'SLOWMODE':
-      case 'SLOWMODEDEBUG':
-      case 'SLOWMODEOFF':
-        chan.send("THIS FUNCTIONALITY IS TEMPORARILY UNAVAILABLE. KARMA WOULD LIKE MORE TIME TO FIGURE IT OUT.").catch(console.error);
-      break;
-
       case 'STOP':
         if (msg.member.hasPermission("MANAGE_ROLES")){
           tempstop = chan;
@@ -771,112 +633,6 @@ bot.on('message', msg => {
           }, slowInterval * 1000);
         }
       break;
-      /*case 'SLOWMODEDEBUG':
-        if (msg.member.hasPermission("MANAGE_ROLES")) {
-          chan.send("QUITE FRANKLY IT'S ANYONE'S GUESS ANYMORE, SORRY").catch(console.error);
-        }
-      break;
-
-    	case 'STOP':
-        if (msg.member.hasPermission("MANAGE_ROLES")) {
-          if (slowChannels.find( function(obj) { return obj.channelID === msg.channel; }) != undefined){
-            var index = slowChannels.indexOf(slowChannels.find( function(obj) { return obj.channelID === msg.channel; }));
-            if (index > -1) {
-              slowChannels.splice(index, 1);
-            }
-          }
-    			if (msg.content.split(' ').length != 1) {
-    				var interval = msg.content.split(' ')[1];
-    				if (isNumber(interval)) {
-    					slowInterval = parseInt(interval) * 60;
-    				}
-    				else {
-    					slowInterval = 300;
-    				}
-    			}
-    			else {
-    				slowInterval = 300;
-    			}
-          chan.send('STOP MODE ACTIVATED: CEASE YOUR RESISTANCE', { files: ['stop.png']}).catch(console.error);
-          slowChannels.push(new slowed(msg.channel, slowInterval, true, true));
-    			setTimeout(function(){
-            var index = slowChannels.indexOf(slowChannels.find( function(obj) { return obj.channelID === msg.channel; }));
-            if (index > -1) {
-              slowChannels.splice(index, 1);
-            }
-    				chan.send("STOP MODE DEACTIVATED. THINK ABOUT WHAT YOU'VE DONE.").catch(console.error);
-          }, slowInterval * 1000);
-        }
-      break;
-
-  	  case 'SLOWMODE':
-        if (msg.member.hasPermission("MANAGE_ROLES")) {
-          if (slowChannels.find( function(obj) { return obj.channelID === msg.channel; }) != undefined){
-            var index = slowChannels.indexOf(slowChannels.find( function(obj) { return obj.channelID === msg.channel; }));
-            if (index > -1) {
-              slowChannels.splice(index, 1);
-            }
-          }
-          if (msg.content.split(' ').length != 1) {
-            var interval = msg.content.split(' ')[1];
-            if (isNumber(interval)) {
-              slowInterval = parseInt(interval);
-  				  }
-            else if (interval.toUpperCase() === "OFF"){
-              var index = slowChannels.indexOf(slowChannels.find( function(obj) { return obj.channelID === msg.channel; }));
-              if (index > -1) {
-                slowChannels.splice(index, 1);
-              }
-              chan.send('SLOWMODE HAS BEEN TURNED OFF IN <#' + msg.channel.id + '>. FEEL FREE TO RESUME CHATTER.').catch(console.error);
-              break;
-            }
-    				else {
-    					slowInterval = 5;
-    				}
-    			}
-    			else {
-    				slowInterval = 5;
-    			}
-          slowChannels.push(new slowed(msg.channel, slowInterval, false, false));
-          chan.send('SLOWMODE HAS BEEN TURNED ON IN <#' + msg.channel.id + '>. ' + slowInterval + ' SECOND DELAY ON INDIVIDUAL COMMUNICATIONS INSTITUTED.').catch(console.error);
-        }
-      break;
-
-  	  case 'SLOWMODEALL':
-  		  if (msg.member.hasPermission("MANAGE_ROLES")){
-          if (slowChannels.find( function(obj) { return obj.channelID === msg.channel; }) != undefined){
-            var index = slowChannels.indexOf(slowChannels.find( function(obj) { return obj.channelID === msg.channel; }));
-            if (index > -1) {
-              slowChannels.splice(index, 1);
-            }
-          }
-
-    			if (msg.content.split(' ').length != 1) {
-    				var interval = msg.content.split(' ')[1];
-    				if (isNumber(interval)) {
-    					slowInterval = parseInt(interval);
-    				}
-    				else {
-    					slowInterval = 2;
-    				}
-    			}
-    			else {
-    				slowInterval = 2;
-  			  }
-          slowChannels.push(new slowed(msg.channel, slowInterval, true, false));
-          chan.send("SLOWMODE HAS BEEN TURNED ON FOR ALL USERS AT ONCE IN <#" + msg.channel.id + ">. " + slowInterval + " SECOND DELAY INSTITUTED.").catch(console.error);
-  		  }
-  	  break;
-
-      case 'SLOWMODEOFF':
-        if (msg.member.hasPermission("MANAGE_ROLES")) {
-          var index = slowChannels.indexOf(slowChannels.find( function(obj) { return obj.channelID === msg.channel; }));
-          if (index > -1) {
-            slowChannels.splice(index, 1);
-          }
-          chan.send('SLOWMODE HAS BEEN TURNED OFF IN <#' + msg.channel.id + '>. FEEL FREE TO RESUME CHATTER.').catch(console.error);
-        }
-      break;*/
 
       case 'REDACT':
         if (msg.member.hasPermission("MANAGE_ROLES")) {
@@ -912,33 +668,6 @@ bot.on('message', msg => {
           }
         }
       break;
-
-
-      case 'SPEEDCHECKTOGGLE':
-      case 'SPEEDCHECKDEBUG':
-        chan.send("THIS FUNCTION IS CURRENTLY UNAVAILABLE, BECAUSE KARMA WANTS SOME TIME TO FIGURE OUT SLOWMODE.").catch(console.error);
-      break;
-      /*case 'SPEEDCHECKTOGGLE':
-        if (msg.member.hasPermission("MANAGE_ROLES")) {
-          if (autoSpeedCheck) {
-            autoSpeedCheck = false;
-            speedCheck = 0;
-            clearInterval(speedCheckReset);
-            bot.channels.get("393848164307697677").send('CHAT SPEED CHECKS TURNED OFF.').catch(console.error);
-          }
-          else {
-            autoSpeedCheck = true;
-            speedCheckReset = setInterval(function(){ speedCheck = 0; }, 1000);
-            bot.channels.get("393848164307697677").send('CHAT SPEED CHECKS IN PROGRESS ACROSS ALL CHANNELS. TOO MANY MESSAGES PER SECOND WILL ACTIVATE A TEMPORARY SLOWMODE EFFECT AUTOMATICALLY.').catch(console.error);
-          }
-        }
-      break;
-
-      case 'SPEEDCHECKDEBUG':
-        if (msg.member.hasPermission("MANAGE_ROLES")) {
-          chan.send('SPEED CHECK ON: ' + autoSpeedCheck + ', MESSAGE SPEED: ' + speedCheck).catch(console.error);
-        }
-      break;*/
     }
   }
 });
