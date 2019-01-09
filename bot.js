@@ -308,6 +308,10 @@ bot.on('message', msg => {
         chan.send('HAPPY BIRTHDAY, PIZZA PARTIER! :birthday: :rat: :notes: CLICK HERE FOR A SPECIAL MESSAGE: https://itsyourbirthday.today/' + birthdayer).catch(console.error);
       break;
 
+      case 'POPCORN':
+        chan.send(':popcorn:').catch(console.error);
+      break;
+
       case 'RESPECT':
       case 'RESPECTS':
       case 'F':
