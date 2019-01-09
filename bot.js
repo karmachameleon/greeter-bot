@@ -668,7 +668,6 @@ bot.on('disconnect', function(errMsg, code) {
           }
         }
       break;
-    }
   }
 });
 
