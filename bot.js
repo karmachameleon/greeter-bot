@@ -620,29 +620,6 @@ bot.on('message', msg => {
         chan.send(finalOutput).catch(console.error);
     	break;
 
-      case 'STOP':
-        if (msg.member.hasPermission("MANAGE_ROLES")){
-          tempstop = chan;
-          if (msg.content.split(' ').length != 1) {
-    				var interval = msg.content.split(' ')[1];
-    				if (isNumber(interval)) {
-    					slowInterval = parseInt(interval) * 60;
-    				}
-    				else {
-    					slowInterval = 300;
-    				}
-    			}
-    			else {
-    				slowInterval = 300;
-    			}
-          chan.send('STOP MODE ACTIVATED: CEASE YOUR RESISTANCE', { files: ['stop.png']}).catch(console.error);
-    			setTimeout(function() {
-            tempstop = 0;
-    				chan.send("STOP MODE DEACTIVATED. THINK ABOUT WHAT YOU'VE DONE.").catch(console.error);
-          }, slowInterval * 1000);
-        }
-      break;
-
       case 'REDACT':
         if (msg.member.hasPermission("MANAGE_ROLES")) {
           if (msg.content.split(' ').length > 1) {
