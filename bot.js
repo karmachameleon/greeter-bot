@@ -155,7 +155,7 @@ process.on('unhandledRejection', console.error);
 
 bot.on('disconnect', function(errMsg, code) {
     console.log("DISCONNECTED! " + errMsg + "; CODE: " + code);
-    bot.login(auth.token); //worth a shot lmao
+    bot.login(process.env.BOT_TOKEN); //worth a shot lmao
 });
 bot.on('message', msg => {
     // listen for messages that will start with `!`
@@ -664,7 +664,7 @@ bot.on('guildMemberAdd', function(member) {
 });
 
 
-bot.login(auth.token);
+bot.login(process.env.BOT_TOKEN);
 
 //Webpage
 
