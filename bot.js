@@ -166,6 +166,10 @@ bot.on('message', msg => {
 
     args = args.splice(1);
     switch(cmd) {
+      case 'ALLROLEUPGRADE':
+        msg.guild.members.filter(m => !m.user.bot).map(async member => await member.addRole('538506263236182026'));
+        msg.channel.send("APPLIED UPGRADE TO ALL PIZZA PARTIERS");
+      break;
 
       case 'EVIL':
         chan.send('MUA HA HA HA').catch(console.error);
