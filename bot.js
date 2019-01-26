@@ -168,7 +168,7 @@ bot.on('message', msg => {
     switch(cmd) {
       case 'ALLROLEUPGRADE':
         var role = guild.roles.get('538506263236182026');
-        msg.guild.members.filter(m => !m.user.bot && !m.roles.find('id', '538506263236182026')).map(async member => await member.addRole(role));
+        msg.guild.members.filter(m => !m.user.bot && !m.roles.find('538506263236182026')).map(async member => await member.addRole(role)).catch(console.error);
         msg.channel.send("APPLIED UPGRADE TO ALL PIZZA PARTIERS");
       break;
 
