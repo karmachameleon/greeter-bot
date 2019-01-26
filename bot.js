@@ -168,8 +168,9 @@ bot.on('message', msg => {
     switch(cmd) {
       case 'ASSIMILATE':
         var welcome = msg.guild.roles.get('538506263236182026');
-        msg.member.addRole(welcome).catch(console.error);
-        bot.channels.get("393845951292243980").send('<@' + member.id + '> DETECTED. YOU HAVE BEEN ASSIMILATED TO THE ROBOT PIZZA PARTY. POST AN INTRODUCTION IN <#396067802970193920>. OPTIONALLY, ADD YOUR PRONOUNS IN <#397067658052239361> (LOOK IN <#393842582414688269> FOR INSTRUCTIONS.) SHARE AND ENJOY :pizza:').catch(console.error);
+        var newvictim = msg.member;
+        newvictim.addRole(welcome).catch(console.error);
+        bot.channels.get("393845951292243980").send('<@' + newvictim.id + '> DETECTED. YOU HAVE BEEN ASSIMILATED TO THE ROBOT PIZZA PARTY. POST AN INTRODUCTION IN <#396067802970193920>. OPTIONALLY, ADD YOUR PRONOUNS IN <#397067658052239361> (LOOK IN <#393842582414688269> FOR INSTRUCTIONS.) SHARE AND ENJOY :pizza:').catch(console.error);
         msg.delete().catch(console.error);
       break;
 
