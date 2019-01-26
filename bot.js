@@ -166,10 +166,11 @@ bot.on('message', msg => {
 
     args = args.splice(1);
     switch(cmd) {
-      case 'ALLROLEUPGRADE':
-        var role = guild.roles.get('538506263236182026');
-        msg.guild.members.filter(m => !m.user.bot && !m.roles.find('538506263236182026')).map(async member => await member.addRole(role)).catch(console.error);
-        msg.channel.send("APPLIED UPGRADE TO ALL PIZZA PARTIERS");
+      case 'ASSIMILATE':
+        var welcome = msg.guild.roles.get('538506263236182026');
+        msg.member.addRole(welcome).catch(console.error);
+        bot.channels.get("393845951292243980").send('<@' + member.id + '> DETECTED. YOU HAVE BEEN ASSIMILATED TO THE ROBOT PIZZA PARTY. POST AN INTRODUCTION IN <#396067802970193920>. OPTIONALLY, ADD YOUR PRONOUNS IN <#397067658052239361> (LOOK IN <#393842582414688269> FOR INSTRUCTIONS.) SHARE AND ENJOY :pizza:').catch(console.error);
+        msg.delete().catch(console.error);
       break;
 
       case 'EVIL':
@@ -663,10 +664,10 @@ bot.on('message', msg => {
 }
 });
 
-
+/*
 bot.on('guildMemberAdd', function(member) {
 	bot.channels.get("393845951292243980").send('<@' + member.id + '> DETECTED. YOU HAVE BEEN ASSIMILATED TO THE ROBOT PIZZA PARTY. READ THE <#393842582414688269> AND POST AN INTRODUCTION  IN  <#396067802970193920>. ADD YOUR PRONOUNS IN <#397067658052239361> (LOOK IN <#393842582414688269> FOR INSTRUCTIONS) SHARE AND ENJOY :pizza:').catch(console.error);
-});
+});*/
 
 
 bot.login(process.env.BOT_TOKEN);
