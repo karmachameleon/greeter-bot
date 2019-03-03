@@ -300,6 +300,13 @@ bot.on('message', msg => {
         chan.send({ file: "public/fortnite.gif" }).catch(console.error);
       break;
 
+      case 'KITTYWX':
+      case 'NYAWX':
+      case 'NYAHWX':
+      case 'CATWX':
+        chan.send({ file: "public/nyahwx.gif" }).catch(console.error);
+      break;
+
       case 'BIRTHDAY':
       case 'HAPPYBIRTHDAY':
       case 'HAPPY':
