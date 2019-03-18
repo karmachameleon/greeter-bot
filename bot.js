@@ -473,7 +473,7 @@ bot.on('message', msg => {
       case 'ROBOPROMPT':
         var promptedchar = robopromptchars[Math.floor(Math.random() * robopromptchars.length)];
         var promptedwords = robopromptwords[Math.floor(Math.random() * robopromptwords.length)];
-        chan.send(promptedchar + " " + promptedwords).catch(console.error);
+        chan.send(promptedchar + promptedwords).catch(console.error);
       break;
 
       case 'FICPROMPT':
