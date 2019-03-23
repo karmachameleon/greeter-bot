@@ -173,6 +173,7 @@ bot.on('message', msg => {
     args = args.splice(1);
     switch(cmd) {
       case 'ASSIMILATE':
+      case 'ASSIMILATE!':
         if (!msg.member.roles.some(role => role.id === '538506263236182026')){
           var welcome = msg.guild.roles.get('538506263236182026');
           var newvictim = msg.member;
