@@ -492,8 +492,8 @@ bot.on('message', msg => {
       case 'MERPROMPT':
       case 'MERMPROMPT':
         var promptedchar = promptchars[Math.floor(Math.random() * (promptchars.length - 6)) + 6];
-        var promptedwords = merpromptwords[Math.floor(Math.random() * promptwords.length)];
-        chan.send(promptedchar + " " + promptedwords).catch(console.error);
+        var promptedwords = merpromptwords[Math.floor(Math.random() * merpromptwords.length)];
+        chan.send("MER-" + promptedchar + " " + promptedwords).catch(console.error);
       break;
 
       case 'APPRECIATEHAL':
