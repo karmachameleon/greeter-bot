@@ -306,7 +306,7 @@ bot.on('message', msg => {
       break;
 
       case 'SOUP':
-        chan.send( { file: "public/intothesoup.gif" } "INTO THE SOUP WITH YOU").catch(console.error);
+        chan.send("INTO THE SOUP WITH YOU", { file: "public/intothesoup.gif" } ).catch(console.error);
       break;
 
       case 'DANCE':
