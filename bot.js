@@ -305,6 +305,10 @@ bot.on('message', msg => {
         chan.send('PLEASE KEEP THIS PIZZA PARTY POSITIVE! YOU ARE WELCOME TO CONTINUE VENTING IN A PRIVATE CONVERSATION OR ANOTHER SPACE. THANK YOU').catch(console.error);
       break;
 
+      case 'SOUP':
+        chan.send( { file: "public/intothesoup.gif" } "INTO THE SOUP WITH YOU").catch(console.error);
+      break;
+
       case 'DANCE':
         var dancechoice = dancegifs[Math.floor(Math.random() * dancegifs.length)];
         chan.send({ file: dancechoice }).catch(console.error);
