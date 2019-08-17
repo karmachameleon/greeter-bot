@@ -90,7 +90,7 @@ FAE: {id:'515983996681977869', subject:'FAE', obj:'FAER', deter:'FAER', possess:
 ANY: {id:'515983985617403904', subject:'HE', obj:'THEM', deter:'HER', possess:'HERS', reflex:'THEMSELF', have:'HAS'} };
 
 var dancegifs = [ "public/robot1.gif", "public/robot4.gif", "public/robotdance2.gif", "public/robotdance3.gif", "public/robotdance4.gif", "public/robotdance5.gif" ];
-var fortnitegifs = ["public/werebeaver_dance.gif", "public/maxwell_defaultdance.gif", "public/bloominwormwood.gif", "public/fortnite.gif", "public/wes.gif", "public/warly.gif", "public/wilson.gif", "public/woodie.gif", "public/woodlegs_defaultdance.gif", "public/webber_defaultdance.gif", "public/wheeler_defaultdance.gif"];
+var fortnitegifs = ["public/thickwolfgang_defaultdance.gif", "public/walani_defaultdance.gif", "public/wilbur_defaultdance.gif", "public/winona_defaultdance.gif", "public/wortox_defaultdance.gif", "public/werebeaver_dance.gif", "public/maxwell_defaultdance.gif", "public/bloominwormwood.gif", "public/fortnite.gif", "public/wes.gif", "public/warly.gif", "public/wilson.gif", "public/woodie.gif", "public/woodlegs_defaultdance.gif", "public/webber_defaultdance.gif", "public/wheeler_defaultdance.gif"];
 
 var promptchars = ['A PIGMAN', 'A MERM', 'A CATCOON', 'A HOUND', 'A BUNNYMAN', 'A STAGEHAND', 'WORTOX', 'WHEELER', 'WAGSTAFF', 'WILBA', 'WORMWOOD', 'WILSON', 'WILLOW', 'WOLFGANG', 'WENDY', 'ABIGAIL', 'WX-78', 'WICKERBOTTOM', 'WOODIE', 'LUCY THE AXE', 'MAXWELL', 'WILLIAM CARTER', 'WES', 'WIGFRID', 'BERNIE THE TEDDY BEAR',
 'WEBBER', 'WALANI', 'WARLY', 'WOODLEGS', 'WILBUR', 'CHARLIE', 'WINONA', 'CHESTER', 'HUTCH', 'PACKIM BAGGINS', 'MR. SKITS',  'GLOMMER', 'PUGNA', 'BILLY', 'MUMSY', 'PIPTON', 'SAMMY' ];
