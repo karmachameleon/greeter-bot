@@ -240,6 +240,11 @@ bot.on('message', msg => {
         chan.send('<:wxbutter:393885814074900481>').catch(console.error);
       break;
 
+      case 'EVILSMILE':
+      case 'EVILUMLAUT':
+        chan.send("ǚ").catch(console.error);
+      break;
+
   	  case 'JAIL':
       case 'FLESHLINGJAIL':
   		  if (msg.content.split(' ').length == 1) {
