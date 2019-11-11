@@ -89,6 +89,8 @@ var nounDict = { SHE: {id:'515983960606507024', subject:'SHE', obj:'HER', deter:
 FAE: {id:'515983996681977869', subject:'FAE', obj:'FAER', deter:'FAER', possess:'FAERS', reflex:'FAERSELF', have:'HAS'}, VOI: {id:'515983996010627099', subject:'VOI', deter:'VOIDS', obj:'VOID', possess:'VOIDS', reflex:'VOIDSELF', have:'HAS'}, E:{id:'515984166370803758', subject:'E', obj:'EM', deter:'EIR', possess:'EIRS', reflex:'EMSELF', have:'HAS'},
 ANY: {id:'515983985617403904', subject:'HE', obj:'THEM', deter:'HER', possess:'HERS', reflex:'THEMSELF', have:'HAS'} };
 
+var deathArray = ['HOUND', 'DARKNESS', 'STARVATION', 'SPIDER', 'SHENANIGANS', 'TERRORBEAK', 'CRAWLING HORROR', 'BEARGER', 'DEERCLOPS', 'DRAGONFLY', 'SALADMANDER', 'FIRE', 'SHADOW BISHOP', 'SHADOW KNIGHT', 'SHADOW ROOK', 'CLOCKWORK KNIGHT', 'CLOCKWORK ROOK', 'CLOCKWORK BISHOP', 'KOALEFANT', 'TENTACLE', 'GUARD PIG', 'PIG MAN', 'MONSTER MEAT', 'FREEZING', 'PENGULL', 'KLAUS', 'BEE QUEEN', 'BOARILLA', 'RHINOCEBRO SNAPBACK', 'BOARILLA', 'SCORPEON ACID', 'SNORTOISE', 'CROCOMANDER', 'PIT PIG', 'RHINOCEBRO FLATBRIM', 'GRAND FORGE BOARRIOR', 'DARKNESS', 'HOUND', 'TERRORBEAK', 'CRAWLING HORROR', 'SPIDER', 'TENTACLE', 'INHUMANROBOT', 'DARKNESS', 'FROG', 'FREEZING'];
+
 var dancegifs = [ "public/robot1.gif", "public/robot4.gif", "public/robotdance2.gif", "public/robotdance3.gif", "public/robotdance4.gif", "public/robotdance5.gif" ];
 var fortnitegifs = [ "public/wurt_flortnite.gif", "public/weregoose_defaultdance.gif", "public/babycarter_defaultdance.gif", "public/wxbutterwxbutterwxbutter_defaultdance.gif", "public/hal_defaultdance.png", "public/wendy_defaultdance.gif", "public/wigfrid_defaultdance.gif", "public/wagstaff_defaultdance.gif", "public/willow_defaultdance.gif", "public/wickerbottom_defaultdance.gif", "public/wilba_defaultdance.gif", "public/thickwolfgang_defaultdance.gif", "public/walani_defaultdance.gif", "public/wilbur_defaultdance.gif", "public/winona_defaultdance.gif", "public/wortox_defaultdance.gif", "public/werebeaver_dance.gif", "public/maxwell_defaultdance.gif", "public/bloominwormwood.gif", "public/fortnite.gif", "public/wes.gif", "public/warly.gif", "public/wilson.gif", "public/woodie.gif", "public/woodlegs_defaultdance.gif", "public/webber_defaultdance.gif", "public/wheeler_defaultdance.gif", "public/weremoose_dance.gif"];
 
@@ -482,6 +484,13 @@ bot.on('message', msg => {
           message.react('👍')})
           .catch(console.error);
       break;
+
+      case 'DIE':
+      case 'DEATH':
+        var chosendeath = deathArray[Math.floor(Math.random() * deathArray.length)];
+        chan.send("<@" + msg.author.id + "> WAS KILLED BY " + chosendeath + ". THEY BECAME A SPOOKY GHOST!").catch(console.error);
+      break;
+
 
       case 'PROMPT':
         var promptedchar = promptchars[Math.floor(Math.random() * promptchars.length)];
