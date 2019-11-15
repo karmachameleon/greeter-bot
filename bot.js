@@ -367,7 +367,7 @@ bot.on('message', msg => {
       break;
 
       case 'FLEX':
-        chan.send("<:mechanical_arm:<:belovedbot:644952744976711733>").catch(console.error);
+        chan.send(":mechanical_arm:<:belovedbot:644952744976711733>").catch(console.error);
       break;
 
       case 'ROLL':
