@@ -366,6 +366,10 @@ bot.on('message', msg => {
           .catch(console.error);
       break;
 
+      case 'FLEX':
+        chan.send("<:mechanical_arm:<:belovedbot:644952744976711733>").catch(console.error);
+      break;
+
       case 'ROLL':
       case 'SKILLCHECK':
         var diceroll = Math.floor(Math.random() * 20) + 1;
