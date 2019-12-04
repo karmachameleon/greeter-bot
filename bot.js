@@ -524,6 +524,10 @@ bot.on('message', msg => {
           var promptedchar1 = msg.content.split(' ')[1].toUpperCase();
           var promptedchar2 = msg.content.split(' ')[2].toUpperCase();
         }
+        else if (msg.content.split(' ').length > 1) {
+          var promptedchar1 = msg.content.split(' ')[1].toUpperCase();
+          var promptedchar2 = promptchars[Math.floor(Math.random() * promptchars.length)];
+        }
         else {
           var promptedchar1 = promptchars[Math.floor(Math.random() * promptchars.length)];
           var promptedchar2 = promptchars[Math.floor(Math.random() * promptchars.length)];
