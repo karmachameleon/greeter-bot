@@ -92,7 +92,7 @@ ANY: {id:'515983985617403904', subject:'HE', obj:'THEM', deter:'HER', possess:'H
 var deathArray = ['HOUND', 'DARKNESS', 'STARVATION', 'SPIDER', 'SHENANIGANS', 'TERRORBEAK', 'CRAWLING HORROR', 'BEARGER', 'DEERCLOPS', 'DRAGONFLY', 'SALADMANDER', 'FIRE', 'SHADOW BISHOP', 'SHADOW KNIGHT', 'SHADOW ROOK', 'CLOCKWORK KNIGHT', 'CLOCKWORK ROOK', 'CLOCKWORK BISHOP', 'KOALEFANT', 'TENTACLE', 'GUARD PIG', 'PIG MAN', 'MONSTER MEAT', 'FREEZING', 'PENGULL', 'KLAUS', 'BEE QUEEN', 'BOARILLA', 'RHINOCEBRO SNAPBACK', 'BOARILLA', 'SCORPEON ACID', 'SNORTOISE', 'CROCOMANDER', 'PIT PIG', 'RHINOCEBRO FLATBRIM', 'GRAND FORGE BOARRIOR', 'DARKNESS', 'HOUND', 'TERRORBEAK', 'CRAWLING HORROR', 'SPIDER', 'TENTACLE', 'INHUMANROBOT', 'DARKNESS', 'FROG', 'FREEZING'];
 
 var dancegifs = [ "public/robot1.gif", "public/robot4.gif", "public/robotdance2.gif", "public/robotdance3.gif", "public/robotdance4.gif", "public/robotdance5.gif" ];
-var fortnitegifs = [ "public/wurt_flortnite.gif", "public/weregoose_defaultdance.gif", "public/babycarter_defaultdance.gif", "public/wxbutterwxbutterwxbutter_defaultdance.gif", "public/hal_defaultdance.png", "public/wendy_defaultdance.gif", "public/wigfrid_defaultdance.gif", "public/wagstaff_defaultdance.gif", "public/willow_defaultdance.gif", "public/wickerbottom_defaultdance.gif", "public/wilba_defaultdance.gif", "public/thickwolfgang_defaultdance.gif", "public/walani_defaultdance.gif", "public/wilbur_defaultdance.gif", "public/winona_defaultdance.gif", "public/shadow_wilson_dance.gif", "public/wortox_defaultdance.gif", "public/werebeaver_dance.gif", "public/maxwell_defaultdance.gif", "public/bloominwormwood.gif", "public/fortnite.gif", "public/wes.gif", "public/warly.gif", "public/wilson.gif", "public/woodie.gif", "public/woodlegs_defaultdance.gif", "public/webber_defaultdance.gif", "public/wheeler_defaultdance.gif", "public/weremoose_dance.gif"];
+var fortnitegifs = [ "public/wurt_flortnite.gif", "public/weregoose_defaultdance.gif", "public/babycarter_defaultdance.gif", "public/wxbutterwxbutterwxbutter_defaultdance.gif", "public/hal_defaultdance.png", "public/wendy_defaultdance.gif", "public/wigfrid_defaultdance.gif", "public/wagstaff_defaultdance.gif", "public/willow_defaultdance.gif", "public/wickerbottom_defaultdance.gif", "public/wilba_defaultdance.gif", "public/thickwolfgang_defaultdance.gif", "public/walani_defaultdance.gif", "public/wilbur_defaultdance.gif", "public/winona_defaultdance.gif", "public/shadow_wilson_dance.gif", "public/goatdance.gif", "public/wortox_defaultdance.gif", "public/werebeaver_dance.gif", "public/maxwell_defaultdance.gif", "public/bloominwormwood.gif", "public/fortnite.gif", "public/wes.gif", "public/warly.gif", "public/wilson.gif", "public/woodie.gif", "public/woodlegs_defaultdance.gif", "public/webber_defaultdance.gif", "public/wheeler_defaultdance.gif", "public/weremoose_dance.gif"];
 
 var promptchars = ['A PIGMAN', 'A MERM', 'A CATCOON', 'A HOUND', 'A BUNNYMAN', 'A STAGEHAND', 'WORTOX', 'WHEELER', 'WAGSTAFF', 'WILBA', 'WORMWOOD', 'WILSON', 'WILLOW', 'WOLFGANG', 'WENDY', 'ABIGAIL', 'WX-78', 'WICKERBOTTOM', 'WOODIE', 'LUCY THE AXE', 'MAXWELL', 'WILLIAM CARTER', 'WES', 'WIGFRID', 'BERNIE THE TEDDY BEAR',
 'WEBBER', 'WALANI', 'WARLY', 'WOODLEGS', 'WILBUR', 'CHARLIE', 'WINONA', 'CHESTER', 'HUTCH', 'PACKIM BAGGINS', 'MR. SKITS',  'GLOMMER', 'PUGNA', 'BILLY', 'MUMSY', 'PIPTON', 'SAMMY' ];
@@ -497,28 +497,49 @@ bot.on('message', msg => {
 
 
       case 'PROMPT':
-        var promptedchar = promptchars[Math.floor(Math.random() * promptchars.length)];
+        if (msg.content.split(' ').length > 1) {
+          var promptedchar = msg.content.split(' ')[1]);
+        }
+        else {
+          var promptedchar = promptchars[Math.floor(Math.random() * promptchars.length)];
+        }
         var promptedwords = promptwords[Math.floor(Math.random() * promptwords.length)];
         chan.send(promptedchar + " " + promptedwords).catch(console.error);
       break;
 
       case 'ROBOPROMPT':
       case 'ROBOTPROMPT':
-        var promptedchar = robopromptchars[Math.floor(Math.random() * robopromptchars.length)];
+        if (msg.content.split(' ').length > 1) {
+          var promptedchar = msg.content.split(' ')[1]);
+        }
+        else {
+          var promptedchar = robopromptchars[Math.floor(Math.random() * robopromptchars.length)];
+        }
         var promptedwords = robopromptwords[Math.floor(Math.random() * robopromptwords.length)];
         chan.send(promptedchar + promptedwords).catch(console.error);
       break;
 
       case 'FICPROMPT':
-        var promptedchar1 = promptchars[Math.floor(Math.random() * promptchars.length)];
-        var promptedchar2 = promptchars[Math.floor(Math.random() * promptchars.length)];
+        if (msg.content.split(' ').length > 2) {
+          var promptedchar1 = msg.content.split(' ')[1]);
+          var promptedchar1 = msg.content.split(' ')[2]);
+        }
+        else {
+          var promptedchar1 = promptchars[Math.floor(Math.random() * promptchars.length)];
+          var promptedchar2 = promptchars[Math.floor(Math.random() * promptchars.length)];
+        }
         var promptedficwords = ficpromptwords[Math.floor(Math.random() * ficpromptwords.length)];
         chan.send(promptedchar1 + " AND " + promptedchar2 + promptedficwords).catch(console.error);
       break;
 
       case 'MERPROMPT':
       case 'MERMPROMPT':
-        var promptedchar = promptchars[Math.floor(Math.random() * (promptchars.length - 6)) + 6];
+        if (msg.content.split(' ').length > 1) {
+          var promptedchar = msg.content.split(' ')[1]);
+        }
+        else {
+          var promptedchar = promptchars[Math.floor(Math.random() * (promptchars.length - 6)) + 6];
+        }
         var promptedwords = merpromptwords[Math.floor(Math.random() * merpromptwords.length)];
         chan.send("MER-" + promptedchar + promptedwords).catch(console.error);
       break;
