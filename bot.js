@@ -498,7 +498,7 @@ bot.on('message', msg => {
 
       case 'PROMPT':
         if (msg.content.split(' ').length > 1) {
-          var promptedchar = msg.content.split(' ')[1];
+          var promptedchar = msg.content.split(' ')[1].toUpperCase();
         }
         else {
           var promptedchar = promptchars[Math.floor(Math.random() * promptchars.length)];
@@ -510,7 +510,7 @@ bot.on('message', msg => {
       case 'ROBOPROMPT':
       case 'ROBOTPROMPT':
         if (msg.content.split(' ').length > 1) {
-          var promptedchar = msg.content.split(' ')[1];
+          var promptedchar = msg.content.split(' ')[1].toUpperCase();
         }
         else {
           var promptedchar = robopromptchars[Math.floor(Math.random() * robopromptchars.length)];
@@ -521,8 +521,8 @@ bot.on('message', msg => {
 
       case 'FICPROMPT':
         if (msg.content.split(' ').length > 2) {
-          var promptedchar1 = msg.content.split(' ')[1];
-          var promptedchar1 = msg.content.split(' ')[2];
+          var promptedchar1 = msg.content.split(' ')[1].toUpperCase();
+          var promptedchar2 = msg.content.split(' ')[2].toUpperCase();
         }
         else {
           var promptedchar1 = promptchars[Math.floor(Math.random() * promptchars.length)];
@@ -535,7 +535,7 @@ bot.on('message', msg => {
       case 'MERPROMPT':
       case 'MERMPROMPT':
         if (msg.content.split(' ').length > 1) {
-          var promptedchar = msg.content.split(' ')[1];
+          var promptedchar = msg.content.split(' ')[1].toUpperCase();
         }
         else {
           var promptedchar = promptchars[Math.floor(Math.random() * (promptchars.length - 6)) + 6];
