@@ -266,7 +266,7 @@ bot.on('message', msg => {
           chan.send('<@' + msg.author.id + '> :kissing_heart:').catch(console.error);
         }
   		  else {
-          chan.send(":kissing_heart: " +  msg.content.slice(7).toUpperCase().catch(console.error);
+          chan.send(":kissing_heart: " +  msg.content.slice(7).toUpperCase()).catch(console.error);
   		  }
       break;
 
