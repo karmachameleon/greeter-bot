@@ -541,7 +541,7 @@ bot.on('message', msg => {
           var promptedchar1 = pargs[1].toUpperCase();
           var promptedchar2 = pargs[2].toUpperCase();
           for (var n = 3; n < (pargs.length); n++){
-            promptedchar2 = promptedchar2 + " AND " +  pargs[n];
+            promptedchar2 = promptedchar2 + " AND " +  pargs[n].toUpperCase();
           }
         }
         if (pargs.length > 2) {
