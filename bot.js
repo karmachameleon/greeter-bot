@@ -262,12 +262,11 @@ bot.on('message', msg => {
       break;
 
       case 'KISS':
-      case 'KISSINGBOOTH':
         if (msg.content.split(' ').length == 1) {
           chan.send('<@' + msg.author.id + '> :kissing_heart:').catch(console.error);
         }
   		  else {
-          chan.send(":kissing_heart: " + msg.content.split(' ')[1]).catch(console.error);
+          chan.send(":kissing_heart: " +  msg.content.slice(7).toUpperCase().catch(console.error);
   		  }
       break;
 
@@ -392,11 +391,11 @@ bot.on('message', msg => {
       case 'GIFT':
         var recipient = msg.author.id;
         if (recipient == lastGifted){
-          chan.send('YOUR GIFT IS A PIECE OF CHARCOAL.');
+          chan.send('YOUR GIFT IS A PIECE OF CHARCOAL.').catch(console.error);
         }
         else {
           var prezzie = giftArray[Math.floor(Math.random() * giftArray.length)];
-          chan.send('YOUR GIFT IS ' + prezzie + '. HAPPY WINTER\'S FEAST!');
+          chan.send('YOUR GIFT IS ' + prezzie + '. HAPPY WINTER\'S FEAST!').catch(console.error);
         }
         lastGifted = recipient;
       break;
@@ -515,7 +514,7 @@ bot.on('message', msg => {
 
       case 'PROMPT':
         if (msg.content.split(' ').length > 1) {
-          var promptedchar = msg.content.split(' ')[1].toUpperCase();
+          var promptedchar = msg.content.slice(7).toUpperCase();
         }
         else {
           var promptedchar = promptchars[Math.floor(Math.random() * promptchars.length)];
