@@ -536,12 +536,23 @@ bot.on('message', msg => {
       break;
 
       case 'FICPROMPT':
-        if (msg.content.split(' ').length > 2) {
-          var promptedchar1 = msg.content.split(' ')[1].toUpperCase();
-          var promptedchar2 = msg.content.split(' ')[2].toUpperCase();
+        var pargs = msg.content.split(' ');
+        if (pargs.length > 3) {
+          var promptedchar1 = pargs[1].toUpperCase();
+          var promptedchar2 = pargs[2].toUpperCase();
+          for (int n = 3; n++; n < pargs.length){
+            var e = pargs[n].toUpperCase();
+            if (e != "AND"){
+              promptedchar2 = promptedchar2 + " AND " +  e;
+            }
+          }
         }
-        else if (msg.content.split(' ').length > 1) {
-          var promptedchar1 = msg.content.split(' ')[1].toUpperCase();
+        if (pargs.length > 2) {
+          var promptedchar1 = pargs[1].toUpperCase();
+          var promptedchar2 = pargs[2].toUpperCase();
+        }
+        else if (pargs.length > 1) {
+          var promptedchar1 = pargs[1].toUpperCase();
           var promptedchar2 = promptchars[Math.floor(Math.random() * promptchars.length)];
         }
         else {
