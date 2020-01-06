@@ -82,15 +82,17 @@ var kittiesToCompliment = ['ALAN', 'STELLA', 'RIKU', 'GUS', 'STEVE',  'FANGBATTL
 var timezoneDict = { AKST:parseInt(-9), AKDT:parseInt(-8), PST:parseInt(-8), PDT:parseInt(-7), MST:parseInt(-7), MDT:parseInt(-6), CST:parseInt(-6), CDT:parseInt(-5), EST:parseInt(-5), EDT:parseInt(-4), UTC_12:parseInt(-12), UTC_11:parseInt(-11), UTC_10:parseInt(-10), UTC_930:parseInt(-9), UTC_9:parseInt(-9), UTC_8:parseInt(-8), UTC_7:parseInt(-7), UTC_6:parseInt(-6), UTC_5:parseInt(-5), UTC_4:parseInt(-4), UTC_3:parseInt(-3), UTC_330:parseInt(-3), UTC_2:parseInt(-2), UTC_230:parseInt(-2), UTC_1:parseInt(-1), UTC:parseInt(0), UTC14:14, UTC1345:13, UTC1245:12, UTC12:12, UTC11:11, UTC10:10, UTC1030:10, UTC9:9, UTC930:9, UTC845:8, UTC7:7, UTC6:6, UTC630:6, UTC545:5, UTC530:5, UTC5:5, UTC430:4, UTC4:4, UTC330:3, UTC3:3, UTC2:2, UTC1:1, GMT:0, CLEFITA:parseInt(-3), DARKCLEFITA:parseInt(-3) };
 
 var roleDict = { WHEELER: '571127983629402115', WAGSTAFF: '571127844714053664', WORTOX: '559902224239558720', WILSON:'411363757541818370', WILLOW:'411363945064955906', WOLFGANG:'411364065114324994', WENDY:'411364120634589184', ABIGAIL:'411364120634589184', WX78:'411364156210544641', WX:'411364156210544641', WICKERBOTTOM:'411364227270311937', WICKER:'411364227270311937', WOODIE:'411364267263262741', LUCY:'411364267263262741', WES:'411364333570752525', MAXWELL:'411364372125057024',
-MAX:'411364372125057024', MAXY:'411364372125057024', WIGFRID:'411364509987635210', WEBBER:'411368557859831818', WALANI:'411364606926258176', WARLY:'411364679051640832', WOODLEGS:'411368694325968896', WILBUR:'411364731526447104', WINONA:'411364545089634316', NONA:'411364545089634316', WILLIAM:'411366521550405633', CHARLIE:'411366032637427722', THEM:'411365856162086913', SKITS:'411365856162086913',
+MAX:'411364372125057024', MAXY:'411364372125057024', WIGFRID:'411364509987635210', WEBBER:'411368557859831818', WALANI:'411364606926258176', WARLY:'411364679051640832', WOODLEGS:'411368694325968896', WILBUR:'411364731526447104', WINONA:'411364545089634316', NONA:'411364545089634316', WILLIAM:'411366521550405633', CHARLIE:'411366032637427722', THEM:'411365856162086913', SKITS:'411365856162086913', WURT:'640583688488353796',
 SHADOWS:'411365856162086913', GRUE:'411365951624445963', WIENER:'411365822041292800', WEINER:'411365822041292800', SERVANT:'411368787007373313', OC:'411364792117493760', WILBA: '515685537647165451', WORMWOOD: '547683469161922560' };
 
 var nounDict = { SHE: {id:'515983960606507024', subject:'SHE', obj:'HER', deter:'HER', possess:'HERS', reflex:'HERSELF', have:'HAS'}, HE: {id:'515983432975908907', subject:'HE', obj:'HIM', deter:'HIS', possess:'HIS', reflex:'HIMSELF', have:'HAS'}, THEY: {id:'515983966667276360', subject:'THEY', obj:'THEM', deter:'THEIR', possess:'THEIRS', reflex:'THEMSELF', have:'HAVE'},
 FAE: {id:'515983996681977869', subject:'FAE', obj:'FAER', deter:'FAER', possess:'FAERS', reflex:'FAERSELF', have:'HAS'}, VOI: {id:'515983996010627099', subject:'VOI', deter:'VOIDS', obj:'VOID', possess:'VOIDS', reflex:'VOIDSELF', have:'HAS'}, E:{id:'515984166370803758', subject:'E', obj:'EM', deter:'EIR', possess:'EIRS', reflex:'EMSELF', have:'HAS'},
 ANY: {id:'515983985617403904', subject:'HE', obj:'THEM', deter:'HER', possess:'HERS', reflex:'THEMSELF', have:'HAS'} };
 
+var deathArray = ['HOUND', 'DARKNESS', 'STARVATION', 'SPIDER', 'SHENANIGANS', 'TERRORBEAK', 'CRAWLING HORROR', 'BEARGER', 'DEERCLOPS', 'DRAGONFLY', 'SALADMANDER', 'FIRE', 'SHADOW BISHOP', 'SHADOW KNIGHT', 'SHADOW ROOK', 'CLOCKWORK KNIGHT', 'CLOCKWORK ROOK', 'CLOCKWORK BISHOP', 'KOALEFANT', 'TENTACLE', 'GUARD PIG', 'PIG MAN', 'MONSTER MEAT', 'FREEZING', 'PENGULL', 'KLAUS', 'BEE QUEEN', 'BOARILLA', 'RHINOCEBRO SNAPBACK', 'BOARILLA', 'SCORPEON ACID', 'SNORTOISE', 'CROCOMANDER', 'PIT PIG', 'RHINOCEBRO FLATBRIM', 'WEETRELL', 'KARMA', 'CAMEOAPPEARANCE', 'GOAT SLICE', 'GRAND FORGE BOARRIOR', 'DARKNESS', 'HOUND', 'TERRORBEAK', 'CRAWLING HORROR', 'SPIDER', 'TENTACLE', 'INHUMANROBOT', 'DARKNESS', 'FROG', 'FREEZING'];
+
 var dancegifs = [ "public/robot1.gif", "public/robot4.gif", "public/robotdance2.gif", "public/robotdance3.gif", "public/robotdance4.gif", "public/robotdance5.gif" ];
-var fortnitegifs = ["public/bloominwormwood.gif", "public/fortnite.gif", "public/wes.gif", "public/warly.gif", "public/wilson.gif", "public/woodie.gif", "public/woodlegs_defaultdance.gif", "public/webber_defaultdance.gif", "public/wheeler_defaultdance.gif"];
+var fortnitegifs = [ "public/wurt_flortnite.gif", "public/weregoose_defaultdance.gif", "public/babycarter_defaultdance.gif", "public/wxbutterwxbutterwxbutter_defaultdance.gif", "public/hal_defaultdance.png", "public/wendy_defaultdance.gif", "public/wigfrid_defaultdance.gif", "public/wagstaff_defaultdance.gif", "public/willow_defaultdance.gif", "public/wickerbottom_defaultdance.gif", "public/wilba_defaultdance.gif", "public/thickwolfgang_defaultdance.gif", "public/walani_defaultdance.gif", "public/wilbur_defaultdance.gif", "public/winona_defaultdance.gif", "public/shadow_wilson_dance.gif", "public/goatdance.gif", "public/wortox_defaultdance.gif", "public/werebeaver_dance.gif", "public/maxwell_defaultdance.gif", "public/bloominwormwood.gif", "public/fortnite.gif", "public/wes.gif", "public/warly.gif", "public/wilson.gif", "public/woodie.gif", "public/woodlegs_defaultdance.gif", "public/webber_defaultdance.gif", "public/wheeler_defaultdance.gif", "public/weremoose_dance.gif"];
 
 var promptchars = ['A PIGMAN', 'A MERM', 'A CATCOON', 'A HOUND', 'A BUNNYMAN', 'A STAGEHAND', 'WORTOX', 'WHEELER', 'WAGSTAFF', 'WILBA', 'WORMWOOD', 'WILSON', 'WILLOW', 'WOLFGANG', 'WENDY', 'ABIGAIL', 'WX-78', 'WICKERBOTTOM', 'WOODIE', 'LUCY THE AXE', 'MAXWELL', 'WILLIAM CARTER', 'WES', 'WIGFRID', 'BERNIE THE TEDDY BEAR',
 'WEBBER', 'WALANI', 'WARLY', 'WOODLEGS', 'WILBUR', 'CHARLIE', 'WINONA', 'CHESTER', 'HUTCH', 'PACKIM BAGGINS', 'MR. SKITS',  'GLOMMER', 'PUGNA', 'BILLY', 'MUMSY', 'PIPTON', 'SAMMY' ];
@@ -111,6 +113,9 @@ var ficpromptwords = [' GET INTO AN ARGUMENT', ' ARE FORCED BY CIRCUMSTANCES TO 
 ' SAIL TO THE LUNAR ISLAND TOGETHER', ' STRIKE UP AN UNLIKELY FRIENDSHIP IN A FLORIST & TATTOO ARTIST AU', ', IN WHICH ONE RESCUES THE OTHER FROM THE OCEAN', ' ATTEMPTING TO SUPPORT EACH OTHER AS THEY ARE GRADUALLY MERMIFIED', ' COMPETE WITH EACH OTHER TO SEE WHO CAN CHOP WOOD FASTEST', ' SPECULATE ABOUT SCIENCE TOGETHER'];
 var merpromptwords = [' FLEEING FROM A TIGERSHARK', ' ADMIRING A SCHOOL OF COLORFUL FISH', ' OBSERVING THE SURFACE WORLD', ' HIDING IN A CORAL REEF', ' PLAYING WITH A BALLPHIN', ' STRANDED ON LAND AND GASPING FOR BREATH', ' PUSHING THEIR WAY THROUGH DENSE SEAWEED', ' EXAMINING A SURFACE ARTIFACT FROM A SHIPWRECK', ' TRYING TO COAX A HERMIT CRAB OUT OF ITS SHELL', ' FENCING WITH A SWORDFISH',
 ' STRANDED UNCOMFORTABLY IN A TOO-SMALL TIDEPOOL TO WAIT FOR HIGH TIDE', ' ADMIRING TREASURE RECOVERED FROM A SHIPWRECK' , ' BEING STUNG BY A JELLYFISH', ' FIGHTING A PACK OF SEA HOUNDS', ' BATTLING A CROCODOG', ' PURSUED BY A SHADOWY SWIMMING HORROR', ' FOLLOWING A LAND-DWELLER\'S BOAT CURIOUSLY' , ' CAPTIVE IN AN AQUARIUM', ' ATTEMPTING TO ESCAPE CAPTIVITY', ' CAUGHT IN A NET'];
+var tripromptwords = [' SLOUCHED OVER THE THRONE', ' STRUGGLING AGAINST THE THRONE\'S BONDS OF SHADOW', ' RELEASING A NEW MONSTER INTO THE CONSTANT', ' PLANTING NEW FLOWERS IN THE CONSTANT', ' CONFRONTING A FORMER ALLY', ' REDECORATING THE THRONE ROOM TO THEIR TASTES', ' WATCHING OTHER SURVIVORS FROM JUST BEYOND THE CAMPFIRE', ' DESIGNING NEW CREATURES', ' ADMIRING THEIR REFLECTION',  ' LAUGHING EVILLY', ' WITH A CAT IN THEIR LAP',
+' HOLDING UP AN OVERSIZED GEM', ' CASTING A MENACING SHADOW', ' SUBJUGATING LESSER BEINGS', ' ADMIRING THE SKULL OF AN ENEMY', ' ENTHRONED AND USING AN INFERIOR BEING AS A FOOTREST', ' WITH SHARPER TEETH THAN USUAL', ' BRANDISHING A SHADOW SWORD', ' WELCOMING ANOTHER SURVIVOR TO THEIR PERSONAL ADVENTURE MODE', ' SETTING TRAPS IN THE CONSTANT', ' RIDING A CLOCKWORK STEED TO BATTLE', ' ERECTING A STATUE OF THEMSELF', ' COVERING THEIR EARS TO BLOCK THE SHADOW\'S ENDLESS WHISPERS',
+' ON A CHESSBOARD', ' HOLDING A CHESS PIECE', ' WITH MR. SKITS PERCHED ON THEIR SHOULDERS', ' STANDING OVER A SLEEPING SURVIVOR', ' TORMENTED BY ENDLESS PHONOGRAPH MUSIC', ' SNUFFING OUT A SURVIVOR\'S LIGHT SOURCE', ' DESIGNING A NEW VARIANT ON CHESTER', ' EMACIATED AND CLOTHING IN TATTERS AFTER A LONG PERIOD OF RULE', ' DIRECTING THE CONSTANT\'S WEATHER', ' PETTING A HOUND', ' UNLEASHING A NEW BOSS ENCOUNTER OR SEASONAL GIANT', ' BEING WAITED UPON BY SHADOW SERVANTS'];
 
 var robopromptchars = ['C3PO', 'R2D2', 'BB8', 'FREDDY FAZBEAR', 'BONNIE (FNAF)', 'CHICA (FNAF)', 'FOXY (FNAF)', 'BALLORA', 'CIRCUS BABY', 'BASTION', 'ORISA', 'ZENYATTA', 'WX-78', 'THE GHOST OF WX-78', 'GoH SKIN WX-78', 'HALLOWED NIGHTS SKIN WX-78', 'GLADIATOR SKIN WX-78', 'VICTORIAN SKIN WX-78', 'MAGMATIC SKIN WX-78', 'ROSEATE SKIN WX-78', 'SURVIVOR SKIN WX-78', 'TRIUMPHANT SKIN WX-78', 'FUTURE SKIN WX-78', 'VERDANT SKIN WX-78',
 'MARVIN THE PARANOID ANDROID', 'HAL', 'HAL 9000', 'GLaDoS', 'ART (MURDERBOT DIARIES)', 'MIKI (MURDERBOT DIARIES)', 'MURDERBOT', 'K2SO', 'DR. KAHL\'S ROBOT (CUPHEAD)', 'BENDER', 'TURING', 'ASTRO BOY', 'AM', 'ROTOMDEX', 'BURIKIDDO (ANPANMAN TOY ROBOT)', 'NANKAHENDA (ANPANMAN ARTIST ROBOT)'];
@@ -119,7 +124,8 @@ var robopromptwords = [' POSING TO BEST SHOW THEIR MAGNIFICENCE AND SUPERIORITY'
 ' COMMITTING ACTS OF VANDALISM', ' DRIVING A VEHICLE', ' DOING A WHEELIE IN A MOTORCYCLE', ' WEARING A WIG WITH GORGEOUS FLOWING LOCKS', ' APPROACHING OUT OF THE DARKNESS, EYES GLEAMING', ' SNUGGLED IN A COMFORTABLE OVERSTUFFED ARMCHAIR', ' WITH MISMATCHED, IMPROVISED REPLACEMENT PARTS SALVAGED FROM A DIFFERENT MODEL OF ROBOT', ' RELUCTANT TO WAKE UP THE ORGANIC WHO HAS FALLEN ASLEEP ON THEM', ' SOULFULLY PLAYING AN INSTRUMENT', ' ON A CHILD LEASH', ' ENJOYING A VIDEO GAME',
 ' POLISHING THEIR CHASSIS UNTIL THEY GLEAM (OR EQUIVALENT)', ' UNDERGOING A TRANSFORMERS-STYLE METAMORPHOSIS INTO A VEHICLE', ' NOTIFYING THEIR FAVORITE FLESHLING OF THEIR FAVORED STATUS', ' TAKING MEASURES TO AVOID OVERHEATING IN THE SUMMER', ' CONSTRUCTING ANOTHER ROBOT IN THEIR IMAGE', ' EATING CANDY, CUPCAKES, OR AN EQUIVALENT TREAT-FUEL', ' JUMPING THROUGH A WINDOW, SHATTERING THE GLASS DRAMATICALLY', ' SHARPLY DRESSED IN A BUSINESS SUIT', ' LEANING AGAINST AN ORGANIC GRAVE'];
 
-var votes = {"set":false, "userID":1};
+var giftArray = ['A PILE OF GEARS', 'A SEWING KIT', 'A RED GEM', 'A BLUE GEM', 'A GREEN GEM', 'AN ORANGE GEM', 'A YELLOW GEM', 'A BEEFALO HAT', 'A WINTER HAT', 'RABBIT EARMUFFS', 'A PAIR OF MOGGLES', 'A PIECE OF FLINT', 'A MOONROCK', 'SPIDER SILK', 'NITRE', 'A COMPASS', 'A WALKING CANE', 'A PANFLUTE', 'A TAM O\' SHANTER', 'A CAT CAP'];
+var lastGifted = 0;
 
 function isNumber(n) {
   return !isNaN(parseFloat(n)) && isFinite(n);
@@ -240,6 +246,11 @@ bot.on('message', msg => {
         chan.send('<:wxbutter:393885814074900481>').catch(console.error);
       break;
 
+      case 'EVILSMILE':
+      case 'EVILUMLAUT':
+        chan.send("ǚ").catch(console.error);
+      break;
+
   	  case 'JAIL':
       case 'FLESHLINGJAIL':
   		  if (msg.content.split(' ').length == 1) {
@@ -251,12 +262,11 @@ bot.on('message', msg => {
       break;
 
       case 'KISS':
-      case 'KISSINGBOOTH':
         if (msg.content.split(' ').length == 1) {
           chan.send('<@' + msg.author.id + '> :kissing_heart:').catch(console.error);
         }
   		  else {
-          chan.send(":kissing_heart: " + msg.content.split(' ')[1]).catch(console.error);
+          chan.send(":kissing_heart: " +  msg.content.slice(6).toUpperCase()).catch(console.error);
   		  }
       break;
 
@@ -303,6 +313,10 @@ bot.on('message', msg => {
 
       case 'POSITIVE':
         chan.send('PLEASE KEEP THIS PIZZA PARTY POSITIVE! YOU ARE WELCOME TO CONTINUE VENTING IN A PRIVATE CONVERSATION OR ANOTHER SPACE. THANK YOU').catch(console.error);
+      break;
+
+      case 'SOUP':
+        chan.send("INTO THE SOUP WITH YOU", { file: "public/intothesoup.gif" } ).catch(console.error);
       break;
 
       case 'DANCE':
@@ -355,6 +369,10 @@ bot.on('message', msg => {
           .catch(console.error);
       break;
 
+      case 'FLEX':
+        chan.send(":mechanical_arm: <:belovedbot:397123738522484736>").catch(console.error);
+      break;
+
       case 'ROLL':
       case 'SKILLCHECK':
         var diceroll = Math.floor(Math.random() * 20) + 1;
@@ -367,6 +385,19 @@ bot.on('message', msg => {
         else if (diceroll <= 19) { diceresult += 'HEY, THAT ROLL WAS ACTUALLY PRETTY GOOD'; }
         else { diceresult += 'A CRITICAL SUCCESS! REMARKABLE'; }
         chan.send(diceresult).catch(console.error);
+      break;
+
+      case 'PRESENT':
+      case 'GIFT':
+        var recipient = msg.author.id;
+        if (recipient == lastGifted){
+          chan.send('YOUR GIFT IS A PIECE OF CHARCOAL.').catch(console.error);
+        }
+        else {
+          var prezzie = giftArray[Math.floor(Math.random() * giftArray.length)];
+          chan.send('YOUR GIFT IS ' + prezzie + '. HAPPY WINTER\'S FEAST!').catch(console.error);
+        }
+        lastGifted = recipient;
       break;
 
       case 'PRONOUNS':
@@ -474,31 +505,84 @@ bot.on('message', msg => {
           .catch(console.error);
       break;
 
+      case 'DIE':
+      case 'DEATH':
+        var chosendeath = deathArray[Math.floor(Math.random() * deathArray.length)];
+        chan.send("<@" + msg.author.id + "> WAS KILLED BY " + chosendeath + ". THEY BECAME A SPOOKY GHOST!").catch(console.error);
+      break;
+
+
       case 'PROMPT':
-        var promptedchar = promptchars[Math.floor(Math.random() * promptchars.length)];
+        if (msg.content.split(' ').length > 1) {
+          var promptedchar = msg.content.slice(7).toUpperCase();
+        }
+        else {
+          var promptedchar = promptchars[Math.floor(Math.random() * promptchars.length)];
+        }
         var promptedwords = promptwords[Math.floor(Math.random() * promptwords.length)];
         chan.send(promptedchar + " " + promptedwords).catch(console.error);
       break;
 
       case 'ROBOPROMPT':
       case 'ROBOTPROMPT':
-        var promptedchar = robopromptchars[Math.floor(Math.random() * robopromptchars.length)];
+        if (msg.content.split(' ').length > 1) {
+          var promptedchar = msg.content.split(' ')[1].toUpperCase();
+        }
+        else {
+          var promptedchar = robopromptchars[Math.floor(Math.random() * robopromptchars.length)];
+        }
         var promptedwords = robopromptwords[Math.floor(Math.random() * robopromptwords.length)];
         chan.send(promptedchar + promptedwords).catch(console.error);
       break;
 
       case 'FICPROMPT':
-        var promptedchar1 = promptchars[Math.floor(Math.random() * promptchars.length)];
-        var promptedchar2 = promptchars[Math.floor(Math.random() * promptchars.length)];
+        var pargs = msg.content.split(' ');
+        if (pargs.length > 3) {
+          var promptedchar1 = pargs[1].toUpperCase();
+          var promptedchar2 = pargs[2].toUpperCase();
+          for (var n = 3; n < pargs.length; n++){
+            promptedchar2 = promptedchar2 + " AND " +  pargs[n].toUpperCase();
+          }
+        }
+        else if (pargs.length > 2) {
+          var promptedchar1 = pargs[1].toUpperCase();
+          var promptedchar2 = pargs[2].toUpperCase();
+        }
+        else if (pargs.length > 1) {
+          var promptedchar1 = pargs[1].toUpperCase();
+          var promptedchar2 = promptchars[Math.floor(Math.random() * promptchars.length)];
+        }
+        else {
+          var promptedchar1 = promptchars[Math.floor(Math.random() * promptchars.length)];
+          var promptedchar2 = promptchars[Math.floor(Math.random() * promptchars.length)];
+        }
         var promptedficwords = ficpromptwords[Math.floor(Math.random() * ficpromptwords.length)];
         chan.send(promptedchar1 + " AND " + promptedchar2 + promptedficwords).catch(console.error);
       break;
 
       case 'MERPROMPT':
       case 'MERMPROMPT':
-        var promptedchar = promptchars[Math.floor(Math.random() * (promptchars.length - 6)) + 6];
+        if (msg.content.split(' ').length > 1) {
+          var promptedchar = msg.content.split(' ')[1].toUpperCase();
+        }
+        else {
+          var promptedchar = promptchars[Math.floor(Math.random() * (promptchars.length - 6)) + 6];
+        }
         var promptedwords = merpromptwords[Math.floor(Math.random() * merpromptwords.length)];
         chan.send("MER-" + promptedchar + promptedwords).catch(console.error);
+      break;
+
+      case 'TRIPROMPT':
+      case 'TRIUMPHPROMPT':
+      case 'TRIUMPHANTPROMPT':
+        if (msg.content.split(' ').length > 1) {
+          var promptedchar = msg.content.split(' ')[1].toUpperCase();
+        }
+        else {
+          var promptedchar = promptchars[Math.floor(Math.random() * (promptchars.length - 6)) + 6];
+        }
+        var promptedwords = tripromptwords[Math.floor(Math.random() * tripromptwords.length)];
+        chan.send("TRIUMPHANT " + promptedchar + promptedwords).catch(console.error);
       break;
 
       case 'APPRECIATEHAL':
