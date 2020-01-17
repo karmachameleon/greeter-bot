@@ -213,6 +213,10 @@ bot.on('message', msg => {
         chan.send(':pizza:').catch(console.error);
       break;
 
+      case 'DERO':
+        chan.send({ file: "public/dabsplosion-L.gif" } ).catch(console.error);
+      break;
+
       case 'NYAN':
       case 'NYA':
       case 'NYAH':
