@@ -219,7 +219,7 @@ bot.on('message', msg => {
 
       case 'CHEVRE':
       case 'GOAT':
-      case 'CHÈVRE'
+      case 'CHÈVRE':
         chan.send("https://twitter.com/goat_slice", {file: "public/mumsy.png"}).catch(console.error);
       break;
 
