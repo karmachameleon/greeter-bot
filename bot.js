@@ -213,6 +213,20 @@ bot.on('message', msg => {
         chan.send(':pizza:').catch(console.error);
       break;
 
+      case 'DERO':
+        chan.send({ file: "public/dabsplosion-L.gif" } ).catch(console.error);
+      break;
+
+      case 'CHEVRE':
+      case 'GOAT':
+      case 'CHÈVRE':
+        chan.send("https://twitter.com/goat_slice", {file: "public/mumsy.png"}).catch(console.error);
+      break;
+
+      case 'KARMA':
+        chan.send({ file: "public/laser.gif" } ).catch(console.error);
+      break;
+
       case 'NYAN':
       case 'NYA':
       case 'NYAH':
@@ -334,6 +348,10 @@ bot.on('message', msg => {
       case 'NYAHWX':
       case 'CATWX':
         chan.send({ file: "public/nyahwx.gif" }).catch(console.error);
+      break;
+
+      case 'WIG':
+        chan.send({ file: "public/wig.gif" }).catch(console.error);
       break;
 
       case 'BIRTHDAY':
