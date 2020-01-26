@@ -350,6 +350,10 @@ bot.on('message', msg => {
         chan.send({ file: "public/nyahwx.gif" }).catch(console.error);
       break;
 
+      case 'WIG':
+        chan.send({ file: "public/wig.gif" }).catch(console.error);
+      break;
+
       case 'BIRTHDAY':
       case 'HAPPYBIRTHDAY':
       case 'HAPPY':
