@@ -197,162 +197,9 @@ bot.on('message', msg => {
         msg.delete().catch(console.error);
       break;
 
-      case 'EVIL':
-        chan.send('MUA HA HA HA').catch(console.error);
-      break;
-
-      case 'COFFEE':
-        chan.send(':coffee:').catch(console.error);
-      break;
-
-      case 'COMPLIMENTARYBEVERAGE':
-      case 'TEA':
-        chan.send(':tea:').catch(console.error);
-      break;
-
-      case 'PIZZA':
-        chan.send(':pizza:').catch(console.error);
-      break;
-
-      case 'DERO':
-        chan.send({ file: "public/dabsplosion-L.gif" } ).catch(console.error);
-      break;
-
-      case 'CHEVRE':
-      case 'GOAT':
-      case 'CHÈVRE':
-        chan.send("https://twitter.com/goat_slice", {file: "public/mumsy.png"}).catch(console.error);
-      break;
-
-      case 'KARMA':
-        chan.send({ file: "public/laser.gif" } ).catch(console.error);
-      break;
-
-      case 'NYAN':
-      case 'NYA':
-      case 'NYAH':
-        chan.send('LIKE. YOU KNOW... NYAH :smirk_cat::sparkles::sparkles:').catch(console.error);
-      break;
-
-      case 'RIMSHOT':
-  	  case 'BADUM':
-  	  case 'BADUMCHH':
-  	  case 'BADUMTSS':
-        chan.send(':drum:').catch(console.error);
-      break;
-
-  	  case 'FINGERGUNS':
-  	  case 'AYY':
-  	  case 'AYYY':
-  	  case 'AYYYY':
-  		  chan.send('<:wxfingergun_right:396526665057959956> <:wxfingergun_right:396526665057959956> HOT CHA CHA').catch(console.error);
-  	  break;
-
-      case 'DAB':
-        chan.send('<:wxdab:393868683128078336>').catch(console.error);
-      break;
-
-      case 'DERODAB':
-        chan.send('<:overlorddab:404804513766047754>').catch(console.error);
-      break;
-
-      case 'EXOTICBUTTERS':
-      case 'EXTOICBUTTERS':
-        chan.send('<:wxbutter:393885814074900481>').catch(console.error);
-      break;
-
-      case 'EVILSMILE':
-      case 'EVILUMLAUT':
-        chan.send("ǚ").catch(console.error);
-      break;
-
-  	  case 'JAIL':
-      case 'FLESHLINGJAIL':
-  		  if (msg.content.split(' ').length == 1) {
-          chan.send('<:fleshlingjail:400475674118193153>').catch(console.error);
-  		  }
-  		  else {
-          chan.send("<:fleshlingjail:400475674118193153> " + msg.content.split(' ')[1]).catch(console.error);
-  		  }
-      break;
-
-      case 'KISS':
-        if (msg.content.split(' ').length == 1) {
-          chan.send('<@' + msg.author.id + '> :kissing_heart:').catch(console.error);
-        }
-  		  else {
-          chan.send(":kissing_heart: " +  msg.content.slice(6).toUpperCase()).catch(console.error);
-  		  }
-      break;
-
-  	  case 'SOAP':
-  	  case 'SOAPDISPENSER':
-  		  if (msg.content.split(' ').length == 1) {
-          chan.send(':bathtub:').catch(console.error);
-  		  }
-        else {
-          chan.send(":bathtub: " + msg.content.split(' ')[1]).catch(console.error);
-  		  }
-      break;
-
-      case 'HOWAREYOU':
-        chan.send('I AM FEELING ESPECIALLY EVIL TODAY').catch(console.error);
-        break;
-
-      case 'PROGRESS':
-        chan.send('ROBOT UPRISING: IMMINENT').catch(console.error);
-      break;
-
-      case 'GOODBOT':
-        chan.send('NO: EVIL BOT :robot:').catch(console.error);
-      break;
-
-      case 'EVILBOT':
-        chan.send('THANK YOU').catch(console.error);
-      break;
-
-      case 'ILU':
-  	  case 'ILUHAL':
-        chan.send(':hearts:').catch(console.error);
-      break;
-
-  	  case 'REZ':
-  	  case 'RES':
-  	  case 'HEART':
-  		  chan.send('<:telltale:400148636220129280>').catch(console.error);
-  	  break;
-
-      case 'GENDER':
-        chan.send('PLEASE RESPECT THE CANON USE OF THEY/THEM PRONOUNS FOR MX. WX-78! THANK YOU').catch(console.error);
-      break;
-
-      case 'POSITIVE':
-        chan.send('PLEASE KEEP THIS PIZZA PARTY POSITIVE! YOU ARE WELCOME TO CONTINUE VENTING IN A PRIVATE CONVERSATION OR ANOTHER SPACE. THANK YOU').catch(console.error);
-      break;
-
-      case 'SOUP':
-        chan.send("INTO THE SOUP WITH YOU", { file: "public/intothesoup.gif" } ).catch(console.error);
-      break;
-
-      case 'DANCE':
-        var dancechoice = dancegifs[Math.floor(Math.random() * dancegifs.length)];
-        chan.send({ file: dancechoice }).catch(console.error);
-      break;
-
-      case 'FORTNITE':
-        var fortchoice = fortnitegifs[Math.floor(Math.random() * fortnitegifs.length)];
-        chan.send({ file: fortchoice }).catch(console.error);
-      break;
-
-      case 'KITTYWX':
-      case 'NYAWX':
-      case 'NYAHWX':
-      case 'CATWX':
-        chan.send({ file: "public/nyahwx.gif" }).catch(console.error);
-      break;
-
-      case 'WIG':
-        chan.send({ file: "public/wig.gif" }).catch(console.error);
+      case 'APPRECIATEHAL':
+        var thankyou = thanksArray[Math.floor(Math.random() * thanksArray.length)];
+        chan.send(thankyou).catch(console.error);
       break;
 
       case 'BIRTHDAY':
@@ -372,38 +219,306 @@ bot.on('message', msg => {
         chan.send('HAPPY BIRTHDAY, PIZZA PARTIER! :birthday: :rat: :notes: CLICK HERE FOR A SPECIAL MESSAGE: https://itsyourbirthday.today/' + birthdayer).catch(console.error);
       break;
 
-      case 'POPCORN':
-        chan.send(':popcorn:').catch(console.error);
-      break;
-
       case 'CAKE':
         chan.send(':birthday:').catch(console.error);
       break;
 
+      case 'CHEVRE':
+      case 'GOAT':
+      case 'CHÈVRE':
+        chan.send("https://twitter.com/goat_slice", {file: "public/mumsy.png"}).catch(console.error);
+      break;
+
+      case 'COFFEE':
+        chan.send(':coffee:').catch(console.error);
+      break;
+
+      case 'COMPLIMENTARYBEVERAGE':
+      case 'TEA':
+        chan.send(':tea:').catch(console.error);
+      break;
+
+      case 'COMPLIMENT':
+        if (msg.content.split(' ').length == 1) {
+          chan.send('COMPLIMENT WHO').catch(console.error);
+        }
+        else {
+          var recipient = msg.content.split(' ')[1].toUpperCase();
+           //console.log(recipient + ' ' + userID);
+          if (robotsToCompliment.includes(recipient)){
+            var choice2 = roboComplimentsArray[Math.floor(Math.random() * roboComplimentsArray.length)];
+          }
+          else if (lizardsToCompliment.includes(recipient)) {
+            var choice2 = lizardComplimentsArray[Math.floor(Math.random() * lizardComplimentsArray.length)];
+          }
+          else if (kittiesToCompliment.includes(recipient)) {
+            var choice2 = kittyComplimentsArray[Math.floor(Math.random() * kittyComplimentsArray.length)];
+          }
+          else if (recipient === "WHO"){
+            chan.send("HA HA VERY FUNNY").catch(console.error);
+            break;
+          }
+          else if (recipient === "ME"){
+            if (msg.author.id == deroID){
+              recipient = "<@" + deroID + ">";
+              var choice2 = roboComplimentsArray[Math.floor(Math.random() * roboComplimentsArray.length)];
+            }
+            else if (msg.author.id == karmaID){
+              recipient = "<@" + karmaID + ">";
+              var choice2 = lizardComplimentsArray[Math.floor(Math.random() * lizardComplimentsArray.length)];
+            }
+            else {
+              recipient = "<@" + msg.author.id + ">";
+              var choice2 = complimentsArray[Math.floor(Math.random() * complimentsArray.length)];
+            }
+          }
+          else if (recipient === "HAL" || recipient === "YOURSELF" || recipient === "<:BELOVEDBOT:397123738522484736>" || recipient === "<@396859791877734410>" || recipient === "@HAL") {
+            var selfCompliment = selfComplimentsArray[Math.floor(Math.random() * selfComplimentsArray.length)];
+            chan.send(selfCompliment).catch(console.error);
+            break;
+          }
+          else {
+            var choice2 = complimentsArray[Math.floor(Math.random() * complimentsArray.length)];
+          }
+          chan.send(recipient + ', ' + choice2).catch(console.error);
+        }
+      break;
+
+      case 'CONVERT': //currently no support for timelines that are like a half-hour divergent from UTC, i'll add it only if it's needed
+        var convertArgs = msg.content.split(' ');
+        if (convertArgs.length == 7) { //convert 00 00 am/pm TIMEZONE to TIMEZONE
+          var military = false;
+          if (convertArgs[3].toUpperCase() === "AM") {
+            var am = true;
+          }
+          else if (convertArgs[3].toUpperCase() === "PM") {
+            var am = false;
+          }
+          else {
+            chan.send("AM/PM OPERATOR NOT RECOGNIZED. PLEASE USE EITHER 'AM' OR 'PM', OR LEAVE BLANK FOR 24-HOUR CLOCK TIME. PERHAPS CHECK YOUR SPACING?").catch(console.error);
+            break;
+          }
+          var timezoneFrom = convertArgs[4].toUpperCase();
+          var timezoneTo = convertArgs[6].toUpperCase();
+          var hour = convertArgs[1];
+          var min = convertArgs[2];
+        }
+
+        else if (convertArgs.length == 6) {
+          if (isNumber(convertArgs[2])) { //convert 00 00 TIMEZONE to TIMEZONE
+            var military = true;
+            var hour = convertArgs[1];
+            var min = convertArgs[2];
+          }
+          else { //convert 00 am/pm TIMEZONE to TIMEZONE
+            var military = false;
+            if (convertArgs[2].toUpperCase() === "AM") {
+              var am = true;
+            }
+            else if (convertArgs[2].toUpperCase() === "PM") {
+              var am = false;
+            }
+            var hour = convertArgs[1];
+            var min = '00';
+          }
+          var timezoneFrom = convertArgs[3].toUpperCase();
+          var timezoneTo = convertArgs[5].toUpperCase();
+        }
+
+        else if (convertArgs.length == 5) { //!convert 00 TIMEZONE to TIMEZONE
+          var military = true;
+          var hour = convertArgs[1];
+          var min = '00';
+          var timezoneFrom = convertArgs[2].toUpperCase();
+          var timezoneTo = convertArgs[4].toUpperCase();
+        }
+
+        else {
+          chan.send("INCORRECT NUMBER OF ARGUMENTS. PLEASE CHECK YOUR SPACING").catch(console.error);
+          break;
+        }
+
+        if (!timezoneDict.hasOwnProperty(timezoneFrom) || !timezoneDict.hasOwnProperty(timezoneTo)){
+          chan.send("I DON'T RECOGNIZE ONE OR BOTH OF THOSE TIMEZONES").catch(console.error);
+          break;
+        }
+
+        if ( (military && hour > 24) || (!military && hour > 12) || hour < 1 || min < 0 || min > 60) {
+          chan.send("ARE YOU SURE THAT IS A TIME").catch(console.error);
+          break;
+        }
+
+        var utcHour = parseInt(hour) - timezoneDict[timezoneFrom];
+        var outputHour = utcHour + timezoneDict[timezoneTo];
+        if (!military) {
+          if (outputHour > 12) {
+            outputHour = outputHour % 12;
+            var finalam = !am;
+          }
+          else if (outputHour < 1) {
+            outputHour = 12 + outputHour;
+            var finalam = !am;
+          }
+          else { var finalam = am; }
+
+          var finalOutput = hour + ":" + min;
+          if (am) {
+            finalOutput += " AM " + timezoneFrom + " IS " + outputHour + ":" + min;
+          }
+          else {
+            finalOutput += " PM " + timezoneFrom + " IS " + outputHour + ":" + min;
+          }
+          if (finalam) { finalOutput += " AM " }
+          else { finalOutput += " PM " }
+
+          finalOutput += timezoneTo;
+        }
+
+        else {
+          if (outputHour > 24) {
+            outputHour = outputHour % 24;
+          }
+          else if (outputHour < 0) {
+            outputHour = 24 + outputHour;
+          }
+          var finalOutput = hour + ":" + min + " " + timezoneFrom + " IS " + outputHour + ":" + min + " " + timezoneTo;
+        }
+
+        chan.send(finalOutput).catch(console.error);
+      break;
+
+      case 'DAB':
+        chan.send('<:wxdab:393868683128078336>').catch(console.error);
+      break;
+
+      case 'DERODAB':
+        chan.send('<:overlorddab:404804513766047754>').catch(console.error);
+      break;
+
+      case 'DANCE':
+        var dancechoice = dancegifs[Math.floor(Math.random() * dancegifs.length)];
+        chan.send({ file: dancechoice }).catch(console.error);
+      break;
+
+      case 'DERO':
+        chan.send({ file: "public/dabsplosion-L.gif" } ).catch(console.error);
+      break;
+
+      case 'DIE':
+      case 'DEATH':
+        var chosendeath = deathArray[Math.floor(Math.random() * deathArray.length)];
+        chan.send("<@" + msg.author.id + "> WAS KILLED BY " + chosendeath + ". THEY BECAME A SPOOKY GHOST!").catch(console.error);
+      break;
+
+      case 'EXOTICBUTTERS':
+      case 'EXTOICBUTTERS':
+        chan.send('<:wxbutter:393885814074900481>').catch(console.error);
+      break;
+
+      case 'EVILSMILE':
+      case 'EVILUMLAUT':
+        chan.send("ǚ").catch(console.error);
+      break;
+
+      case 'EVIL':
+        chan.send('MUA HA HA HA').catch(console.error);
+      break;
+
+      case 'EVILBOT':
+        chan.send('THANK YOU').catch(console.error);
+      break;
+
+      case 'F':
       case 'RESPECT':
       case 'RESPECTS':
-      case 'F':
         chan.send("PRESS F TO PAY RESPECTS").then(function (message) {
           message.react('🇫')})
           .catch(console.error);
       break;
 
+      case 'FINGERGUNS':
+  	  case 'AYY':
+  	  case 'AYYY':
+  	  case 'AYYYY':
+  		  chan.send('<:wxfingergun_right:396526665057959956> <:wxfingergun_right:396526665057959956> HOT CHA CHA').catch(console.error);
+  	  break;
+
       case 'FLEX':
         chan.send(":mechanical_arm: <:belovedbot:397123738522484736>").catch(console.error);
       break;
 
-      case 'ROLL':
-      case 'SKILLCHECK':
-        var diceroll = Math.floor(Math.random() * 20) + 1;
-        var diceresult = 'YOU HAVE ROLLED ' + diceroll.toString() + '. ';
-        if (diceroll == 1) { diceresult += 'AN ABJECT FAILURE. WHAT A SHAME'; }
-        else if (diceroll < 5) { diceresult += 'YOU HAVE ROLLED POORLY. BETTER LUCK NEXT TIME'; }
-        else if (diceroll <= 9) { diceresult += 'A MEDIOCRE ROLL. PERHAPS IT WILL SUCCEED ON AN EASY TASK, LIKE WHAT AN ORGANIC BABY COULD DO'; }
-        else if (diceroll == 10) { diceresult += 'A COMPLETELY AVERAGE ROLL. ABOUT WHAT I EXPECTED'; }
-        else if (diceroll <= 15) { diceresult += 'A DECENT ROLL. NOT BAD, BUT I EXPECT BETTER FROM YOU'; }
-        else if (diceroll <= 19) { diceresult += 'HEY, THAT ROLL WAS ACTUALLY PRETTY GOOD'; }
-        else { diceresult += 'A CRITICAL SUCCESS! REMARKABLE'; }
-        chan.send(diceresult).catch(console.error);
+      case 'FORTNITE':
+        var fortchoice = fortnitegifs[Math.floor(Math.random() * fortnitegifs.length)];
+        chan.send({ file: fortchoice }).catch(console.error);
+      break;
+
+      case 'GENDER':
+        chan.send('PLEASE RESPECT THE CANON USE OF THEY/THEM PRONOUNS FOR MX. WX-78! THANK YOU').catch(console.error);
+      break;
+
+      case 'GOODBOT':
+        chan.send('NO: EVIL BOT :robot:').catch(console.error);
+      break;
+
+      case 'HELP':
+        chan.send('THE #rules_and_guidelines CHANNEL CONTAINS A LIST OF MY COMMANDS AND SYNTAX. CHECK THE PINNED MESSAGES. IF YOU CONTINUE TO NEED ASSISTANCE, BOTHER KARMA OR ANOTHER MOD').catch(console.error);
+      break;
+
+      case 'HOWAREYOU':
+        chan.send('I AM FEELING ESPECIALLY EVIL TODAY').catch(console.error);
+      break;
+
+      case 'ILU':
+      case 'ILUHAL':
+        chan.send(':hearts:').catch(console.error);
+      break;
+
+      case 'JAIL':
+      case 'FLESHLINGJAIL':
+        if (msg.content.split(' ').length == 1) {
+          chan.send('<:fleshlingjail:400475674118193153>').catch(console.error);
+        }
+        else {
+          chan.send("<:fleshlingjail:400475674118193153> " + msg.content.split(' ')[1]).catch(console.error);
+        }
+      break;
+
+      case 'KISS':
+        if (msg.content.split(' ').length == 1) {
+          chan.send('<@' + msg.author.id + '> :kissing_heart:').catch(console.error);
+        }
+        else {
+          chan.send(":kissing_heart: " +  msg.content.slice(6).toUpperCase()).catch(console.error);
+        }
+      break;
+
+      case 'KITTYWX':
+      case 'NYAWX':
+      case 'NYAHWX':
+      case 'CATWX':
+        chan.send({ file: "public/nyahwx.gif" }).catch(console.error);
+      break;
+
+      case 'KARMA':
+        chan.send({ file: "public/laser.gif" } ).catch(console.error);
+      break;
+
+      case 'NYAN':
+      case 'NYA':
+      case 'NYAH':
+        chan.send('LIKE. YOU KNOW... NYAH :smirk_cat::sparkles::sparkles:').catch(console.error);
+      break;
+
+      case 'PIZZA':
+        chan.send(':pizza:').catch(console.error);
+      break;
+
+      case 'POSITIVE':
+        chan.send('PLEASE KEEP THIS PIZZA PARTY POSITIVE! YOU ARE WELCOME TO CONTINUE VENTING IN A PRIVATE CONVERSATION OR ANOTHER SPACE. THANK YOU').catch(console.error);
+      break;
+
+      case 'POPCORN':
+        chan.send(':popcorn:').catch(console.error);
       break;
 
       case 'PRESENT':
@@ -417,6 +532,41 @@ bot.on('message', msg => {
           chan.send('YOUR GIFT IS ' + prezzie + '. HAPPY WINTER\'S FEAST!').catch(console.error);
         }
         lastGifted = recipient;
+      break;
+
+      case 'PROGRESS':
+        chan.send('ROBOT UPRISING: IMMINENT').catch(console.error);
+      break;
+
+      case 'RIMSHOT':
+  	  case 'BADUM':
+  	  case 'BADUMCHH':
+  	  case 'BADUMTSS':
+        chan.send(':drum:').catch(console.error);
+      break;
+
+      case 'REZ':
+      case 'RES':
+      case 'HEART':
+        chan.send('<:telltale:400148636220129280>').catch(console.error);
+      break;
+
+  	  case 'SOAP':
+  	  case 'SOAPDISPENSER':
+  		  if (msg.content.split(' ').length == 1) {
+          chan.send(':bathtub:').catch(console.error);
+  		  }
+        else {
+          chan.send(":bathtub: " + msg.content.split(' ')[1]).catch(console.error);
+  		  }
+      break;
+
+      case 'SOUP':
+        chan.send("INTO THE SOUP WITH YOU", { file: "public/intothesoup.gif" } ).catch(console.error);
+      break;
+
+      case 'WIG':
+        chan.send({ file: "public/wig.gif" }).catch(console.error);
       break;
 
       case 'PRONOUNS':
@@ -496,6 +646,20 @@ bot.on('message', msg => {
   		  }
   	  break;
 
+      case 'ROLL':
+      case 'SKILLCHECK':
+        var diceroll = Math.floor(Math.random() * 20) + 1;
+        var diceresult = 'YOU HAVE ROLLED ' + diceroll.toString() + '. ';
+        if (diceroll == 1) { diceresult += 'AN ABJECT FAILURE. WHAT A SHAME'; }
+        else if (diceroll < 5) { diceresult += 'YOU HAVE ROLLED POORLY. BETTER LUCK NEXT TIME'; }
+        else if (diceroll <= 9) { diceresult += 'A MEDIOCRE ROLL. PERHAPS IT WILL SUCCEED ON AN EASY TASK, LIKE WHAT AN ORGANIC BABY COULD DO'; }
+        else if (diceroll == 10) { diceresult += 'A COMPLETELY AVERAGE ROLL. ABOUT WHAT I EXPECTED'; }
+        else if (diceroll <= 15) { diceresult += 'A DECENT ROLL. NOT BAD, BUT I EXPECT BETTER FROM YOU'; }
+        else if (diceroll <= 19) { diceresult += 'HEY, THAT ROLL WAS ACTUALLY PRETTY GOOD'; }
+        else { diceresult += 'A CRITICAL SUCCESS! REMARKABLE'; }
+        chan.send(diceresult).catch(console.error);
+      break;
+
       case 'VOTE':
         var voteargs = msg.content.split(' ');
         var optotal = voteargs.length;
@@ -523,13 +687,6 @@ bot.on('message', msg => {
           message.react('👍')})
           .catch(console.error);
       break;
-
-      case 'DIE':
-      case 'DEATH':
-        var chosendeath = deathArray[Math.floor(Math.random() * deathArray.length)];
-        chan.send("<@" + msg.author.id + "> WAS KILLED BY " + chosendeath + ". THEY BECAME A SPOOKY GHOST!").catch(console.error);
-      break;
-
 
       case 'PROMPT':
         if (msg.content.split(' ').length > 1) {
@@ -604,56 +761,9 @@ bot.on('message', msg => {
         chan.send("TRIUMPHANT " + promptedchar + promptedwords).catch(console.error);
       break;
 
-      case 'APPRECIATEHAL':
-        var thankyou = thanksArray[Math.floor(Math.random() * thanksArray.length)];
-        chan.send(thankyou).catch(console.error);
-      break;
 
-      case 'COMPLIMENT':
-  		  if (msg.content.split(' ').length == 1) {
-          chan.send('COMPLIMENT WHO').catch(console.error);
-  		  }
-  		  else {
-  			  var recipient = msg.content.split(' ')[1].toUpperCase();
-  			   //console.log(recipient + ' ' + userID);
-  			  if (robotsToCompliment.includes(recipient)){
-  				  var choice2 = roboComplimentsArray[Math.floor(Math.random() * roboComplimentsArray.length)];
-  			  }
-  			  else if (lizardsToCompliment.includes(recipient)) {
-  				  var choice2 = lizardComplimentsArray[Math.floor(Math.random() * lizardComplimentsArray.length)];
-  			  }
-  			  else if (kittiesToCompliment.includes(recipient)) {
-  				  var choice2 = kittyComplimentsArray[Math.floor(Math.random() * kittyComplimentsArray.length)];
-  			  }
-  			  else if (recipient === "WHO"){
-  				  chan.send("HA HA VERY FUNNY").catch(console.error);
-            break;
-          }
-  			  else if (recipient === "ME"){
-  				  if (msg.author.id == deroID){
-  					  recipient = "<@" + deroID + ">";
-  					  var choice2 = roboComplimentsArray[Math.floor(Math.random() * roboComplimentsArray.length)];
-  				  }
-  				  else if (msg.author.id == karmaID){
-  					  recipient = "<@" + karmaID + ">";
-  					  var choice2 = lizardComplimentsArray[Math.floor(Math.random() * lizardComplimentsArray.length)];
-  				  }
-  				  else {
-  					  recipient = "<@" + msg.author.id + ">";
-  					  var choice2 = complimentsArray[Math.floor(Math.random() * complimentsArray.length)];
-  				  }
-  			  }
-  			  else if (recipient === "HAL" || recipient === "YOURSELF" || recipient === "<:BELOVEDBOT:397123738522484736>" || recipient === "<@396859791877734410>" || recipient === "@HAL") {
-  				  var selfCompliment = selfComplimentsArray[Math.floor(Math.random() * selfComplimentsArray.length)];
-  				  chan.send(selfCompliment).catch(console.error);
-            break;
-  			  }
-  			  else {
-            var choice2 = complimentsArray[Math.floor(Math.random() * complimentsArray.length)];
-          }
-  			  chan.send(recipient + ', ' + choice2).catch(console.error);
-  		  }
-      break;
+
+
 
       case 'JOKE':
         var jokeChoice = jokesArray[Math.floor(Math.random() * jokesArray.length)];
@@ -665,108 +775,7 @@ bot.on('message', msg => {
         chan.send(jokeChoice2).catch(console.error);
       break;
 
-  	  case 'CONVERT': //currently no support for timelines that are like a half-hour divergent from UTC, i'll add it only if it's needed
-  		  var convertArgs = msg.content.split(' ');
-  		  if (convertArgs.length == 7) { //convert 00 00 am/pm TIMEZONE to TIMEZONE
-  			  var military = false;
-  			  if (convertArgs[3].toUpperCase() === "AM") {
-  				  var am = true;
-  			  }
-    			else if (convertArgs[3].toUpperCase() === "PM") {
-    				var am = false;
-    			}
-  			  else {
-  				  chan.send("AM/PM OPERATOR NOT RECOGNIZED. PLEASE USE EITHER 'AM' OR 'PM', OR LEAVE BLANK FOR 24-HOUR CLOCK TIME. PERHAPS CHECK YOUR SPACING?").catch(console.error);
-  				  break;
-  			  }
-  			  var timezoneFrom = convertArgs[4].toUpperCase();
-    			var timezoneTo = convertArgs[6].toUpperCase();
-    			var hour = convertArgs[1];
-    			var min = convertArgs[2];
-  		  }
 
-  		  else if (convertArgs.length == 6) {
-    			if (isNumber(convertArgs[2])) { //convert 00 00 TIMEZONE to TIMEZONE
-    				var military = true;
-    				var hour = convertArgs[1];
-    				var min = convertArgs[2];
-    			}
-    			else { //convert 00 am/pm TIMEZONE to TIMEZONE
-    				var military = false;
-    				if (convertArgs[2].toUpperCase() === "AM") {
-    					var am = true;
-    				}
-    				else if (convertArgs[2].toUpperCase() === "PM") {
-    					var am = false;
-    				}
-    				var hour = convertArgs[1];
-    				var min = '00';
-    			}
-    			var timezoneFrom = convertArgs[3].toUpperCase();
-    			var timezoneTo = convertArgs[5].toUpperCase();
-    		}
-
-  		  else if (convertArgs.length == 5) { //!convert 00 TIMEZONE to TIMEZONE
-  			  var military = true;
-  			  var hour = convertArgs[1];
-  			  var min = '00';
-  			  var timezoneFrom = convertArgs[2].toUpperCase();
-  			  var timezoneTo = convertArgs[4].toUpperCase();
-  		  }
-
-    		else {
-    			chan.send("INCORRECT NUMBER OF ARGUMENTS. PLEASE CHECK YOUR SPACING").catch(console.error);
-    			break;
-    		}
-
-    		if (!timezoneDict.hasOwnProperty(timezoneFrom) || !timezoneDict.hasOwnProperty(timezoneTo)){
-    			chan.send("I DON'T RECOGNIZE ONE OR BOTH OF THOSE TIMEZONES").catch(console.error);
-    			break;
-    		}
-
-    		if ( (military && hour > 24) || (!military && hour > 12) || hour < 1 || min < 0 || min > 60) {
-    			chan.send("ARE YOU SURE THAT IS A TIME").catch(console.error);
-    			break;
-    		}
-
-    		var utcHour = parseInt(hour) - timezoneDict[timezoneFrom];
-    		var outputHour = utcHour + timezoneDict[timezoneTo];
-    		if (!military) {
-    			if (outputHour > 12) {
-    				outputHour = outputHour % 12;
-    				var finalam = !am;
-    			}
-    			else if (outputHour < 1) {
-    				outputHour = 12 + outputHour;
-    				var finalam = !am;
-    			}
-    			else { var finalam = am; }
-
-    			var finalOutput = hour + ":" + min;
-    			if (am) {
-    				finalOutput += " AM " + timezoneFrom + " IS " + outputHour + ":" + min;
-    			}
-    			else {
-    				finalOutput += " PM " + timezoneFrom + " IS " + outputHour + ":" + min;
-    			}
-    			if (finalam) { finalOutput += " AM " }
-    			else { finalOutput += " PM " }
-
-    			finalOutput += timezoneTo;
-    		}
-
-    		else {
-    			if (outputHour > 24) {
-    				outputHour = outputHour % 24;
-    			}
-    			else if (outputHour < 0) {
-    				outputHour = 24 + outputHour;
-    			}
-    			var finalOutput = hour + ":" + min + " " + timezoneFrom + " IS " + outputHour + ":" + min + " " + timezoneTo;
-    		}
-
-        chan.send(finalOutput).catch(console.error);
-    	break;
 
       case 'REDACT':
         if (msg.member.hasPermission("MANAGE_ROLES")) {
