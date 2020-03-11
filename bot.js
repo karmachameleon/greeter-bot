@@ -709,7 +709,11 @@ bot.on('message', msg => {
       case 'OUTFITPROMPT':
       case 'CLOTHINGPROMPT':
         if (msg.content.split(' ').length > 1) {
-          var promptedchar = msg.content.split(' ')[1].toUpperCase();
+          var pargs = msg.content.split(' ');
+          var promptedchar = pargs[1].toUpperCase();
+          for (var n = 2; n < pargs.length; n++){
+            promptedchar = promptedchar + " " +  pargs[n].toUpperCase();
+          }
         }
         else {
           var promptedchar = promptchars[Math.floor(Math.random() * promptchars.length)];
@@ -721,7 +725,11 @@ bot.on('message', msg => {
       case 'ROBOPROMPT':
       case 'ROBOTPROMPT':
         if (msg.content.split(' ').length > 1) {
-          var promptedchar = msg.content.split(' ')[1].toUpperCase();
+          var pargs = msg.content.split(' ');
+          var promptedchar = pargs[1].toUpperCase();
+          for (var n = 2; n < pargs.length; n++){
+            promptedchar = promptedchar + " " +  pargs[n].toUpperCase();
+          }
         }
         else {
           var promptedchar = robopromptchars[Math.floor(Math.random() * robopromptchars.length)];
@@ -758,7 +766,11 @@ bot.on('message', msg => {
       case 'MERPROMPT':
       case 'MERMPROMPT':
         if (msg.content.split(' ').length > 1) {
-          var promptedchar = msg.content.split(' ')[1].toUpperCase();
+          var pargs = msg.content.split(' ');
+          var promptedchar = pargs[1].toUpperCase();
+          for (var n = 2; n < pargs.length; n++){
+            promptedchar = promptedchar + " " +  pargs[n].toUpperCase();
+          }
         }
         else {
           var promptedchar = promptchars[Math.floor(Math.random() * (promptchars.length - 6)) + 6];
@@ -771,7 +783,11 @@ bot.on('message', msg => {
       case 'TRIUMPHPROMPT':
       case 'TRIUMPHANTPROMPT':
         if (msg.content.split(' ').length > 1) {
-          var promptedchar = msg.content.split(' ')[1].toUpperCase();
+          var pargs = msg.content.split(' ');
+          var promptedchar = pargs[1].toUpperCase();
+          for (var n = 2; n < pargs.length; n++){
+            promptedchar = promptedchar + " " +  pargs[n].toUpperCase();
+          }
         }
         else {
           var promptedchar = promptchars[Math.floor(Math.random() * (promptchars.length - 6)) + 6];
