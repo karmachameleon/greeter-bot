@@ -706,7 +706,12 @@ bot.on('message', msg => {
           var pargs = msg.content.split(' ');
           var promptedchar = pargs[1].toUpperCase();
           for (var n = 2; n < pargs.length; n++){
-            promptedchar = promptedchar + " " +  stripExclamations(pargs[n].toUpperCase());
+            if (n < 5){
+              promptedchar = promptedchar + " " +  pargs[n].toUpperCase();
+            }
+            else {
+              promptedchar = promptedchar + " " +  stripExclamations(pargs[n].toUpperCase());
+            }
           }
         }
         else {
@@ -723,7 +728,12 @@ bot.on('message', msg => {
           var pargs = msg.content.split(' ');
           var promptedchar = pargs[1].toUpperCase();
           for (var n = 2; n < pargs.length; n++){
-            promptedchar = promptedchar + " " +  pargs[n].toUpperCase();
+            if (n < 5){
+              promptedchar = promptedchar + " " +  pargs[n].toUpperCase();
+            }
+            else {
+              promptedchar = promptedchar + " " +  stripExclamations(pargs[n].toUpperCase());
+            }
           }
         }
         else {
@@ -739,7 +749,12 @@ bot.on('message', msg => {
           var pargs = msg.content.split(' ');
           var promptedchar = pargs[1].toUpperCase();
           for (var n = 2; n < pargs.length; n++){
-            promptedchar = promptedchar + " " +  pargs[n].toUpperCase();
+            if (n < 5){
+              promptedchar = promptedchar + " " +  pargs[n].toUpperCase();
+            }
+            else {
+              promptedchar = promptedchar + " " +  stripExclamations(pargs[n].toUpperCase());
+            }
           }
         }
         else {
@@ -780,7 +795,12 @@ bot.on('message', msg => {
           var pargs = msg.content.split(' ');
           var promptedchar = pargs[1].toUpperCase();
           for (var n = 2; n < pargs.length; n++){
-            promptedchar = promptedchar + " " +  pargs[n].toUpperCase();
+            if (n < 5){
+              promptedchar = promptedchar + " " +  pargs[n].toUpperCase();
+            }
+            else {
+              promptedchar = promptedchar + " " +  stripExclamations(pargs[n].toUpperCase());
+            }
           }
         }
         else {
@@ -797,7 +817,12 @@ bot.on('message', msg => {
           var pargs = msg.content.split(' ');
           var promptedchar = pargs[1].toUpperCase();
           for (var n = 2; n < pargs.length; n++){
-            promptedchar = promptedchar + " " +  pargs[n].toUpperCase();
+            if (n < 5){
+              promptedchar = promptedchar + " " +  pargs[n].toUpperCase();
+            }
+            else {
+              promptedchar = promptedchar + " " +  stripExclamations(pargs[n].toUpperCase());
+            }
           }
         }
         else {
