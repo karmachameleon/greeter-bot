@@ -158,6 +158,13 @@ function listVoteOptions(arr){
   return arr.toString();
 }
 
+function stripExclamations(s){
+  if (s.slice(0,1) == "!"){
+    return s.slice(1)
+  }
+  else { return s; }
+}
+
 var newJokeThreshold = 21;
 
 var karmaID = "253717780853948416";
@@ -696,7 +703,11 @@ bot.on('message', msg => {
 
       case 'PROMPT':
         if (msg.content.split(' ').length > 1) {
-          var promptedchar = msg.content.slice(7).toUpperCase();
+          var pargs = msg.content.split(' ');
+          var promptedchar = pargs[1].toUpperCase();
+          for (var n = 2; n < pargs.length; n++){
+            promptedchar = promptedchar + " " +  stripExclamations(pargs[n].toUpperCase());
+          }
         }
         else {
           var promptedchar = promptchars[Math.floor(Math.random() * promptchars.length)];
