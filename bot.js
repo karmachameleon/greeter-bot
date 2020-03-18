@@ -854,7 +854,7 @@ bot.on('message', msg => {
         var promptactivity = ficactivities[Math.floor(Math.random() * ficactivities.length)];
         var promptevent = ficevents[Math.floor(Math.random() * ficevents.length)];
         var promptreaction = ficreactions[Math.floor(Math.random() * ficreactions.length)];
-        chan.send("IT WAS " + " " promptplace + ".\n" + promptedchar + " WAS " + promptactivity + ", WHEN " + promptevent + ".\nTHEY " + promptreaction + ".\nTHE END").catch(console.error);
+        chan.send("IT WAS " + " " + promptplace + ".\n" + promptedchar + " WAS " + promptactivity + ", WHEN " + promptevent + ".\nTHEY " + promptreaction + ".\nTHE END").catch(console.error);
       break;
 
 
