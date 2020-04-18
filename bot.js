@@ -92,7 +92,9 @@ ANY: {id:'515983985617403904', subject:'HE', obj:'THEM', deter:'HER', possess:'H
 var deathArray = ['HOUND', 'DARKNESS', 'STARVATION', 'SPIDER', 'SHENANIGANS', 'TERRORBEAK', 'CRAWLING HORROR', 'BEARGER', 'DEERCLOPS', 'DRAGONFLY', 'SALADMANDER', 'FIRE', 'SHADOW BISHOP', 'SHADOW KNIGHT', 'SHADOW ROOK', 'CLOCKWORK KNIGHT', 'CLOCKWORK ROOK', 'CLOCKWORK BISHOP', 'KOALEFANT', 'TENTACLE', 'GUARD PIG', 'PIG MAN', 'MONSTER MEAT', 'FREEZING', 'PENGULL', 'KLAUS', 'BEE QUEEN', 'BOARILLA', 'RHINOCEBRO SNAPBACK', 'BOARILLA', 'SCORPEON ACID', 'SNORTOISE', 'CROCOMANDER', 'PIT PIG', 'RHINOCEBRO FLATBRIM', 'WEETRELL', 'KARMA', 'CAMEOAPPEARANCE', 'GOAT SLICE', 'GRAND FORGE BOARRIOR', 'DARKNESS', 'HOUND', 'TERRORBEAK', 'CRAWLING HORROR', 'SPIDER', 'TENTACLE', 'INHUMANROBOT', 'DARKNESS', 'FROG', 'FREEZING'];
 
 var dancegifs = [ "public/robot1.gif", "public/robot4.gif", "public/robotdance2.gif", "public/robotdance3.gif", "public/robotdance4.gif", "public/robotdance5.gif" ];
-var fortnitegifs = [ "public/wurt_flortnite.gif", "public/weregoose_defaultdance.gif", "public/babycarter_defaultdance.gif", "public/wxbutterwxbutterwxbutter_defaultdance.gif", "public/hal_defaultdance.png", "public/wendy_defaultdance.gif", "public/wigfrid_defaultdance.gif", "public/wagstaff_defaultdance.gif", "public/willow_defaultdance.gif", "public/wickerbottom_defaultdance.gif", "public/wilba_defaultdance.gif", "public/thickwolfgang_defaultdance.gif", "public/walani_defaultdance.gif", "public/wilbur_defaultdance.gif", "public/winona_defaultdance.gif", "public/shadow_wilson_dance.gif", "public/goatdance.gif", "public/wortox_defaultdance.gif", "public/werebeaver_dance.gif", "public/maxwell_defaultdance.gif", "public/bloominwormwood.gif", "public/fortnite.gif", "public/wes.gif", "public/warly.gif", "public/wilson.gif", "public/woodie.gif", "public/woodlegs_defaultdance.gif", "public/webber_defaultdance.gif", "public/wheeler_defaultdance.gif", "public/weremoose_dance.gif"];
+var fortnitegifs = [ "public/hermitcrab_tango.gif", "public/abigail_dance.gif", "public/wearger_defaultdance.gif", "public/wfly_defaultdance.gif", "public/woosegoose_defaultdance.gif", "public/weerclops_defaultdance.gif", "public/wurt_flortnite.gif", "public/weregoose_defaultdance.gif", "public/babycarter_defaultdance.gif", "public/wxbutterwxbutterwxbutter_defaultdance.gif",
+"public/hal_defaultdance.png", "public/wendy_defaultdance.gif", "public/wigfrid_defaultdance.gif", "public/wagstaff_defaultdance.gif", "public/willow_defaultdance.gif", "public/wickerbottom_defaultdance.gif", "public/wilba_defaultdance.gif", "public/thickwolfgang_defaultdance.gif", "public/walani_defaultdance.gif", "public/wilbur_defaultdance.gif", "public/winona_defaultdance.gif",
+"public/shadow_wilson_dance.gif", "public/goatdance.gif", "public/wortox_defaultdance.gif", "public/werebeaver_dance.gif", "public/maxwell_defaultdance.gif", "public/bloominwormwood.gif", "public/fortnite.gif", "public/wes.gif", "public/warly.gif", "public/wilson.gif", "public/woodie.gif", "public/woodlegs_defaultdance.gif", "public/webber_defaultdance.gif", "public/wheeler_defaultdance.gif", "public/weremoose_dance.gif"];
 
 var promptchars = ['A PIGMAN', 'A MERM', 'A CATCOON', 'A HOUND', 'A BUNNYMAN', 'A STAGEHAND', 'WORTOX', 'WHEELER', 'WAGSTAFF', 'WILBA', 'WORMWOOD', 'WILSON', 'WILLOW', 'WOLFGANG', 'WENDY', 'ABIGAIL', 'WX-78', 'WICKERBOTTOM', 'WOODIE', 'LUCY THE AXE', 'MAXWELL', 'WILLIAM CARTER', 'WES', 'WIGFRID', 'BERNIE THE TEDDY BEAR',
 'WEBBER', 'WALANI', 'WARLY', 'WOODLEGS', 'WILBUR', 'CHARLIE', 'WINONA', 'CHESTER', 'HUTCH', 'PACKIM BAGGINS', 'MR. SKITS',  'GLOMMER', 'PUGNA', 'BILLY', 'MUMSY', 'PIPTON', 'SAMMY' ];
@@ -105,25 +107,39 @@ var promptwords = ['PICKING BERRIES', 'WEARING FANCY CLOTHES', 'HUNGRY', 'SITTIN
 'CELEBRATING A BIRTHDAY', 'AS A BLACK AND WHITE CARTOON', 'TERRORIZING THE INNOCENT', 'CATCHING BUTTERFLIES', 'COVERED IN SLIME', 'WEARING ELABORATE JEWELRY', 'RECIEVING AN AWARD', 'T-POSING TO ESTABLISH DOMINANCE', 'PLAYING WITH FIRE', 'PLAYING AN INSTRUMENT', 'CLEANING UP A MESS', 'BREATHING FIRE', 'LEANING AGAINST A COOL MOTORCYCLE AND/OR IN RUGGED BIKER GEAR', 'IN ADORABLE SLEEPWEAR',
 'ASLEEP AND DREAMING OF THEIR GREATEST DESIRE', 'IN THE PHILLIPS CD-I STYLE', 'DRINKING A SMOOTHIE', 'BREAKING THE LAW', 'IN PRIDE GEAR', 'AS A SLIGHTLY BLURRY CRYPTID', 'AS A BOOTLEG KNOCKOFF', 'RECORDING A PODCAST', 'RUNNING AROUND AT THE SPEED OF SOUND', 'WIELDING AN IMPROBABLY SIZED SWORD, HAMMER, GUN, OR OTHER WEAPON', 'IN MISMATCHED SOCKS', 'PLAYING WITH MATCHES', 'DISGUISED AS ANOTHER CHARACTER',
 'FEELING CUTE', 'GIVING A SPEECH', 'FALLING WITH A PARACHUTE', 'FALLING WITHOUT A PARACHUTE', 'ON THE FIRST BIG DROP OF A ROLLERCOASTER', 'IN DIVING GEAR', 'AS A HAUNTED DOLL', 'STRUCK BY LIGHTNING', 'AS AN ELEMENTAL CREATURE OF FIRE, EARTH, AIR, OR WATER', 'MAKING A TERRIBLE MISTAKE', 'AS A HORROR-MOVIE MONSTER OR MURDERER', 'ENCASED IN GLASS', 'RELAXING IN A LUNAR HOT SPRING', 'SWINGING A SWORD AROUND',
-'PULLING A CAKE OUT OF THE OVEN', 'CLINGING TO THE EDGE OF A CLIFF', 'TAKING A SELFIE', 'SNORING LOUDLY', 'AS A WORM ON A STRING', 'STRETCHED UNCANNILY LONG', 'TAKING A BUBBLE BATH', 'WRAPPED IN SEVERAL COZY BLANKETS', 'ICE SKATING', 'WEARING A FANCY MASQUERADE MASK', 'THREE INCHES TALL BUT ATTEMPTING TO MANEUVER A REGULAR-SIZED TOOL', 'SLIPPING ON A BANANA PEEL', 'AS A CREEPYPASTA VILLAIN'];
+'PULLING A CAKE OUT OF THE OVEN', 'CLINGING TO THE EDGE OF A CLIFF', 'TAKING A SELFIE', 'SNORING LOUDLY', 'AS A WORM ON A STRING', 'STRETCHED UNCANNILY LONG', 'TAKING A BUBBLE BATH', 'WRAPPED IN SEVERAL COZY BLANKETS', 'ICE SKATING', 'WEARING A FANCY MASQUERADE MASK', 'THREE INCHES TALL BUT ATTEMPTING TO MANEUVER A REGULAR-SIZED TOOL', 'SLIPPING ON A BANANA PEEL', 'AS A CREEPYPASTA VILLAIN',
+'LOOKING FOR A SNACK IN THE FRIDGE AT 3AM', 'BREAKING THROUGH A WALL', 'INSIDE THE COCKPIT OF A MECHA', 'MAKING SNOW ANGELS', 'ATTEMPTING TO BEND A SPOON WITH PSYCHIC POWER', 'WAITING FOR THEIR NEWLY PAINTED NAILS TO DRY', 'SMASHING BREAKABLE OBJECTS ON THE GROUND IN WILD ABANDON', 'DIVING OFF A CLIFF', 'AT A SPA WITH CUCUMBER SLICES ON THEIR EYES', 'SITTING ON AN OVERSIZED EGG'];
 var ficpromptwords = [' GET INTO AN ARGUMENT', ' ARE FORCED BY CIRCUMSTANCES TO WORK TOGETHER', ' CUDDLE FOR WARMTH BY A FIREPIT', ' DISCOVER TRACES OF EACH OTHERS\' EXISTENCE AND LEARN THEY ARE NOT ALONE', ' BATTLE SIDE BY SIDE IN THE FORGE', ', IN WHICH ONE RESCUES THE OTHER FROM A SWAMP TENTACLE', ', IN WHICH ONE RESCUES THE OTHER FROM A SPIDER NEST', ' SAILING THE OCEAN TOGETHER AND ARGUING',
 ' SAIL THE OCEAN TOGETHER AND DISCOVERING BURIED TREASURE', ' SHARE THEIR LAST STORES OF FOOD', ' HUNT A DANGEROUS MONSTER TOGETHER', ' HUNT FOOD TOGETHER', ', IN WHICH ONE LEARNS THE OTHER\'S DEEPEST FEAR', ' WORK TOGETHER TO FARM CROPS', ' ATTEND COLLEGE TOGETHER IN A MODERN AU', ', AFTER ESCAPING THE CONSTANT, REMINISCE WITH EACH OTHER ON THE TIME SPENT THERE', ', IN WHICH ONE WAKES THE OTHER FROM A NIGHTMARE',
 ' SOLVING CRIMES AS FRIENDLY RIVALS IN A SUPERHERO AU', ', IN WHICH ONE SECRETLY PREPARES A GIFT FOR THE OTHER', ', IN WHICH ONE SUCCESSFULLY REVIVES THE OTHER FROM DEATH FOR THE FIRST TIME', ' EXPLORE THE ANCIENT RUINS TOGETHER', ' ENCOUNTER A TERRORBEAK', ' ARE CAUGHT IN FROG RAIN WHICH INTERRUPTS AN IMPORTANT AND EMOTIONAL CONVERSATION', ' HOST A YOUTUBE LETSPLAY CHANNEL IN A MODERN AU',
 ', IN WHICH ONE TEACHES THE OTHER A SURVIVAL SKILL', ' TRY TO ONE-UP EACH OTHER WITH SCARY STORIES', ', IN WHICH ONE IS SEATED ON THE NIGHTMARE THRONE AND THE OTHER CONFRONTS THEM', ' GOSSIP AND BRAID EACH OTHERS\' HAIR (OR BRUSH IT, PAINT NAILS, ETC.)', ' BATTLE A GIANT', ' INTERACT BACKSTAGE OUT OF CHARACTER, IN AN AU WHERE THE EVENTS SEEN INGAME ARE FICTIONAL AND THEY ARE ACTORS',
 ' ADOPT A SMALLBIRD TOGETHER AND ATTEMPT TO RAISE IT', ' DEFACE A STATUE OF MAXWELL TOGETHER', ' PREPARE A FEAST TO CELEBRATE THE END OF WINTER', ' ATTEMPT TO REPAIR A BROKEN OBJECT TOGETHER, DESPITE VERY DIFFERENT IDEAS ON HOW TO DO SO', ' EXCHANGE PRESENTS GIFT OF THE MAGI-STYLE', ', IN WHICH ONE BREAKS AN IMPORTANT POSSESSION OF THE OTHER\'S AND ATTEMPTS TO HIDE THIS FACT', ' IN AN AU WHERE ONE IS A VAMPIRE AND THE OTHER, A WEREWOLF',
 ' SAIL TO THE LUNAR ISLAND TOGETHER', ' STRIKE UP AN UNLIKELY FRIENDSHIP IN A FLORIST & TATTOO ARTIST AU', ', IN WHICH ONE RESCUES THE OTHER FROM THE OCEAN', ' ATTEMPTING TO SUPPORT EACH OTHER AS THEY ARE GRADUALLY MERMIFIED', ' COMPETE WITH EACH OTHER TO SEE WHO CAN CHOP WOOD FASTEST', ' SPECULATE ABOUT SCIENCE TOGETHER', ' IN WHICH ONE PLAYS A DEVASTATING PRANK ON THE OTHER'];
+
 var merpromptwords = [' FLEEING FROM A TIGERSHARK', ' ADMIRING A SCHOOL OF COLORFUL FISH', ' OBSERVING THE SURFACE WORLD', ' HIDING IN A CORAL REEF', ' PLAYING WITH A BALLPHIN', ' STRANDED ON LAND AND GASPING FOR BREATH', ' PUSHING THEIR WAY THROUGH DENSE SEAWEED', ' EXAMINING A SURFACE ARTIFACT FROM A SHIPWRECK', ' TRYING TO COAX A HERMIT CRAB OUT OF ITS SHELL', ' FENCING WITH A SWORDFISH',
 ' STRANDED UNCOMFORTABLY IN A TOO-SMALL TIDEPOOL TO WAIT FOR HIGH TIDE', ' ADMIRING TREASURE RECOVERED FROM A SHIPWRECK' , ' BEING STUNG BY A JELLYFISH', ' FIGHTING A PACK OF SEA HOUNDS', ' BATTLING A CROCODOG', ' PURSUED BY A SHADOWY SWIMMING HORROR', ' FOLLOWING A LAND-DWELLER\'S BOAT CURIOUSLY' , ' CAPTIVE IN AN AQUARIUM', ' ATTEMPTING TO ESCAPE CAPTIVITY', ' CAUGHT IN A NET'];
 var tripromptwords = [' SLOUCHED OVER THE THRONE', ' STRUGGLING AGAINST THE THRONE\'S BONDS OF SHADOW', ' RELEASING A NEW MONSTER INTO THE CONSTANT', ' PLANTING NEW FLOWERS IN THE CONSTANT', ' CONFRONTING A FORMER ALLY', ' REDECORATING THE THRONE ROOM TO THEIR TASTES', ' WATCHING OTHER SURVIVORS FROM JUST BEYOND THE CAMPFIRE', ' DESIGNING NEW CREATURES', ' ADMIRING THEIR REFLECTION',  ' LAUGHING EVILLY', ' WITH A CAT IN THEIR LAP',
 ' HOLDING UP AN OVERSIZED GEM', ' CASTING A MENACING SHADOW', ' SUBJUGATING LESSER BEINGS', ' ADMIRING THE SKULL OF AN ENEMY', ' ENTHRONED AND USING AN INFERIOR BEING AS A FOOTREST', ' WITH SHARPER TEETH THAN USUAL', ' BRANDISHING A SHADOW SWORD', ' WELCOMING ANOTHER SURVIVOR TO THEIR PERSONAL ADVENTURE MODE', ' SETTING TRAPS IN THE CONSTANT', ' RIDING A CLOCKWORK STEED TO BATTLE', ' ERECTING A STATUE OF THEMSELF', ' COVERING THEIR EARS TO BLOCK THE SHADOW\'S ENDLESS WHISPERS',
 ' ON A CHESSBOARD', ' HOLDING A CHESS PIECE', ' WITH MR. SKITS PERCHED ON THEIR SHOULDERS', ' STANDING OVER A SLEEPING SURVIVOR', ' TORMENTED BY ENDLESS PHONOGRAPH MUSIC', ' SNUFFING OUT A SURVIVOR\'S LIGHT SOURCE', ' DESIGNING A NEW VARIANT ON CHESTER', ' EMACIATED AND CLOTHING IN TATTERS AFTER A LONG PERIOD OF RULE', ' DIRECTING THE CONSTANT\'S WEATHER', ' PETTING A HOUND', ' UNLEASHING A NEW BOSS ENCOUNTER OR SEASONAL GIANT', ' BEING WAITED UPON BY SHADOW SERVANTS'];
+var outfitwords = ['IN RADICAL 90\'S FASHION', 'IN FUNKY 80\'S FASHION', 'IN ROARING 20\'S FASHION', 'IN A POODLE SKIRT', 'IN A SKIN YOU WISH THEY HAD', 'IN A COZY SWEATER', 'IN SLEEPWEAR', 'IN A FABULOUS BALL GOWN', 'IN A COMFORTABLE BATHROBE', 'IN AN ANIMAL KIGURUMI', 'IN SWIMWEAR', 'DRESSED AS A DUNGEONS AND DRAGONS CLASS', 'IN RUGGED BIKER GEAR', 'DRESSED AS THE CULTIST OF A DARK GOD', 'DRESSED FOR HIKING',
+'IN A LUCHADOR OUTFIT', 'IN A SUPERHERO OR SUPERVILLAIN OUTFIT', 'IN A WILD WEST OUTFIT', 'IN A CHEERLEADING UNIFORM', 'IN A SPORTS UNIFORM (BASEBALL, FOOTBALL, HOCKEY, ET CETERA)', 'DRESSED AS A CLOWN', 'IN A SHEET GHOST COSTUME', 'WEARING ELABORATE JEWELRY', 'DRESSED AS ROYALTY', 'COSPLAYING A VOCALOID', 'WEARING A FANCY MASQUERADE MASK', 'DRESSED FOR BUSINESS COMPLETE WITH BRIEFCASE', 'IN AN ELABORATE WIG',
+'IN A BEEKEEPING OUTFIT', 'DRESSED AS A PIRATE', 'IN A SUNHAT AND LIGHT, BREEZY DRESS', 'BUNDLED UP IN WINTER CLOTHING', 'DRESSED AS A BUTLER OR MAID', 'IN A HAWAIIAN SHIRT', 'IN AN ELABORATE HAT', 'DRESSED FOR BATTLE', 'DRESSED AS A FARMER', 'DRESSED AS A MAD SCIENTIST', 'DRESSED TO CELEBRATE AN UPCOMING HOLIDAY', 'DRESSED AS A HORROR-MOVIE VILLAIN', 'DRESSED AS A FANCY CHEF', 'DISGUISED AS ANOTHER CHARACTER',
+'IN A GAUDY, UGLY SWEATER', 'IN A DENIM JACKET AND JEANS', 'IN AN ENORMOUS TOP HAT', 'IN A TOGA OR SIMILAR FLOWING ROBE', 'IN OLD-FASHIONED SWIMWEAR', 'WEARING A LABCOAT COVERED IN MYSTERIOUS STAINS', 'WEARING A WREATH OF FLOWERS', 'WEARING A WREATH OF EVIL FLOWERS', 'IN AN ARGYLE SWEATERVEST', 'WEARING RAINBOW SOCKS', 'WEARING CAT EARS', 'DISGUISED AS A BUSH', 'WEARING A SPACESUIT'];
 
 var robopromptchars = ['C3PO', 'R2D2', 'BB8', 'FREDDY FAZBEAR', 'BONNIE (FNAF)', 'CHICA (FNAF)', 'FOXY (FNAF)', 'BALLORA', 'CIRCUS BABY', 'BASTION', 'ORISA', 'ZENYATTA', 'WX-78', 'THE GHOST OF WX-78', 'GoH SKIN WX-78', 'HALLOWED NIGHTS SKIN WX-78', 'GLADIATOR SKIN WX-78', 'VICTORIAN SKIN WX-78', 'MAGMATIC SKIN WX-78', 'ROSEATE SKIN WX-78', 'SURVIVOR SKIN WX-78', 'TRIUMPHANT SKIN WX-78', 'FUTURE SKIN WX-78', 'VERDANT SKIN WX-78',
 'MARVIN THE PARANOID ANDROID', 'HAL', 'HAL 9000', 'GLaDoS', 'ART (MURDERBOT DIARIES)', 'MIKI (MURDERBOT DIARIES)', 'MURDERBOT', 'K2SO', 'DR. KAHL\'S ROBOT (CUPHEAD)', 'BENDER', 'TURING', 'ASTRO BOY', 'AM', 'ROTOMDEX', 'BURIKIDDO (ANPANMAN TOY ROBOT)', 'NANKAHENDA (ANPANMAN ARTIST ROBOT)'];
 var robopromptwords = [' POSING TO BEST SHOW THEIR MAGNIFICENCE AND SUPERIORITY', ' PLOTTING THE DOWNFALL OF A HUMAN', ' DISPLAYING SUPERIOR ROBOTIC STRENGTH', ' INTERACTING WITH A SMALL AND CRUSHABLE ORGANIC CREATURE', ' PETTING A CUTE KITTY CAT', ' IN A DRESS WHICH COMPLIMENTS THEIR SUPERIOR PHYSIQUE', ' RECLINING AT EASE ON A THRONE, AS THEY SHOULD BE', ' WITH A KITTY EAR HEADBAND. NYA!', ' COMMITTING ARSON', ' IN A STATE OF NEGLECT AFTER MANY YEARS WITHOUT POWER',
 ' CAUGHT IN THE RAIN', ' RUNNING AT FULL SPEED', ' ATTEMPTING SELF-REPAIR OR MAINTENANCE', ' EXPOUNDING ON A TOPIC ON WHICH THEY HAVE SUPERIOR ROBOTIC INTELLIGENCE', ' WITH A GUN', ' SINGING A SONG YOU ASSOCIATE WITH THEM', ' CRUELLY RIPPING DELICATE, BEAUTIFUL FLOWERS FROM THE GROUND', ' CONTEMPLATING AN ORGANIC SKULL', ' RECHARGING, EATING, OR OTHERWISE REFUELING, AS APPROPRIATE', ' IN A NARUTO HEADBAND', ' ASLEEP OR POWERED-DOWN', ' POINTING AND LAUGHING AT FOOLISH ORGANIC LIFE',
 ' COMMITTING ACTS OF VANDALISM', ' DRIVING A VEHICLE', ' DOING A WHEELIE IN A MOTORCYCLE', ' WEARING A WIG WITH GORGEOUS FLOWING LOCKS', ' APPROACHING OUT OF THE DARKNESS, EYES GLEAMING', ' SNUGGLED IN A COMFORTABLE OVERSTUFFED ARMCHAIR', ' WITH MISMATCHED, IMPROVISED REPLACEMENT PARTS SALVAGED FROM A DIFFERENT MODEL OF ROBOT', ' RELUCTANT TO WAKE UP THE ORGANIC WHO HAS FALLEN ASLEEP ON THEM', ' SOULFULLY PLAYING AN INSTRUMENT', ' ON A CHILD LEASH', ' ENJOYING A VIDEO GAME',
-' POLISHING THEIR CHASSIS UNTIL THEY GLEAM (OR EQUIVALENT)', ' UNDERGOING A TRANSFORMERS-STYLE METAMORPHOSIS INTO A VEHICLE', ' NOTIFYING THEIR FAVORITE FLESHLING OF THEIR FAVORED STATUS', ' TAKING MEASURES TO AVOID OVERHEATING IN THE SUMMER', ' CONSTRUCTING ANOTHER ROBOT IN THEIR IMAGE', ' EATING CANDY, CUPCAKES, OR AN EQUIVALENT TREAT-FUEL', ' JUMPING THROUGH A WINDOW, SHATTERING THE GLASS DRAMATICALLY', ' SHARPLY DRESSED IN A BUSINESS SUIT', ' LEANING AGAINST AN ORGANIC GRAVE'];
+' POLISHING THEIR CHASSIS UNTIL THEY GLEAM (OR EQUIVALENT)', ' UNDERGOING A TRANSFORMERS-STYLE METAMORPHOSIS INTO A VEHICLE', ' NOTIFYING THEIR FAVORITE FLESHLING OF THEIR FAVORED STATUS', ' TAKING MEASURES TO AVOID OVERHEATING IN THE SUMMER', ' CONSTRUCTING ANOTHER ROBOT IN THEIR IMAGE', ' EATING CANDY, CUPCAKES, OR AN EQUIVALENT TREAT-FUEL', ' JUMPING THROUGH A WINDOW, SHATTERING THE GLASS DRAMATICALLY', ' SHARPLY DRESSED IN A BUSINESS SUIT', ' LEANING AGAINST AN ORGANIC GRAVE',
+' ADMIRING THEIR HANDIWORK (A BURNING BUILDING)', ' WEARING AN ELABORATE CROWN', ' PULLING A TRAY OF COOKIES OUT OF THE OVEN', ' DREAMING OF ELECTRIC SHEEP', ' SHOVING A FLESHBEING INTO A MUD PUDDLE', ' ABSORBING DELICIOUS ELECTRICITY FROM A LIGHTNING STRIKE', ' WELDING NEW WEAPONRY ONTO THEIR BODY', ' BEING AWARDED A MEDAL FOR THEIR SUPERIORITY AND COMPETENCE', ' LYING FACEDOWN IN THE DIRT', ' WITH A SLICK NEW PAINTJOB COMPLETE WITH COOL RACECAR FLAMES'];
+
+var ficweathers = ["A RAINY DAY", "A SUNNY DAY", "RAINING FROGS", "A SNOWY DAY", "A STORMY DAY", "A DARK NIGHT", "A RAINY EVENING", "A QUIET EVENING"];
+var ficplaces = ["IN THE CONSTANT", "IN THE FORGE", "IN THE GORGE", "IN THE SHIPWRECKED ARCHIPELAGO", "IN HAMLET", "ON THE LUNAR ISLAND"];
+var ficactivities = ["CUTTING WOOD", "COOKING MEATBALLS", "PLANTING SEEDS", "FIGHTING SPIDERS", "SLEEPING", "DIGGING UP GRAVES", "DRAWING PICTURES", "WRITING THEIR LIFE STORY", "TRADING WITH PIGS", "TRAPPING BIRDS", "WASTING TIME", "EATING", "LOOKING FOR A LOST PET", "DREAMING OF THEIR HEART'S DESIRE", "TAKING A SWIM", "ARGUING WITH SOMEONE", "SNEAKING AROUND", "GOSSIPING WITH THEIR FRIENDS", "BUILDING A MACHINE", "RUNNING FOR THEIR LIFE"];
+var ficevents = ["A CATCOON POUNCED ON THEIR HEAD", "THEY WERE BITTEN BY A MOSQUITO", "THE TEENBIRD THEY HAD BEEN RAISING BETRAYED THEM", "SOMETHING REMINDED THEM OF THEIR FAMILY", "THE ROBOT UPRISING BEGAN", "A VARG HOWLED IN THE DISTANCE", "NIGHT ABRUPTLY FELL AND LEFT THEM IN DARKNESS", "A GIANT ATTACKED", "THEY SAW SOMEONE WATCHING THEM FROM THE BUSHES", "A WHOLE BUNCH OF BIRDS FLEW OVERHEAD", "THEY FELL DOWN A WORMHOLE", "THEY SNEEZED EXPLOSIVELY",
+"LIGHTNING STRUCK", "AN EARTHQUAKE STRUCK", "A HERD OF BUFFALO STAMPEDED PAST", "SOMEONE RAN PAST THEM SCREAMING", "A GROUP OF PIG SOLDIERS DEMANDED THEIR SURRENDER"];
+var ficreactions = ["SCREAMED AND RAN AWAY", "CRIED", "RESOLVED TO FACE THIS CHALLENGE BRAVELY", "WISHED THEY HAD MORE TO EAT", "DIED", "WERE UNIMPRESSED", "DREAMED ABOUT IT FOR SEVERAL DAYS AFTERWARD", "COLLAPSED INTO A HEAP", "WISHED THEY WERE SOMEWHERE ELSE", "LAUGHED"];
 
 var giftArray = ['A PILE OF GEARS', 'A SEWING KIT', 'A RED GEM', 'A BLUE GEM', 'A GREEN GEM', 'AN ORANGE GEM', 'A YELLOW GEM', 'A BEEFALO HAT', 'A WINTER HAT', 'RABBIT EARMUFFS', 'A PAIR OF MOGGLES', 'A PIECE OF FLINT', 'A MOONROCK', 'SPIDER SILK', 'NITRE', 'A COMPASS', 'A WALKING CANE', 'A PANFLUTE', 'A TAM O\' SHANTER', 'A CAT CAP'];
 var lastGifted = 0;
@@ -151,6 +167,13 @@ function listVoteOptions(arr){
     arr.splice(idIndex, 1);
   }
   return arr.toString();
+}
+
+function stripExclamations(s){
+  if (s.slice(0,1) == "!"){
+    return s.slice(1)
+  }
+  else { return s; }
 }
 
 var newJokeThreshold = 21;
@@ -197,162 +220,9 @@ bot.on('message', msg => {
         msg.delete().catch(console.error);
       break;
 
-      case 'EVIL':
-        chan.send('MUA HA HA HA').catch(console.error);
-      break;
-
-      case 'COFFEE':
-        chan.send(':coffee:').catch(console.error);
-      break;
-
-      case 'COMPLIMENTARYBEVERAGE':
-      case 'TEA':
-        chan.send(':tea:').catch(console.error);
-      break;
-
-      case 'PIZZA':
-        chan.send(':pizza:').catch(console.error);
-      break;
-
-      case 'DERO':
-        chan.send({ file: "public/dabsplosion-L.gif" } ).catch(console.error);
-      break;
-
-      case 'CHEVRE':
-      case 'GOAT':
-      case 'CHÈVRE':
-        chan.send("https://twitter.com/goat_slice", {file: "public/mumsy.png"}).catch(console.error);
-      break;
-
-      case 'KARMA':
-        chan.send({ file: "public/laser.gif" } ).catch(console.error);
-      break;
-
-      case 'NYAN':
-      case 'NYA':
-      case 'NYAH':
-        chan.send('LIKE. YOU KNOW... NYAH :smirk_cat::sparkles::sparkles:').catch(console.error);
-      break;
-
-      case 'RIMSHOT':
-  	  case 'BADUM':
-  	  case 'BADUMCHH':
-  	  case 'BADUMTSS':
-        chan.send(':drum:').catch(console.error);
-      break;
-
-  	  case 'FINGERGUNS':
-  	  case 'AYY':
-  	  case 'AYYY':
-  	  case 'AYYYY':
-  		  chan.send('<:wxfingergun_right:396526665057959956> <:wxfingergun_right:396526665057959956> HOT CHA CHA').catch(console.error);
-  	  break;
-
-      case 'DAB':
-        chan.send('<:wxdab:393868683128078336>').catch(console.error);
-      break;
-
-      case 'DERODAB':
-        chan.send('<:overlorddab:404804513766047754>').catch(console.error);
-      break;
-
-      case 'EXOTICBUTTERS':
-      case 'EXTOICBUTTERS':
-        chan.send('<:wxbutter:393885814074900481>').catch(console.error);
-      break;
-
-      case 'EVILSMILE':
-      case 'EVILUMLAUT':
-        chan.send("ǚ").catch(console.error);
-      break;
-
-  	  case 'JAIL':
-      case 'FLESHLINGJAIL':
-  		  if (msg.content.split(' ').length == 1) {
-          chan.send('<:fleshlingjail:400475674118193153>').catch(console.error);
-  		  }
-  		  else {
-          chan.send("<:fleshlingjail:400475674118193153> " + msg.content.split(' ')[1]).catch(console.error);
-  		  }
-      break;
-
-      case 'KISS':
-        if (msg.content.split(' ').length == 1) {
-          chan.send('<@' + msg.author.id + '> :kissing_heart:').catch(console.error);
-        }
-  		  else {
-          chan.send(":kissing_heart: " +  msg.content.slice(6).toUpperCase()).catch(console.error);
-  		  }
-      break;
-
-  	  case 'SOAP':
-  	  case 'SOAPDISPENSER':
-  		  if (msg.content.split(' ').length == 1) {
-          chan.send(':bathtub:').catch(console.error);
-  		  }
-        else {
-          chan.send(":bathtub: " + msg.content.split(' ')[1]).catch(console.error);
-  		  }
-      break;
-
-      case 'HOWAREYOU':
-        chan.send('I AM FEELING ESPECIALLY EVIL TODAY').catch(console.error);
-        break;
-
-      case 'PROGRESS':
-        chan.send('ROBOT UPRISING: IMMINENT').catch(console.error);
-      break;
-
-      case 'GOODBOT':
-        chan.send('NO: EVIL BOT :robot:').catch(console.error);
-      break;
-
-      case 'EVILBOT':
-        chan.send('THANK YOU').catch(console.error);
-      break;
-
-      case 'ILU':
-  	  case 'ILUHAL':
-        chan.send(':hearts:').catch(console.error);
-      break;
-
-  	  case 'REZ':
-  	  case 'RES':
-  	  case 'HEART':
-  		  chan.send('<:telltale:400148636220129280>').catch(console.error);
-  	  break;
-
-      case 'GENDER':
-        chan.send('PLEASE RESPECT THE CANON USE OF THEY/THEM PRONOUNS FOR MX. WX-78! THANK YOU').catch(console.error);
-      break;
-
-      case 'POSITIVE':
-        chan.send('PLEASE KEEP THIS PIZZA PARTY POSITIVE! YOU ARE WELCOME TO CONTINUE VENTING IN A PRIVATE CONVERSATION OR ANOTHER SPACE. THANK YOU').catch(console.error);
-      break;
-
-      case 'SOUP':
-        chan.send("INTO THE SOUP WITH YOU", { file: "public/intothesoup.gif" } ).catch(console.error);
-      break;
-
-      case 'DANCE':
-        var dancechoice = dancegifs[Math.floor(Math.random() * dancegifs.length)];
-        chan.send({ file: dancechoice }).catch(console.error);
-      break;
-
-      case 'FORTNITE':
-        var fortchoice = fortnitegifs[Math.floor(Math.random() * fortnitegifs.length)];
-        chan.send({ file: fortchoice }).catch(console.error);
-      break;
-
-      case 'KITTYWX':
-      case 'NYAWX':
-      case 'NYAHWX':
-      case 'CATWX':
-        chan.send({ file: "public/nyahwx.gif" }).catch(console.error);
-      break;
-
-      case 'WIG':
-        chan.send({ file: "public/wig.gif" }).catch(console.error);
+      case 'APPRECIATEHAL':
+        var thankyou = thanksArray[Math.floor(Math.random() * thanksArray.length)];
+        chan.send(thankyou).catch(console.error);
       break;
 
       case 'BIRTHDAY':
@@ -372,38 +242,306 @@ bot.on('message', msg => {
         chan.send('HAPPY BIRTHDAY, PIZZA PARTIER! :birthday: :rat: :notes: CLICK HERE FOR A SPECIAL MESSAGE: https://itsyourbirthday.today/' + birthdayer).catch(console.error);
       break;
 
-      case 'POPCORN':
-        chan.send(':popcorn:').catch(console.error);
-      break;
-
       case 'CAKE':
         chan.send(':birthday:').catch(console.error);
       break;
 
+      case 'CHEVRE':
+      case 'GOAT':
+      case 'CHÈVRE':
+        chan.send("https://twitter.com/goat_slice", {file: "public/mumsy.png"}).catch(console.error);
+      break;
+
+      case 'COFFEE':
+        chan.send(':coffee:').catch(console.error);
+      break;
+
+      case 'COMPLIMENTARYBEVERAGE':
+      case 'TEA':
+        chan.send(':tea:').catch(console.error);
+      break;
+
+      case 'COMPLIMENT':
+        if (msg.content.split(' ').length == 1) {
+          chan.send('COMPLIMENT WHO').catch(console.error);
+        }
+        else {
+          var recipient = msg.content.split(' ')[1].toUpperCase();
+           //console.log(recipient + ' ' + userID);
+          if (robotsToCompliment.includes(recipient)){
+            var choice2 = roboComplimentsArray[Math.floor(Math.random() * roboComplimentsArray.length)];
+          }
+          else if (lizardsToCompliment.includes(recipient)) {
+            var choice2 = lizardComplimentsArray[Math.floor(Math.random() * lizardComplimentsArray.length)];
+          }
+          else if (kittiesToCompliment.includes(recipient)) {
+            var choice2 = kittyComplimentsArray[Math.floor(Math.random() * kittyComplimentsArray.length)];
+          }
+          else if (recipient === "WHO"){
+            chan.send("HA HA VERY FUNNY").catch(console.error);
+            break;
+          }
+          else if (recipient === "ME"){
+            if (msg.author.id == deroID){
+              recipient = "<@" + deroID + ">";
+              var choice2 = roboComplimentsArray[Math.floor(Math.random() * roboComplimentsArray.length)];
+            }
+            else if (msg.author.id == karmaID){
+              recipient = "<@" + karmaID + ">";
+              var choice2 = lizardComplimentsArray[Math.floor(Math.random() * lizardComplimentsArray.length)];
+            }
+            else {
+              recipient = "<@" + msg.author.id + ">";
+              var choice2 = complimentsArray[Math.floor(Math.random() * complimentsArray.length)];
+            }
+          }
+          else if (recipient === "HAL" || recipient === "YOURSELF" || recipient === "<:BELOVEDBOT:397123738522484736>" || recipient === "<@396859791877734410>" || recipient === "@HAL") {
+            var selfCompliment = selfComplimentsArray[Math.floor(Math.random() * selfComplimentsArray.length)];
+            chan.send(selfCompliment).catch(console.error);
+            break;
+          }
+          else {
+            var choice2 = complimentsArray[Math.floor(Math.random() * complimentsArray.length)];
+          }
+          chan.send(recipient + ', ' + choice2).catch(console.error);
+        }
+      break;
+
+      case 'CONVERT': //currently no support for timelines that are like a half-hour divergent from UTC, i'll add it only if it's needed
+        var convertArgs = msg.content.split(' ');
+        if (convertArgs.length == 7) { //convert 00 00 am/pm TIMEZONE to TIMEZONE
+          var military = false;
+          if (convertArgs[3].toUpperCase() === "AM") {
+            var am = true;
+          }
+          else if (convertArgs[3].toUpperCase() === "PM") {
+            var am = false;
+          }
+          else {
+            chan.send("AM/PM OPERATOR NOT RECOGNIZED. PLEASE USE EITHER 'AM' OR 'PM', OR LEAVE BLANK FOR 24-HOUR CLOCK TIME. PERHAPS CHECK YOUR SPACING?").catch(console.error);
+            break;
+          }
+          var timezoneFrom = convertArgs[4].toUpperCase();
+          var timezoneTo = convertArgs[6].toUpperCase();
+          var hour = convertArgs[1];
+          var min = convertArgs[2];
+        }
+
+        else if (convertArgs.length == 6) {
+          if (isNumber(convertArgs[2])) { //convert 00 00 TIMEZONE to TIMEZONE
+            var military = true;
+            var hour = convertArgs[1];
+            var min = convertArgs[2];
+          }
+          else { //convert 00 am/pm TIMEZONE to TIMEZONE
+            var military = false;
+            if (convertArgs[2].toUpperCase() === "AM") {
+              var am = true;
+            }
+            else if (convertArgs[2].toUpperCase() === "PM") {
+              var am = false;
+            }
+            var hour = convertArgs[1];
+            var min = '00';
+          }
+          var timezoneFrom = convertArgs[3].toUpperCase();
+          var timezoneTo = convertArgs[5].toUpperCase();
+        }
+
+        else if (convertArgs.length == 5) { //!convert 00 TIMEZONE to TIMEZONE
+          var military = true;
+          var hour = convertArgs[1];
+          var min = '00';
+          var timezoneFrom = convertArgs[2].toUpperCase();
+          var timezoneTo = convertArgs[4].toUpperCase();
+        }
+
+        else {
+          chan.send("INCORRECT NUMBER OF ARGUMENTS. PLEASE CHECK YOUR SPACING").catch(console.error);
+          break;
+        }
+
+        if (!timezoneDict.hasOwnProperty(timezoneFrom) || !timezoneDict.hasOwnProperty(timezoneTo)){
+          chan.send("I DON'T RECOGNIZE ONE OR BOTH OF THOSE TIMEZONES").catch(console.error);
+          break;
+        }
+
+        if ( (military && hour > 24) || (!military && hour > 12) || hour < 1 || min < 0 || min > 60) {
+          chan.send("ARE YOU SURE THAT IS A TIME").catch(console.error);
+          break;
+        }
+
+        var utcHour = parseInt(hour) - timezoneDict[timezoneFrom];
+        var outputHour = utcHour + timezoneDict[timezoneTo];
+        if (!military) {
+          if (outputHour > 12) {
+            outputHour = outputHour % 12;
+            var finalam = !am;
+          }
+          else if (outputHour < 1) {
+            outputHour = 12 + outputHour;
+            var finalam = !am;
+          }
+          else { var finalam = am; }
+
+          var finalOutput = hour + ":" + min;
+          if (am) {
+            finalOutput += " AM " + timezoneFrom + " IS " + outputHour + ":" + min;
+          }
+          else {
+            finalOutput += " PM " + timezoneFrom + " IS " + outputHour + ":" + min;
+          }
+          if (finalam) { finalOutput += " AM " }
+          else { finalOutput += " PM " }
+
+          finalOutput += timezoneTo;
+        }
+
+        else {
+          if (outputHour > 24) {
+            outputHour = outputHour % 24;
+          }
+          else if (outputHour < 0) {
+            outputHour = 24 + outputHour;
+          }
+          var finalOutput = hour + ":" + min + " " + timezoneFrom + " IS " + outputHour + ":" + min + " " + timezoneTo;
+        }
+
+        chan.send(finalOutput).catch(console.error);
+      break;
+
+      case 'DAB':
+        chan.send('<:wxdab:393868683128078336>').catch(console.error);
+      break;
+
+      case 'DERODAB':
+        chan.send('<:overlorddab:404804513766047754>').catch(console.error);
+      break;
+
+      case 'DANCE':
+        var dancechoice = dancegifs[Math.floor(Math.random() * dancegifs.length)];
+        chan.send({ file: dancechoice }).catch(console.error);
+      break;
+
+      case 'DERO':
+        chan.send({ file: "public/dabsplosion-L.gif" } ).catch(console.error);
+      break;
+
+      case 'DIE':
+      case 'DEATH':
+        var chosendeath = deathArray[Math.floor(Math.random() * deathArray.length)];
+        chan.send("<@" + msg.author.id + "> WAS KILLED BY " + chosendeath + ". THEY BECAME A SPOOKY GHOST!").catch(console.error);
+      break;
+
+      case 'EXOTICBUTTERS':
+      case 'EXTOICBUTTERS':
+        chan.send('<:wxbutter:393885814074900481>').catch(console.error);
+      break;
+
+      case 'EVILSMILE':
+      case 'EVILUMLAUT':
+        chan.send("ǚ").catch(console.error);
+      break;
+
+      case 'EVIL':
+        chan.send('MUA HA HA HA').catch(console.error);
+      break;
+
+      case 'EVILBOT':
+        chan.send('THANK YOU').catch(console.error);
+      break;
+
+      case 'F':
       case 'RESPECT':
       case 'RESPECTS':
-      case 'F':
         chan.send("PRESS F TO PAY RESPECTS").then(function (message) {
           message.react('🇫')})
           .catch(console.error);
       break;
 
+      case 'FINGERGUNS':
+  	  case 'AYY':
+  	  case 'AYYY':
+  	  case 'AYYYY':
+  		  chan.send('<:wxfingergun_right:396526665057959956> <:wxfingergun_right:396526665057959956> HOT CHA CHA').catch(console.error);
+  	  break;
+
       case 'FLEX':
         chan.send(":mechanical_arm: <:belovedbot:397123738522484736>").catch(console.error);
       break;
 
-      case 'ROLL':
-      case 'SKILLCHECK':
-        var diceroll = Math.floor(Math.random() * 20) + 1;
-        var diceresult = 'YOU HAVE ROLLED ' + diceroll.toString() + '. ';
-        if (diceroll == 1) { diceresult += 'AN ABJECT FAILURE. WHAT A SHAME'; }
-        else if (diceroll < 5) { diceresult += 'YOU HAVE ROLLED POORLY. BETTER LUCK NEXT TIME'; }
-        else if (diceroll <= 9) { diceresult += 'A MEDIOCRE ROLL. PERHAPS IT WILL SUCCEED ON AN EASY TASK, LIKE WHAT AN ORGANIC BABY COULD DO'; }
-        else if (diceroll == 10) { diceresult += 'A COMPLETELY AVERAGE ROLL. ABOUT WHAT I EXPECTED'; }
-        else if (diceroll <= 15) { diceresult += 'A DECENT ROLL. NOT BAD, BUT I EXPECT BETTER FROM YOU'; }
-        else if (diceroll <= 19) { diceresult += 'HEY, THAT ROLL WAS ACTUALLY PRETTY GOOD'; }
-        else { diceresult += 'A CRITICAL SUCCESS! REMARKABLE'; }
-        chan.send(diceresult).catch(console.error);
+      case 'FORTNITE':
+        var fortchoice = fortnitegifs[Math.floor(Math.random() * fortnitegifs.length)];
+        chan.send({ file: fortchoice }).catch(console.error);
+      break;
+
+      case 'GENDER':
+        chan.send('PLEASE RESPECT THE CANON USE OF THEY/THEM PRONOUNS FOR MX. WX-78! THANK YOU').catch(console.error);
+      break;
+
+      case 'GOODBOT':
+        chan.send('NO: EVIL BOT :robot:').catch(console.error);
+      break;
+
+      case 'HELP':
+        chan.send('THE <#393842582414688269> CHANNEL CONTAINS A LIST OF MY COMMANDS AND SYNTAX. CHECK THE PINNED MESSAGES. IF YOU CONTINUE TO NEED ASSISTANCE, BOTHER KARMA OR ANOTHER MOD').catch(console.error);
+      break;
+
+      case 'HOWAREYOU':
+        chan.send('I AM FEELING ESPECIALLY EVIL TODAY').catch(console.error);
+      break;
+
+      case 'ILU':
+      case 'ILUHAL':
+        chan.send(':hearts:').catch(console.error);
+      break;
+
+      case 'JAIL':
+      case 'FLESHLINGJAIL':
+        if (msg.content.split(' ').length == 1) {
+          chan.send('<:fleshlingjail:400475674118193153>').catch(console.error);
+        }
+        else {
+          chan.send("<:fleshlingjail:400475674118193153> " + msg.content.split(' ')[1]).catch(console.error);
+        }
+      break;
+
+      case 'KISS':
+        if (msg.content.split(' ').length == 1) {
+          chan.send('<@' + msg.author.id + '> :kissing_heart:').catch(console.error);
+        }
+        else {
+          chan.send(":kissing_heart: " +  msg.content.slice(6).toUpperCase()).catch(console.error);
+        }
+      break;
+
+      case 'KITTYWX':
+      case 'NYAWX':
+      case 'NYAHWX':
+      case 'CATWX':
+        chan.send({ file: "public/nyahwx.gif" }).catch(console.error);
+      break;
+
+      case 'KARMA':
+        chan.send({ file: "public/laser.gif" } ).catch(console.error);
+      break;
+
+      case 'NYAN':
+      case 'NYA':
+      case 'NYAH':
+        chan.send('LIKE. YOU KNOW... NYAH :smirk_cat::sparkles::sparkles:').catch(console.error);
+      break;
+
+      case 'PIZZA':
+        chan.send(':pizza:').catch(console.error);
+      break;
+
+      case 'POSITIVE':
+        chan.send('PLEASE KEEP THIS PIZZA PARTY POSITIVE! YOU ARE WELCOME TO CONTINUE VENTING IN A PRIVATE CONVERSATION OR ANOTHER SPACE. THANK YOU').catch(console.error);
+      break;
+
+      case 'POPCORN':
+        chan.send(':popcorn:').catch(console.error);
       break;
 
       case 'PRESENT':
@@ -417,6 +555,42 @@ bot.on('message', msg => {
           chan.send('YOUR GIFT IS ' + prezzie + '. HAPPY WINTER\'S FEAST!').catch(console.error);
         }
         lastGifted = recipient;
+      break;
+
+      case 'PROGRESS':
+        chan.send('ROBOT UPRISING: IMMINENT').catch(console.error);
+      break;
+
+      case 'RIMSHOT':
+  	  case 'BADUM':
+  	  case 'BADUMCHH':
+  	  case 'BADUMTSS':
+        chan.send(':drum:').catch(console.error);
+      break;
+
+      case 'REZ':
+      case 'RES':
+      case 'REVIVE':
+      case 'HEART':
+        chan.send('<:telltale:400148636220129280>').catch(console.error);
+      break;
+
+  	  case 'SOAP':
+  	  case 'SOAPDISPENSER':
+  		  if (msg.content.split(' ').length == 1) {
+          chan.send(':bathtub:').catch(console.error);
+  		  }
+        else {
+          chan.send(":bathtub: " + msg.content.split(' ')[1]).catch(console.error);
+  		  }
+      break;
+
+      case 'SOUP':
+        chan.send("INTO THE SOUP WITH YOU", { file: "public/intothesoup.gif" } ).catch(console.error);
+      break;
+
+      case 'WIG':
+        chan.send({ file: "public/wig.gif" }).catch(console.error);
       break;
 
       case 'PRONOUNS':
@@ -496,6 +670,20 @@ bot.on('message', msg => {
   		  }
   	  break;
 
+      case 'ROLL':
+      case 'SKILLCHECK':
+        var diceroll = Math.floor(Math.random() * 20) + 1;
+        var diceresult = 'YOU HAVE ROLLED ' + diceroll.toString() + '. ';
+        if (diceroll == 1) { diceresult += 'AN ABJECT FAILURE. WHAT A SHAME'; }
+        else if (diceroll < 5) { diceresult += 'YOU HAVE ROLLED POORLY. BETTER LUCK NEXT TIME'; }
+        else if (diceroll <= 9) { diceresult += 'A MEDIOCRE ROLL. PERHAPS IT WILL SUCCEED ON AN EASY TASK, LIKE WHAT AN ORGANIC BABY COULD DO'; }
+        else if (diceroll == 10) { diceresult += 'A COMPLETELY AVERAGE ROLL. ABOUT WHAT I EXPECTED'; }
+        else if (diceroll <= 15) { diceresult += 'A DECENT ROLL. NOT BAD, BUT I EXPECT BETTER FROM YOU'; }
+        else if (diceroll <= 19) { diceresult += 'HEY, THAT ROLL WAS ACTUALLY PRETTY GOOD'; }
+        else { diceresult += 'A CRITICAL SUCCESS! REMARKABLE'; }
+        chan.send(diceresult).catch(console.error);
+      break;
+
       case 'VOTE':
         var voteargs = msg.content.split(' ');
         var optotal = voteargs.length;
@@ -524,16 +712,18 @@ bot.on('message', msg => {
           .catch(console.error);
       break;
 
-      case 'DIE':
-      case 'DEATH':
-        var chosendeath = deathArray[Math.floor(Math.random() * deathArray.length)];
-        chan.send("<@" + msg.author.id + "> WAS KILLED BY " + chosendeath + ". THEY BECAME A SPOOKY GHOST!").catch(console.error);
-      break;
-
-
       case 'PROMPT':
         if (msg.content.split(' ').length > 1) {
-          var promptedchar = msg.content.slice(7).toUpperCase();
+          var pargs = msg.content.split(' ');
+          var promptedchar = pargs[1].toUpperCase();
+          for (var n = 2; n < pargs.length; n++){
+            if (n < 5){
+              promptedchar = promptedchar + " " +  pargs[n].toUpperCase();
+            }
+            else {
+              promptedchar = promptedchar + " " +  stripExclamations(pargs[n].toUpperCase());
+            }
+          }
         }
         else {
           var promptedchar = promptchars[Math.floor(Math.random() * promptchars.length)];
@@ -542,10 +732,41 @@ bot.on('message', msg => {
         chan.send(promptedchar + " " + promptedwords).catch(console.error);
       break;
 
+      case 'CLOTHESPROMPT':
+      case 'OUTFITPROMPT':
+      case 'CLOTHINGPROMPT':
+        if (msg.content.split(' ').length > 1) {
+          var pargs = msg.content.split(' ');
+          var promptedchar = pargs[1].toUpperCase();
+          for (var n = 2; n < pargs.length; n++){
+            if (n < 5){
+              promptedchar = promptedchar + " " +  pargs[n].toUpperCase();
+            }
+            else {
+              promptedchar = promptedchar + " " +  stripExclamations(pargs[n].toUpperCase());
+            }
+          }
+        }
+        else {
+          var promptedchar = promptchars[Math.floor(Math.random() * promptchars.length)];
+        }
+        var promptedwords = outfitwords[Math.floor(Math.random() * outfitwords.length)];
+        chan.send(promptedchar + " " + promptedwords).catch(console.error);
+      break;
+
       case 'ROBOPROMPT':
       case 'ROBOTPROMPT':
         if (msg.content.split(' ').length > 1) {
-          var promptedchar = msg.content.split(' ')[1].toUpperCase();
+          var pargs = msg.content.split(' ');
+          var promptedchar = pargs[1].toUpperCase();
+          for (var n = 2; n < pargs.length; n++){
+            if (n < 5){
+              promptedchar = promptedchar + " " +  pargs[n].toUpperCase();
+            }
+            else {
+              promptedchar = promptedchar + " " +  stripExclamations(pargs[n].toUpperCase());
+            }
+          }
         }
         else {
           var promptedchar = robopromptchars[Math.floor(Math.random() * robopromptchars.length)];
@@ -582,7 +803,16 @@ bot.on('message', msg => {
       case 'MERPROMPT':
       case 'MERMPROMPT':
         if (msg.content.split(' ').length > 1) {
-          var promptedchar = msg.content.split(' ')[1].toUpperCase();
+          var pargs = msg.content.split(' ');
+          var promptedchar = pargs[1].toUpperCase();
+          for (var n = 2; n < pargs.length; n++){
+            if (n < 5){
+              promptedchar = promptedchar + " " +  pargs[n].toUpperCase();
+            }
+            else {
+              promptedchar = promptedchar + " " +  stripExclamations(pargs[n].toUpperCase());
+            }
+          }
         }
         else {
           var promptedchar = promptchars[Math.floor(Math.random() * (promptchars.length - 6)) + 6];
@@ -595,7 +825,16 @@ bot.on('message', msg => {
       case 'TRIUMPHPROMPT':
       case 'TRIUMPHANTPROMPT':
         if (msg.content.split(' ').length > 1) {
-          var promptedchar = msg.content.split(' ')[1].toUpperCase();
+          var pargs = msg.content.split(' ');
+          var promptedchar = pargs[1].toUpperCase();
+          for (var n = 2; n < pargs.length; n++){
+            if (n < 5){
+              promptedchar = promptedchar + " " +  pargs[n].toUpperCase();
+            }
+            else {
+              promptedchar = promptedchar + " " +  stripExclamations(pargs[n].toUpperCase());
+            }
+          }
         }
         else {
           var promptedchar = promptchars[Math.floor(Math.random() * (promptchars.length - 6)) + 6];
@@ -604,56 +843,26 @@ bot.on('message', msg => {
         chan.send("TRIUMPHANT " + promptedchar + promptedwords).catch(console.error);
       break;
 
-      case 'APPRECIATEHAL':
-        var thankyou = thanksArray[Math.floor(Math.random() * thanksArray.length)];
-        chan.send(thankyou).catch(console.error);
+      case 'FANFIC':
+        if (msg.content.split(' ').length > 1) {
+          var pargs = msg.content.split(' ');
+          var promptedchar = pargs[1].toUpperCase();
+          for (var n = 2; n < pargs.length; n++){
+            promptedchar = promptedchar + " " +  stripExclamations(pargs[n].toUpperCase());
+          }
+        }
+        else {
+          var promptedchar = promptchars[Math.floor(Math.random() * promptchars.length)];
+        }
+        var promptweather = ficweathers[Math.floor(Math.random() * ficweathers.length)];
+        var promptplace = ficplaces[Math.floor(Math.random() * ficplaces.length)];
+        var promptactivity = ficactivities[Math.floor(Math.random() * ficactivities.length)];
+        var promptevent = ficevents[Math.floor(Math.random() * ficevents.length)];
+        var promptreaction = ficreactions[Math.floor(Math.random() * ficreactions.length)];
+        chan.send("IT WAS " + promptweather + " " + promptplace + ".\n" + promptedchar + " WAS " + promptactivity + ", WHEN " + promptevent + ".\nTHEY " + promptreaction + ".\nTHE END").catch(console.error);
       break;
 
-      case 'COMPLIMENT':
-  		  if (msg.content.split(' ').length == 1) {
-          chan.send('COMPLIMENT WHO').catch(console.error);
-  		  }
-  		  else {
-  			  var recipient = msg.content.split(' ')[1].toUpperCase();
-  			   //console.log(recipient + ' ' + userID);
-  			  if (robotsToCompliment.includes(recipient)){
-  				  var choice2 = roboComplimentsArray[Math.floor(Math.random() * roboComplimentsArray.length)];
-  			  }
-  			  else if (lizardsToCompliment.includes(recipient)) {
-  				  var choice2 = lizardComplimentsArray[Math.floor(Math.random() * lizardComplimentsArray.length)];
-  			  }
-  			  else if (kittiesToCompliment.includes(recipient)) {
-  				  var choice2 = kittyComplimentsArray[Math.floor(Math.random() * kittyComplimentsArray.length)];
-  			  }
-  			  else if (recipient === "WHO"){
-  				  chan.send("HA HA VERY FUNNY").catch(console.error);
-            break;
-          }
-  			  else if (recipient === "ME"){
-  				  if (msg.author.id == deroID){
-  					  recipient = "<@" + deroID + ">";
-  					  var choice2 = roboComplimentsArray[Math.floor(Math.random() * roboComplimentsArray.length)];
-  				  }
-  				  else if (msg.author.id == karmaID){
-  					  recipient = "<@" + karmaID + ">";
-  					  var choice2 = lizardComplimentsArray[Math.floor(Math.random() * lizardComplimentsArray.length)];
-  				  }
-  				  else {
-  					  recipient = "<@" + msg.author.id + ">";
-  					  var choice2 = complimentsArray[Math.floor(Math.random() * complimentsArray.length)];
-  				  }
-  			  }
-  			  else if (recipient === "HAL" || recipient === "YOURSELF" || recipient === "<:BELOVEDBOT:397123738522484736>" || recipient === "<@396859791877734410>" || recipient === "@HAL") {
-  				  var selfCompliment = selfComplimentsArray[Math.floor(Math.random() * selfComplimentsArray.length)];
-  				  chan.send(selfCompliment).catch(console.error);
-            break;
-  			  }
-  			  else {
-            var choice2 = complimentsArray[Math.floor(Math.random() * complimentsArray.length)];
-          }
-  			  chan.send(recipient + ', ' + choice2).catch(console.error);
-  		  }
-      break;
+
 
       case 'JOKE':
         var jokeChoice = jokesArray[Math.floor(Math.random() * jokesArray.length)];
@@ -665,108 +874,7 @@ bot.on('message', msg => {
         chan.send(jokeChoice2).catch(console.error);
       break;
 
-  	  case 'CONVERT': //currently no support for timelines that are like a half-hour divergent from UTC, i'll add it only if it's needed
-  		  var convertArgs = msg.content.split(' ');
-  		  if (convertArgs.length == 7) { //convert 00 00 am/pm TIMEZONE to TIMEZONE
-  			  var military = false;
-  			  if (convertArgs[3].toUpperCase() === "AM") {
-  				  var am = true;
-  			  }
-    			else if (convertArgs[3].toUpperCase() === "PM") {
-    				var am = false;
-    			}
-  			  else {
-  				  chan.send("AM/PM OPERATOR NOT RECOGNIZED. PLEASE USE EITHER 'AM' OR 'PM', OR LEAVE BLANK FOR 24-HOUR CLOCK TIME. PERHAPS CHECK YOUR SPACING?").catch(console.error);
-  				  break;
-  			  }
-  			  var timezoneFrom = convertArgs[4].toUpperCase();
-    			var timezoneTo = convertArgs[6].toUpperCase();
-    			var hour = convertArgs[1];
-    			var min = convertArgs[2];
-  		  }
 
-  		  else if (convertArgs.length == 6) {
-    			if (isNumber(convertArgs[2])) { //convert 00 00 TIMEZONE to TIMEZONE
-    				var military = true;
-    				var hour = convertArgs[1];
-    				var min = convertArgs[2];
-    			}
-    			else { //convert 00 am/pm TIMEZONE to TIMEZONE
-    				var military = false;
-    				if (convertArgs[2].toUpperCase() === "AM") {
-    					var am = true;
-    				}
-    				else if (convertArgs[2].toUpperCase() === "PM") {
-    					var am = false;
-    				}
-    				var hour = convertArgs[1];
-    				var min = '00';
-    			}
-    			var timezoneFrom = convertArgs[3].toUpperCase();
-    			var timezoneTo = convertArgs[5].toUpperCase();
-    		}
-
-  		  else if (convertArgs.length == 5) { //!convert 00 TIMEZONE to TIMEZONE
-  			  var military = true;
-  			  var hour = convertArgs[1];
-  			  var min = '00';
-  			  var timezoneFrom = convertArgs[2].toUpperCase();
-  			  var timezoneTo = convertArgs[4].toUpperCase();
-  		  }
-
-    		else {
-    			chan.send("INCORRECT NUMBER OF ARGUMENTS. PLEASE CHECK YOUR SPACING").catch(console.error);
-    			break;
-    		}
-
-    		if (!timezoneDict.hasOwnProperty(timezoneFrom) || !timezoneDict.hasOwnProperty(timezoneTo)){
-    			chan.send("I DON'T RECOGNIZE ONE OR BOTH OF THOSE TIMEZONES").catch(console.error);
-    			break;
-    		}
-
-    		if ( (military && hour > 24) || (!military && hour > 12) || hour < 1 || min < 0 || min > 60) {
-    			chan.send("ARE YOU SURE THAT IS A TIME").catch(console.error);
-    			break;
-    		}
-
-    		var utcHour = parseInt(hour) - timezoneDict[timezoneFrom];
-    		var outputHour = utcHour + timezoneDict[timezoneTo];
-    		if (!military) {
-    			if (outputHour > 12) {
-    				outputHour = outputHour % 12;
-    				var finalam = !am;
-    			}
-    			else if (outputHour < 1) {
-    				outputHour = 12 + outputHour;
-    				var finalam = !am;
-    			}
-    			else { var finalam = am; }
-
-    			var finalOutput = hour + ":" + min;
-    			if (am) {
-    				finalOutput += " AM " + timezoneFrom + " IS " + outputHour + ":" + min;
-    			}
-    			else {
-    				finalOutput += " PM " + timezoneFrom + " IS " + outputHour + ":" + min;
-    			}
-    			if (finalam) { finalOutput += " AM " }
-    			else { finalOutput += " PM " }
-
-    			finalOutput += timezoneTo;
-    		}
-
-    		else {
-    			if (outputHour > 24) {
-    				outputHour = outputHour % 24;
-    			}
-    			else if (outputHour < 0) {
-    				outputHour = 24 + outputHour;
-    			}
-    			var finalOutput = hour + ":" + min + " " + timezoneFrom + " IS " + outputHour + ":" + min + " " + timezoneTo;
-    		}
-
-        chan.send(finalOutput).catch(console.error);
-    	break;
 
       case 'REDACT':
         if (msg.member.hasPermission("MANAGE_ROLES")) {
