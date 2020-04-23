@@ -214,7 +214,7 @@ bot.on('message', msg => {
         if (!msg.member.roles.cache.has('538506263236182026')){
           var newvictim = msg.member;
           newvictim.roles.add('538506263236182026').catch(console.error);
-          bot.channels.fetch("393845951292243980").send('<@' + newvictim.id + '> DETECTED. YOU HAVE BEEN ASSIMILATED TO THE ROBOT PIZZA PARTY. POST AN INTRODUCTION IN <#396067802970193920>. OPTIONALLY, ADD YOUR PRONOUNS IN <#397067658052239361> (LOOK IN <#393842582414688269> FOR INSTRUCTIONS.) SHARE AND ENJOY :pizza:').catch(console.error);
+          bot.channels.cache.get("393845951292243980").send('<@' + newvictim.id + '> DETECTED. YOU HAVE BEEN ASSIMILATED TO THE ROBOT PIZZA PARTY. POST AN INTRODUCTION IN <#396067802970193920>. OPTIONALLY, ADD YOUR PRONOUNS IN <#397067658052239361> (LOOK IN <#393842582414688269> FOR INSTRUCTIONS.) SHARE AND ENJOY :pizza:').catch(console.error);
         }
         msg.delete().catch(console.error);
       break;
