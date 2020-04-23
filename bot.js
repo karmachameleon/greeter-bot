@@ -503,7 +503,7 @@ bot.on('message', msg => {
 
       case 'FORTNITE':
         var fortchoice = fortnitegifs[Math.floor(Math.random() * fortnitegifs.length)];
-        chan.send({ files: [ attachment: fortchoice.path, name: fortchoice.name] }).catch(console.error);
+        chan.send({ files: [{attachment: fortchoice.path, name: fortchoice.name }] }).catch(console.error);
       break;
 
       case 'GENDER':
