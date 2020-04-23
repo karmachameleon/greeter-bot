@@ -92,7 +92,7 @@ ANY: {id:'515983985617403904', subject:'HE', obj:'THEM', deter:'HER', possess:'H
 var deathArray = ['HOUND', 'DARKNESS', 'STARVATION', 'SPIDER', 'SHENANIGANS', 'TERRORBEAK', 'CRAWLING HORROR', 'BEARGER', 'DEERCLOPS', 'DRAGONFLY', 'SALADMANDER', 'FIRE', 'SHADOW BISHOP', 'SHADOW KNIGHT', 'SHADOW ROOK', 'CLOCKWORK KNIGHT', 'CLOCKWORK ROOK', 'CLOCKWORK BISHOP', 'KOALEFANT', 'TENTACLE', 'GUARD PIG', 'PIG MAN', 'MONSTER MEAT', 'FREEZING', 'PENGULL', 'KLAUS', 'BEE QUEEN', 'BOARILLA', 'RHINOCEBRO SNAPBACK', 'BOARILLA', 'SCORPEON ACID', 'SNORTOISE', 'CROCOMANDER', 'PIT PIG', 'RHINOCEBRO FLATBRIM', 'WEETRELL', 'KARMA', 'CAMEOAPPEARANCE', 'GOAT SLICE', 'GRAND FORGE BOARRIOR', 'DARKNESS', 'HOUND', 'TERRORBEAK', 'CRAWLING HORROR', 'SPIDER', 'TENTACLE', 'INHUMANROBOT', 'DARKNESS', 'FROG', 'FREEZING'];
 
 var dancegifs = [ "public/robot1.gif", "public/robot4.gif", "public/robotdance2.gif", "public/robotdance3.gif", "public/robotdance4.gif", "public/robotdance5.gif" ];
-var fortnitegifs = { CRAB: {path:"public/hermitcrab_tango.gif", name:"hermitcrab_tango.gif"},
+var fortnitedict = { CRAB: {path:"public/hermitcrab_tango.gif", name:"hermitcrab_tango.gif"},
 ABI: {path:"public/abigail_dance.gif", name:"abigail_dance.gif"},
 WEARG: {path:"public/wearger_defaultdance.gif", name:"wearger_defaultdance.gif"},
 WFLY : {path:"public/wfly_defaultdance.gif", name:"wfly_defaultdance.gif"},
@@ -127,6 +127,7 @@ WOOD : {path:"public/woodlegs_defaultdance.gif", name:"woodlegs_defaultdance.gif
 WEBB : {path:"public/webber_defaultdance.gif", name:"webber_defaultdance.gif"},
 WHEE : {path:"public/wheeler_defaultdance.gif", name:"wheeler_defaultdance.gif"},
 MOOS : {path:"public/weremoose_dance.gif", name:"weremoose_dance.gif"} };
+var fortnitegifs = Object.keys(fortnitedict);
 
 var promptchars = ['A PIGMAN', 'A MERM', 'A CATCOON', 'A HOUND', 'A BUNNYMAN', 'A STAGEHAND', 'WORTOX', 'WHEELER', 'WAGSTAFF', 'WILBA', 'WORMWOOD', 'WILSON', 'WILLOW', 'WOLFGANG', 'WENDY', 'ABIGAIL', 'WX-78', 'WICKERBOTTOM', 'WOODIE', 'LUCY THE AXE', 'MAXWELL', 'WILLIAM CARTER', 'WES', 'WIGFRID', 'BERNIE THE TEDDY BEAR',
 'WEBBER', 'WALANI', 'WARLY', 'WOODLEGS', 'WILBUR', 'CHARLIE', 'WINONA', 'CHESTER', 'HUTCH', 'PACKIM BAGGINS', 'MR. SKITS',  'GLOMMER', 'PUGNA', 'BILLY', 'MUMSY', 'PIPTON', 'SAMMY' ];
@@ -502,8 +503,8 @@ bot.on('message', msg => {
       break;
 
       case 'FORTNITE':
-        var fortchoice = Object.keys(fortnitegifs)[Math.floor(Math.random() * fortnitegifs.length)];
-        chan.send({ files: [{attachment: fortnitegifs[fortchoice].path, name: fortnitegifs[fortchoice].name }] }).catch(console.error);
+        var fortchoice = fortnitegifs[Math.floor(Math.random() * fortnitegifs.length)];
+        chan.send({ files: [{attachment: fortnitedict[fortchoice].path, name: fortnitedict[fortchoice].name }] }).catch(console.error);
       break;
 
       case 'GENDER':
