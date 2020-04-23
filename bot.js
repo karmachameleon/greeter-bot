@@ -92,9 +92,41 @@ ANY: {id:'515983985617403904', subject:'HE', obj:'THEM', deter:'HER', possess:'H
 var deathArray = ['HOUND', 'DARKNESS', 'STARVATION', 'SPIDER', 'SHENANIGANS', 'TERRORBEAK', 'CRAWLING HORROR', 'BEARGER', 'DEERCLOPS', 'DRAGONFLY', 'SALADMANDER', 'FIRE', 'SHADOW BISHOP', 'SHADOW KNIGHT', 'SHADOW ROOK', 'CLOCKWORK KNIGHT', 'CLOCKWORK ROOK', 'CLOCKWORK BISHOP', 'KOALEFANT', 'TENTACLE', 'GUARD PIG', 'PIG MAN', 'MONSTER MEAT', 'FREEZING', 'PENGULL', 'KLAUS', 'BEE QUEEN', 'BOARILLA', 'RHINOCEBRO SNAPBACK', 'BOARILLA', 'SCORPEON ACID', 'SNORTOISE', 'CROCOMANDER', 'PIT PIG', 'RHINOCEBRO FLATBRIM', 'WEETRELL', 'KARMA', 'CAMEOAPPEARANCE', 'GOAT SLICE', 'GRAND FORGE BOARRIOR', 'DARKNESS', 'HOUND', 'TERRORBEAK', 'CRAWLING HORROR', 'SPIDER', 'TENTACLE', 'INHUMANROBOT', 'DARKNESS', 'FROG', 'FREEZING'];
 
 var dancegifs = [ "public/robot1.gif", "public/robot4.gif", "public/robotdance2.gif", "public/robotdance3.gif", "public/robotdance4.gif", "public/robotdance5.gif" ];
-var fortnitegifs = [ "public/hermitcrab_tango.gif", "public/abigail_dance.gif", "public/wearger_defaultdance.gif", "public/wfly_defaultdance.gif", "public/woosegoose_defaultdance.gif", "public/weerclops_defaultdance.gif", "public/wurt_flortnite.gif", "public/weregoose_defaultdance.gif", "public/babycarter_defaultdance.gif", "public/wxbutterwxbutterwxbutter_defaultdance.gif",
-"public/hal_defaultdance.png", "public/wendy_defaultdance.gif", "public/wigfrid_defaultdance.gif", "public/wagstaff_defaultdance.gif", "public/willow_defaultdance.gif", "public/wickerbottom_defaultdance.gif", "public/wilba_defaultdance.gif", "public/thickwolfgang_defaultdance.gif", "public/walani_defaultdance.gif", "public/wilbur_defaultdance.gif", "public/winona_defaultdance.gif",
-"public/shadow_wilson_dance.gif", "public/goatdance.gif", "public/wortox_defaultdance.gif", "public/werebeaver_dance.gif", "public/maxwell_defaultdance.gif", "public/bloominwormwood.gif", "public/fortnite.gif", "public/wes.gif", "public/warly.gif", "public/wilson.gif", "public/woodie.gif", "public/woodlegs_defaultdance.gif", "public/webber_defaultdance.gif", "public/wheeler_defaultdance.gif", "public/weremoose_dance.gif"];
+var fortnitegifs = [ CRAB: {path:"public/hermitcrab_tango.gif", name:"hermitcrab_tango.gif"},
+ABI: {path:"public/abigail_dance.gif", name:"abigail_dance.gif"},
+WEARG: {path:"public/wearger_defaultdance.gif", name:"wearger_defaultdance.gif"},
+WFLY : {path:"public/wfly_defaultdance.gif", name:"wfly_defaultdance.gif"},
+WGOOS : {path:"public/woosegoose_defaultdance.gif", name:"woosegoose_defaultdance.gif"},
+WEARC : {path:"public/weerclops_defaultdance.gif", name:"weerclops_defaultdance.gif"},
+FLORT : {path:"public/wurt_flortnite.gif", name:"wurt_flortnite.gif"},
+GOOSE : {path:"public/weregoose_defaultdance.gif", name:"weregoose_defaultdance.gif"},
+WILL : {path:"public/babycarter_defaultdance.gif", name:"babycarter_defaultdance.gif"},
+BUTTER : {path:"public/wxbutterwxbutterwxbutter_defaultdance.gif", name:"wxbutterwxbutterwxbutter_defaultdance.gif"},
+HAL : {path:"public/hal_defaultdance.gif", name:"hal_defaultdance.gif"},
+WENDY : {path:"public/wendy_defaultdance.gif", name:"wendy_defaultdance.gif"},
+WIG : {path:"public/wigfrid_defaultdance.gif", name:"wigfrid_defaultdance.gif"},
+WAG : {path:"public/wagstaff_defaultdance.gif", name:"wagstaff_defaultdance.gif"},
+WILO : {path:"public/willow_defaultdance.gif", name:"willow_defaultdance.gif"},
+WICK : {path:"public/wickerbottom_defaultdance.gif", name:"wickerbottom_defaultdance.gif"},
+THICC : {path:"public/thickwolfgang_defaultdance.gif", name:"thickwolfgang_defaultdance.gif"},
+WAG : {path:"public/walani_defaultdance.gif", name:"walani_defaultdance.gif"},
+WILBU : {path:"public/wilbur_defaultdance.gif", name:"wilbur_defaultdance.gif"},
+WILBA : {path:"public/wilba_defaultdance.gif", name:"wilba_defaultdance.gif"},
+NONA : {path:"public/winona_defaultdance.gif", name:"winona_defaultdance.gif"},
+SWILS : {path:"public/shadow_wilson_dance.gif", name:"shadow_wilson_dance.gif"},
+GOAT : {path:"public/goatdance.gif", name:"goatdance.gif"},
+WORT : {path:"public/wortox_defaultdance.gif", name:"wortox_defaultdance.gif"},
+BEAV : {path:"public/werebeaver_dance.gif", name:"werebeaver_dance.gif"},
+MAX : {path:"public/maxwell_defaultdance.gif", name:"maxwell_defaultdance.gif"},
+BWORM : {path:"public/bloominwormwood.gif", name:"bloominwormwood.gif"},
+DEFAULT : {path:"public/fortnite.gif", name:"fortnite.gif"},
+WES : {path:"public/wes.gif", name:"wes.gif"},
+WARL : {path:"public/warly.gif", name:"warly.gif"},
+WILS : {path:"public/wilson.gif", name:"wilson.gif"},
+WOOD : {path:"public/woodlegs_defaultdance.gif", name:"woodlegs_defaultdance.gif"},
+WEBB : {path:"public/webber_defaultdance.gif", name:"webber_defaultdance.gif"},
+WHEE : {path:"public/wheeler_defaultdance.gif", name:"wheeler_defaultdance.gif"},
+MOOS : {path:"public/weremoose_dance.gif", name:"weremoose_dance.gif"}];
 
 var promptchars = ['A PIGMAN', 'A MERM', 'A CATCOON', 'A HOUND', 'A BUNNYMAN', 'A STAGEHAND', 'WORTOX', 'WHEELER', 'WAGSTAFF', 'WILBA', 'WORMWOOD', 'WILSON', 'WILLOW', 'WOLFGANG', 'WENDY', 'ABIGAIL', 'WX-78', 'WICKERBOTTOM', 'WOODIE', 'LUCY THE AXE', 'MAXWELL', 'WILLIAM CARTER', 'WES', 'WIGFRID', 'BERNIE THE TEDDY BEAR',
 'WEBBER', 'WALANI', 'WARLY', 'WOODLEGS', 'WILBUR', 'CHARLIE', 'WINONA', 'CHESTER', 'HUTCH', 'PACKIM BAGGINS', 'MR. SKITS',  'GLOMMER', 'PUGNA', 'BILLY', 'MUMSY', 'PIPTON', 'SAMMY' ];
@@ -471,7 +503,7 @@ bot.on('message', msg => {
 
       case 'FORTNITE':
         var fortchoice = fortnitegifs[Math.floor(Math.random() * fortnitegifs.length)];
-        chan.send({ file: fortchoice }).catch(console.error);
+        chan.send({ files: [ attachment: fortchoice.path, name: fortchoice.name] }).catch(console.error);
       break;
 
       case 'GENDER':
