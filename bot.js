@@ -463,7 +463,7 @@ bot.on('message', msg => {
       break;
 
       case 'DERO':
-        chan.send({ files: [{attachment: "public/dabsplosion-L.gif" name: "dabsplosion-L.gif"}] }).catch(console.error);
+        chan.send({ files: [{attachment: "public/dabsplosion-L.gif", name: "dabsplosion-L.gif"}] }).catch(console.error);
       break;
 
       case 'DIE':
