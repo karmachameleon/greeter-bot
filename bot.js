@@ -604,8 +604,7 @@ bot.on('message', msg => {
           }
           else {
             var set = nounDict[nounAsk]
-            var setRole = msg.guild.roles.fetch(set.id);
-            msg.member.roles.add(setRole).catch(console.error);
+            msg.member.roles.add(set.id).catch(console.error);
             if (nounAsk != "ANY"){
               chan.send('SUCCESSFULLY IDENTIFIED <@' + msg.author.id + '>. ' + set.subject + ' ' + set.have + ' IDENTIFIED ' + set.reflex + ' TO MY SYSTEMS AND ' + set.deter + ' CHOICE, WHICH IS ' + set.possess + ', WILL BE RESPECTED. YOU MAY CONGRATULATE ' + set.obj + ' AT YOUR LEISURE').catch(console.error);
             }
@@ -627,9 +626,8 @@ bot.on('message', msg => {
             chan.send('I DO NOT RECOGNIZE THAT PRONOUN. PLEASE USE THE SUBJECT FORM OF YOUR CHOSEN PRONOUN (FOR EXAMPLE SHE, HE, THEY)').catch(console.error);
           }
           else {
-            var set = nounDict[nounAsk]
-            var setRole = msg.guild.roles.fetch(set.id);
-            msg.member.roles.remove(setRole).catch(console.error);
+            var set = nounDict[nounAsk];
+            msg.member.roles.remove(set.id).catch(console.error);
             chan.send('<@' + msg.author.id + '>\'S PRONOUNS HAVE BEEN UPDATED. I HOPE THAT YOUR EXPERIENCE HAS GIVEN YOU GREATER UNDERSTANDING OF THAT PERPLEXING NOTION, "GENDER"').catch(console.error);
           }
         }
@@ -645,8 +643,7 @@ bot.on('message', msg => {
             chan.send('THAT IS NOT A CHARACTER I RECOGNIZE. IF YOU ARE TRYING TO ADD PRONOUNS, USE THE COMMAND !PRONOUN INSTEAD').catch(console.error);
   			  }
   			  else {
-  				  var role = msg.guild.roles.fetch(roleDict[roleAsk]);
-            msg.member.roles.add(role).catch(console.error);
+            msg.member.roles.add(roleDict[roleAsk]).catch(console.error);
             chan.send('SUCCESSFULLY ADDED <@' + msg.author.id + '> TO THE <@&' + role.id + '> ROLE. WELCOME THEM TO YOUR RANKS').catch(console.error);
           }
         }
@@ -662,8 +659,7 @@ bot.on('message', msg => {
             chan.send('THAT IS NOT A CHARACTER I RECOGNIZE, OR POSSIBLY A ROLE I CANNOT REMOVE. IF YOU ARE TRYING TO REMOVE A PRONOUN IDENTIFIER, USE THE COMMAND !REMOVEPRONOUNS INSTEAD').catch(console.error);
   			  }
   			  else {
-  			    var role = msg.guild.roles.fetch(roleDict[roleAsk]);
-            msg.member.roles.remove(role).catch(console.error);
+            msg.member.roles.remove(roleDict[roleAsk]).catch(console.error);
   			    chan.send('SUCCESSFULLY REMOVED A ROLE FROM <@' + msg.author.id + '>. ONE LESS TRAITOR IN THE RANKS').catch(console.error);
   			  }
   		  }
