@@ -502,7 +502,7 @@ bot.on('message', msg => {
       break;
 
       case 'FORTNITE':
-        var fortchoice = list(fortnitegifs.keys())[Math.floor(Math.random() * fortnitegifs.length)];
+        var fortchoice = fortnitegifs[Object.keys(fortnitegifs)[Math.floor(Math.random() * fortnitegifs.length)]];
         chan.send({ files: [{attachment: fortchoice.path, name: fortchoice.name }] }).catch(console.error);
       break;
 
