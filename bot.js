@@ -91,14 +91,14 @@ ANY: {id:'515983985617403904', subject:'HE', obj:'THEM', deter:'HER', possess:'H
 
 var deathArray = ['HOUND', 'DARKNESS', 'STARVATION', 'SPIDER', 'SHENANIGANS', 'TERRORBEAK', 'CRAWLING HORROR', 'BEARGER', 'DEERCLOPS', 'DRAGONFLY', 'SALADMANDER', 'FIRE', 'SHADOW BISHOP', 'SHADOW KNIGHT', 'SHADOW ROOK', 'CLOCKWORK KNIGHT', 'CLOCKWORK ROOK', 'CLOCKWORK BISHOP', 'KOALEFANT', 'TENTACLE', 'GUARD PIG', 'PIG MAN', 'MONSTER MEAT', 'FREEZING', 'PENGULL', 'KLAUS', 'BEE QUEEN', 'BOARILLA', 'RHINOCEBRO SNAPBACK', 'BOARILLA', 'SCORPEON ACID', 'SNORTOISE', 'CROCOMANDER', 'PIT PIG', 'RHINOCEBRO FLATBRIM', 'WEETRELL', 'KARMA', 'CAMEOAPPEARANCE', 'GOAT SLICE', 'GRAND FORGE BOARRIOR', 'DARKNESS', 'HOUND', 'TERRORBEAK', 'CRAWLING HORROR', 'SPIDER', 'TENTACLE', 'INHUMANROBOT', 'DARKNESS', 'FROG', 'FREEZING'];
 
-var dancedict {1: {path: "public/robot1.gif", name: "robot1.gif"},
+var dancedict = {1: {path: "public/robot1.gif", name: "robot1.gif"},
 2: {path: "public/robot4.gif", name: "robot4.gif"},
 3: {path: "public/robotdance2.gif", name: "robotdance2.gif"},
 4: {path: "public/robotdance3.gif", name: "robotdance3.gif"},
 5: {path: "public/robotdance4.gif", name: "robotdance4.gif"},
-6: {path: "public/robotdance5.gif", name: "robotdance5.gif"}
-};
+6: {path: "public/robotdance5.gif", name: "robotdance5.gif"} };
 var dancegifs = Object.keys(fortnitedict);
+
 var fortnitedict = { CRAB: {path:"public/hermitcrab_tango.gif", name:"hermitcrab_tango.gif"},
 ABI: {path:"public/abigail_dance.gif", name:"abigail_dance.gif"},
 WEARG: {path:"public/wearger_defaultdance.gif", name:"wearger_defaultdance.gif"},
