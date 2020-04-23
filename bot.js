@@ -100,6 +100,7 @@ var dancedict = {1: {path: "public/robot1.gif", name: "robot1.gif"},
 var dancegifs = Object.keys(dancedict);
 
 var fortnitedict = { CRAB: {path:"public/hermitcrab_tango.gif", name:"hermitcrab_tango.gif"},
+BTRCRB: {path:"public/wxbutteredcrab.gif", name:"wxbutteredcrab.gif"},
 ABI: {path:"public/abigail_dance.gif", name:"abigail_dance.gif"},
 WEARG: {path:"public/wearger_defaultdance.gif", name:"wearger_defaultdance.gif"},
 WFLY : {path:"public/wfly_defaultdance.gif", name:"wfly_defaultdance.gif"},
