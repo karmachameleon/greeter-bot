@@ -97,7 +97,7 @@ var dancedict = {1: {path: "public/robot1.gif", name: "robot1.gif"},
 4: {path: "public/robotdance3.gif", name: "robotdance3.gif"},
 5: {path: "public/robotdance4.gif", name: "robotdance4.gif"},
 6: {path: "public/robotdance5.gif", name: "robotdance5.gif"} };
-var dancegifs = Object.keys(fortnitedict);
+var dancegifs = Object.keys(dancedict);
 
 var fortnitedict = { CRAB: {path:"public/hermitcrab_tango.gif", name:"hermitcrab_tango.gif"},
 ABI: {path:"public/abigail_dance.gif", name:"abigail_dance.gif"},
