@@ -211,10 +211,9 @@ bot.on('message', msg => {
     switch(cmd) {
       case 'ASSIMILATE':
       case 'ASSIMILATE!':
-        if (!msg.member.roles.some(role => role.id === '538506263236182026')){
-          var welcome = msg.guild.roles.get('538506263236182026');
+        if (!msg.member.roles.cache.has('538506263236182026')){
           var newvictim = msg.member;
-          newvictim.addRole(welcome).catch(console.error);
+          newvictim.roles.add('538506263236182026').catch(console.error);
           bot.channels.get("393845951292243980").send('<@' + newvictim.id + '> DETECTED. YOU HAVE BEEN ASSIMILATED TO THE ROBOT PIZZA PARTY. POST AN INTRODUCTION IN <#396067802970193920>. OPTIONALLY, ADD YOUR PRONOUNS IN <#397067658052239361> (LOOK IN <#393842582414688269> FOR INSTRUCTIONS.) SHARE AND ENJOY :pizza:').catch(console.error);
         }
         msg.delete().catch(console.error);
@@ -888,7 +887,7 @@ bot.on('message', msg => {
             }
 
             try {
-               chan.fetchMessage(redactID).then(originmsg => {
+               chan.messages.fetch(redactID).then(originmsg => {
                  const embed = new Discord.RichEmbed()
                  .setAuthor(originmsg.author.username)
                  .setFooter(footer);
