@@ -126,7 +126,7 @@ WILS : {path:"public/wilson.gif", name:"wilson.gif"},
 WOOD : {path:"public/woodlegs_defaultdance.gif", name:"woodlegs_defaultdance.gif"},
 WEBB : {path:"public/webber_defaultdance.gif", name:"webber_defaultdance.gif"},
 WHEE : {path:"public/wheeler_defaultdance.gif", name:"wheeler_defaultdance.gif"},
-MOOS : {path:"public/weremoose_dance.gif", name:"weremoose_dance.gif"}};
+MOOS : {path:"public/weremoose_dance.gif", name:"weremoose_dance.gif"} };
 
 var promptchars = ['A PIGMAN', 'A MERM', 'A CATCOON', 'A HOUND', 'A BUNNYMAN', 'A STAGEHAND', 'WORTOX', 'WHEELER', 'WAGSTAFF', 'WILBA', 'WORMWOOD', 'WILSON', 'WILLOW', 'WOLFGANG', 'WENDY', 'ABIGAIL', 'WX-78', 'WICKERBOTTOM', 'WOODIE', 'LUCY THE AXE', 'MAXWELL', 'WILLIAM CARTER', 'WES', 'WIGFRID', 'BERNIE THE TEDDY BEAR',
 'WEBBER', 'WALANI', 'WARLY', 'WOODLEGS', 'WILBUR', 'CHARLIE', 'WINONA', 'CHESTER', 'HUTCH', 'PACKIM BAGGINS', 'MR. SKITS',  'GLOMMER', 'PUGNA', 'BILLY', 'MUMSY', 'PIPTON', 'SAMMY' ];
@@ -502,7 +502,7 @@ bot.on('message', msg => {
       break;
 
       case 'FORTNITE':
-        var fortchoice = fortnitegifs[Math.floor(Math.random() * fortnitegifs.length)];
+        var fortchoice = list(fortnitegifs.keys())[Math.floor(Math.random() * fortnitegifs.length)];
         chan.send({ files: [{attachment: fortchoice.path, name: fortchoice.name }] }).catch(console.error);
       break;
 
