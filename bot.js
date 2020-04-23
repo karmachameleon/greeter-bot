@@ -459,7 +459,7 @@ bot.on('message', msg => {
 
       case 'DANCE':
         var dancechoice = dancegifs[Math.floor(Math.random() * dance.length)];
-        chan.send({ files: [{attachment: dancedict[dancechoice].path, name: dancedict[dancechoice].name }] }).catch(console.error);=
+        chan.send({ files: [{attachment: dancedict[dancechoice].path, name: dancedict[dancechoice].name }] }).catch(console.error);
       break;
 
       case 'DERO':
