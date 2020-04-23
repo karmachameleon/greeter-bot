@@ -458,7 +458,7 @@ bot.on('message', msg => {
       break;
 
       case 'DANCE':
-        var dancechoice = dancegifs[Math.floor(Math.random() * dance.length)];
+        var dancechoice = dancegifs[Math.floor(Math.random() * dancegifs.length)];
         chan.send({ files: [{attachment: dancedict[dancechoice].path, name: dancedict[dancechoice].name }] }).catch(console.error);
       break;
 
