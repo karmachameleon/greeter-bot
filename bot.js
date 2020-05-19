@@ -96,7 +96,9 @@ var dancedict = {1: {path: "public/robot1.gif", name: "robot1.gif"},
 3: {path: "public/robotdance2.gif", name: "robotdance2.gif"},
 4: {path: "public/robotdance3.gif", name: "robotdance3.gif"},
 5: {path: "public/robotdance4.gif", name: "robotdance4.gif"},
-6: {path: "public/robotdance5.gif", name: "robotdance5.gif"} };
+6: {path: "public/robotdance5.gif", name: "robotdance5.gif"},
+7: {path: "public/Robot7.gif", name: "Robot7.gif"},
+8: {path: "public/robot8.gif", name: "robot8.gif"} };
 var dancegifs = Object.keys(dancedict);
 
 var fortnitedict = { CRAB: {path:"public/hermitcrab_tango.gif", name:"hermitcrab_tango.gif"},
@@ -166,6 +168,9 @@ var outfitwords = ['IN RADICAL 90\'S FASHION', 'IN FUNKY 80\'S FASHION', 'IN ROA
 'IN A LUCHADOR OUTFIT', 'IN A SUPERHERO OR SUPERVILLAIN OUTFIT', 'IN A WILD WEST OUTFIT', 'IN A CHEERLEADING UNIFORM', 'IN A SPORTS UNIFORM (BASEBALL, FOOTBALL, HOCKEY, ET CETERA)', 'DRESSED AS A CLOWN', 'IN A SHEET GHOST COSTUME', 'WEARING ELABORATE JEWELRY', 'DRESSED AS ROYALTY', 'COSPLAYING A VOCALOID', 'WEARING A FANCY MASQUERADE MASK', 'DRESSED FOR BUSINESS COMPLETE WITH BRIEFCASE', 'IN AN ELABORATE WIG',
 'IN A BEEKEEPING OUTFIT', 'DRESSED AS A PIRATE', 'IN A SUNHAT AND LIGHT, BREEZY DRESS', 'BUNDLED UP IN WINTER CLOTHING', 'DRESSED AS A BUTLER OR MAID', 'IN A HAWAIIAN SHIRT', 'IN AN ELABORATE HAT', 'DRESSED FOR BATTLE', 'DRESSED AS A FARMER', 'DRESSED AS A MAD SCIENTIST', 'DRESSED TO CELEBRATE AN UPCOMING HOLIDAY', 'DRESSED AS A HORROR-MOVIE VILLAIN', 'DRESSED AS A FANCY CHEF', 'DISGUISED AS ANOTHER CHARACTER',
 'IN A GAUDY, UGLY SWEATER', 'IN A DENIM JACKET AND JEANS', 'IN AN ENORMOUS TOP HAT', 'IN A TOGA OR SIMILAR FLOWING ROBE', 'IN OLD-FASHIONED SWIMWEAR', 'WEARING A LABCOAT COVERED IN MYSTERIOUS STAINS', 'WEARING A WREATH OF FLOWERS', 'WEARING A WREATH OF EVIL FLOWERS', 'IN AN ARGYLE SWEATERVEST', 'WEARING RAINBOW SOCKS', 'WEARING CAT EARS', 'DISGUISED AS A BUSH', 'WEARING A SPACESUIT'];
+var cursedwords = ['WITH THEIR HEAD TURNED AT AN UNNATURAL ANGLE TO STARE DIRECTLY INTO THE CAMERA', 'COVERED IN SLIME', 'STRETCHED UNNATURALLY LONG', 'AS A SLIGHTLY BLURRY CRYPTID', 'WITH ENORMOUS ELABORATE ANIME EYES', 'WITH TOO MANY EYES', 'TRAPPED IN A SMALL BOX', 'WITH PHOTOREALISTIC EYES', 'WITH PHOTOREALISTIC HUMAN HANDS', 'WITH A PHOTOREALISTIC SMILE', 'PRESERVED IN A JAR', 'IN THE CORNER OF A LARGE EMPTY ROOM, STARING AT THE WALL',
+'CAPTURED BY A BLACK-AND-WHITE TRAILCAM', 'MOSTLY OBSCURED BY SHADOW, WITH RED EYESHINE', 'AS AN ODDBODY FURBY', 'AS A CREEPYPASTA VILLAIN', 'IN THE PHILLIPS CD-I STYLE', 'TRAPPED IN LUNAR ISLAND CRYSTAL', 'SMILING AND BECKONING THE VIEWER TO COME CLOSER', 'LYING FACEDOWN IN THE MUD', 'POSSESSED BY A SHADOW CREATURE OR LUNAR GESTALT', 'WITH AN UNNATURALLY LONG TONGUE', 'FLOATING IN THE AIR LIKE A LIMP MARIONETTE OR A RIGID PLANK'];
+
 
 var robopromptchars = ['C3PO', 'R2D2', 'BB8', 'FREDDY FAZBEAR', 'BONNIE (FNAF)', 'CHICA (FNAF)', 'FOXY (FNAF)', 'BALLORA', 'CIRCUS BABY', 'BASTION', 'ORISA', 'ZENYATTA', 'WX-78', 'THE GHOST OF WX-78', 'GoH SKIN WX-78', 'HALLOWED NIGHTS SKIN WX-78', 'GLADIATOR SKIN WX-78', 'VICTORIAN SKIN WX-78', 'MAGMATIC SKIN WX-78', 'ROSEATE SKIN WX-78', 'SURVIVOR SKIN WX-78', 'TRIUMPHANT SKIN WX-78', 'FUTURE SKIN WX-78', 'VERDANT SKIN WX-78',
 'MARVIN THE PARANOID ANDROID', 'HAL', 'HAL 9000', 'GLaDoS', 'ART (MURDERBOT DIARIES)', 'MIKI (MURDERBOT DIARIES)', 'MURDERBOT', 'K2SO', 'DR. KAHL\'S ROBOT (CUPHEAD)', 'BENDER', 'TURING', 'ASTRO BOY', 'AM', 'ROTOMDEX', 'BURIKIDDO (ANPANMAN TOY ROBOT)', 'NANKAHENDA (ANPANMAN ARTIST ROBOT)'];
@@ -787,6 +792,27 @@ bot.on('message', msg => {
           var promptedchar = promptchars[Math.floor(Math.random() * promptchars.length)];
         }
         var promptedwords = outfitwords[Math.floor(Math.random() * outfitwords.length)];
+        chan.send(promptedchar + " " + promptedwords).catch(console.error);
+      break;
+
+      case 'CURSEDPROMPT':
+      case 'CURSEPROMPT':
+        if (msg.content.split(' ').length > 1) {
+          var pargs = msg.content.split(' ');
+          var promptedchar = pargs[1].toUpperCase();
+          for (var n = 2; n < pargs.length; n++){
+            if (n < 5){
+              promptedchar = promptedchar + " " + pargs[n].toUpperCase();
+            }
+            else {
+              promptedchar = promptedchar + " " + stripExclamations(pargs[n].toUpperCase());
+            }
+          }
+        }
+        else {
+          var promptedchar = promptchars[Math.floor(Math.random() * promptchars.length)];
+        }
+        var promptedwords = cursedwords[Math.floor(Math.random() * cursedwords.length)];
         chan.send(promptedchar + " " + promptedwords).catch(console.error);
       break;
 
