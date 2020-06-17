@@ -693,7 +693,7 @@ bot.on('message', msg => {
   			  }
   			  else {
             msg.member.roles.add(roleDict[roleAsk]).catch(console.error);
-            chan.send('SUCCESSFULLY ADDED <@' + msg.author.id + '> TO THE <@&' + roleDict[roleAsk] + '> ROLE. WELCOME THEM TO YOUR RANKS').catch(console.error);
+            chan.send('SUCCESSFULLY ADDED <@' + msg.author.id + '> TO A NEW ROLE. WELCOME THEM TO YOUR RANKS').catch(console.error);
           }
         }
   	  break;
