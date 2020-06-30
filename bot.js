@@ -192,6 +192,8 @@ var ficreactions = ["SCREAMED AND RAN AWAY", "CRIED", "RESOLVED TO FACE THIS CHA
 
 var campfireDict = {A: {loc: "DEEP IN THE WOODS", enc: "WANDER OFF THE FOREST PATHS"}, B: {loc: "DEEP IN THE OCEAN", enc: "BLOW OFF COURSE IN A STORM"}, C: {loc: "DEEP IN THE OCEAN", enc: "SAIL INTO A DENSE BANK OF FOG"}, D: {loc: "LURKING IN THE SWAMPS OF THE GORGE", enc: "DISPLEASE THE GNAW WITH ROTTEN FOOD"},
 E: {loc: "SWIMMING THROUGH THE MAGMA OF THE FORGE", enc: "GIVE A COWARDLY PERFORMANCE IN THE ARENA"}, F: {loc: "DEEP UNDERGROUND", enc: "RUN OUT OF LIGHT EXPLORING THE CAVES"}, G: {loc: "DEEP IN THE WOODS", enc: "CUT DOWN THE WRONG TREE"}, H: {loc: "DEEP IN THE WOODS", enc: "WANDER INTO A RING OF MUSHROOMS"} };
+
+var campfirePlaces = Object.keys(campfireDict);
 var campfireMonsters = ["HOUND", "PIGMAN", "BUNNYMAN", "CATCOON", "STAGEHAND", "DRAGON", "CRYPTID", "MAN WITH A HOOK FOR A HAND", "SNATCHER", "TALLBIRD", "SLASHER", "BEAST", "SHARK"];
 var campfireTraits1 = ["SIX-MOUTHED", "FIVE-EYED", "THREE-MOUTHED", "POISON-TOOTHED", "BIG TOOTHY", "LONG-CLAWED", "LEGGY", "LONG-LEGGED", "INVISIBLE", "MASKED", "THREE-LEGGED", "FIVE-MOUTHED", "NO-EYED", "BRISTLY", "SKELETAL", "GHOSTLY", "GIANT", "SHADOWY"];
 var campfireTraits2 = ["GROWLING", "SPOOKY", "CREEPY", "ANGRY", "MURDEROUS", "GROUCHY", "SLEEPY", "SLEEK", "EERIE", "SCREAMING", "OOZING", "BRISTLY", "VENGEFUL", "WEEPING", "MOURNFUL", "NASTY", "NIGHTMARISH", "GROANING"];
@@ -955,7 +957,7 @@ bot.on('message', msg => {
       case 'CAMPFIRE':
       case 'CAMPSTORY':
       case 'CAMPFIRESTORY':
-        var place = campfireDict[Math.floor(Math.random() * campfireDict.length)];
+        var place = campfirePlaces[Math.floor(Math.random() * campfirePlaces.length)];
         var monster = campfireMonsters[Math.floor(Math.random() * campfireMonsters.length)];
         var adj1 = campfireTraits1[Math.floor(Math.random() * campfireTraits1.length)];
         var adj2 = campfireTraits2[Math.floor(Math.random() * campfireTraits2.length)];
