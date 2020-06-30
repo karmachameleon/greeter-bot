@@ -963,7 +963,7 @@ bot.on('message', msg => {
         var adj2 = campfireTraits2[Math.floor(Math.random() * campfireTraits2.length)];
         var action = campfireActions[Math.floor(Math.random() * campfireActions.length)];
         var fate = campfireSigns[Math.floor(Math.random() * campfireSigns.length)];
-        chan.send(campfireDict[place].loc + " THERE LIVES A " + adj1 + " " + adj2 + " " + monster + ".\nTHEY SAY IT " + action + ".\nAND EVEN TO THIS DAY, IF YOU " + campfireDict[place].enc + ", YOU MIGHT " + ".\nTHE END").catch(console.error);
+        chan.send(campfireDict[place].loc + " THERE LIVES A " + adj1 + " " + adj2 + " " + monster + ".\nTHEY SAY IT " + action + ".\nAND EVEN TO THIS DAY, IF YOU " + campfireDict[place].enc + ", YOU MIGHT " + fate + ".\nTHE END").catch(console.error);
       break;
 
       case 'JOKE':
