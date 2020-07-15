@@ -136,7 +136,7 @@ WILS : {path:"public/wilson.gif", name:"wilson.gif"},
 WOOD : {path:"public/woodlegs_defaultdance.gif", name:"woodlegs_defaultdance.gif"},
 WEBB : {path:"public/webber_defaultdance.gif", name:"webber_defaultdance.gif"},
 WHEE : {path:"public/wheeler_defaultdance.gif", name:"wheeler_defaultdance.gif"},
-WHEE : {path:"public/walter_scoutnite.gif", name:"walter_scoutnite.gif"},
+WALT : {path:"public/walter_scoutnite.gif", name:"walter_scoutnite.gif"},
 MOOS : {path:"public/weremoose_dance.gif", name:"weremoose_dance.gif"} };
 var fortnitegifs = Object.keys(fortnitedict);
 
@@ -202,7 +202,7 @@ var campfireSigns = ["HEAR IT HURGLING", "HEAR IT HOWLING", "STUMBLE ACROSS ITS 
 
 var breadno = ["NOOOO", "AAAAAAAA", "AAAAAAAAAAA!", "NO!!!!!!!!!", "NOOOOOOOOOOO", "AAAAAAAAAAA NOOOOOOOOO", "NOOOOOOOO! AAAAAAAAAAAA!", "I DON'T WANNA BE BREAD NOOOOOOO", "I DON'T WANNA BE BREAD AAAAAAA", "AAAAAAAAAAAAAAA I DON'T WANNA BE BREAD", "I DON'T WANNA BE BREAD", "I DO NOT WANT TO BE BREAD", "NOOOOOOOOOOOOOOOO", "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"];
 var breadyes = ["BEING BREAD IS FINE ACTUALLY I DON'T CARE ANYMORE", "THIS IS FINE I DON'T CARE ANYMORE", "I DON'T CARE ANYMORE ACTUALLY BEING BREAD IS FINE", "BEING BREAD IS FINE ACTUALLY", "ACTUALLY BEING BREAD IS FINE I DON'T CARE", "THIS IS FINE"];
-var cellarcontents = ["ROBOTS", "PIZZAS", "THULECITE ARTIFACTS", "TRINKETS", "LORE REVELATIONS", "NEW CHARACTERS", "SHIPWRECKED CHARACTERS", "EXOTIC BUTTERS", "CATBOYS", "CATS", "GOATS", "MIMES", "MACHINE OILS", "CHESTERS", "HAMBATS", "CHAOTIC CONSOLE COMMANDS"];
+var cellarcontents = ["ROBOTS", "PIZZAS", "THULECITE ARTIFACTS", "TRINKETS", "LORE REVELATIONS", "NEW CHARACTERS", "SHIPWRECKED CHARACTERS", "EXOTIC BUTTERS", "CATBOYS", "CATS", "GOATS", "MIMES", "MACHINE OILS", "CHESTERS", "HAMBATS", "CHAOTIC CONSOLE COMMANDS", "MEMES", "BREADS", "LORE THEORIES", "SLIMES"];
 
 var giftArray = ['A PILE OF GEARS', 'A SEWING KIT', 'A RED GEM', 'A BLUE GEM', 'A GREEN GEM', 'AN ORANGE GEM', 'A YELLOW GEM', 'A BEEFALO HAT', 'A WINTER HAT', 'RABBIT EARMUFFS', 'A PAIR OF MOGGLES', 'A PIECE OF FLINT', 'A MOONROCK', 'SPIDER SILK', 'NITRE', 'A COMPASS', 'A WALKING CANE', 'A PANFLUTE', 'A TAM O\' SHANTER', 'A CAT CAP'];
 var lastGifted = 0;
@@ -501,6 +501,7 @@ bot.on('message', msg => {
       break;
 
       case 'BAKE':
+      case 'BREAD':
         var acceptance = breadyes[Math.floor(Math.random() * breadyes.length)];
         chan.send(acceptance).catch(console.error);
       break;
