@@ -976,8 +976,18 @@ bot.on('message', msg => {
       case 'CAMPFIRE':
       case 'CAMPSTORY':
       case 'CAMPFIRESTORY':
+        var pargs = msg.content.split(' ');
+        if (pargs.length > 1) {
+          var monster = pargs[1].toUpperCase();
+          for (var n = 2; n < pargs.length; n++){
+            monster = monster + " " +  pargs[n].toUpperCase();
+          }
+        }
+        else {
+          var monster = campfireMonsters[Math.floor(Math.random() * campfireMonsters.length)];
+        }
+
         var place = campfirePlaces[Math.floor(Math.random() * campfirePlaces.length)];
-        var monster = campfireMonsters[Math.floor(Math.random() * campfireMonsters.length)];
         var adj1 = campfireTraits1[Math.floor(Math.random() * campfireTraits1.length)];
         var adj2 = campfireTraits2[Math.floor(Math.random() * campfireTraits2.length)];
         var action = campfireActions[Math.floor(Math.random() * campfireActions.length)];
