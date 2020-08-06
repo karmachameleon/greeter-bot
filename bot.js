@@ -137,7 +137,15 @@ WOOD : {path:"public/woodlegs_defaultdance.gif", name:"woodlegs_defaultdance.gif
 WEBB : {path:"public/webber_defaultdance.gif", name:"webber_defaultdance.gif"},
 WHEE : {path:"public/wheeler_defaultdance.gif", name:"wheeler_defaultdance.gif"},
 WALT : {path:"public/walter_scoutnite.gif", name:"walter_scoutnite.gif"},
-MOOS : {path:"public/weremoose_dance.gif", name:"weremoose_dance.gif"} };
+MOOS : {path:"public/weremoose_dance.gif", name:"weremoose_dance.gif"},
+WLOOT : {path:"public/walani_outoftouch.gif", name:"walani_outoftouch.gif"},
+WROOT : {path:"public/warly_outoftouch.gif", name:"warly_outoftouch.gif"},
+WBOOT : {path:"public/webber_outoftouch.gif", name:"webber_outoftouch.gif"},
+WHOOT : {path:"public/wheeler_outoftouch.gif", name:"wheeler_outoftouch.gif"},
+WSOOT : {path:"public/wilson_outoftouch.gif", name:"wilson_outoftouch.gif"},
+WGOOT : {path:"public/woose_outoftouch.gif", name:"woose_outoftouch.gif"},
+WXOOT : {path:"public/wx_outofbutter.gif", name:"wx_outofbutter.gif"}
+};
 var fortnitegifs = Object.keys(fortnitedict);
 
 var promptchars = ['A PIGMAN', 'A MERM', 'A CATCOON', 'A HOUND', 'A BUNNYMAN', 'A STAGEHAND', 'WORTOX', 'WHEELER', 'WAGSTAFF', 'WILBA', 'WORMWOOD', 'WILSON', 'WILLOW', 'WOLFGANG', 'WENDY', 'ABIGAIL', 'WX-78', 'WICKERBOTTOM', 'WOODIE', 'LUCY THE AXE', 'MAXWELL', 'WILLIAM CARTER', 'WES', 'WIGFRID', 'BERNIE THE TEDDY BEAR',
