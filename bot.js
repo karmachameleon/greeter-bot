@@ -119,7 +119,7 @@ var dancedict = {1: {path: "public/robot1.gif", name: "robot1.gif"},
 8: {path: "public/robot8.gif", name: "robot8.gif"} };
 var dancegifs = Object.keys(dancedict);
 
-var fortnitedict = { CRAB: {path:"public/hermitcrab_tango.gif", name:"hermitcrab_tango.gif"},
+var fortnitedict = { PEARL: {path:"public/hermitcrab_tango.gif", name:"hermitcrab_tango.gif"},
 BUTTERCRAB: {path:"public/wxbutteredcrab.gif", name:"wxbutteredcrab.gif"},
 ABIGAIL: {path:"public/abigail_dance.gif", name:"abigail_dance.gif"},
 WEARGER: {path:"public/wearger_defaultdance.gif", name:"wearger_defaultdance.gif"},
@@ -141,7 +141,7 @@ WALANI : {path:"public/walani_defaultdance.gif", name:"walani_defaultdance.gif"}
 WILBUR : {path:"public/wilbur_defaultdance.gif", name:"wilbur_defaultdance.gif"},
 WILBA : {path:"public/wilba_defaultdance.gif", name:"wilba_defaultdance.gif"},
 WINONA : {path:"public/winona_defaultdance.gif", name:"winona_defaultdance.gif"},
-SHADOW : {path:"public/shadow_wilson_dance.gif", name:"shadow_wilson_dance.gif"},
+TRIWILSON : {path:"public/shadow_wilson_dance.gif", name:"shadow_wilson_dance.gif"},
 BILLY : {path:"public/goatdance.gif", name:"goatdance.gif"},
 WORTOX : {path:"public/wortox_defaultdance.gif", name:"wortox_defaultdance.gif"},
 WEREBEAVER : {path:"public/werebeaver_dance.gif", name:"werebeaver_dance.gif"},
