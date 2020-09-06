@@ -579,7 +579,7 @@ bot.on('message', msg => {
       case 'FORTNITE':
         if (msg.content.split(' ').length > 1) {
           var fortchoice = msg.content.split(' ')[1].toUpperCase();
-          if(!fortnitegifs.hasOwnProperty(fortchoice)){
+          if(!fortnitedict.hasOwnProperty(fortchoice)){
             fortchoice = fortnitegifs[Math.floor(Math.random() * fortnitegifs.length)];
           }
         }
