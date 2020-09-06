@@ -136,7 +136,7 @@ WIGFRID : {path:"public/wigfrid_defaultdance.gif", name:"wigfrid_defaultdance.gi
 WAGSTAFF : {path:"public/wagstaff_defaultdance.gif", name:"wagstaff_defaultdance.gif"},
 WILLOW : {path:"public/willow_defaultdance.gif", name:"willow_defaultdance.gif"},
 WICKERBOTTOM : {path:"public/wickerbottom_defaultdance.gif", name:"wickerbottom_defaultdance.gif"},
-THICC : {path:"public/thickwolfgang_defaultdance.gif", name:"thickwolfgang_defaultdance.gif"},
+WOLFGANG : {path:"public/thickwolfgang_defaultdance.gif", name:"thickwolfgang_defaultdance.gif"},
 WALANI : {path:"public/walani_defaultdance.gif", name:"walani_defaultdance.gif"},
 WILBUR : {path:"public/wilbur_defaultdance.gif", name:"wilbur_defaultdance.gif"},
 WILBA : {path:"public/wilba_defaultdance.gif", name:"wilba_defaultdance.gif"},
