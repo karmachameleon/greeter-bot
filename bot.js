@@ -120,49 +120,50 @@ var dancedict = {1: {path: "public/robot1.gif", name: "robot1.gif"},
 var dancegifs = Object.keys(dancedict);
 
 var fortnitedict = { CRAB: {path:"public/hermitcrab_tango.gif", name:"hermitcrab_tango.gif"},
-BTRCRB: {path:"public/wxbutteredcrab.gif", name:"wxbutteredcrab.gif"},
-ABI: {path:"public/abigail_dance.gif", name:"abigail_dance.gif"},
-WEARG: {path:"public/wearger_defaultdance.gif", name:"wearger_defaultdance.gif"},
-WFLY : {path:"public/wfly_defaultdance.gif", name:"wfly_defaultdance.gif"},
-WGOOS : {path:"public/woosegoose_defaultdance.gif", name:"woosegoose_defaultdance.gif"},
-WEARC : {path:"public/weerclops_defaultdance.gif", name:"weerclops_defaultdance.gif"},
-FLORT : {path:"public/wurt_flortnite.gif", name:"wurt_flortnite.gif"},
-GOOSE : {path:"public/weregoose_defaultdance.gif", name:"weregoose_defaultdance.gif"},
-WILL : {path:"public/babycarter_defaultdance.gif", name:"babycarter_defaultdance.gif"},
+BUTTERCRAB: {path:"public/wxbutteredcrab.gif", name:"wxbutteredcrab.gif"},
+ABIGAIL: {path:"public/abigail_dance.gif", name:"abigail_dance.gif"},
+WEARGER: {path:"public/wearger_defaultdance.gif", name:"wearger_defaultdance.gif"},
+WRAGONFLY : {path:"public/wfly_defaultdance.gif", name:"wfly_defaultdance.gif"},
+WOOSEGOOSE : {path:"public/woosegoose_defaultdance.gif", name:"woosegoose_defaultdance.gif"},
+WEERCLOPS : {path:"public/weerclops_defaultdance.gif", name:"weerclops_defaultdance.gif"},
+WURT : {path:"public/wurt_flortnite.gif", name:"wurt_flortnite.gif"},
+WEREGOOSE : {path:"public/weregoose_defaultdance.gif", name:"weregoose_defaultdance.gif"},
+WILLIAM : {path:"public/babycarter_defaultdance.gif", name:"babycarter_defaultdance.gif"},
 BUTTER : {path:"public/wxbutterwxbutterwxbutter_defaultdance.gif", name:"wxbutterwxbutterwxbutter_defaultdance.gif"},
 HAL : {path:"public/hal_defaultdance.png", name:"hal_defaultdance.png"},
 WENDY : {path:"public/wendy_defaultdance.gif", name:"wendy_defaultdance.gif"},
-WIG : {path:"public/wigfrid_defaultdance.gif", name:"wigfrid_defaultdance.gif"},
-WAG : {path:"public/wagstaff_defaultdance.gif", name:"wagstaff_defaultdance.gif"},
-WILO : {path:"public/willow_defaultdance.gif", name:"willow_defaultdance.gif"},
-WICK : {path:"public/wickerbottom_defaultdance.gif", name:"wickerbottom_defaultdance.gif"},
+WIGFRID : {path:"public/wigfrid_defaultdance.gif", name:"wigfrid_defaultdance.gif"},
+WAGSTAFF : {path:"public/wagstaff_defaultdance.gif", name:"wagstaff_defaultdance.gif"},
+WILLOW : {path:"public/willow_defaultdance.gif", name:"willow_defaultdance.gif"},
+WICKERBOTTOM : {path:"public/wickerbottom_defaultdance.gif", name:"wickerbottom_defaultdance.gif"},
 THICC : {path:"public/thickwolfgang_defaultdance.gif", name:"thickwolfgang_defaultdance.gif"},
-WAG : {path:"public/walani_defaultdance.gif", name:"walani_defaultdance.gif"},
-WILBU : {path:"public/wilbur_defaultdance.gif", name:"wilbur_defaultdance.gif"},
+WALANI : {path:"public/walani_defaultdance.gif", name:"walani_defaultdance.gif"},
+WILBUR : {path:"public/wilbur_defaultdance.gif", name:"wilbur_defaultdance.gif"},
 WILBA : {path:"public/wilba_defaultdance.gif", name:"wilba_defaultdance.gif"},
-NONA : {path:"public/winona_defaultdance.gif", name:"winona_defaultdance.gif"},
-SWILS : {path:"public/shadow_wilson_dance.gif", name:"shadow_wilson_dance.gif"},
-GOAT : {path:"public/goatdance.gif", name:"goatdance.gif"},
-WORT : {path:"public/wortox_defaultdance.gif", name:"wortox_defaultdance.gif"},
-BEAV : {path:"public/werebeaver_dance.gif", name:"werebeaver_dance.gif"},
-MAX : {path:"public/maxwell_defaultdance.gif", name:"maxwell_defaultdance.gif"},
-BWORM : {path:"public/bloominwormwood.gif", name:"bloominwormwood.gif"},
-DEFAULT : {path:"public/fortnite.gif", name:"fortnite.gif"},
+WINONA : {path:"public/winona_defaultdance.gif", name:"winona_defaultdance.gif"},
+SHADOW : {path:"public/shadow_wilson_dance.gif", name:"shadow_wilson_dance.gif"},
+BILLY : {path:"public/goatdance.gif", name:"goatdance.gif"},
+WORTOX : {path:"public/wortox_defaultdance.gif", name:"wortox_defaultdance.gif"},
+WEREBEAVER : {path:"public/werebeaver_dance.gif", name:"werebeaver_dance.gif"},
+MAXWELL : {path:"public/maxwell_defaultdance.gif", name:"maxwell_defaultdance.gif"},
+BLOOM : {path:"public/bloominwormwood.gif", name:"bloominwormwood.gif"},
+WX : {path:"public/fortnite.gif", name:"fortnite.gif"},
 WES : {path:"public/wes.gif", name:"wes.gif"},
-WARL : {path:"public/warly.gif", name:"warly.gif"},
-WILS : {path:"public/wilson.gif", name:"wilson.gif"},
-WOOD : {path:"public/woodlegs_defaultdance.gif", name:"woodlegs_defaultdance.gif"},
-WEBB : {path:"public/webber_defaultdance.gif", name:"webber_defaultdance.gif"},
-WHEE : {path:"public/wheeler_defaultdance.gif", name:"wheeler_defaultdance.gif"},
-WALT : {path:"public/walter_scoutnite.gif", name:"walter_scoutnite.gif"},
-MOOS : {path:"public/weremoose_dance.gif", name:"weremoose_dance.gif"},
-WLOOT : {path:"public/walani_outoftouch.gif", name:"walani_outoftouch.gif"},
-WROOT : {path:"public/warly_outoftouch.gif", name:"warly_outoftouch.gif"},
-WBOOT : {path:"public/webber_outoftouch.gif", name:"webber_outoftouch.gif"},
-WHOOT : {path:"public/wheeler_outoftouch.gif", name:"wheeler_outoftouch.gif"},
-WSOOT : {path:"public/wilson_outoftouch.gif", name:"wilson_outoftouch.gif"},
-WGOOT : {path:"public/woose_outoftouch.gif", name:"woose_outoftouch.gif"},
-WXOOT : {path:"public/wx_outofbutter.gif", name:"wx_outofbutter.gif"}
+WARLY : {path:"public/warly.gif", name:"warly.gif"},
+WILSON : {path:"public/wilson.gif", name:"wilson.gif"},
+WOODLEGS : {path:"public/woodlegs_defaultdance.gif", name:"woodlegs_defaultdance.gif"},
+WEBBER : {path:"public/webber_defaultdance.gif", name:"webber_defaultdance.gif"},
+WHEELER : {path:"public/wheeler_defaultdance.gif", name:"wheeler_defaultdance.gif"},
+WALTER : {path:"public/walter_scoutnite.gif", name:"walter_scoutnite.gif"},
+WEREMOOSE : {path:"public/weremoose_dance.gif", name:"weremoose_dance.gif"},
+OOTWALANI : {path:"public/walani_outoftouch.gif", name:"walani_outoftouch.gif"},
+OOTWARLY : {path:"public/warly_outoftouch.gif", name:"warly_outoftouch.gif"},
+OOTWEBBER : {path:"public/webber_outoftouch.gif", name:"webber_outoftouch.gif"},
+OOTWHEELER : {path:"public/wheeler_outoftouch.gif", name:"wheeler_outoftouch.gif"},
+OOTWILSON : {path:"public/wilson_outoftouch.gif", name:"wilson_outoftouch.gif"},
+OOTWOOSEGOOSE : {path:"public/woose_outoftouch.gif", name:"woose_outoftouch.gif"},
+OOTWX : {path:"public/wx_outofbutter.gif", name:"wx_outofbutter.gif"},
+ENGINEER : {path:"public/engi_kazotsky.gif", name:"engi_kazotsky.gif"}
 };
 var fortnitegifs = Object.keys(fortnitedict);
 
@@ -576,7 +577,15 @@ bot.on('message', msg => {
       break;
 
       case 'FORTNITE':
-        var fortchoice = fortnitegifs[Math.floor(Math.random() * fortnitegifs.length)];
+        if (msg.content.split(' ').length > 1) {
+          var fortchoice = msg.content.split(' ')[1].toUpperCase();
+          if(!nounDict.hasOwnProperty(fortchoice)){
+            var fortchoice = fortnitegifs[Math.floor(Math.random() * fortnitegifs.length)];
+          }
+        }
+        else{
+          var fortchoice = fortnitegifs[Math.floor(Math.random() * fortnitegifs.length)];
+        }
         chan.send({ files: [{attachment: fortnitedict[fortchoice].path, name: fortnitedict[fortchoice].name }] }).catch(console.error);
       break;
 
@@ -709,7 +718,7 @@ bot.on('message', msg => {
             chan.send('I DO NOT RECOGNIZE THAT PRONOUN. PLEASE USE THE SUBJECT FORM OF YOUR CHOSEN PRONOUN (FOR EXAMPLE SHE, HE, THEY); IF YOUR PRONOUNS ARE NOT AVAILABLE, PING KARMA OR ANOTHER MOD TO PETITION FOR INCLUSION').catch(console.error);
           }
           else {
-            var set = nounDict[nounAsk]
+            var set = nounDict[nounAsk];
             msg.member.roles.add(set.id).catch(console.error);
             if (nounAsk != "ANY"){
               chan.send('SUCCESSFULLY IDENTIFIED <@' + msg.author.id + '>. ' + set.subject + ' ' + set.have + ' IDENTIFIED ' + set.reflex + ' TO MY SYSTEMS AND ' + set.deter + ' CHOICE, WHICH IS ' + set.possess + ', WILL BE RESPECTED. YOU MAY CONGRATULATE ' + set.obj + ' AT YOUR LEISURE').catch(console.error);
