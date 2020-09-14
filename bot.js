@@ -590,6 +590,8 @@ bot.on('message', msg => {
       break;
 
       case 'GENDER':
+      case 'PRONOUNS':
+      case 'PRONOUN':
         chan.send('PLEASE RESPECT THE CANON USE OF THEY/THEM PRONOUNS FOR MX. WX-78! THANK YOU').catch(console.error);
       break;
 
@@ -707,8 +709,8 @@ bot.on('message', msg => {
         chan.send({ files: [{attachment: "public/wig.gif", name: "wig.gif"}] }).catch(console.error);
       break;
 
-      case 'PRONOUNS':
-      case 'PRONOUN':
+      case 'SETPRONOUNS':
+      case 'SETPRONOUN':
         if (msg.content.split(' ').length == 1) {
           chan.send('I MUST KNOW WHICH PRONOUN SET YOU ARE REQUESTING').catch(console.error);
         }
