@@ -752,12 +752,12 @@ bot.on('message', msg => {
 
   	  case 'ROLE':
   		  if (msg.content.split(' ').length == 1) {
-          chan.send('YOU MUST TELL ME WHAT CHARACTER I AM NOT PSYCHIC. THIS COMMAND IS FOR ADDING CHARACTER TAGS; USE !PRONOUN FOR PRONOUN ROLES').catch(console.error);
+          chan.send('YOU MUST TELL ME WHAT CHARACTER I AM NOT PSYCHIC. THIS COMMAND IS FOR ADDING CHARACTER TAGS; USE !SETPRONOUN FOR PRONOUN ROLES').catch(console.error);
   		  }
   		  else {
   			  var roleAsk = msg.content.split(' ')[1].toUpperCase();
   			  if(!roleDict.hasOwnProperty(roleAsk)){
-            chan.send('THAT IS NOT A CHARACTER I RECOGNIZE. IF YOU ARE TRYING TO ADD PRONOUNS, USE THE COMMAND !PRONOUN INSTEAD').catch(console.error);
+            chan.send('THAT IS NOT A CHARACTER I RECOGNIZE. IF YOU ARE TRYING TO ADD PRONOUNS, USE THE COMMAND !SETPRONOUN INSTEAD').catch(console.error);
   			  }
   			  else {
             msg.member.roles.add(roleDict[roleAsk]).catch(console.error);
