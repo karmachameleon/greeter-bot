@@ -339,7 +339,7 @@ bot.on('message', msg => {
       case 'CHEVRE':
       case 'GOAT':
       case 'CHÈVRE':
-        chan.send("https://twitter.com/goat_slice", {files: [{attachment:  "public/goat.gif", name: "goat.gif"}] }).catch(console.error);
+        chan.send({files: [{attachment:  "public/goat.gif", name: "goat.gif"}] }).catch(console.error);
       break;
 
       case 'COFFEE':
