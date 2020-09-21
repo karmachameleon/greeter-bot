@@ -267,6 +267,11 @@ function stripExclamations(s){
   else { return s; }
 }
 
+function decolonize(s){
+  var args = s.replace(":"," ");
+  return args.split(' ');
+}
+
 var newJokeThreshold = 16;
 
 var karmaID = "253717780853948416";
@@ -398,7 +403,7 @@ bot.on('message', msg => {
       break;
 
       case 'CONVERT': //currently no support for timelines that are like a half-hour divergent from UTC, i'll add it only if it's needed
-        var convertArgs = msg.content.split(' ');
+        var convertArgs = decolonize(msg.content);
         if (convertArgs.length == 7) { //convert 00 00 am/pm TIMEZONE to TIMEZONE
           var military = false;
           if (convertArgs[3].toUpperCase() === "AM") {
