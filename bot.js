@@ -1041,6 +1041,13 @@ bot.on('message', msg => {
         chan.send(campfireDict[place].loc + " THERE LIVES A " + adj1 + " " + adj2 + " " + monster + ".\nTHEY SAY IT " + action + ".\nAND EVEN TO THIS DAY, IF YOU " + campfireDict[place].enc + ", YOU MIGHT " + fate + ".\nTHE END").catch(console.error);
       break;
 
+      case 'DONATE':
+      case 'DONATION':
+      case 'TRANSLIFELINE':
+      case 'TILTIFY':
+        chan.send("https://donate.tiltify.com/+robot-pizza-party/robot-pizza-party-supports-trans-lifeline").catch(console.error);
+      }
+
       case 'JOKE':
         var jokeChoice = jokesArray[Math.floor(Math.random() * jokesArray.length)];
         chan.send(jokeChoice).catch(console.error);
