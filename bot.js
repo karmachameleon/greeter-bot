@@ -1046,7 +1046,7 @@ bot.on('message', msg => {
       case 'TRANSLIFELINE':
       case 'TILTIFY':
         chan.send("https://donate.tiltify.com/+robot-pizza-party/robot-pizza-party-supports-trans-lifeline").catch(console.error);
-      }
+      break;
 
       case 'JOKE':
         var jokeChoice = jokesArray[Math.floor(Math.random() * jokesArray.length)];
