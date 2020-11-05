@@ -144,6 +144,7 @@ WALANI : {path:"public/walani_defaultdance.gif", name:"walani_defaultdance.gif"}
 WILBUR : {path:"public/wilbur_defaultdance.gif", name:"wilbur_defaultdance.gif"},
 WILBA : {path:"public/wilba_defaultdance.gif", name:"wilba_defaultdance.gif"},
 WINONA : {path:"public/winona_defaultdance.gif", name:"winona_defaultdance.gif"},
+WOODIE : {path:"public/woodie.gif", name:"woodie.gif"},
 TRIWILSON : {path:"public/shadow_wilson_dance.gif", name:"shadow_wilson_dance.gif"},
 BILLY : {path:"public/goatdance.gif", name:"goatdance.gif"},
 WORTOX : {path:"public/wortox_defaultdance.gif", name:"wortox_defaultdance.gif"},
