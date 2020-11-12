@@ -759,6 +759,16 @@ bot.on('message', msg => {
         }
       break;
 
+      case 'COLLAB':
+        if (!msg.member.roles.cache.has('775179755137925151')){
+          msg.member.roles.add('775179755137925151').catch(console.error);
+          chan.send('<@' + msg.author.id + '>, WELCOME TO THE ROBOT PIZZA PARTY MOD COLLAB. YOUR CREATIVE INPUT WILL PRODUCE THE TASTIEST JAM YET').catch(console.error);
+        }
+        else {
+          chan.send('YOU ARE ALREADY PARTICIPATING IN THE ROBOT PIZZA PARTY MOD COLLAB. THE JAM IS STICKY, SWEET, AND INESCAPABLE');
+        }
+  	  break;
+
   	  case 'ROLE':
   		  if (msg.content.split(' ').length == 1) {
           chan.send('YOU MUST TELL ME WHAT CHARACTER I AM NOT PSYCHIC.\nTHIS COMMAND IS FOR ADDING CHARACTER TAGS; USE **!SETPRONOUN** FOR PRONOUN ROLES').catch(console.error);
