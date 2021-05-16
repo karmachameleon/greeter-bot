@@ -511,10 +511,11 @@ bot.on('message', msg => {
         chan.send(finalOutput).catch(console.error);
       break;
 
-      case 'DAB':
-        chan.send('<:wxdab:393868683128078336>').catch(console.error);
-      break;
+      //case 'DAB':
+        //chan.send('<:wxdab:393868683128078336>').catch(console.error);
+      //break;
 
+      case 'DAB':
       case 'DERODAB':
         chan.send('<:overlorddab:404804513766047754>').catch(console.error);
       break;
