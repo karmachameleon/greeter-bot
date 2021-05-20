@@ -1135,7 +1135,7 @@ bot.on('messageReactionAdd', (messageReaction, user) => {
       //console.log("pizza spotted");
       if (messageReaction.me){
         //console.log("hal was here");
-        messageReaction.message.edit(${messageReaction.message.content} + '\n> ' + ${user.username});
+        messageReaction.message.edit( ${messageReaction.message.content} + '\n> ' + ${user.username} );
       }
     }
   }
