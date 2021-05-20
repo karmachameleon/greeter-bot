@@ -821,7 +821,7 @@ bot.on('message', msg => {
       case 'RSVP':
         var rsvpargs = msg.content.split(' ');
         var comlen = rsvpargs.length;
-        var rsvpmsg = "WHO WILL ATTEND THIS MOMENTOUS OCCASION? REACT WITH PIZZA TO SEAL YOUR FATE\n\nCONFIRMED ATTENDEES:\n";
+        var rsvpmsg = "WHO WILL ATTEND THIS MOMENTOUS OCCASION? REACT WITH PIZZA TO SEAL YOUR FATE. IF YOU DO NOT APPEAR IN THE ATTENDEES LIST, PLEASE UNREACT AND REACT AGAIN\n\nCONFIRMED ATTENDEES:\n";
         if (comlen > 1){
           rsvpmsg = "PIZZA DENIZENS, YOU ARE CORDIALLY INVITED TO **" + msg.content.substr(msg.content.indexOf(' ') + 1).toUpperCase() + "**. " + rsvpmsg;
         }
