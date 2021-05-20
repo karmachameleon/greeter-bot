@@ -1131,8 +1131,8 @@ bot.on('message', msg => {
 
 bot.on('messageReactionAdd', (messageReaction, user) => {
   if(messageReaction.emoji.name == '🍕'){
-    console.log("pizza spotted");
-    if (messageReaction.users.fetch().find('396859791877734410')){ //HAL's ID
+    //console.log("pizza spotted");
+    if (messageReaction.users.fetch().get('396859791877734410') != undefined){ //HAL's ID
       console.log("hal was here");
       messageReaction.message.edit('${messageReaction.message.content}' + '\n' + '${user.username}');
     }
