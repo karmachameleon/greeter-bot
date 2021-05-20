@@ -825,7 +825,7 @@ bot.on('message', msg => {
         if (comlen > 1){
           rsvpmsg = "PIZZA DENIZENS, YOU ARE CORDIALLY INVITED TO **" + msg.content.substr(str.indexOf(' ')) + "**. " + rsvpmsg;
         }
-        chan.send(rsvpmsg).then(function(message)) {
+        chan.send(rsvpmsg).then(function(message) {
           message.react('🍕')
         }).catch(console.error);
       break;
