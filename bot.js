@@ -1144,7 +1144,7 @@ bot.on('messageReactionAdd', (messageReaction, user) => {
 bot.on('messageReactionRemove', (messageReaction, user) => {
   if(messageReaction.emoji.name == '🍕'){
     if (messageReaction.me){
-      var newMessageFront = messageReaction.message.content.slice(0, messageReaction.message.content.lastindexOf(user.username) - 3);
+      var newMessageFront = messageReaction.message.content.slice(0, messageReaction.message.content.lastIndexOf(user.username) - 3);
       var newMessageBack = messageReaction.message.content.slice(messageReaction.message.content.lastIndexOf(user.username) + user.username.length);
       messageReaction.message.edit(newMessageFront + newMessageBack);
     }
