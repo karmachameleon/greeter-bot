@@ -823,7 +823,7 @@ bot.on('message', msg => {
         var comlen = rsvpargs.length;
         var rsvpmsg = "WHO WILL ATTEND THIS MOMENTOUS OCCASION? REACT WITH PIZZA TO SEAL YOUR FATE";
         if (comlen > 1){
-          rsvpmsg = "PIZZA DENIZENS, YOU ARE CORDIALLY INVITED TO **" + msg.content.substr(str.indexOf(' ')) + "**. " + rsvpmsg;
+          rsvpmsg = "PIZZA DENIZENS, YOU ARE CORDIALLY INVITED TO **" + msg.content.substr(msg.content.indexOf(' ')).toUpperCase() + "**. " + rsvpmsg;
         }
         chan.send(rsvpmsg).then(function(message) {
           message.react('🍕')
