@@ -1132,7 +1132,7 @@ bot.on('message', msg => {
 bot.on('messageReactionAdd', (messageReaction, user) => {
   if(messageReaction.emoji.name == '🍕'){
     console.log("pizza spotted");
-    if (messageReaction.users.find('396859791877734410')){ //HAL's ID
+    if (messageReaction.users.fetch().find('396859791877734410')){ //HAL's ID
       console.log("hal was here");
       messageReaction.message.edit('${messageReaction.message.content}' + '\n' + '${user.username}');
     }
