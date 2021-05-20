@@ -1141,6 +1141,16 @@ bot.on('messageReactionAdd', (messageReaction, user) => {
   }
 });
 
+bot.on('messageReactionRemove', (messageReaction, user) => {
+  if(messageReaction.emoji.name == '🍕'){
+    if (messageReaction.me){
+      var newMessageFront = messageReaction.message.content.slice(0, messageReaction.message.content.indexOf(user.username) - 3);
+      var newMessageBack = messageReaction.message.content.slice(messageReaction.message.content.lastIndexOf(user.username));
+      messageReaction.message.edit(newMessageFront + newMessageBack);
+    }
+  }
+});
+
 /*
 bot.on('guildMemberAdd', function(member) {
 	bot.channels.get("393845951292243980").send('<@' + member.id + '> DETECTED. YOU HAVE BEEN ASSIMILATED TO THE ROBOT PIZZA PARTY. READ THE <#393842582414688269> AND POST AN INTRODUCTION  IN  <#396067802970193920>. ADD YOUR PRONOUNS IN <#397067658052239361> (LOOK IN <#393842582414688269> FOR INSTRUCTIONS) SHARE AND ENJOY :pizza:').catch(console.error);
