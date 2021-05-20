@@ -821,7 +821,7 @@ bot.on('message', msg => {
       case 'RSVP':
         var rsvpargs = msg.content.split(' ');
         var comlen = rsvpargs.length;
-        var rsvpmsg = "WHO WILL ATTEND THIS MOMENTOUS OCCASION? REACT WITH PIZZA TO SEAL YOUR FATE\nCONFIRMED ATTENDEES:\n";
+        var rsvpmsg = "WHO WILL ATTEND THIS MOMENTOUS OCCASION? REACT WITH PIZZA TO SEAL YOUR FATE\n\nCONFIRMED ATTENDEES:\n";
         if (comlen > 1){
           rsvpmsg = "PIZZA DENIZENS, YOU ARE CORDIALLY INVITED TO **" + msg.content.substr(msg.content.indexOf(' ') + 1).toUpperCase() + "**. " + rsvpmsg;
         }
@@ -1135,7 +1135,7 @@ bot.on('messageReactionAdd', (messageReaction, user) => {
       //console.log("pizza spotted");
       if (messageReaction.me){
         console.log("hal was here");
-        messageReaction.message.edit('${messageReaction.message.content}' + '\n' + '${user.username}');
+        messageReaction.message.edit(${messageReaction.message.content} + '\n> ' + ${user.username});
       }
     }
   }
