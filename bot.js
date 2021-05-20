@@ -1134,7 +1134,7 @@ bot.on('messageReactionAdd', (messageReaction, user) => {
     if(messageReaction.emoji.name == '🍕'){
       //console.log("pizza spotted");
       if (messageReaction.me){
-        console.log("hal was here");
+        //console.log("hal was here");
         messageReaction.message.edit(${messageReaction.message.content} + '\n> ' + ${user.username});
       }
     }
