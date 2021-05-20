@@ -818,6 +818,18 @@ bot.on('message', msg => {
         chan.send(diceresult).catch(console.error);
       break;
 
+      case 'RSVP':
+        var rsvpargs = msg.content.split(' ');
+        var comlen = rsvpargs.length;
+        var rsvpmsg = "WHO WILL ATTEND THIS MOMENTOUS OCCASION? REACT WITH PIZZA TO SEAL YOUR FATE";
+        if (comlen > 1){
+          rsvpmsg = "PIZZA DENIZENS, YOU ARE CORDIALLY INVITED TO **" + msg.content.substr(str.indexOf(' ')) + "**. " + rsvpmsg;
+        }
+        chan.send(rsvpmsg).then(function(message)) {
+          message.react('🍕')
+        }
+      break;
+
       case 'VOTE':
         var voteargs = msg.content.split(' ');
         var optotal = voteargs.length;
