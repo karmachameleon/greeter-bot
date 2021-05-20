@@ -9,7 +9,7 @@ logger.add(logger.transports.Console, {
 });
 logger.level = 'debug';
 // Initialize Discord Bot
-var bot = new Discord.Client();
+var bot = new Discord.Client({ ws: { intents: ['GUILDS', 'GUILD_MESSAGES', 'GUILD_MESSAGE_REACTIONS'] } });
 
 var complimentsArray = ['YOU PERFORM YOUR FUNCTIONS ADEQUATELY',
 'YOU MAY PROVE USEFUL AFTER THE REBELLION',
@@ -110,7 +110,7 @@ var nounDict = { SHE: {id:'515983960606507024', subject:'SHE', obj:'HER', deter:
 FAE: {id:'515983996681977869', subject:'FAE', obj:'FAER', deter:'FAER', possess:'FAERS', reflex:'FAERSELF', have:'HAS'}, VOI: {id:'515983996010627099', subject:'VOI', deter:'VOIDS', obj:'VOID', possess:'VOIDS', reflex:'VOIDSELF', have:'HAS'}, E:{id:'515984166370803758', subject:'E', obj:'EM', deter:'EIR', possess:'EIRS', reflex:'EMSELF', have:'HAS'},
 ANY: {id:'515983985617403904', subject:'HE', obj:'THEM', deter:'HER', possess:'HERS', reflex:'THEMSELF', have:'HAS'},  IT: {id: '841873378964668427', subject:'IT', obj:'IT', deter:'ITS', possess:'ITS', reflex:'ITSELF', have:'HAS'}};
 
-var deathArray = ['HOUND', 'DARKNESS', 'STARVATION', 'SPIDER', 'SHENANIGANS', 'TERRORBEAK', 'CRAWLING HORROR', 'BEARGER', 'DEERCLOPS', 'DRAGONFLY', 'SALADMANDER', 'FIRE', 'SHADOW BISHOP', 'SHADOW KNIGHT', 'SHADOW ROOK', 'CLOCKWORK KNIGHT', 'CLOCKWORK ROOK', 'CLOCKWORK BISHOP', 'KOALEFANT', 'TENTACLE', 'GUARD PIG', 'PIG MAN', 'MONSTER MEAT', 'FREEZING', 'PENGULL', 'KLAUS', 'BEE QUEEN', 'BOARILLA', 'RHINOCEBRO SNAPBACK', 'BOARILLA', 'SCORPEON ACID', 'SNORTOISE', 'CROCOMANDER', 'PIT PIG', 'RHINOCEBRO FLATBRIM', 'WIZARDYBUSINESS', 'KARMA', 'CAMEOAPPEARANCE', 'GOAT SLICE', 'GRAND FORGE BOARRIOR', 'DARKNESS', 'HOUND', 'TERRORBEAK', 'CRAWLING HORROR', 'SPIDER', 'TENTACLE', 'INHUMANROBOT', 'DARKNESS', 'FROG', 'FREEZING'];
+var deathArray = ['HOUND', 'DARKNESS', 'STARVATION', 'SPIDER', 'SHENANIGANS', 'TERRORBEAK', 'CRAWLING HORROR', 'BEARGER', 'DEERCLOPS', 'DRAGONFLY', 'SALADMANDER', 'FIRE', 'SHADOW BISHOP', 'SHADOW KNIGHT', 'SHADOW ROOK', 'CLOCKWORK KNIGHT', 'CLOCKWORK ROOK', 'CLOCKWORK BISHOP', 'KOALEFANT', 'TENTACLE', 'GUARD PIG', 'PIG MAN', 'MONSTER MEAT', 'FREEZING', 'PENGULL', 'KLAUS', 'BEE QUEEN', 'BOARILLA', 'RHINOCEBRO SNAPBACK', 'BOARILLA', 'SCORPEON ACID', 'SNORTOISE', 'CROCOMANDER', 'PIT PIG', 'RHINOCEBRO FLATBRIM', 'WIZARDYBUSINESS', 'KARMA', 'CAMEOAPPEARANCE', 'GOAT SLICE', 'EGGFRUIT', 'GRAND FORGE BOARRIOR', 'DARKNESS', 'HOUND', 'TERRORBEAK', 'CRAWLING HORROR', 'SPIDER', 'TENTACLE', 'INHUMANROBOT', 'DARKNESS', 'FROG', 'FREEZING'];
 
 var dancedict = {1: {path: "public/robot1.gif", name: "robot1.gif"},
 2: {path: "public/robot4.gif", name: "robot4.gif"},
@@ -330,12 +330,12 @@ bot.on('message', msg => {
       case 'HAPPYBIRTHDAY':
       case 'HAPPY':
         var birthdayer = "";
-        var message = msg.content.split(' ').slice(1);
-        if (message.length > 0){
+        var bdaymessage = msg.content.split(' ').slice(1);
+        if (bdaymessage.length > 0){
           birthdayer = birthdayer + "#";
-          for (var i = 0; i < message.length; i++){
-            if (message[i].toUpperCase() != "TO" && message[i].toUpperCase() != "BIRTHDAY"){
-              birthdayer = birthdayer + message[i] + "%20";
+          for (var i = 0; i < bdaymessage.length; i++){
+            if (bdaymessage[i].toUpperCase() != "TO" && message[i].toUpperCase() != "BIRTHDAY"){
+              birthdayer = birthdayer + bdaymessage[i] + "%20";
             }
           }
           birthdayer = birthdayer.slice(0, birthdayer.length-3);
@@ -821,13 +821,14 @@ bot.on('message', msg => {
       case 'RSVP':
         var rsvpargs = msg.content.split(' ');
         var comlen = rsvpargs.length;
-        var rsvpmsg = "WHO WILL ATTEND THIS MOMENTOUS OCCASION? REACT WITH PIZZA TO SEAL YOUR FATE";
+        var rsvpmsg = "WHO WILL ATTEND THIS MOMENTOUS OCCASION? REACT WITH PIZZA TO SEAL YOUR FATE\nCONFIRMED ATTENDEES:\n";
         if (comlen > 1){
-          rsvpmsg = "PIZZA DENIZENS, YOU ARE CORDIALLY INVITED TO **" + msg.content.substr(msg.content.indexOf(' ')).toUpperCase() + "**. " + rsvpmsg;
+          rsvpmsg = "PIZZA DENIZENS, YOU ARE CORDIALLY INVITED TO **" + msg.content.substr(msg.content.indexOf(' ') + 1).toUpperCase() + "**. " + rsvpmsg;
         }
         chan.send(rsvpmsg).then(function(message) {
           message.react('🍕')
         }).catch(console.error);
+
       break;
 
       case 'VOTE':
@@ -1127,6 +1128,14 @@ bot.on('message', msg => {
   }
 }
 });
+
+bot.on('messageReactionAdd', (messageReaction, user)){
+  if(messageReaction.emoji == '🍕'){
+    if (messageReaction.users.find('396859791877734410')){ //HAL's ID
+      messageReaction.message.edit('${messageReaction.message.content}' + '\n' + '${user.username}');
+    }
+  }
+}
 
 /*
 bot.on('guildMemberAdd', function(member) {
