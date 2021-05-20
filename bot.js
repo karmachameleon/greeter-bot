@@ -827,7 +827,7 @@ bot.on('message', msg => {
         }
         chan.send(rsvpmsg).then(function(message)) {
           message.react('🍕')
-        }
+        }).catch(console.error);
       break;
 
       case 'VOTE':
