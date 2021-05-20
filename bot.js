@@ -1129,13 +1129,13 @@ bot.on('message', msg => {
 }
 });
 
-bot.on('messageReactionAdd', (messageReaction, user)){
+bot.on('messageReactionAdd', (messageReaction, user) {
   if(messageReaction.emoji == '🍕'){
     if (messageReaction.users.find('396859791877734410')){ //HAL's ID
       messageReaction.message.edit('${messageReaction.message.content}' + '\n' + '${user.username}');
     }
   }
-}
+});
 
 /*
 bot.on('guildMemberAdd', function(member) {
