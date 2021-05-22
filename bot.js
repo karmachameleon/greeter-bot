@@ -112,6 +112,8 @@ ANY: {id:'515983985617403904', subject:'HE', obj:'THEM', deter:'HER', possess:'H
 
 var deathArray = ['HOUND', 'DARKNESS', 'STARVATION', 'SPIDER', 'SHENANIGANS', 'TERRORBEAK', 'CRAWLING HORROR', 'BEARGER', 'DEERCLOPS', 'DRAGONFLY', 'SALADMANDER', 'FIRE', 'SHADOW BISHOP', 'SHADOW KNIGHT', 'SHADOW ROOK', 'CLOCKWORK KNIGHT', 'CLOCKWORK ROOK', 'CLOCKWORK BISHOP', 'KOALEFANT', 'TENTACLE', 'GUARD PIG', 'PIG MAN', 'MONSTER MEAT', 'FREEZING', 'PENGULL', 'KLAUS', 'BEE QUEEN', 'BOARILLA', 'RHINOCEBRO SNAPBACK', 'BOARILLA', 'SCORPEON ACID', 'SNORTOISE', 'CROCOMANDER', 'PIT PIG', 'RHINOCEBRO FLATBRIM', 'WIZARDYBUSINESS', 'KARMA', 'CAMEOAPPEARANCE', 'GOAT SLICE', 'EGGFRUIT', 'GRAND FORGE BOARRIOR', 'DARKNESS', 'HOUND', 'TERRORBEAK', 'CRAWLING HORROR', 'SPIDER', 'TENTACLE', 'INHUMANROBOT', 'DARKNESS', 'FROG', 'FREEZING'];
 
+var killArray = ['WHEELER', 'WALTER', 'WOODIE', 'WILSON', 'WORTOX', 'MAXWELL', 'WORMWOOD', 'WX-78', 'WES', 'WARLY', 'WOODLEGS', 'WEBBER', 'WIGFRID', 'WAGSTAFF', 'WILLOW', 'WICKERBOTTOM', 'WOLFGANG', 'WALANI', 'WILBUR', 'WILBA', 'WINONA', 'KARMA', 'GOAT SLICE', 'INHUMANROBOT', 'WIZARDYBUSINESS', 'CAMEOAPPEARANCE', 'EGGFRUIT', 'WRAGONFLY', 'WOOSE', 'WEERCLOPS', 'WURT', 'WEARGER', 'WENDY'];
+
 var dancedict = {1: {path: "public/robot1.gif", name: "robot1.gif"},
 2: {path: "public/robot4.gif", name: "robot4.gif"},
 3: {path: "public/robotdance2.gif", name: "robotdance2.gif"},
@@ -549,6 +551,14 @@ bot.on('message', msg => {
       case 'BECKON':
         var temptation = cellarcontents[Math.floor(Math.random() * cellarcontents.length)];
         chan.send("COME CLOSER. I HAVE MANY FINE " + temptation + " IN MY CELLAR. WOULD YOU LIKE TO HAVE A LOOK", { files: [{attachment: "public/beckoningwxclaws.jpg", name: "beckoningwxclaws.jpg"}] }).catch(console.error);
+      break
+
+      case 'EVENT':
+      case 'EVENTS':
+      case 'CALENDAR':
+      case 'EVENTCALENDAR':
+        var rawcalendar = bot.channels.get("393840658496094228").messages.fetch("845424344809078835").content;
+        chan.send(rawcalendar).catch(console.error);
       break;
 
       case 'EXOTICBUTTERS':
@@ -640,6 +650,16 @@ bot.on('message', msg => {
         }
         else {
           chan.send(":kissing_heart: " +  msg.content.slice(6).toUpperCase()).catch(console.error);
+        }
+      break;
+
+      case 'KILL':
+        if (msg.content.split(' ').length == 1) {
+          chan.send(msg.content.slice(6).toUpperCase() + " WAS KILLED BY <@" + msg.author.id + ">. THEY BECAME A SPOOKY GHOST!").catch(console.error);
+        }
+        else {
+          var chosenvictim = killArray[Math.floor(Math.random() * killArray.length)];
+          chan.send(chosenvictim + " WAS KILLED BY <@" + msg.author.id + ">. THEY BECAME A SPOOKY GHOST!").catch(console.error);
         }
       break;
 
@@ -828,7 +848,6 @@ bot.on('message', msg => {
         chan.send(rsvpmsg).then(function(message) {
           message.react('🍕')
         }).catch(console.error);
-
       break;
 
       case 'VOTE':
