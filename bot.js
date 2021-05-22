@@ -557,8 +557,11 @@ bot.on('message', msg => {
       case 'EVENTS':
       case 'CALENDAR':
       case 'EVENTCALENDAR':
-        var rawcalendar = bot.channels.cache.get("397067658052239361").messages.fetch("845498345488252959").content;
-        chan.send(rawcalendar).catch(console.error);
+        var calendar = "ROBOT PIZZA PARTY PLAZA EVENT CALENDAR\n\n";
+        bot.channels.cache.get("397067658052239361").messages.fetch("845498345488252959")
+          .then(message => calendar.concat(message.content))
+          .catch(console.error);
+        chan.send(calendar).catch(console.error);
       break;
 
       case 'EXOTICBUTTERS':
