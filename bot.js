@@ -557,7 +557,7 @@ bot.on('message', msg => {
       case 'EVENTS':
       case 'CALENDAR':
       case 'EVENTCALENDAR':
-        var rawcalendar = bot.channels.get("393840658496094228").messages.fetch("845424344809078835").content;
+        var rawcalendar = bot.channels.cache.get("393840658496094228").messages.fetch("845424344809078835").content;
         chan.send(rawcalendar).catch(console.error);
       break;
 
@@ -655,11 +655,11 @@ bot.on('message', msg => {
 
       case 'KILL':
         if (msg.content.split(' ').length == 1) {
-          chan.send(msg.content.slice(6).toUpperCase() + " WAS KILLED BY <@" + msg.author.id + ">. THEY BECAME A SPOOKY GHOST!").catch(console.error);
-        }
-        else {
           var chosenvictim = killArray[Math.floor(Math.random() * killArray.length)];
           chan.send(chosenvictim + " WAS KILLED BY <@" + msg.author.id + ">. THEY BECAME A SPOOKY GHOST!").catch(console.error);
+        }
+        else {
+          chan.send(msg.content.slice(6).toUpperCase() + " WAS KILLED BY <@" + msg.author.id + ">. THEY BECAME A SPOOKY GHOST!").catch(console.error);
         }
       break;
 
