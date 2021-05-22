@@ -557,7 +557,7 @@ bot.on('message', msg => {
       case 'EVENTS':
       case 'CALENDAR':
       case 'EVENTCALENDAR':
-        var rawcalendar = bot.channels.cache.get("393840658496094228").messsages.cache.get("845424344809078835").content;
+        var rawcalendar = bot.channels.cache.get("393840658496094228").messsages.fetch("845424344809078835").content;
         chan.send(rawcalendar).catch(console.error);
       break;
 
