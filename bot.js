@@ -559,9 +559,8 @@ bot.on('message', msg => {
       case 'EVENTCALENDAR':
         bot.channels.cache.fetch("393840658496094228")
           .then(channel => channel.messsages.cache.fetch("845424344809078835"))
-          .then(message => var rawcalendar = message.content)
+          .then(message => chan.send(message.content))
           .catch(console.error);
-        chan.send(rawcalendar).catch(console.error);
       break;
 
       case 'EXOTICBUTTERS':
