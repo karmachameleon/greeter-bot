@@ -559,7 +559,7 @@ bot.on('message', msg => {
       case 'EVENTCALENDAR':
         var calendar = "ROBOT PIZZA PARTY PLAZA EVENT CALENDAR\n\n";
         bot.channels.cache.get("397067658052239361").messages.fetch("845498345488252959")
-          .then(message => {{chan.send(message.content);})
+          .then(message => {chan.send(message.content);})
           .catch(console.error);
       break;
 
