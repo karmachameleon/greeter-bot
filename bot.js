@@ -562,7 +562,7 @@ bot.on('message', msg => {
               var messageBody = message.content.slice(message.content.indexOf('\n'), message.content.lastIndexOf('\n'));
               var calendarEmbed = new Discord.MessageEmbed()
               	.setColor('#8d43ac')
-              	.setTitle(messageByLine[1])
+              	.setTitle(messageByLine[0])
               	.setDescription(messageBody)
               	.setThumbnail('https://cdn.discordapp.com/emojis/746490724488315020.png')
               	.setFooter(messageByLine[messageByLine.length - 1]);
