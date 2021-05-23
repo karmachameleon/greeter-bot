@@ -567,7 +567,7 @@ bot.on('message', msg => {
               	.setThumbnail('https://cdn.discordapp.com/emojis/746490724488315020.png')
               	.setFooter(messageByLine[messageByLine.length - 1]);
 
-              channel.send(calendarEmbed);})
+              chan.send(calendarEmbed);})
           .catch(console.error);
       break;
 
