@@ -553,12 +553,21 @@ bot.on('message', msg => {
         chan.send("COME CLOSER. I HAVE MANY FINE " + temptation + " IN MY CELLAR. WOULD YOU LIKE TO HAVE A LOOK", { files: [{attachment: "public/beckoningwxclaws.jpg", name: "beckoningwxclaws.jpg"}] }).catch(console.error);
       break
 
-      case 'EVENT':
+      case 'EVENT': //.then(message => {chan.send(message.content);})
       case 'EVENTS':
       case 'CALENDAR':
       case 'EVENTCALENDAR':
         bot.channels.cache.get("594343014151880718").messages.fetch("846055393347371078")
-          .then(message => {chan.send(message.content);})
+          .then(message => {var messageByLine = message.split('\n');
+              var messageBody = message.slice(message.indexOf('\n'), message.lastIndexOf('\n'));
+              var calendarEmbed = new Discord.MessageEmbed()
+              	.setColor('#8d43ac')
+              	.setTitle(messageByLine[1])
+              	.setDescription(messageBody)
+              	.setThumbnail('https://cdn.discordapp.com/emojis/746490724488315020.png')
+              	.setFooter(messageByLine[messageByLine.length - 1]);
+
+              channel.send(calendarEmbed);})
           .catch(console.error);
       break;
 
