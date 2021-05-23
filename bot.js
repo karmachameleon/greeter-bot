@@ -557,8 +557,7 @@ bot.on('message', msg => {
       case 'EVENTS':
       case 'CALENDAR':
       case 'EVENTCALENDAR':
-        var calendar = "ROBOT PIZZA PARTY PLAZA EVENT CALENDAR\n\n";
-        bot.channels.cache.get("397067658052239361").messages.fetch("845498345488252959")
+        bot.channels.cache.get("594343014151880718").messages.fetch("846055393347371078")
           .then(message => {chan.send(message.content);})
           .catch(console.error);
       break;
