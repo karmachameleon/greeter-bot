@@ -558,8 +558,8 @@ bot.on('message', msg => {
       case 'CALENDAR':
       case 'EVENTCALENDAR':
         bot.channels.cache.get("594343014151880718").messages.fetch("846055393347371078")
-          .then(message => {var messageByLine = message.split('\n');
-              var messageBody = message.slice(message.indexOf('\n'), message.lastIndexOf('\n'));
+          .then(message => {var messageByLine = message.content.split('\n');
+              var messageBody = message.content.slice(message.content.indexOf('\n'), message.content.lastIndexOf('\n'));
               var calendarEmbed = new Discord.MessageEmbed()
               	.setColor('#8d43ac')
               	.setTitle(messageByLine[1])
