@@ -336,7 +336,7 @@ bot.on('message', msg => {
         if (bdaymessage.length > 0){
           birthdayer = birthdayer + "#";
           for (var i = 0; i < bdaymessage.length; i++){
-            if (bdaymessage[i].toUpperCase() != "TO" && message[i].toUpperCase() != "BIRTHDAY"){
+            if (bdaymessage[i].toUpperCase() != "TO" && bdaymessage[i].toUpperCase() != "BIRTHDAY"){
               birthdayer = birthdayer + bdaymessage[i] + "%20";
             }
           }
@@ -560,6 +560,7 @@ bot.on('message', msg => {
         bot.channels.cache.get("594343014151880718").messages.fetch("846055393347371078")
           .then(message => {var messageByLine = message.content.split('\n');
               var messageBody = message.content.slice(message.content.indexOf('\n'), message.content.lastIndexOf('\n'));
+
               var calendarEmbed = new Discord.MessageEmbed()
               	.setColor('#8d43ac')
               	.setTitle(messageByLine[0])
