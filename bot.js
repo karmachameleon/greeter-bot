@@ -103,7 +103,7 @@ var kittiesToCompliment = ['ALAN', 'STELLA', 'RIKU', 'GUS', 'STEVE',  'FANGBATTL
 var timezoneDict = { AKST:parseInt(-9), AKDT:parseInt(-8), PST:parseInt(-8), PDT:parseInt(-7), MST:parseInt(-7), MDT:parseInt(-6), CST:parseInt(-6), CDT:parseInt(-5), EST:parseInt(-5), EDT:parseInt(-4), UTC_12:parseInt(-12), UTC_11:parseInt(-11), UTC_10:parseInt(-10), UTC_930:parseInt(-9), UTC_9:parseInt(-9), UTC_8:parseInt(-8), UTC_7:parseInt(-7), UTC_6:parseInt(-6), UTC_5:parseInt(-5), UTC_4:parseInt(-4), UTC_3:parseInt(-3), UTC_330:parseInt(-3), UTC_2:parseInt(-2), UTC_230:parseInt(-2), UTC_1:parseInt(-1), UTC:parseInt(0), UTC14:14, UTC1345:13, UTC1245:12, UTC12:12, UTC11:11, UTC10:10, UTC1030:10, UTC9:9, UTC930:9, UTC845:8, UTC7:7, UTC6:6, UTC630:6, UTC545:5, UTC530:5, UTC5:5, UTC430:4, UTC4:4, UTC330:3, UTC3:3, UTC2:2, UTC1:1, GMT:0, CLEFITA:parseInt(-3), DARKCLEFITA:parseInt(-3) };
 
 var roleDict = { WHEELER: '571127983629402115', WAGSTAFF: '571127844714053664', WORTOX: '559902224239558720', WILSON:'411363757541818370', WILLOW:'411363945064955906', WOLFGANG:'411364065114324994', WENDY:'411364120634589184', ABIGAIL:'411364120634589184', WX78:'411364156210544641', WX:'411364156210544641', WICKERBOTTOM:'411364227270311937', WICKER:'411364227270311937', WOODIE:'411364267263262741', LUCY:'411364267263262741', WES:'411364333570752525', MAXWELL:'411364372125057024',
-MAX:'411364372125057024', MAXY:'411364372125057024', WIGFRID:'411364509987635210', WEBBER:'411368557859831818', WALANI:'411364606926258176', WARLY:'411364679051640832', WOODLEGS:'411368694325968896', WILBUR:'411364731526447104', WINONA:'411364545089634316', NONA:'411364545089634316', WILLIAM:'411366521550405633', CHARLIE:'411366032637427722', THEM:'411365856162086913', SKITS:'411365856162086913', WURT:'640583688488353796', WALTER: '722203293950148711',
+MAX:'411364372125057024', MAXY:'411364372125057024', WIGFRID:'411364509987635210', WEBBER:'411368557859831818', WALANI:'411364606926258176', WARLY:'411364679051640832', WOODLEGS:'411368694325968896', WILBUR:'411364731526447104', WINONA:'411364545089634316', NONA:'411364545089634316', WILLIAM:'411366521550405633', CHARLIE:'411366032637427722', THEM:'411365856162086913', SKITS:'411365856162086913', WURT:'640583688488353796', WALTER: '722203293950148711', WANDA: '885299573222952991',
 SHADOWS:'411365856162086913', GRUE:'411365951624445963', WIENER:'411365822041292800', WEINER:'411365822041292800', SERVANT:'411368787007373313', OC:'411364792117493760', WILBA: '515685537647165451', WORMWOOD: '547683469161922560', PING: '722287101466378280', STREAM: '738452668476817539', GAME: '784570268089450546', BOBROSS: '817910742224863283', ROSS: '817910742224863283', GMOD: '786305053433659432', TOON: '786304640978518016', CRAFT: '786330639678832690', MINECRAFT: '786330639678832690' };
 
 var nounDict = { SHE: {id:'515983960606507024', subject:'SHE', obj:'HER', deter:'HER', possess:'HERS', reflex:'HERSELF', have:'HAS'}, HE: {id:'515983432975908907', subject:'HE', obj:'HIM', deter:'HIS', possess:'HIS', reflex:'HIMSELF', have:'HAS'}, THEY: {id:'515983966667276360', subject:'THEY', obj:'THEM', deter:'THEIR', possess:'THEIRS', reflex:'THEMSELF', have:'HAVE'},
@@ -169,7 +169,8 @@ OOTWHEELER : {path:"public/wheeler_outoftouch.gif", name:"wheeler_outoftouch.gif
 OOTWILSON : {path:"public/wilson_outoftouch.gif", name:"wilson_outoftouch.gif"},
 OOTWOOSE : {path:"public/woose_outoftouch.gif", name:"woose_outoftouch.gif"},
 OOTWX : {path:"public/wx_outofbutter.gif", name:"wx_outofbutter.gif"},
-ENGINEER : {path:"public/engi_kazotsky.gif", name:"engi_kazotsky.gif"}
+ENGINEER : {path:"public/engi_kazotsky.gif", name:"engi_kazotsky.gif"},
+WANDA : {path:"public/wandanite_defaultdance.gif", name:"wandanite_defaultdance.gif"}
 };
 var fortnitegifs = Object.keys(fortnitedict);
 
@@ -278,6 +279,25 @@ function stripExclamations(s){
 function decolonize(s){
   var args = s.replace(":"," ");
   return args.split(' ');
+}
+
+function calendarLineTimezone(s, newzone){
+  if (isNumber(s.charAt(0))){
+
+  }
+  else { return s; }
+}
+
+function calendarTimezone(s, zone){
+  if (!isNumber(zone)){
+    if (timezoneDict.hasOwnProperty(zone)){
+      zone = timezoneDict[zone];
+    }
+    else { return s; }
+  }
+
+  lines = s.split('\n');
+  newLines = lines.map(l => calendarLineTimezone(l, zone));
 }
 
 var newJokeThreshold = 16;
