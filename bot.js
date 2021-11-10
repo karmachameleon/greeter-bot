@@ -896,6 +896,7 @@ bot.on('message', msg => {
         var opcount = 0;
         chan.send("YOUR ORGANIC INPUT IS DEFINITELY VALUED").then(function (message) {
           if (optotal == 1){
+            opcount++;
             message.react('👎')
             message.react('👍')
           }
