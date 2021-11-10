@@ -250,6 +250,8 @@ var cellarcontents = ["ROBOTS", "PIZZAS", "THULECITE ARTIFACTS", "TRINKETS", "LO
 var giftArray = ['A PILE OF GEARS', 'A SEWING KIT', 'A RED GEM', 'A BLUE GEM', 'A GREEN GEM', 'AN ORANGE GEM', 'A YELLOW GEM', 'A BEEFALO HAT', 'A WINTER HAT', 'RABBIT EARMUFFS', 'A PAIR OF MOGGLES', 'A PIECE OF FLINT', 'A MOONROCK', 'SPIDER SILK', 'NITRE', 'A COMPASS', 'A WALKING CANE', 'A PANFLUTE', 'A TAM O\' SHANTER', 'A CAT CAP'];
 var lastGifted = 0;
 
+var emojiDetector = /(\p{Emoji_Presentation}|\p{Extended_Pictographic})/gu;
+
 function isNumber(n) {
   return !isNaN(parseFloat(n)) && isFinite(n);
 }
@@ -888,8 +890,9 @@ bot.on('message', msg => {
       break;
 
       case 'VOTE':
+        var voteargs = msg.content.matchAll(emojiDetector);
         console.log(msg.content);
-        var voteargs = msg.content.split(' ');
+        console.log(voteargs);
         var optotal = voteargs.length;
         var optcount = 1;
         chan.send("YOUR ORGANIC INPUT IS DEFINITELY VALUED").then(function (message) {
