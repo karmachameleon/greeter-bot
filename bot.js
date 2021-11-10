@@ -888,6 +888,7 @@ bot.on('message', msg => {
       break;
 
       case 'VOTE':
+        console.log(msg.content);
         var voteargs = msg.content.split(' ');
         var optotal = voteargs.length;
         var optcount = 1;
