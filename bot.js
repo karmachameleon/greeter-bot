@@ -891,23 +891,24 @@ bot.on('message', msg => {
 
       case 'VOTE':
         var voteargs = msg.content.matchAll(emojiDetector);
-        console.log(msg.content);
-        console.log(voteargs);
-        var optotal = voteargs.length;
-        var optcount = 1;
+        var optotal = msg.content.split(' ').length;
+        var opcount = 0;
         chan.send("YOUR ORGANIC INPUT IS DEFINITELY VALUED").then(function (message) {
           if (optotal == 1){
             message.react('👎')
             message.react('👍')
           }
           else{
-            while (optcount < optotal){
-              message.react(voteargs[optcount]);
-              optcount++;
+            for (let option of voteargs){
+              opcount++;
+              message.react(option[0]);
             }
           }
         })
         .catch(console.error);
+        if (opcount == 0){
+          chan.send("THIS COMMAND CAN ONLY READ STANDARD EMOJIS, NOT WHATEVER YOU JUST SENT. SORRY. TRY AGAIN WITH 🍕 OR SOMETHING")
+        }
       break;
 
       case 'YESORNO':
