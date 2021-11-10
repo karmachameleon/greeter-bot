@@ -1192,7 +1192,7 @@ bot.on('message', msg => {
 });
 
 bot.on('messageReactionAdd', (messageReaction, user) => {
-  if (!user.bot){
+  if (!user.bot && messageReaction.message.content.substring(0,3) === "WHO"){
     if(messageReaction.emoji.name == '🍕'){
       //console.log("pizza spotted");
       if (messageReaction.me){
