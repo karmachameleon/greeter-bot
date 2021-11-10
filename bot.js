@@ -890,6 +890,7 @@ bot.on('message', msg => {
       break;
 
       case 'VOTE':
+        console.log(msg.content);
         var voteargs = msg.content.matchAll(emojiDetector);
         var optotal = msg.content.split(' ').length;
         var opcount = 0;
@@ -904,11 +905,10 @@ bot.on('message', msg => {
               message.react(option[0]);
             }
           }
-        })
-        .catch(console.error);
-        if (opcount == 0){
-          chan.send("THIS COMMAND CAN ONLY READ STANDARD EMOJIS, NOT WHATEVER YOU JUST SENT. SORRY. TRY AGAIN WITH 🍕 OR SOMETHING")
-        }
+          if (opcount == 0){
+            chan.send("THIS COMMAND CAN ONLY READ STANDARD EMOJIS, NOT WHATEVER YOU JUST SENT. SORRY. TRY AGAIN WITH 🍕 OR SOMETHING").catch(console.error);
+          }
+        }).catch(console.error);
       break;
 
       case 'YESORNO':
