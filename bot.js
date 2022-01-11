@@ -252,8 +252,6 @@ var lastGifted = 0;
 
 var emojiDetector = /(\p{Emoji_Presentation}|\p{Extended_Pictographic})/gu;
 
-const belovedbot = bot.emojis.cache.get('397123738522484736');
-const fingerguns = bot.emojis.cache.get('930482212497928253');
 const derodab = bot.emojis.cache.get('404804513766047754');
 
 function isNumber(n) {
@@ -634,11 +632,13 @@ bot.on('message', msg => {
   	  case 'AYY':
   	  case 'AYYY':
   	  case 'AYYYY':
-  		  chan.send('<:wxfingerguns:930482212497928253> HOT CHA CHA').catch(console.error);
+        const wxfingerguns = bot.emojis.cache.get('930482212497928253');
+  		  chan.send('${wxfingerguns} HOT CHA CHA').catch(console.error);
   	  break;
 
       case 'FLEX':
-        chan.send(":mechanical_arm: ${belovedbot}").catch(console.error);
+        const belovedbot = bot.emojis.cache.get('397123738522484736');
+        chan.send(':mechanical_arm: ${belovedbot}').catch(console.error);
       break;
 
       case 'FORTNITE':
