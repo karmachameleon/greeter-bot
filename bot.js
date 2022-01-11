@@ -630,7 +630,7 @@ bot.on('message', msg => {
   	  case 'AYY':
   	  case 'AYYY':
   	  case 'AYYYY':
-  		  chan.send('<:wxfingergun_right:396526665057959956> <:wxfingergun_right:396526665057959956> HOT CHA CHA').catch(console.error);
+  		  chan.send('<:wxfingerguns:930482212497928253> HOT CHA CHA').catch(console.error);
   	  break;
 
       case 'FLEX':
