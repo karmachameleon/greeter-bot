@@ -252,8 +252,6 @@ var lastGifted = 0;
 
 var emojiDetector = /(\p{Emoji_Presentation}|\p{Extended_Pictographic})/gu;
 
-const derodab = bot.emojis.cache.get('404804513766047754');
-
 function isNumber(n) {
   return !isNaN(parseFloat(n)) && isFinite(n);
 }
@@ -549,6 +547,7 @@ bot.on('message', msg => {
 
       case 'DAB':
       case 'DERODAB':
+        const overlorddab = bot.emojis.cache.get('404804513766047754');
         chan.send('${overlorddab}').catch(console.error);
       break;
 
@@ -604,7 +603,8 @@ bot.on('message', msg => {
 
       case 'EXOTICBUTTERS':
       case 'EXTOICBUTTERS':
-        chan.send('<:wxbutter:393885814074900481>').catch(console.error);
+        const wxbutter = bot.emojis.cache.get('393885814074900481');
+        chan.send('${wxbutter}').catch(console.error);
       break;
 
       case 'EVILSMILE':
@@ -632,8 +632,7 @@ bot.on('message', msg => {
   	  case 'AYY':
   	  case 'AYYY':
   	  case 'AYYYY':
-        const wxfingerguns = bot.emojis.cache.get('930482212497928253');
-  		  chan.send('${wxfingerguns} HOT CHA CHA').catch(console.error);
+  		  chan.send('<:wxfingerguns:895523257464287283> HOT CHA CHA').catch(console.error);
   	  break;
 
       case 'FLEX':
