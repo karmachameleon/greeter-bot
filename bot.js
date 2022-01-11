@@ -426,7 +426,7 @@ bot.on('message', msg => {
               var choice2 = complimentsArray[Math.floor(Math.random() * complimentsArray.length)];
             }
           }
-          else if (recipient === "HAL" || recipient === "YOURSELF" || recipient === "<:BELOVEDBOT:397123738522484736>" || recipient === "<@396859791877734410>" || recipient === "@HAL") {
+          else if (recipient === "HAL" || recipient === "YOURSELF" || recipient === "<:BELOVEDBOT:910986556871946360>" || recipient === "<@396859791877734410>" || recipient === "@HAL") {
             var selfCompliment = selfComplimentsArray[Math.floor(Math.random() * selfComplimentsArray.length)];
             chan.send(selfCompliment).catch(console.error);
             break;
@@ -547,8 +547,7 @@ bot.on('message', msg => {
 
       case 'DAB':
       case 'DERODAB':
-        const overlorddab = bot.emojis.cache.get('404804513766047754');
-        chan.send('${overlorddab}').catch(console.error);
+        chan.send('<:overlorddab:404804513766047754>').catch(console.error);
       break;
 
       case 'DANCE':
@@ -603,8 +602,7 @@ bot.on('message', msg => {
 
       case 'EXOTICBUTTERS':
       case 'EXTOICBUTTERS':
-        const wxbutter = bot.emojis.cache.get('393885814074900481');
-        chan.send('${wxbutter}').catch(console.error);
+        chan.send('<:wxbutter:393885814074900481>').catch(console.error);
       break;
 
       case 'EVILSMILE':
@@ -636,8 +634,7 @@ bot.on('message', msg => {
   	  break;
 
       case 'FLEX':
-        const belovedbot = bot.emojis.cache.get('397123738522484736');
-        chan.send(':mechanical_arm: ${belovedbot}').catch(console.error);
+        chan.send(':mechanical_arm: <:belovedbot:910986556871946360>').catch(console.error);
       break;
 
       case 'FORTNITE':
