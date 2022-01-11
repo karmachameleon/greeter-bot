@@ -252,6 +252,10 @@ var lastGifted = 0;
 
 var emojiDetector = /(\p{Emoji_Presentation}|\p{Extended_Pictographic})/gu;
 
+const belovedbot = bot.emojis.cache.get('397123738522484736');
+const fingerguns = bot.emojis.cache.get('930482212497928253');
+const derodab = bot.emojis.cache.get('404804513766047754');
+
 function isNumber(n) {
   return !isNaN(parseFloat(n)) && isFinite(n);
 }
@@ -547,7 +551,7 @@ bot.on('message', msg => {
 
       case 'DAB':
       case 'DERODAB':
-        chan.send('<:overlorddab:404804513766047754>').catch(console.error);
+        chan.send('${overlorddab}').catch(console.error);
       break;
 
       case 'DANCE':
@@ -634,7 +638,7 @@ bot.on('message', msg => {
   	  break;
 
       case 'FLEX':
-        chan.send(":mechanical_arm: <:belovedbot:397123738522484736>").catch(console.error);
+        chan.send(":mechanical_arm: ${belovedbot}").catch(console.error);
       break;
 
       case 'FORTNITE':
