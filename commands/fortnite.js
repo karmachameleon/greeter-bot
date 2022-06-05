@@ -49,6 +49,7 @@ ENGINEER : {path:"public/engi_kazotsky.gif", name:"engi_kazotsky.gif"},
 WANDA : {path:"public/wandanite_defaultdance.gif", name:"wandanite_defaultdance.gif"}
 };
 var fortnitegifs = Object.keys(fortniteDict);
+const { MessageAttachment } = require('discord.js');
 
 module.exports = {
   data: new SlashCommandBuilder()

@@ -7,7 +7,7 @@ module.exports = {
   async execute(interaction) {
     //console.log(interaction.member.roles);
     //!interaction.member.roles.cache.has('538506263236182026')
-    const oldbie = await interaction.member.roles.cache.has('538506263236182026');
+    const oldbie = await interaction.member._roles.has('538506263236182026');
     if (!oldbie) {
       //if (!interaction.member.roles.cache.has('538506263236182026')){
       await interaction.guild.roles.fetch('538506263236182026')
@@ -18,7 +18,7 @@ module.exports = {
       .catch(console.error);
     }
     else {
-      await interaction.reply({ content: "YOU HAVE ALREADY ASSIMILATED. I CANNOT ASSIMILATE YOU MORE!", ephemeral: true})
+      await interaction.reply({ content: "YOU HAVE ALREADY ASSIMILATED. GIVE SOMEONE ELSE A TURN", ephemeral: true})
       .catch(console.error);
     }
   },
