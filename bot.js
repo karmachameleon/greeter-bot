@@ -28,6 +28,7 @@ bot.on('interactionCreate', async interaction => {
 
   const command = bot.commands.get(interaction.commandName);
   if (!command) return;
+
   try {
     await command.execute(interaction);
   } catch (error) {
