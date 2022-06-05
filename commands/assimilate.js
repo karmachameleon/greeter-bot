@@ -14,7 +14,8 @@ module.exports = {
       .catch(console.error);
     }
     else {
-      return;
+      await interaction.reply({ content: "YOU HAVE ALREADY ASSIMILATED. I CANNOT ASSIMILATE YOU MORE!", ephemeral: true})
+      .catch(console.error);
     }
   },
 };

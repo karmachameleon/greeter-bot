@@ -32,7 +32,7 @@ module.exports = {
       else {
         var set = nounDict[name];
         await interaction.guild.roles.fetch(set.id)
-        .then (role => interaction.member.roles.add(role))
+        .then (role => interaction.member.roles.remove(role))
         .then (interaction.reply('<@' + interaction.member.id + '>\'S PRONOUNS HAVE BEEN UPDATED. I HOPE THAT YOUR EXPERIENCE HAS GIVEN YOU GREATER UNDERSTANDING OF THAT PERPLEXING NOTION, "GENDER"'))
         .catch(console.error);
       }
