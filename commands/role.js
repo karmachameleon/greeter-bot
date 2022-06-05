@@ -17,7 +17,7 @@ module.exports = {
     .setDescription('Add a character role.')
     .addStringOption(option => option.setName('name').setDescription('Name of the desired role')),
   async execute(interaction) {
-    const name = interaction.options.getString('name');
+    const name = interaction.options.getString('name').toUpperCase();
     if (!name){
       await interaction.reply('RECOGNIZED ROLES: ' + roleList)
       .catch(console.error);
