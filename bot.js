@@ -720,7 +720,7 @@ bot.on('message', msg => {
       break;
 
       case 'PIZZA':
-        chan.send(':pizza:').catch(console.error);
+        chan.send({ content: ':pizza:'}).catch(console.error);
       break;
 
       case 'POSITIVE':
