@@ -10,7 +10,7 @@ logger.add(logger.transports.Console, {
 logger.level = 'debug';
 // Initialize Discord Bot
 const myIntents = new Intents(268758080);
-
+console.log(myIntents.serialize());
 var bot = new Client({intents: myIntents});
 
 var complimentsArray = ['YOU PERFORM YOUR FUNCTIONS ADEQUATELY',
