@@ -337,8 +337,10 @@ bot.on('disconnect', function(errMsg, code) {
 });
 
 bot.on('messageCreate', msg => {
+  console.log("Message Received");
     // listen for messages that will start with `!`
   if (msg.content.substring(0, 1) == '!') {
+    console.log("I heard you!");
     var args = msg.content.substring(1).split(' ');
     var cmd = args[0].toUpperCase();
     var chan = msg.channel;
