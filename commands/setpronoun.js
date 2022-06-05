@@ -18,12 +18,13 @@ module.exports = {
     .setDescription('Add a pronoun role.')
     .addStringOption(option => option.setName('name').setDescription('Object form of the desired pronoun set (for example he, she, they), or "any".')),
   async execute(interaction) {
-    const name = interaction.options.getString('name').toUpperCase();
+    const name = interaction.options.getString('name');
     if (!name){
       await interaction.reply('**RECOGNIZED PRONOUN ROLES:**\n ' + roleList)
       .catch(console.error);
     }
     else {
+      name = name.toUpperCase();
       if(!nounDict.hasOwnProperty(name)){
         await interaction.reply('I DO NOT RECOGNIZE THAT PRONOUN. PLEASE USE THE SUBJECT FORM OF YOUR CHOSEN PRONOUN (FOR EXAMPLE SHE, HE, THEY); IF YOUR PRONOUNS ARE NOT AVAILABLE, PING KARMA OR ANOTHER MOD TO PETITION FOR INCLUSION')
         .catch(console.error);

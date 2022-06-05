@@ -23,6 +23,7 @@ module.exports = {
       .catch(console.error);
     }
     else {
+      name = name.toUpperCase();
       if(!roleDict.hasOwnProperty(name)){
         await interaction.reply('THAT IS NOT A CHARACTER I RECOGNIZE.\nIF YOU ARE TRYING TO REMOVE PRONOUNS, USE THE COMMAND **/REMOVEPRONOUN** INSTEAD')
         .catch(console.error);

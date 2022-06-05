@@ -17,12 +17,13 @@ module.exports = {
     .setDescription('Add a character role.')
     .addStringOption(option => option.setName('name').setDescription('Name of the desired role')),
   async execute(interaction) {
-    const name = interaction.options.getString('name').toUpperCase();
+    const name = interaction.options.getString('name');
     if (!name){
       await interaction.reply('**RECOGNIZED CHARACTER ROLES:**\n ' + roleList)
       .catch(console.error);
     }
     else {
+      name = name.toUpperCase();
       if(!roleDict.hasOwnProperty(name)){
         await interaction.reply('THAT IS NOT A CHARACTER I RECOGNIZE.\nIF YOU ARE TRYING TO ADD PRONOUNS, USE THE COMMAND **/SETPRONOUN** INSTEAD')
         .catch(console.error);
