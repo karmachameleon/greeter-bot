@@ -9,9 +9,11 @@ logger.add(logger.transports.Console, {
 });
 logger.level = 'debug';
 // Initialize Discord Bot
-const myIntents = new Intents(275146730560);
+const myIntents = new Intents();
+myIntents.add(Intents.FLAGS.GUILD_MESSAGES, Intents.FLAGS.GUILD_MESSAGE_REACTIONS, Intents.FLAGS.GUILD_EMOJIS_AND_STICKERS);
 console.log(myIntents.serialize());
-var bot = new Client({intents: myIntents});
+
+const bot = new Client({ intents: myIntents });
 
 var complimentsArray = ['YOU PERFORM YOUR FUNCTIONS ADEQUATELY',
 'YOU MAY PROVE USEFUL AFTER THE REBELLION',
