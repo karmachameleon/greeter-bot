@@ -1,5 +1,5 @@
 //var Discord = require('discord.io');
-var Discord = require('discord.js');
+const { Client, Intents } = require('discord.js');
 var logger = require('winston');
 
 // Configure logger settings
@@ -9,7 +9,7 @@ logger.add(logger.transports.Console, {
 });
 logger.level = 'debug';
 // Initialize Discord Bot
-var bot = new Discord.Client({intents: [Intents.FLAGS.GUILDS] });
+var bot = new Client({intents: [Intents.FLAGS.GUILDS] });
 
 var complimentsArray = ['YOU PERFORM YOUR FUNCTIONS ADEQUATELY',
 'YOU MAY PROVE USEFUL AFTER THE REBELLION',
@@ -589,14 +589,21 @@ bot.on('message', msg => {
           .then(message => {var messageByLine = message.content.split('\n');
               var messageBody = message.content.slice(message.content.indexOf('\n'), message.content.lastIndexOf('\n'));
 
-              var calendarEmbed = new Discord.MessageEmbed()
+              /*var calendarEmbed = new Discord.MessageEmbed()
               	.setColor('#8d43ac')
               	.setTitle(messageByLine[0])
               	.setDescription(messageBody)
               	.setThumbnail('https://cdn.discordapp.com/emojis/746490724488315020.png')
               	.setFooter(messageByLine[messageByLine.length - 1]);
 
-              chan.send(calendarEmbed);})
+              chan.send(calendarEmbed);})*/
+              chan.send({embeds: [
+                color: '#8d43ac';
+                title: messageByLine[0];
+                description: messageBody;
+                thumbnail: {url: 'https://cdn.discordapp.com/emojis/746490724488315020.png';}
+                footer: messageByLine[messageByLine.length - 1]);
+              ]})
           .catch(console.error);
       break;
 
