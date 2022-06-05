@@ -59,10 +59,11 @@ module.exports = {
   async execute(interaction) {
     var userchoice = interaction.options.getString('userchoice');
     var fortchoice = fortnitegifs[Math.floor(Math.random() * fortnitegifs.length)];
-    //console.log(fortchoice);
+    console.log(userchoice);
     var fortattach = new MessageAttachment(fortniteDict[fortchoice].path);
     var fortembed = { image: { url: 'attachment://' + fortniteDict[fortchoice].name, }, };
     if (!userchoice){
+      console.log("No choice");
       await interaction.reply({ embeds: [fortembed], files: [fortattach] })
       .catch(console.error);
     }
