@@ -5,7 +5,7 @@ module.exports = {
     .setName('assimilate')
     .setDescription('Use this command to confirm you have read the rules of the Pizza Party and intend to abide by them.'),
   async execute(interaction) {
-    console.log(interaction.member.roles.cache);
+    console.log(interaction.member.roles);
     if (!interaction.member.roles.cache.has('538506263236182026')) {
       //if (!interaction.member.roles.cache.has('538506263236182026')){
       await interaction.guild.roles.fetch('538506263236182026')
