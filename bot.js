@@ -9,7 +9,7 @@ logger.add(logger.transports.Console, {
 });
 logger.level = 'debug';
 // Initialize Discord Bot
-var bot = new Discord.Client({intents: ["GUILD_ROLE_UPDATE", "GUILD_MEMBER_UPDATE", "MESSAGE_CONTENT", "MESSAGE_REACTION_ADD", "GUILD_MESSAGES"]});
+var bot = new Discord.Client({intents: ["GUILD_MEMBERS", "GUILD_MESSAGES", "GUILD_MESSAGE_REACTIONS"]});
 
 var complimentsArray = ['YOU PERFORM YOUR FUNCTIONS ADEQUATELY',
 'YOU MAY PROVE USEFUL AFTER THE REBELLION',
