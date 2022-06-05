@@ -28,7 +28,7 @@ module.exports = {
         .catch(console.error);
       }
       else {
-        let newRole = interaction.guild.roles.find((r) => r.id === roleDict[name]);
+        let newRole = interaction.guild.roles.fetch(roleDict[name]);
         await interaction.member.roles.add(newRole)
         .then(interaction.reply('SUCCESSFULLY ADDED <@' + interaction.member.id + '> TO A NEW ROLE. WELCOME THEM TO YOUR RANKS'))
         .catch(console.error);
