@@ -5,6 +5,7 @@ module.exports = {
     .setName('pizza')
     .setDescription('Serves you a delicious slice of pizza.'),
   async execute(interaction) {
-    await interaction.reply(':pizza:');
+    await interaction.reply(':pizza:')
+    .catch(console.error);
   },
 };
