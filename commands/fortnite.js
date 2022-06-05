@@ -1,6 +1,6 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
 
-var fortnitedict = { PEARL: {path:"public/hermitcrab_tango.gif", name:"hermitcrab_tango.gif"},
+var fortniteDict = { PEARL: {path:"public/hermitcrab_tango.gif", name:"hermitcrab_tango.gif"},
 BUTTERCRAB: {path:"public/wxbutteredcrab.gif", name:"wxbutteredcrab.gif"},
 ABIGAIL: {path:"public/abigail_dance.gif", name:"abigail_dance.gif"},
 WEARGER: {path:"public/wearger_defaultdance.gif", name:"wearger_defaultdance.gif"},
@@ -48,7 +48,7 @@ OOTWX : {path:"public/wx_outofbutter.gif", name:"wx_outofbutter.gif"},
 ENGINEER : {path:"public/engi_kazotsky.gif", name:"engi_kazotsky.gif"},
 WANDA : {path:"public/wandanite_defaultdance.gif", name:"wandanite_defaultdance.gif"}
 };
-var fortnitegifs = Object.keys(fortnitedict);
+//var fortnitegifs = Object.keys(fortnitedict);
 
 module.exports = {
   data: new SlashCommandBuilder()
@@ -65,7 +65,7 @@ module.exports = {
     }
     else {
       name = name.toUpperCase();
-      if (!fortnitedict.hasOwnProperty(name)){
+      if (!fortniteDict.hasOwnProperty(name)){
         await interaction.reply({ attachment: fortattach })
         .catch(console.error);
       }
