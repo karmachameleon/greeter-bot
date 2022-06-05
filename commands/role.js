@@ -23,9 +23,16 @@ module.exports = {
       .catch(console.error);
     }
     else {
-      await interaction.member.roles.add(roleDict[name])
-      .then(interaction.reply('SUCCESSFULLY ADDED <@' + interaction.member.id + '> TO A NEW ROLE. WELCOME THEM TO YOUR RANKS'))
-      .catch(console.error);
+      if(!roleDict.hasOwnProperty(name)){
+        await interaction.reply('THAT IS NOT A CHARACTER I RECOGNIZE.\nIF YOU ARE TRYING TO ADD PRONOUNS, USE THE COMMAND **/SETPRONOUN** INSTEAD')
+        .catch(console.error);
+      }
+      else {
+        var newRole = interaction.options.getRole(roleDict[name]);
+        await interaction.member.roles.add(newRole)
+        .then(interaction.reply('SUCCESSFULLY ADDED <@' + interaction.member.id + '> TO A NEW ROLE. WELCOME THEM TO YOUR RANKS'))
+        .catch(console.error);
+      }
     }
   },
 };
