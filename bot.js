@@ -9,7 +9,7 @@ logger.add(logger.transports.Console, {
 });
 logger.level = 'debug';
 // Initialize Discord Bot
-const myIntents = new Intents(268758080);
+const myIntents = new Intents(275146730560);
 console.log(myIntents.serialize());
 var bot = new Client({intents: myIntents});
 
@@ -1251,7 +1251,7 @@ app.use(express.static(__dirname + '/public'));
 app.get('/', (request, response) => {
     response.render('index');
 });
-
+/*
 app.get('/pets', (request, response) => {
     response.render('pets');
 });
@@ -1262,7 +1262,7 @@ app.get('/robots', (request, response) => {
 
 app.use(function(request,response) {
     response.status(404).render("404");
-});
+});*/
 
 app.listen(port, () => {
     // will echo 'Our app is running on http://localhost:5000 when run locally'
