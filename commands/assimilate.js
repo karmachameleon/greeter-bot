@@ -12,7 +12,7 @@ module.exports = {
       //if (!interaction.member.roles.cache.has('538506263236182026')){
       await interaction.guild.roles.fetch('538506263236182026')
       .then(role => interaction.member.roles.add(role))
-      catch(console.error);
+      .catch(console.error);
       await(interaction.guild.channels.get("397067658052239361"))
       .then(channel => channel.send('<@' + interaction.member.id + '> DETECTED. YOU HAVE BEEN ASSIMILATED TO THE ROBOT PIZZA PARTY. POST AN INTRODUCTION IN <#396067802970193920>. OPTIONALLY, ADD YOUR PRONOUNS IN <#397067658052239361> (LOOK IN <#393842582414688269> FOR INSTRUCTIONS.) SHARE AND ENJOY :pizza:'))
       .catch(console.error);
