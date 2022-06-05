@@ -6,7 +6,7 @@ module.exports = {
     .setDescription('Use this command to confirm you have read the rules of the Pizza Party and intend to abide by them.'),
   async execute(interaction) {
     let newvictim = interaction.member;
-    if (!newvictim.roles.cache.some(role => role.name === 'Official Pizza Partier')){
+    if (!newvictim.roles.cache.has('538506263236182026')){
       await interaction.guild.roles.fetch('538506263236182026')
       .then(role => newvictim.roles.add(role))
       .then(interaction.guild.channels.cache.get("397067658052239361"))
