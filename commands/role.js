@@ -19,7 +19,7 @@ module.exports = {
   async execute(interaction) {
     const name = interaction.options.getString('name').toUpperCase();
     if (!name){
-      await interaction.reply('RECOGNIZED ROLES: ' + roleList)
+      await interaction.reply('**RECOGNIZED CHARACTER ROLES:**\n ' + roleList)
       .catch(console.error);
     }
     else {

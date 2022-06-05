@@ -19,14 +19,20 @@ module.exports = {
   async execute(interaction) {
     const name = interaction.options.getString('name');
     if (!name){
-      await interaction.reply('RECOGNIZED ROLES: ' + roleList)
+      await interaction.reply('**RECOGNIZED CHARACTER ROLES:**\n ' + roleList)
       .catch(console.error);
     }
     else {
-      await interaction.guild.roles.fetch(roleDict[name])
-      .then (role => interaction.member.roles.remove(role))
-      .then(interaction.reply('SUCCESSFULLY REMOVED A ROLE FROM <@' + interaction.member.id + '>. ONE LESS TRAITOR IN THE RANKS'))
-      .catch(console.error);
+      if(!roleDict.hasOwnProperty(name)){
+        await interaction.reply('THAT IS NOT A CHARACTER I RECOGNIZE.\nIF YOU ARE TRYING TO REMOVE PRONOUNS, USE THE COMMAND **/REMOVEPRONOUN** INSTEAD')
+        .catch(console.error);
+      }
+      else {
+        await interaction.guild.roles.fetch(roleDict[name])
+        .then (role => interaction.member.roles.remove(role))
+        .then(interaction.reply('SUCCESSFULLY REMOVED A ROLE FROM <@' + interaction.member.id + '>. ONE LESS TRAITOR IN THE RANKS'))
+        .catch(console.error);
+      }
     }
   },
 };
