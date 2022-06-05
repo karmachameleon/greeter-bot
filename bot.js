@@ -332,7 +332,7 @@ bot.on('disconnect', function(errMsg, code) {
     bot.login(process.env.BOT_TOKEN); //worth a shot lmao
 });
 
-bot.on('message', msg => {
+bot.on('messageCreate', msg => {
     // listen for messages that will start with `!`
   if (msg.content.substring(0, 1) == '!') {
     var args = msg.content.substring(1).split(' ');
