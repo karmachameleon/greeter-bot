@@ -55,7 +55,7 @@ module.exports = {
   data: new SlashCommandBuilder()
     .setName('fortnite')
     .setDescription('Deploys a funny Fortnite dance gif.')
-    .addStringOption(option => option.setName('userchoice').setDescription('Character or special dance name.')),
+    .addStringOption(opt => opt.setName('userchoice').setDescription('Character or special dance name.')),
   async execute(interaction) {
     var urchoice = interaction.options.getString('userchoice');
     var fortchoice = fortnitegifs[Math.floor(Math.random() * fortnitegifs.length)];
