@@ -59,6 +59,7 @@ module.exports = {
   async execute(interaction) {
     var name = interaction.options.getString('name');
     var fortchoice = fortniteDict[Math.floor(Math.random() * fortnitegifs.length)];
+    console.log(fortchoice);
     var fortattach = new MessageAttachment(fortchoice.path, fortchoice.name);
     if (!name){
       await interaction.reply({ attachment: fortattach })

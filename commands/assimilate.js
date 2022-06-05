@@ -7,8 +7,8 @@ module.exports = {
   async execute(interaction) {
     //console.log(interaction.member.roles);
     //!interaction.member.roles.cache.has('538506263236182026')
-    const oldbie = await interaction.member._roles.has('538506263236182026');
-    if (!oldbie) {
+    const oldbie = await interaction.member._roles.indexOf('538506263236182026');
+    if (oldbie > -1) {
       //if (!interaction.member.roles.cache.has('538506263236182026')){
       await interaction.guild.roles.fetch('538506263236182026')
       .then(role => interaction.member.roles.add(role))
