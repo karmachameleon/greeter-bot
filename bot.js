@@ -9,8 +9,7 @@ logger.add(logger.transports.Console, {
 });
 logger.level = 'debug';
 // Initialize Discord Bot
-const myIntents = new Intents();
-myIntents.add(Intents.FLAGS.GUILD_MESSAGES, Intents.FLAGS.GUILD_MESSAGE_REACTIONS, Intents.FLAGS.MESSAGE_CONTENT);
+const myIntents = new Intents(268758080);
 
 var bot = new Client({intents: myIntents});
 
