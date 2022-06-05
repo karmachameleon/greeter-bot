@@ -1,10 +1,24 @@
-const { Client, Intents } = require('discord.js');
+const { Client, Collection, Intents } = require('discord.js');
+const fs = require ('node:fs');
+const path = require ('node:path');
+
 
 const myIntents = new Intents();
 myIntents.add(Intents.FLAGS.GUILD_MESSAGES, Intents.FLAGS.GUILD_MESSAGE_REACTIONS, Intents.FLAGS.GUILD_EMOJIS_AND_STICKERS);
 //console.log(myIntents.serialize());
 
 const bot = new Client({ intents: myIntents });
+bot.commands = new Collection();
+const commandsPath = path.join(__dirname, 'commands');
+const commandFiles = fs.readdirSync(commandsPath).filter(file =>file.endsWith('.js'));
+
+for (const file of commandFiles) {
+  const filePath = path.join(commandsPath, file);
+  const command = require(filePath);
+  // set a new item in the Collection
+  // key = command name, value = exported module
+  client.commands.set(command.data.name, command);
+}
 
 bot.once('ready', () => {
   console.log('Ready!');
@@ -13,10 +27,13 @@ bot.once('ready', () => {
 bot.on('interactionCreate', async interaction => {
   if (!interaction.isCommand()) return;
 
-  const {commandName} = interaction;
-
-  if (commandName === 'pizza') {
-    await interaction.reply(':pizza:');
+  const command = client.commands.get(interaction.commandName);
+  if (!command) return;
+  try {
+    await command.execute(interaction);
+  } catch (error) {
+    console.error(error);
+    await interaction.reply({ content: "ERROR WHILE EXECUTING THIS COMMAND", ephemeral: true});
   }
 });
 
