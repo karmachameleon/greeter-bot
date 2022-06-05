@@ -23,7 +23,7 @@ module.exports = {
       .catch(console.error);
     }
     else {
-      let unwantedRole = guild.rolesfind((r) => r.id === roleDict[name]);
+      let unwantedRole = interaction.guild.roles.find((r) => r.id === roleDict[name]);
       await interaction.member.roles.remove(unwantedRole)
       .then(interaction.reply('SUCCESSFULLY REMOVED A ROLE FROM <@' + interaction.member.id + '>. ONE LESS TRAITOR IN THE RANKS'))
       .catch(console.error);

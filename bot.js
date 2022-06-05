@@ -23,6 +23,7 @@ bot.once('ready', () => {
   console.log('Ready!');
 });
 
+//After creating a new command, run "node deploy_commands.js" in the Heroku console.
 bot.on('interactionCreate', async interaction => {
   if (!interaction.isCommand()) return;
 
