@@ -48,7 +48,7 @@ OOTWX : {path:"public/wx_outofbutter.gif", name:"wx_outofbutter.gif"},
 ENGINEER : {path:"public/engi_kazotsky.gif", name:"engi_kazotsky.gif"},
 WANDA : {path:"public/wandanite_defaultdance.gif", name:"wandanite_defaultdance.gif"}
 };
-var fortnitegifs = Object.keys(fortnitedict);
+var fortnitegifs = Object.keys(fortniteDict);
 
 module.exports = {
   data: new SlashCommandBuilder()
