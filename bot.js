@@ -597,7 +597,8 @@ bot.on('message', msg => {
               	.setFooter(messageByLine[messageByLine.length - 1]);
 
               //chan.send(calendarEmbed);})
-              chan.send({embeds: [calendarEmbed]}).catch(console.error);
+              chan.send({embeds: [calendarEmbed]});})
+              .catch(console.error);
       break;
 
       case 'EXOTICBUTTERS':
