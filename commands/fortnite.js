@@ -59,7 +59,7 @@ module.exports = {
   async execute(interaction) {
     var userchoice = interaction.options.getString('userchoice');
     var fortchoice = fortnitegifs[Math.floor(Math.random() * fortnitegifs.length)];
-    console.log(fortchoice);
+    //console.log(fortchoice);
     var fortattach = new MessageAttachment(fortniteDict[fortchoice].path);
     var fortembed = { image: { url: 'attachment://' + fortniteDict[fortchoice].name, }, };
     if (!userchoice){
@@ -68,14 +68,16 @@ module.exports = {
     }
     else {
       userchoice = userchoice.toUpperCase();
+      console.log(userchoice);
       if (!fortniteDict.hasOwnProperty(userchoice)){
+        console.log("Couldn't find your choice");
         await interaction.reply({ embeds: [fortembed], files: [fortattach] })
         .catch(console.error);
       }
       else {
-        fortchoice = userchoice;
-        fortattach = new MessageAttachment(fortniteDict[fortchoice].path, fortniteDict[fortchoice].name);
-        fortembed = { image: { url: 'attachment://' + fortniteDict[fortchoice].name, }, };
+        console.log("Found your choice");
+        fortattach = new MessageAttachment(fortniteDict[userchoice].path, fortniteDict[userchoice].name);
+        fortembed = { image: { url: 'attachment://' + fortniteDict[userchoice].name, }, };
         await interaction.reply({ embeds: [fortembed], files: [fortattach] })
         .catch(console.error);
       }
