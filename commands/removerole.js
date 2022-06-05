@@ -24,7 +24,7 @@ module.exports = {
     }
     else {
       await interaction.member.roles.remove(roleDict[name])
-      .then(interaction.reply('SUCCESSFULLY REMOVED A ROLE FROM <@' + interaction.member.id + '>. ONE LESS TRAITOR IN THE RANKS')
+      .then(interaction.reply('SUCCESSFULLY REMOVED A ROLE FROM <@' + interaction.member.id + '>. ONE LESS TRAITOR IN THE RANKS'))
       .catch(console.error);
     }
   },
