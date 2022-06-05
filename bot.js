@@ -2,7 +2,6 @@ const { Client, Collection, Intents } = require('discord.js');
 const fs = require ('node:fs');
 const path = require ('node:path');
 
-
 const myIntents = new Intents();
 myIntents.add(Intents.FLAGS.GUILD_MESSAGES, Intents.FLAGS.GUILD_MESSAGE_REACTIONS, Intents.FLAGS.GUILD_EMOJIS_AND_STICKERS);
 //console.log(myIntents.serialize());
@@ -42,7 +41,6 @@ bot.login(process.env.BOT_TOKEN);
 //Webpage
 
 var http = require('http');
-var path = require('path');
 var express = require('express');
 var logger2 = require('morgan');
 
