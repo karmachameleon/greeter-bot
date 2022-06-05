@@ -16,7 +16,7 @@ for (const file of commandFiles) {
   const command = require(filePath);
   // set a new item in the Collection
   // key = command name, value = exported module
-  client.commands.set(command.data.name, command);
+  bot.commands.set(command.data.name, command);
 }
 
 bot.once('ready', () => {
@@ -26,7 +26,7 @@ bot.once('ready', () => {
 bot.on('interactionCreate', async interaction => {
   if (!interaction.isCommand()) return;
 
-  const command = client.commands.get(interaction.commandName);
+  const command = bot.commands.get(interaction.commandName);
   if (!command) return;
   try {
     await command.execute(interaction);
