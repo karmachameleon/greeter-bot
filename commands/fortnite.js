@@ -49,32 +49,32 @@ ENGINEER : {path:"public/engi_kazotsky.gif", name:"engi_kazotsky.gif"},
 WANDA : {path:"public/wandanite_defaultdance.gif", name:"wandanite_defaultdance.gif"}
 };
 var fortnitegifs = Object.keys(fortniteDict);
-const { MessageAttachment } = require('discord.js');
+//const { MessageAttachment } = require('discord.js');
 
 module.exports = {
   data: new SlashCommandBuilder()
     .setName('fortnite')
     .setDescription('Deploys a funny Fortnite dance gif.')
-    .addStringOption(option => option.setName('name').setDescription('Character or special dance name.')),
+    .addStringOption(option => option.setName('userchoice').setDescription('Character or special dance name.')),
   async execute(interaction) {
-    var name = interaction.options.getString('name');
+    var userchoice = interaction.options.getString('userchoice');
     var fortchoice = fortnitegifs[Math.floor(Math.random() * fortnitegifs.length)];
     console.log(fortchoice);
-    var fortattach = new MessageAttachment(fortniteDict[fortchoice].path, fortniteDict[fortchoice].name);
-    if (!name){
-      await interaction.reply({ attachment: fortattach })
+    //var fortattach = new MessageAttachment(fortniteDict[fortchoice].path, fortniteDict[fortchoice].name);
+    if (!userchoice){
+      await interaction.reply({ files: [{attachment: fortniteDict[fortchoice].path, name: fortniteDict[fortchoice].name }] })
       .catch(console.error);
     }
     else {
-      name = name.toUpperCase();
-      if (!fortniteDict.hasOwnProperty(name)){
-        await interaction.reply({ attachment: fortattach })
+      userchoice = userchoice.toUpperCase();
+      if (!fortniteDict.hasOwnProperty(userchoice)){
+        await interaction.reply({ files: [{attachment: fortniteDict[fortchoice].path, name: fortniteDict[fortchoice].name }] })
         .catch(console.error);
       }
       else {
-        fortchoice = name;
-        fortattach = new MessageAttachment(fortniteDict[fortchoice].path, fortniteDict[fortchoice].name);
-        await interaction.reply({ attachment: fortattach })
+        fortchoice = userchoice;
+        //fortattach = new MessageAttachment(fortniteDict[fortchoice].path, fortniteDict[fortchoice].name);
+        await interaction.reply({ files: [{attachment: fortniteDict[fortchoice].path, name: fortniteDict[fortchoice].name }] })
         .catch(console.error);
       }
     }
