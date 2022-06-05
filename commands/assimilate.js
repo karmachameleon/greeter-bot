@@ -5,10 +5,9 @@ module.exports = {
     .setName('assimilate')
     .setDescription('Use this command to confirm you have read the rules of the Pizza Party and intend to abide by them.'),
   async execute(interaction) {
-    await interaction.member.roles.cache.has('538506263236182026')
-    .then(truth => var b = truth)
-    .catch(console.error);
-    if (!b){
+    const mem = interaction.member;
+    if (mem.roles.cache.some(role => role.name === 'Official Pizza Partier')) {
+      //if (!interaction.member.roles.cache.has('538506263236182026')){
       await interaction.guild.roles.fetch('538506263236182026')
       .then(role => interaction.member.roles.add(role))
       .then(interaction.guild.channels.cache.get("397067658052239361"))
