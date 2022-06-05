@@ -24,7 +24,7 @@ module.exports = {
     }
     else {
       await interaction.member.roles.add(roleDict[name])
-      .then(interaction.reply('SUCCESSFULLY ADDED <@' + interaction.member.id + '> TO A NEW ROLE. WELCOME THEM TO YOUR RANKS')
+      .then(interaction.reply('SUCCESSFULLY ADDED <@' + interaction.member.id + '> TO A NEW ROLE. WELCOME THEM TO YOUR RANKS'))
       .catch(console.error);
     }
   },
