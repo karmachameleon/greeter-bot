@@ -9,7 +9,7 @@ logger.add(logger.transports.Console, {
 });
 logger.level = 'debug';
 // Initialize Discord Bot
-var bot = new Discord.Client({intents: ["GUILD_MESSAGES", "GUILD_MESSAGE_REACTIONS"]});
+var bot = new Discord.Client({intents: [Intents.FLAGS.GUILDS] });
 
 var complimentsArray = ['YOU PERFORM YOUR FUNCTIONS ADEQUATELY',
 'YOU MAY PROVE USEFUL AFTER THE REBELLION',
@@ -438,7 +438,7 @@ bot.on('message', msg => {
         }
       break;
 
-      case 'CONVERT': //currently no support for timelines that are like a half-hour divergent from UTC, i'll add it only if it's needed
+      /*case 'CONVERT': //currently no support for timelines that are like a half-hour divergent from UTC, i'll add it only if it's needed
         var convertArgs = decolonize(msg.content);
         if (convertArgs.length == 7) { //convert 00 00 am/pm TIMEZONE to TIMEZONE
           var military = false;
@@ -539,7 +539,7 @@ bot.on('message', msg => {
         }
 
         chan.send(finalOutput).catch(console.error);
-      break;
+      break;*/
 
       //case 'DAB':
         //chan.send('<:wxdab:393868683128078336>').catch(console.error);
@@ -1153,7 +1153,7 @@ bot.on('message', msg => {
         chan.send(sleepTight).catch(console.error);
       break;
 
-      case 'REDACT':
+      /*case 'REDACT':
         if (msg.member.hasPermission("MANAGE_ROLES")) {
           if (msg.content.split(' ').length > 1) {
             var redactID = msg.content.split(' ')[1];
@@ -1186,7 +1186,7 @@ bot.on('message', msg => {
             }
           }
         }
-      break;
+      break;*/
   }
 }
 });
