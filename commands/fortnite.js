@@ -58,9 +58,9 @@ module.exports = {
     .addStringOption(option => option.setName('name').setDescription('Character or special dance name.')),
   async execute(interaction) {
     var name = interaction.options.getString('name');
-    var fortchoice = fortniteDict[Math.floor(Math.random() * fortnitegifs.length)];
+    var fortchoice = fortnitegifs[Math.floor(Math.random() * fortnitegifs.length)];
     console.log(fortchoice);
-    var fortattach = new MessageAttachment(fortchoice.path, fortchoice.name);
+    var fortattach = new MessageAttachment(fortniteDict[fortchoice].path, fortniteDict[fortchoice].name);
     if (!name){
       await interaction.reply({ attachment: fortattach })
       .catch(console.error);
@@ -72,8 +72,8 @@ module.exports = {
         .catch(console.error);
       }
       else {
-        fortchoice = fortniteDict[name];
-        fortattach = new MessageAttachment(fortchoice.path, fortchoice.name);
+        fortchoice = name;
+        fortattach = new MessageAttachment(fortniteDict[fortchoice].path, fortniteDict[fortchoice].name);
         await interaction.reply({ attachment: fortattach })
         .catch(console.error);
       }
