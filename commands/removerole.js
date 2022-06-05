@@ -17,7 +17,7 @@ module.exports = {
     .setDescription('Remove a character role.')
     .addStringOption(option => option.setName('name').setDescription('Name of the no-longer-desired role')),
   async execute(interaction) {
-    const name = interaction.options.getString('name');
+    var name = interaction.options.getString('name');
     if (!name){
       await interaction.reply('**RECOGNIZED CHARACTER ROLES:**\n ' + roleList)
       .catch(console.error);

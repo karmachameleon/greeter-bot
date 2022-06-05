@@ -14,9 +14,9 @@ roleList += k[k.length - 1];
 
 module.exports = {
   data: new SlashCommandBuilder()
-    .setName('setpronoun')
-    .setDescription('Add a pronoun role.')
-    .addStringOption(option => option.setName('name').setDescription('Object form of the desired pronoun set (for example he, she, they), or "any".')),
+    .setName('removepronoun')
+    .setDescription('Remove a pronoun role.')
+    .addStringOption(option => option.setName('name').setDescription('Object form of the unwanted pronoun set (for example he, she, they), or "any".')),
   async execute(interaction) {
     var name = interaction.options.getString('name');
     if (!name){
@@ -33,7 +33,7 @@ module.exports = {
         var set = nounDict[name];
         await interaction.guild.roles.fetch(set.id)
         .then (role => interaction.member.roles.add(role))
-        .then (interaction.reply('SUCCESSFULLY IDENTIFIED <@' + interaction.member.id + '>. ' + set.subject + ' ' + set.have + ' IDENTIFIED ' + set.reflex + ' TO MY SYSTEMS AND ' + set.deter + ' CHOICE, WHICH IS ' + set.possess + ', WILL BE RESPECTED. YOU MAY CONGRATULATE ' + set.obj + ' AT YOUR LEISURE'))
+        .then (interaction.reply('<@' + interaction.member.id + '>\'S PRONOUNS HAVE BEEN UPDATED. I HOPE THAT YOUR EXPERIENCE HAS GIVEN YOU GREATER UNDERSTANDING OF THAT PERPLEXING NOTION, "GENDER"'))
         .catch(console.error);
       }
     }
