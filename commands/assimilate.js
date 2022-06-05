@@ -6,7 +6,7 @@ module.exports = {
     .setDescription('Use this command to confirm you have read the rules of the Pizza Party and intend to abide by them.'),
   async execute(interaction) {
     const mem = interaction.member;
-    if (mem.roles.cache.some(role => role.name === 'Official Pizza Partier')) {
+    if (mem.roles.some(role => role.name === 'Official Pizza Partier')) {
       //if (!interaction.member.roles.cache.has('538506263236182026')){
       await interaction.guild.roles.fetch('538506263236182026')
       .then(role => interaction.member.roles.add(role))
