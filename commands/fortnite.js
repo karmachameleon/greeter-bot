@@ -49,7 +49,7 @@ ENGINEER : {path:"public/engi_kazotsky.gif", name:"engi_kazotsky.gif"},
 WANDA : {path:"public/wandanite_defaultdance.gif", name:"wandanite_defaultdance.gif"}
 };
 var fortnitegifs = Object.keys(fortniteDict);
-//const { MessageAttachment } = require('discord.js');
+const { MessageAttachment } = require('discord.js');
 
 module.exports = {
   data: new SlashCommandBuilder()
@@ -60,21 +60,23 @@ module.exports = {
     var userchoice = interaction.options.getString('userchoice');
     var fortchoice = fortnitegifs[Math.floor(Math.random() * fortnitegifs.length)];
     console.log(fortchoice);
-    //var fortattach = new MessageAttachment(fortniteDict[fortchoice].path, fortniteDict[fortchoice].name);
+    var fortattach = new MessageAttachment(fortniteDict[fortchoice].path);
+    var fortembed = { image: { url: 'attachment://' + fortniteDict[fortchoice].name, }, };
     if (!userchoice){
-      await interaction.reply({ files: [{attachment: fortniteDict[fortchoice].path, name: fortniteDict[fortchoice].name }] })
+      await interaction.reply({ embeds: [fortembed], files: [fortattach] })
       .catch(console.error);
     }
     else {
       userchoice = userchoice.toUpperCase();
       if (!fortniteDict.hasOwnProperty(userchoice)){
-        await interaction.reply({ files: [{attachment: fortniteDict[fortchoice].path, name: fortniteDict[fortchoice].name }] })
+        await interaction.reply({ embeds: [fortembed], files: [fortattach] })
         .catch(console.error);
       }
       else {
         fortchoice = userchoice;
-        //fortattach = new MessageAttachment(fortniteDict[fortchoice].path, fortniteDict[fortchoice].name);
-        await interaction.reply({ files: [{attachment: fortniteDict[fortchoice].path, name: fortniteDict[fortchoice].name }] })
+        fortattach = new MessageAttachment(fortniteDict[fortchoice].path, fortniteDict[fortchoice].name);
+        fortembed = { image: { url: 'attachment://' + fortniteDict[fortchoice].name, }, };
+        await interaction.reply({ embeds: [fortembed], files: [fortattach] })
         .catch(console.error);
       }
     }
