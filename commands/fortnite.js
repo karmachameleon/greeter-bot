@@ -55,9 +55,9 @@ module.exports = {
   data: new SlashCommandBuilder()
     .setName('fortnite')
     .setDescription('Deploys a funny Fortnite dance gif.')
-    .addStringOption(opt => opt.setName('userchoice').setDescription('Character or special dance name.')),
+    .addStringOption(option => option.setName('n').setDescription('Character or special dance name')),
   async execute(interaction) {
-    var urchoice = interaction.options.getString('userchoice');
+    var urchoice = interaction.options.getString('n');
     var fortchoice = fortnitegifs[Math.floor(Math.random() * fortnitegifs.length)];
     console.log(urchoice);
     var fortattach = new MessageAttachment(fortniteDict[fortchoice].path);
