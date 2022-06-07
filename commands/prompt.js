@@ -68,6 +68,10 @@ module.exports = {
     else { char = char.toUpperCase(); }
     var prompt = promptwords[Math.floor(Math.random() * promptwords.length)];
     switch(type) {
+      case 'vanilla_prompt':
+        char+= " "; //I was inconsistent about whether prompts had interstitial spaces added. Sorry.
+      break;
+
       case 'clothes_prompt':
         prompt = outfitwords[Math.floor(Math.random() * outfitwords.length)];
       break;
@@ -82,6 +86,7 @@ module.exports = {
       break;
 
       case 'cursed_prompt':
+        char+= " ";
         prompt = cursedwords[Math.floor(Math.random() * cursedwords.length)];
       break;
 
@@ -90,7 +95,7 @@ module.exports = {
         prompt = merpromptwords[Math.floor(Math.random() * merpromptwords.length)];
       break;
     }
-    await interaction.reply(char + " " + prompt)
+    await interaction.reply(char + prompt)
     .catch(console.error);
   },
 };
