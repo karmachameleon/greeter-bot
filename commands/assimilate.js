@@ -3,7 +3,7 @@ const { SlashCommandBuilder } = require('@discordjs/builders');
 module.exports = {
   data: new SlashCommandBuilder()
     .setName('assimilate')
-    .setDescription('Use this command to confirm you have read the rules of the Pizza Party and intend to abide by them.'),
+    .setDescription('Confirm you have read the rules of the Pizza Party and intend to follow them.'),
   async execute(interaction) {
     //console.log(interaction.member.roles);
     //!interaction.member.roles.cache.has('538506263236182026')
