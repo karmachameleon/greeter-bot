@@ -64,7 +64,14 @@ module.exports = {
     var char = interaction.options.getString('character');
     var type = interaction.options.getString('type');
     if (!type) { type = 'vanilla_prompt'; }
-    if (!char) { char = promptchars[Math.floor(Math.random() * promptchars.length)]; }
+    if (!char) { 
+      if (type == 'robo_prompt'){
+        robopromptchars[Math.floor(Math.random() * robopromptchars.length)];
+      }
+      else{
+        char = promptchars[Math.floor(Math.random() * promptchars.length)];
+      }
+    }
     else { char = char.toUpperCase(); }
     var prompt = promptwords[Math.floor(Math.random() * promptwords.length)];
     switch(type) {
@@ -81,7 +88,6 @@ module.exports = {
       break;
 
       case 'robo_prompt':
-        char = robopromptchars[Math.floor(Math.random() * robopromptchars.length)];
         prompt = robopromptwords[Math.floor(Math.random() * robopromptwords.length)];
       break;
 
