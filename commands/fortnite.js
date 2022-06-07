@@ -55,28 +55,28 @@ module.exports = {
   data: new SlashCommandBuilder()
     .setName('fortnite')
     .setDescription('Deploys a funny Fortnite dance gif.')
-    .addStringOption(option => option.setName('n').setDescription('Character or special dance name')),
+    .addStringOption(option => option.setName('dance').setDescription('Character or special dance name')),
   async execute(interaction) {
-    var urchoice = interaction.options.getString('n');
+    var urchoice = interaction.options.getString('dance');
     var fortchoice = fortnitegifs[Math.floor(Math.random() * fortnitegifs.length)];
     console.log(urchoice);
     var fortattach = new MessageAttachment(fortniteDict[fortchoice].path);
     var fortembed = { image: { url: 'attachment://' + fortniteDict[fortchoice].name, }, };
     if (!urchoice){
-      console.log("No choice");
+      //console.log("No choice");
       await interaction.reply({ embeds: [fortembed], files: [fortattach] })
       .catch(console.error);
     }
     else {
       urchoice = urchoice.toUpperCase();
-      console.log(urchoice);
+      //console.log(urchoice);
       if (!fortniteDict.hasOwnProperty(urchoice)){
-        console.log("Couldn't find your choice");
+        //console.log("Couldn't find your choice");
         await interaction.reply({ embeds: [fortembed], files: [fortattach] })
         .catch(console.error);
       }
       else {
-        console.log("Found your choice");
+        //console.log("Found your choice");
         fortattach = new MessageAttachment(fortniteDict[urchoice].path, fortniteDict[urchoice].name);
         fortembed = { image: { url: 'attachment://' + fortniteDict[urchoice].name, }, };
         await interaction.reply({ embeds: [fortembed], files: [fortattach] })
