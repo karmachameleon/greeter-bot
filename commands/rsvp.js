@@ -28,7 +28,8 @@ module.exports = {
     await interaction.reply({ content: rsvpmsg, components: [row] })
     .catch(console.error);
 
-    const collector = interaction.fetchReply().createMessageComponentCollector( {componentType: 'BUTTON', time: 15000 });
+    var msg = interaction.fetchReply();
+    const collector = msg.createMessageComponentCollector( {componentType: 'BUTTON', time: 15000 } );
     collector.on('collect', i => {
       if (i.customID === 'rsvp' && !rsvpmsg.includes(i.user.username)){
         rsvpmsg = rsvpmsg + "\n> " + i.user.username;
