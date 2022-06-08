@@ -25,32 +25,17 @@ bot.once('ready', () => {
 
 //After creating a new command, run "node deploy_commands.js" in the Heroku console.
 bot.on('interactionCreate', async interaction => {
-  if (interaction.isCommand()){
+  if (!interaction.isCommand()){ return; }
 
-    const command = bot.commands.get(interaction.commandName);
-    if (!command) return;
+  const command = bot.commands.get(interaction.commandName);
+  if (!command) return;
 
-    try {
-      await command.execute(interaction);
-    } catch (error) {
-      console.error(error);
-      await interaction.reply({ content: "ERROR WHILE EXECUTING THIS COMMAND", ephemeral: true});
-    }
+  try {
+    await command.execute(interaction);
+  } catch (error) {
+    console.error(error);
+    await interaction.reply({ content: "ERROR WHILE EXECUTING THIS COMMAND", ephemeral: true});
   }
-  else if (interaction.isButton()){
-    console.log("Button interacted with");
-    const butt = bot.commands.get(interaction.component);
-    if (!butt) return;
-    console.log(butt.customId);
-    if (butt.customId === 'rsvp'){
-      console.log("Just got an RSVP!");
-      await interaction.fetchReply()
-      .then(reply => new Message({content: reply.content + "\n> " + interaction.member.displayName, components: reply.components}))
-      .then(newReply => interaction.editReply(newReply))
-      .then(console.log).catch(console.error);
-    }
-  }
-  else { return; }
 });
 
 bot.login(process.env.BOT_TOKEN);

@@ -18,11 +18,30 @@ module.exports = {
         .setCustomId('rsvp')
         .setLabel('🍕')
         .setStyle('SUCCESS'),
+    ).addComponents(
+      new MessageButton()
+        .setCustomId('cancel')
+        .setLabel('Cancel')
+        .setStyle('DANGER'),
     );
 
     await interaction.reply({ content: rsvpmsg, components: [row] })
     .catch(console.error);
 
-
+    const collector = interaction.fetchReply().createMessageComponentCollector( {componentType: 'BUTTON', time: 15000 });
+    collector.on('collect', i => {
+      if (i.customID === 'rsvp' && !rsvpmsg.includes(i.user.username)){
+        rsvpmsg = rsvpmsg + "\n> " + i.user.username;
+        await interaction.editReply({ content: rsvpmsg, components: [row] })
+        .catch(console.error);
+      }
+      else if (i.customID === 'cancel' && rsvpmsg.includes(i.user.username)){
+        var newMessageFront = rsvpmsg.slice(0, rsvpmsg.lastIndexOf(i.user.username) - 3);
+        var newMessageBack = rsvpmsg.slice(rsvpmsg.lastIndexOf(i.user.username) + i.user.username.length);
+        rsvpmsg = newMessageFront + newMessageBack;
+        await interaction.editReply({ content: rsvpmsg, components: [row] })
+        .catch(console.error);
+      }
+    });
   },
 };
