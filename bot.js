@@ -42,7 +42,7 @@ bot.on('interactionCreate', async interaction => {
     const butt = bot.commands.get(interaction.customId);
     if (!butt) return;
     console.log(butt);
-    if (butt === 'rsvp'){
+    if (butt.name === 'rsvp'){
       console.log("Just got an RSVP!");
       await interaction.fetchReply()
       .then(reply => new Message({content: reply.content + "\n> " + interaction.member.displayName, components: reply.components}))
