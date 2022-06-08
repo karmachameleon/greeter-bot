@@ -5,7 +5,7 @@ module.exports = {
   data: new SlashCommandBuilder()
     .setName('rsvp')
     .setDescription('Lists the partiers who agree to attend an event.')
-    .addStringOption(option => option.setName('party').setDescription('Event name?'),
+    .addStringOption(option => option.setName('party').setDescription('Event name?')),
   async execute(interaction) {
     var occ = interaction.options.getString('party');
     var rsvpmsg = "WHO WILL ATTEND THIS MOMENTOUS OCCASION? PRESS THE PIZZA BUTTON TO SEAL YOUR FATE";
