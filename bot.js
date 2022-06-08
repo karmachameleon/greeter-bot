@@ -38,12 +38,15 @@ bot.on('interactionCreate', async interaction => {
     }
   }
   else if (interaction.isButton()){
+    console.log("Button interacted with");
     const butt = bot.commands.get(interaction.customId);
     if (!butt) return;
 
     if (butt === 'rsvp'){
-      interaction.fetchReply()
-      .then(reply => interaction.editReply({content: reply.content + "\n> " + interaction.member.displayName, components: reply.components}))
+      console.log("Just got an RSVP!");
+      await interaction.fetchReply()
+      .then(reply => new Message({content: reply.content + "\n> " + interaction.member.displayName, components: reply.components}))
+      .then(newReply => interaction.editReply(newReply))
       .then(console.log).catch(console.error);
     }
   }
