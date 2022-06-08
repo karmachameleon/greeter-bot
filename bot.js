@@ -41,7 +41,7 @@ bot.on('interactionCreate', async interaction => {
     console.log("Button interacted with");
     const butt = bot.commands.get(interaction.customId);
     if (!butt) return;
-    console.log(butt);
+    console.log(butt.name);
     if (butt.name === 'rsvp'){
       console.log("Just got an RSVP!");
       await interaction.fetchReply()
