@@ -26,8 +26,8 @@ module.exports = {
         { name: 'Rimshot', value: 'rimshot' },
         { name: 'Knead', value: 'knead' },
         { name: 'Bake', value: 'bake' },
-        { name: 'Goodnight', value: 'goodnight' },
-      )).setRequired(true),
+        { name: 'Goodnight', value: 'goodnight' }, )
+      .setRequired(true)),
   async execute(interaction) {
     var response = "ǚ";
     var what = interaction.options.getString('what');
