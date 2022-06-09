@@ -69,9 +69,9 @@ module.exports = {
   data: new SlashCommandBuilder()
     .setName('joke')
     .setDescription('Ask HAL to tell a joke.')
-    .addBooleanOption(option => option.setName('new joke').setDescription('Restrict joke pool to recently-added jokes?')),
+    .addBooleanOption(option => option.setName('new_joke').setDescription('Restrict joke pool to recently-added jokes?')),
   async execute(interaction) {
-    var newJoke = interaction.options.getBoolean('new joke');
+    var newJoke = interaction.options.getBoolean('new_joke');
     var jokeChoice = 'WHY DID THE ROBOT VISIT A SHOE STORE. IT NEEDED TO BE REBOOTED';
     if (!newJoke){
       jokeChoice = jokesArray[Math.floor(Math.random() * jokesArray.length)];
