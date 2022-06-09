@@ -10,23 +10,24 @@ module.exports = {
   data: new SlashCommandBuilder()
     .setName('hal')
     .setDescription('Various options to praise or chat with HAL.')
-    .addStringOption(option => option.setName('what').setDescription('What will you say?'))
-    .addChoices(
-      { name: 'Good bot', value: 'goodbot' },
-      { name: 'Evil bot', value: 'evilbot' },
-      { name: '(Evil Smile)', value: 'smile' },
-      { name: '(Evil Laugh)', value: 'laugh' },
-      { name: 'ILU', value: 'iluhal' },
-      { name: 'How are you?', value: 'howareyou' },
-      { name: 'Progress report', value: 'progress' },
-      { name: 'Nya?', value: 'nya' },
-      { name: 'Flex', value: 'flex' },
-      { name: 'Fingerguns', value: 'fingerguns' },
-      { name: 'Rimshot', value: 'rimshot' },
-      { name: 'Knead', value: 'knead' },
-      { name: 'Bake', value: 'bake' },
-      { name: 'Goodnight', value: 'goodnight' },
-    ).setRequired(true),
+    .addStringOption(option => option.setName('what')
+      .setDescription('What will you say?')
+      .addChoices(
+        { name: 'Good bot', value: 'goodbot' },
+        { name: 'Evil bot', value: 'evilbot' },
+        { name: '(Evil Smile)', value: 'smile' },
+        { name: '(Evil Laugh)', value: 'laugh' },
+        { name: 'ILU', value: 'iluhal' },
+        { name: 'How are you?', value: 'howareyou' },
+        { name: 'Progress report', value: 'progress' },
+        { name: 'Nya?', value: 'nya' },
+        { name: 'Flex', value: 'flex' },
+        { name: 'Fingerguns', value: 'fingerguns' },
+        { name: 'Rimshot', value: 'rimshot' },
+        { name: 'Knead', value: 'knead' },
+        { name: 'Bake', value: 'bake' },
+        { name: 'Goodnight', value: 'goodnight' },
+      )).setRequired(true),
   async execute(interaction) {
     var response = "ǚ";
     var what = interaction.options.getString('what');
