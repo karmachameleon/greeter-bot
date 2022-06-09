@@ -13,7 +13,7 @@ module.exports = {
     var msgcont = "COME CLOSER. I HAVE MANY FINE " + temptation + " IN MY CELLAR. WOULD YOU LIKE TO HAVE A LOOK";
     var beckonattach = new MessageAttachment('public/beckoningwxclaws.jpg');
     var beckonembed = { image: { url: 'attachment://beckoningwxclaws.jpg', }, };
-    await interaction.reply({ content: msgcont, embeds: [fortembed], files: [fortattach] })
+    await interaction.reply({ content: msgcont, embeds: [beckonembed], files: [beckonattach] })
     .catch(console.error);
   },
 };

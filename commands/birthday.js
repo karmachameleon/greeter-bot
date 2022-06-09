@@ -7,7 +7,7 @@ module.exports = {
     .addStringOption(option => option.setName('recipient').setDescription('The name of our beloved birthday pal.').setRequired(true)),
   async execute(interaction) {
     var name = interaction.options.getString('recipient');
-    await interaction.reply('HAPPY BIRTHDAY, PIZZA PARTIER! :birthday: :rat: :notes: CLICK HERE FOR A SPECIAL MESSAGE: https://itsyourbirthday.today/' + name)
+    await interaction.reply('HAPPY BIRTHDAY, PIZZA PARTIER! :birthday: :rat: :notes: CLICK HERE FOR A SPECIAL MESSAGE: https://itsyourbirthday.today/#' + name)
     .catch(console.error);
   },
 };
