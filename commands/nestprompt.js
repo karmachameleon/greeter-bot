@@ -44,24 +44,68 @@ var robopromptwords = [' POSING TO BEST SHOW THEIR MAGNIFICENCE AND SUPERIORITY'
 
 module.exports = {
   data: new SlashCommandBuilder()
-    .setName('prompt')
-    .setDescription('Randomized single-character drawing prompts.')
-    .addStringOption(option => option.setName('type').setDescription('What sort of prompt?')
+    .setName('nestprompt')
+    .setDescription('Stack multiple prompts at once.')
+    .addIntegerOption(option => option.setName('default').setDescription('How many of the original flavor?')
       .addChoices(
-        { name: 'Default', value: 'vanilla_prompt' },
-        { name: 'Outfit', value: 'clothes_prompt' },
-        { name: 'Triumphant', value: 'tri_prompt' },
-        { name: 'Robot', value: 'robo_prompt' },
-        { name: 'Cursed', value: 'cursed_prompt' },
-        { name: 'Mermaid', value: 'mer_prompt' },
+        { name: 'One', value: 1 },
+        { name: 'Two', value: 2 },
+        { name: 'Three', value: 3 },
+        { name: 'Zero', value: 0 },
+    ))
+    .addIntegerOption(option => option.setName('clothes').setDescription('How many clothing prompts?')
+      .addChoices(
+        { name: 'One', value: 1 },
+        { name: 'Two', value: 2 },
+        { name: 'Three', value: 3 },
+        { name: 'Zero', value: 0 },
+    ))
+    .addIntegerOption(option => option.setName('robot').setDescription('How many robot prompts?')
+      .addChoices(
+        { name: 'One', value: 1 },
+        { name: 'Two', value: 2 },
+        { name: 'Three', value: 3 },
+        { name: 'Zero', value: 0 },
+    ))
+    .addIntegerOption(option => option.setName('triumphant').setDescription('How many Triumphant prompts?')
+      .addChoices(
+        { name: 'One', value: 1 },
+        { name: 'Two', value: 2 },
+        { name: 'Three', value: 3 },
+        { name: 'Zero', value: 0 },
+    ))
+    .addIntegerOption(option => option.setName('mer').setDescription('How many mermaid prompts?')
+      .addChoices(
+        { name: 'One', value: 1 },
+        { name: 'Two', value: 2 },
+        { name: 'Three', value: 3 },
+        { name: 'Zero', value: 0 },
+    ))
+    .addIntegerOption(option => option.setName('cursed').setDescription('How many cursed prompts?')
+      .addChoices(
+        { name: 'One', value: 1 },
+        { name: 'Two', value: 2 },
+        { name: 'Three', value: 3 },
+        { name: 'Zero', value: 0 },
     ))
     .addStringOption(option => option.setName('character').setDescription('Who?')),
   async execute(interaction) {
     var char = interaction.options.getString('character');
-    var type = interaction.options.getString('type');
-    if (!type) { type = 'vanilla_prompt'; }
+    var van = interaction.options.getInteger('default');
+    var fit = interaction.options.getInteger('clothes');
+    var robo = interaction.options.getInteger('robot');
+    var tri = interaction.options.getInteger('triumphant');
+    var mer = interaction.options.getInteger('mer');
+    var curse = interaction.options.getInteger('cursed');
+
+    if (!van) { van = 0; }
+    if (!fit) { fit = 0; }
+    if (!robo) { robo = 0; }
+    if (!tri) { tri = 0; }
+    if (!mer) { mer = 0; }
+    if (!curse) { curse = 0; }
     if (!char) {
-      if (type === 'robo_prompt'){
+      if ( robo > 0 ){
         char = robopromptchars[Math.floor(Math.random() * robopromptchars.length)];
       }
       else{
@@ -69,36 +113,48 @@ module.exports = {
       }
     }
     else { char = char.toUpperCase(); }
-    var prompt = promptwords[Math.floor(Math.random() * promptwords.length)];
-    switch(type) {
-      case 'vanilla_prompt':
-        char+= " "; //I was inconsistent about whether prompts had interstitial spaces added. Sorry.
-      break;
 
-      case 'clothes_prompt':
-        char += " ";
-        prompt = outfitwords[Math.floor(Math.random() * outfitwords.length)];
-      break;
-
-      case 'tri_prompt':
-        prompt = tripromptwords[Math.floor(Math.random() * tripromptwords.length)];
-      break;
-
-      case 'robo_prompt':
-        prompt = robopromptwords[Math.floor(Math.random() * robopromptwords.length)];
-      break;
-
-      case 'cursed_prompt':
-        char+= " ";
-        prompt = cursedwords[Math.floor(Math.random() * cursedwords.length)];
-      break;
-
-      case 'mer_prompt':
-        char = "MER-" + char;
-        prompt = merpromptwords[Math.floor(Math.random() * merpromptwords.length)];
-      break;
+    if ( mer > 0 ){
+      char = "MER-" + char;
     }
-    await interaction.reply(char + prompt)
+
+    var total = van + fit + robo + tri + mer + curse;
+    var prompt = "";
+    var suffix = "";
+    if (total > 6) {
+      suffix = "\n\nPLEASE NOTE: YOUR NESTED PROMPT WAS TRUNCATED FOR EXCEEDING SIX TOTAL PROMPTS. NICE TRY";
+      if (van > 1) { van = 1; }
+      if (fit > 1) { fit = 1; }
+      if (robo > 1) { robo = 1; }
+      if (tri > 1) { tri = 1; }
+      if (mer > 1) { mer = 1; }
+      if (curse > 1) { curse = 1; }
+    }
+    if (total == 0){
+      prompt = promptwords[Math.floor(Math.random() * promptwords.length)];
+    }
+    else {
+      for (let i = 0; i < fit; i++){
+        prompt = prompt + " " + outfitwords[Math.floor(Math.random() * outfitwords.length)];
+      }
+      for (let j = 0; j < van; j++){
+        prompt = prompt + " " + promptwords[Math.floor(Math.random() * promptwords.length)];
+      }
+      for (let k = 0; k < robo; k++){
+        prompt += robopromptwords[Math.floor(Math.random() * robopromptwords.length)];
+      }
+      for (let l = 0; l < tri; l++){
+        prompt += tripromptwords[Math.floor(Math.random() * tripromptwords.length)];
+      }
+      for (let m = 0; m < mer; m++){
+        prompt += merpromptwords[Math.floor(Math.random() * merpromptwords.length)];
+      }
+      for (let n = 0; n < curse; n++){
+        prompt = prompt + " " + cursedwords[Math.floor(Math.random() * cursedwords.length)];
+      }
+    }
+
+    await interaction.reply(char + prompt + suffix)
     .catch(console.error);
   },
 };
