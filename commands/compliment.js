@@ -57,7 +57,6 @@ module.exports = {
     }
     else if (recipient === "WHO"){
       await interaction.reply("HA HA VERY FUNNY").catch(console.error);
-      break;
     }
     else if (recipient === "ME"){
       if (interaction.member.id == deroID){
@@ -76,7 +75,6 @@ module.exports = {
     else if (recipient === "HAL" || recipient === "YOURSELF" || recipient === "<:BELOVEDBOT:910986556871946360>" || recipient === "<@396859791877734410>" || recipient === "@HAL") {
       var selfCompliment = selfComplimentsArray[Math.floor(Math.random() * selfComplimentsArray.length)];
       await interaction.reply(selfCompliment).catch(console.error);
-      break;
     }
     else {
       var choice2 = complimentsArray[Math.floor(Math.random() * complimentsArray.length)];
