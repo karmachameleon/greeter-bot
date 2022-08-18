@@ -42,7 +42,7 @@ module.exports = {
       break;
 
       case 'coffee':
-        response = "☕️";
+        response = "☕";
       break;
 
       case 'soup':

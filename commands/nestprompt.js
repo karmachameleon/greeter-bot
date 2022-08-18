@@ -131,7 +131,7 @@ module.exports = {
       if (curse > 1) { curse = 1; }
     }
     if (total == 0){
-      prompt = promptwords[Math.floor(Math.random() * promptwords.length)];
+      prompt = " " + promptwords[Math.floor(Math.random() * promptwords.length)];
     }
     else {
       for (let i = 0; i < fit; i++){
