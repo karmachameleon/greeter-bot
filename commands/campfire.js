@@ -17,10 +17,11 @@ module.exports = {
     .addStringOption(option => option.setName('monster')
       .setDescription('Who is the monster?')),
   async execute(interaction) {
+    var monster = interaction.options.getString('monster');
     if (!monster){
        monster = campfireMonsters[Math.floor(Math.random() * campfireMonsters.length)];
     }
-    
+
     var place = campfirePlaces[Math.floor(Math.random() * campfirePlaces.length)];
     var adj1 = campfireTraits1[Math.floor(Math.random() * campfireTraits1.length)];
     var adj2 = campfireTraits2[Math.floor(Math.random() * campfireTraits2.length)];

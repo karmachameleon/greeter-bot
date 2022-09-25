@@ -19,6 +19,8 @@ module.exports = {
     .addStringOption(option => option.setName('char2')
       .setDescription('Who is the second character?')),
   async execute(interaction) {
+    var char1 = interaction.options.getString('char1');
+    var char2 = interaction.options.getString('char2');
     if (!char1){
        char1 = promptchars[Math.floor(Math.random() * promptchars.length)];
     }

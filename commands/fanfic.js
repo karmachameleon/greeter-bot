@@ -17,6 +17,7 @@ module.exports = {
     .addStringOption(option => option.setName('protagonist')
       .setDescription('Who is the story about?')),
   async execute(interaction) {
+    var protagonist = interaction.options.getString('protagonist');
     if (!protagonist){
        protagonist = promptchars[Math.floor(Math.random() * promptchars.length)];
     }

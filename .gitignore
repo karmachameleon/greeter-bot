@@ -65,3 +65,7 @@ typings/
 # Unrelated bot
 dicebot/
 drone/
+
+# We have command deployment at home
+deploy_commands_athome.js
+delete_guild_commands.js
