@@ -72,7 +72,7 @@ app.listen(port, () => {
 
  // pings server every 15 minutes to prevent dynos from sleeping
 setInterval(() => {
-  http.get('https://robot-pizza-party-greeter.onrender.com');
+  http.get('http://robot-pizza-party-greeter.onrender.com');
   //memory usage troubleshooting
   //used = process.memoryUsage().heapUsed / 1024 / 1024;
   //console.log('THE SCRIPT IS USING APPROXIMATELY ' + Math.round(used*100) / 100 + ' MB');
