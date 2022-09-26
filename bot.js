@@ -42,7 +42,7 @@ bot.login(process.env.BOT_TOKEN);
 
 //Webpage
 
-var http = require('http');
+var http = require('https');
 var express = require('express');
 var logger2 = require('morgan');
 
@@ -72,7 +72,7 @@ app.listen(port, () => {
 
  // pings server every 15 minutes to prevent dynos from sleeping
 setInterval(() => {
-  http.get('http://robot-pizza-party-greeter.onrender.com');
+  http.get('https://robot-pizza-party-greeter.onrender.com');
   //memory usage troubleshooting
   //used = process.memoryUsage().heapUsed / 1024 / 1024;
   //console.log('THE SCRIPT IS USING APPROXIMATELY ' + Math.round(used*100) / 100 + ' MB');
